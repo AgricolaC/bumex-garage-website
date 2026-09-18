@@ -235,7 +235,7 @@ export function BeforeAfterSlider({ theme }: BeforeAfterSliderProps) {
       <div className="max-w-6xl mx-auto">
         {/* Başlık Alanı */}
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#6B1418]/10 text-[#6B1418] text-xs font-bold uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1E3A8A]/10 text-[#1E3A8A] dark:text-[#60A5FA] text-xs font-bold uppercase tracking-wider mb-2">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Gerçek Atölye Uygulamaları</span>
           </div>
@@ -265,7 +265,7 @@ export function BeforeAfterSlider({ theme }: BeforeAfterSliderProps) {
                 }}
                 className={`px-3.5 py-2 rounded-xl text-xs font-extrabold transition cursor-pointer active:scale-95 border ${
                   isActive
-                    ? 'bg-[#6B1418] text-white border-[#6B1418] shadow-md shadow-[#6B1418]/25'
+                    ? 'bg-[#1E3A8A] text-white border-[#1E3A8A] shadow-md shadow-[#1E3A8A]/25'
                     : isCream
                     ? 'bg-white/80 border-[#6C6A6B]/20 text-[#0D0D0D] hover:bg-white'
                     : 'bg-[#222529] border-white/10 text-[#C4C9D0] hover:text-white hover:bg-white/5'
@@ -281,8 +281,8 @@ export function BeforeAfterSlider({ theme }: BeforeAfterSliderProps) {
         <div className="max-w-4xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
           <div>
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#6B1418]" />
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[#6B1418]">
+              <span className="w-2 h-2 rounded-full bg-[#1E3A8A]" />
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[#1E3A8A] dark:text-[#60A5FA]">
                 {activeItem.badge}
               </span>
             </div>
@@ -301,7 +301,7 @@ export function BeforeAfterSlider({ theme }: BeforeAfterSliderProps) {
               onClick={() => setViewMode('slider')}
               className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition cursor-pointer ${
                 viewMode === 'slider'
-                  ? 'bg-[#6B1418] text-white shadow-xs'
+                  ? 'bg-[#1E3A8A] text-white shadow-xs'
                   : isCream
                   ? 'text-[#565352] hover:text-[#0D0D0D]'
                   : 'text-[#9DA3AA] hover:text-white'
@@ -314,7 +314,7 @@ export function BeforeAfterSlider({ theme }: BeforeAfterSliderProps) {
               onClick={() => setViewMode('sideBySide')}
               className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition cursor-pointer ${
                 viewMode === 'sideBySide'
-                  ? 'bg-[#6B1418] text-white shadow-xs'
+                  ? 'bg-[#1E3A8A] text-white shadow-xs'
                   : isCream
                   ? 'text-[#565352] hover:text-[#0D0D0D]'
                   : 'text-[#9DA3AA] hover:text-white'
@@ -364,13 +364,13 @@ export function BeforeAfterSlider({ theme }: BeforeAfterSliderProps) {
 
               {/* Bölücü Çizgi */}
               <div
-                className="absolute top-0 bottom-0 w-[3px] bg-[#6B1418] pointer-events-none shadow-[0_0_14px_rgba(107,20,24,0.9)]"
+                className="absolute top-0 bottom-0 w-[3px] bg-[#1E3A8A] pointer-events-none shadow-[0_0_14px_rgba(30,58,138,0.9)]"
                 style={{ left: `${sliderPosition}%` }}
               />
 
               {/* Tutamaç (Handle) */}
               <div
-                className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-11 h-11 rounded-full bg-[#6B1418] text-white flex items-center justify-center font-black text-sm shadow-2xl border-2 border-white pointer-events-none z-20"
+                className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-11 h-11 rounded-full bg-[#1E3A8A] text-white flex items-center justify-center font-black text-sm shadow-2xl border-2 border-white pointer-events-none z-20"
                 style={{ left: `${sliderPosition}%` }}
               >
                 <span className="tracking-tighter select-none">⟺</span>
@@ -422,7 +422,7 @@ export function BeforeAfterSlider({ theme }: BeforeAfterSliderProps) {
                 <span className="px-3 py-1.5 rounded-lg bg-black/85 text-white text-xs font-bold backdrop-blur-md border border-white/15">
                   📷 Atölye İçi Ham Karşılaştırma Fotoğrafı
                 </span>
-                <span className="px-3 py-1.5 rounded-lg bg-[#6B1418] text-white text-xs font-extrabold shadow">
+                <span className="px-3 py-1.5 rounded-lg bg-[#1E3A8A] text-white text-xs font-extrabold shadow">
                   Bumex Garage Bahçelievler
                 </span>
               </div>
@@ -451,7 +451,7 @@ export function BeforeAfterSlider({ theme }: BeforeAfterSliderProps) {
                       : 'bg-[#222529]/80 border-white/10 text-white'
                   }`}
                 >
-                  <Icon className="w-5 h-5 text-[#6B1418] shrink-0 mt-0.5" />
+                  <Icon className={`w-5 h-5 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
                   <div>
                     <h4 className="text-xs font-bold uppercase tracking-wider">{h.title}</h4>
                     <p

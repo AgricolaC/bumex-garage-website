@@ -31,10 +31,10 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
               href="https://maps.app.goo.gl/UGsfYD1ZUdB7L5w4A"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 font-semibold hover:text-[#6B1418] transition group"
+              className="inline-flex items-center gap-1.5 font-semibold hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition group"
               title="Google Haritalar'da Bumex Garage Bahçelievler Konumunu Aç"
             >
-              <MapPin className="w-3.5 h-3.5 text-[#6B1418] shrink-0 transition-transform group-hover:scale-110" />
+              <MapPin className="w-3.5 h-3.5 text-[#1E3A8A] dark:text-[#60A5FA] shrink-0 transition-transform group-hover:scale-110" />
               <span>
                 <strong>Bumex Garage Bahçelievler</strong> • Prof. Muammer Aksoy Cad. (2. Cd.) No: 48
               </span>
@@ -86,9 +86,9 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
             {/* Telefon */}
             <a
               href="tel:05524703610"
-              className="hover:text-[#6B1418] transition font-bold flex items-center gap-1"
+              className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition font-bold flex items-center gap-1"
             >
-              <Phone className="w-3.5 h-3.5 text-[#6B1418]" />
+              <Phone className="w-3.5 h-3.5 text-[#1E3A8A] dark:text-[#60A5FA]" />
               <span>0552 470 36 10</span>
             </a>
 
@@ -106,7 +106,7 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
             >
               {isCream ? (
                 <>
-                  <Moon className="w-3 h-3 text-[#6B1418]" />
+                  <Moon className="w-3 h-3 text-[#1E3A8A]" />
                   <span>Koyu Mod</span>
                 </>
               ) : (
@@ -143,23 +143,23 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
 
           {/* Menü Linkleri */}
           <div className="hidden lg:flex items-center gap-6 text-xs font-bold uppercase tracking-wider">
-            <Link href="/#hizmetler" className="hover:text-[#6B1418] transition">
+            <Link href="/#hizmetler" className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition">
               Hizmetlerimiz
             </Link>
-            <Link href="/#restorasyon" className="hover:text-[#6B1418] transition">
+            <Link href="/#restorasyon" className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition">
               Restorasyon
             </Link>
-            <Link href="/#fiyatlar" className="hover:text-[#6B1418] transition">
-              Fiyatlar
+            <Link href="/#fiyatlar" className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition">
+              Fiyatlar &amp; Atölye
             </Link>
             <Link
               href="/otopark"
-              className="px-2.5 py-1 rounded bg-[#6B1418]/10 text-[#6B1418] hover:bg-[#6B1418] hover:text-white transition font-black tracking-wide border border-[#6B1418]/30 flex items-center gap-1.5"
+              className="px-2.5 py-1 rounded bg-[#1E3A8A]/10 text-[#1E3A8A] dark:text-[#60A5FA] hover:bg-[#1E3A8A] hover:text-white transition font-black tracking-wide border border-[#1E3A8A]/30 flex items-center gap-1.5"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#6B1418]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#1E3A8A] dark:bg-[#60A5FA]" />
               <span>Kapalı Otopark</span>
             </Link>
-            <Link href="/#konum" className="hover:text-[#6B1418] transition">
+            <Link href="/#konum" className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition">
               Konum
             </Link>
           </div>
@@ -179,7 +179,7 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
               title={isCream ? 'Titanyum Grisi Koyu Moda Geç (Kısayol: T)' : 'Krem Açık Moda Geç (Kısayol: T)'}
             >
               {isCream ? (
-                <Moon className="w-4 h-4 text-[#6B1418]" />
+                <Moon className="w-4 h-4 text-[#1E3A8A]" />
               ) : (
                 <Sun className="w-4 h-4 text-[#E8A838]" />
               )}
@@ -187,7 +187,7 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
 
             <a
               href="tel:05524703610"
-              className="inline-flex items-center gap-1.5 bg-[#6B1418] hover:bg-[#841920] text-white text-xs sm:text-sm font-bold px-4 py-2 sm:px-5 sm:py-2.5 rounded shadow-md shadow-[#6B1418]/25 transition active:scale-95"
+              className="inline-flex items-center gap-1.5 bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white text-xs sm:text-sm font-bold px-4 py-2 sm:px-5 sm:py-2.5 rounded shadow-md shadow-[#1E3A8A]/25 transition active:scale-95"
             >
               <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               <span>Hemen Ara</span>

@@ -39,13 +39,13 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
               }`}
             >
               Ankara Bahçelievler&apos;in seçkin otomobil ve motosikletlerine mikron seviyesinde boya
-              restorasyonu, 9H nano seramik, ses izolasyonu ve dielektrik kuru buharlı motor
-              temizliği sunan uzman bakım atölyesi.
+              restorasyonu, 9H nano seramik, ses izolasyonu, mekanik periyodik bakım ve 7/24 çekici desteği
+              sunan uzman bakım stüdyosu.
             </p>
             <div className="pt-2 flex flex-wrap gap-2.5">
               <a
                 href="tel:05524703610"
-                className="inline-flex items-center gap-1.5 bg-[#6B1418] hover:bg-[#841920] text-white text-xs font-bold px-4 py-2 rounded shadow transition active:scale-95"
+                className="inline-flex items-center gap-1.5 bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white text-xs font-bold px-4 py-2 rounded shadow transition active:scale-95"
               >
                 <Phone className="w-3.5 h-3.5" />
                 <span>0552 470 36 10</span>
@@ -73,44 +73,54 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
 
           {/* Sütun 2: Hızlı Bağlantılar & Protokoller (3 kolon) */}
           <div className="md:col-span-3 space-y-3">
-            <h4 className="text-xs font-black uppercase tracking-widest text-[#6B1418]">
-              Hizmetler & Süreçler
+            <h4 className="text-xs font-black uppercase tracking-widest text-[#1E3A8A] dark:text-[#60A5FA]">
+              Hizmetler &amp; Süreçler
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
                 <Link
                   href="/otopark"
-                  className={`hover:text-[#6B1418] transition flex items-center gap-1 font-semibold ${
+                  className={`hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition flex items-center gap-1 font-semibold ${
                     isCream ? 'text-[#0D0D0D]' : 'text-white'
                   }`}
                 >
-                  7. Cadde Kapalı Otoparkı <ArrowUpRight className="w-3 h-3 text-[#6B1418]" />
+                  7. Cadde Kapalı Otoparkı <ArrowUpRight className="w-3 h-3 text-[#1E3A8A] dark:text-[#60A5FA]" />
                 </Link>
               </li>
               <li>
                 <Link
                   href="/#hizmetler"
-                  className={`hover:text-[#6B1418] transition ${
+                  className={`hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition ${
                     isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                   }`}
                 >
-                  13 Hizmetlik Kartela
+                  Resmi Hizmet Kartelası
                 </Link>
               </li>
               <li>
                 <Link
                   href="/#fiyatlar"
-                  className={`hover:text-[#6B1418] transition ${
+                  className={`hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition ${
                     isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                   }`}
                 >
-                  Motosiklet Detailing & Paketler
+                  Motosiklet Detailing &amp; Bakım
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/#fiyatlar"
+                  className={`hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition ${
+                    isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
+                  }`}
+                >
+                  7/24 Motosiklet Çekici Hizmeti
                 </Link>
               </li>
               <li>
                 <Link
                   href="/#restorasyon"
-                  className={`hover:text-[#6B1418] transition ${
+                  className={`hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition ${
                     isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                   }`}
                 >
@@ -121,7 +131,7 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
                 <button
                   type="button"
                   onClick={() => onOpenModal('detailing')}
-                  className={`hover:text-[#6B1418] transition text-left flex items-center gap-1 ${
+                  className={`hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition text-left flex items-center gap-1 ${
                     isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                   }`}
                 >
@@ -132,7 +142,7 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
                 <button
                   type="button"
                   onClick={() => onOpenModal('motor')}
-                  className={`hover:text-[#6B1418] transition text-left flex items-center gap-1 ${
+                  className={`hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition text-left flex items-center gap-1 ${
                     isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                   }`}
                 >
@@ -142,11 +152,11 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
               <li>
                 <Link
                   href="/#konum"
-                  className={`hover:text-[#6B1418] transition ${
+                  className={`hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition ${
                     isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                   }`}
                 >
-                  Google Harita & Yol Tarifi
+                  Google Harita &amp; Yol Tarifi
                 </Link>
               </li>
             </ul>
@@ -154,17 +164,17 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
 
           {/* Sütun 3: Garaj Bilgileri & Personel (4 kolon) */}
           <div className="md:col-span-4 space-y-3">
-            <h4 className="text-xs font-black uppercase tracking-widest text-[#6B1418]">
-              Atölye & İletişim
+            <h4 className="text-xs font-black uppercase tracking-widest text-[#1E3A8A] dark:text-[#60A5FA]">
+              Atölye &amp; İletişim
             </h4>
             <div className="space-y-2.5 text-xs">
               <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-[#6B1418] shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-[#1E3A8A] dark:text-[#60A5FA] shrink-0 mt-0.5" />
                 <a
                   href="https://maps.app.goo.gl/UGsfYD1ZUdB7L5w4A"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`hover:text-[#6B1418] transition underline decoration-dotted ${
+                  className={`hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition underline decoration-dotted ${
                     isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                   }`}
                   title="Google Haritalar'da Bumex Garage Konumunu Aç"
@@ -173,7 +183,7 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
                 </a>
               </div>
               <div className="flex items-start gap-2">
-                <Clock className="w-4 h-4 text-[#6B1418] shrink-0 mt-0.5" />
+                <Clock className="w-4 h-4 text-[#1E3A8A] dark:text-[#60A5FA] shrink-0 mt-0.5" />
                 <span className={isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}>
                   Her Gün: 10:00 – 22:00 (Haftanın 7 Günü Açık)
                 </span>

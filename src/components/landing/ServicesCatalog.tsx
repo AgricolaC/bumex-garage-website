@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Gem,
   Volume2,
@@ -17,6 +17,11 @@ import {
   Maximize2,
   ChevronRight,
   Phone,
+  Bike,
+  Settings,
+  Truck,
+  Layers,
+  Flame,
 } from 'lucide-react';
 import { LandingTheme } from '@/hooks/useLandingTheme';
 
@@ -25,32 +30,42 @@ interface ServicesCatalogProps {
   onOpenModal: (type: 'motor' | 'detailing') => void;
 }
 
+type ServiceCategory =
+  | 'Boya & Koruma'
+  | 'İç Hijyen & İzolasyon'
+  | 'Teknik Detay & Cam'
+  | 'Motosiklet Detailing'
+  | 'Motosiklet Mekanik & Çekici';
+
 interface ServiceItem {
   id: string;
   title: string;
   subtitle: string;
-  category: 'Boya & Koruma' | 'İç Hijyen & İzolasyon' | 'Teknik Detay & Cam';
+  category: ServiceCategory;
+  type: 'car' | 'bike' | 'both';
   icon: React.ElementType;
   modalType?: 'motor' | 'detailing';
   actionType: 'modal' | 'call';
 }
 
 const SERVICES: ServiceItem[] = [
-  // Boya & Koruma
+  // ─── OTOMOBİL & BOYA KORUMA ───
   {
     id: 'pasta-cila',
     title: 'Pasta Cila ve Boya Restorasyonu',
-    subtitle: 'Mikron boya analizi ve profesyonel pasta cila ile kılcal çizik ve harezlerin %95+ giderilmesi.',
+    subtitle: 'Mikron boya analizi ve rotary/orbital cila ile kılcal çizik ve harezlerin %95+ giderilmesi.',
     category: 'Boya & Koruma',
+    type: 'both',
     icon: Gem,
     modalType: 'detailing',
     actionType: 'modal',
   },
   {
     id: 'seramik-kaplama',
-    title: '9H Seramik Kaplama',
+    title: '9H Nano Seramik Kaplama',
     subtitle: 'Aynasal derinlik, yoğun hidrofobik su iticilik ve 24 aya kadar kimyasal kalkan.',
     category: 'Boya & Koruma',
+    type: 'both',
     icon: ShieldCheck,
     modalType: 'detailing',
     actionType: 'modal',
@@ -60,6 +75,7 @@ const SERVICES: ServiceItem[] = [
     title: 'PPF Kaplama (Boya Koruma Filmi)',
     subtitle: 'Taş vuruklarına, sürtmelere ve derin çizilmelere karşı kendi kendini yenileyen poliüretan zırh.',
     category: 'Boya & Koruma',
+    type: 'both',
     icon: Shield,
     actionType: 'call',
   },
@@ -68,24 +84,27 @@ const SERVICES: ServiceItem[] = [
     title: 'Wax Uygulaması',
     subtitle: 'Doğal karnauba içerikli koruma; boyayı besleyen sıcak ve derin ıslak görünüm.',
     category: 'Boya & Koruma',
+    type: 'both',
     icon: Droplets,
     actionType: 'call',
   },
 
-  // İç Hijyen & İzolasyon
+  // ─── İÇ HİJYEN & İZOLASYON ───
   {
     id: 'ses-izolasyonu',
     title: 'Araç İçi Ses İzolasyonu',
     subtitle: 'Taban, kapı ve davlumbaz titreşim sönümleme; yol ve rüzgar uğultusunu kesen akustik yalıtım.',
     category: 'İç Hijyen & İzolasyon',
+    type: 'car',
     icon: Volume2,
     actionType: 'call',
   },
   {
     id: 'detayli-kuafor',
-    title: 'Detaylı Oto Kuaför & İç Hijyen',
-    subtitle: 'Koltuk, tavan ve taban halılarında sıcak ekstraksiyon ve buharlı hijyen ile profesyonel oto kuaför ve koltuk/taban restorasyonu.',
+    title: 'Detaylı Oto Kuaför & Koltuk Yıkama',
+    subtitle: 'Koltuk, tavan ve taban halılarında sıcak ekstraksiyon ve buharlı derinlemesine hijyen.',
     category: 'İç Hijyen & İzolasyon',
+    type: 'car',
     icon: Armchair,
     actionType: 'call',
   },
@@ -94,24 +113,27 @@ const SERVICES: ServiceItem[] = [
     title: 'Buharlı Araç Temizliği',
     subtitle: 'Kimyasalsız, 140°C kuru buhar ile klima kanalları ve havalandırma menfezlerinin sterilizasyonu.',
     category: 'İç Hijyen & İzolasyon',
+    type: 'both',
     icon: Wind,
     actionType: 'call',
   },
   {
     id: 'ozon-temizligi',
-    title: 'Ozon Temizliği (O₃)',
+    title: 'Ozon Temizliği (Medikal O₃)',
     subtitle: 'Sigara, evcil hayvan ve rutubet kokularını kaynağında yok eden medikal ozonlama.',
     category: 'İç Hijyen & İzolasyon',
+    type: 'car',
     icon: Atom,
     actionType: 'call',
   },
 
-  // Teknik Detay & Cam
+  // ─── TEKNİK DETAY & CAM ───
   {
     id: 'motor-temizligi',
-    title: 'Motor Temizliği & Koruma',
+    title: 'Motor Temizliği & Dielektrik Koruma',
     subtitle: 'Su değdirmeden, akım iletmeyen dielektrik kimyasallar ve kuru buharla sıfır arıza riski.',
     category: 'Teknik Detay & Cam',
+    type: 'car',
     icon: Wrench,
     modalType: 'motor',
     actionType: 'modal',
@@ -119,17 +141,10 @@ const SERVICES: ServiceItem[] = [
   {
     id: 'far-temizligi',
     title: 'Far Temizliği & Restorasyonu',
-    subtitle: 'Güneşten sararan ve matlaşan polikarbonat far camlarının optik netlikte zımpara ve kloroformla parlatılması.',
+    subtitle: 'Güneşten sararan ve matlaşan polikarbonat far camlarının optik netlikte parlatılması.',
     category: 'Teknik Detay & Cam',
+    type: 'both',
     icon: Sun,
-    actionType: 'call',
-  },
-  {
-    id: 'cam-filmi',
-    title: 'Cam Filmi (Isı & UV Kalkanı)',
-    subtitle: 'Kabini güneş ısısından ve zararlı UV ışınlarından koruyan yüksek berraklıktaki filmler.',
-    category: 'Teknik Detay & Cam',
-    icon: Maximize2,
     actionType: 'call',
   },
   {
@@ -137,6 +152,7 @@ const SERVICES: ServiceItem[] = [
     title: 'İç-Dış Yıkama',
     subtitle: 'pH nötr aktif köpük, çift kova yöntemi ve mikrofiber kurulama ile çiziksiz temizlik.',
     category: 'Teknik Detay & Cam',
+    type: 'car',
     icon: Car,
     actionType: 'call',
   },
@@ -145,13 +161,160 @@ const SERVICES: ServiceItem[] = [
     title: 'Cilalı Yıkama',
     subtitle: 'Yıkama esnasında hidrofobik polimer cila kaplayarak hızlı su iticilik ve parlaklık kazandırma.',
     category: 'Teknik Detay & Cam',
+    type: 'both',
     icon: Sparkles,
+    actionType: 'call',
+  },
+  {
+    id: 'cam-filmi',
+    title: 'Cam Filmi (Isı & UV Kalkanı)',
+    subtitle: 'Kabini güneş ısısından ve zararlı UV ışınlarından koruyan yüksek berraklıktaki filmler.',
+    category: 'Teknik Detay & Cam',
+    type: 'car',
+    icon: Maximize2,
+    actionType: 'call',
+  },
+
+  // ─── MOTOSİKLET DETAILING & KORUMA (GÖRSEL SAĞ SÜTUN ÜST) ───
+  {
+    id: 'moto-yikama',
+    title: 'Motosiklet Motor & Gövde Yıkama',
+    subtitle: 'Elektronik gösterge, soket ve zincir o-ringlerine tazyiksiz, pH nötr hassas yıkama.',
+    category: 'Motosiklet Detailing',
+    type: 'bike',
+    icon: Bike,
+    actionType: 'call',
+  },
+  {
+    id: 'moto-cilali-yikama',
+    title: 'Motosiklet Cilalı Yıkama',
+    subtitle: 'Grenajlara hidrofobik polimer cila uygulayarak su itici ve toz tutmaz parlaklık sağlama.',
+    category: 'Motosiklet Detailing',
+    type: 'bike',
+    icon: Sparkles,
+    actionType: 'call',
+  },
+  {
+    id: 'moto-buharli-yikama',
+    title: 'Motosiklet Buharlı Yıkama',
+    subtitle: '140°C kuru buharla zincir yağı, blok zifti ve jant katranlarını mekaniğe zarar vermeden çözme.',
+    category: 'Motosiklet Detailing',
+    type: 'bike',
+    icon: Wind,
+    actionType: 'call',
+  },
+  {
+    id: 'moto-pasta-cila',
+    title: 'Motosiklet Pasta Cila & Boya Koruma',
+    subtitle: 'Hassas plastik grenaj ve depodaki kılcal çiziklerin giderilerek ayna pürüzsüzlüğüne kavuşturulması.',
+    category: 'Motosiklet Detailing',
+    type: 'bike',
+    icon: Gem,
+    modalType: 'detailing',
+    actionType: 'modal',
+  },
+  {
+    id: 'moto-seramik',
+    title: 'Motosiklet 9H Seramik Kaplama',
+    subtitle: 'Grenaj, şase, depo ve jantlara 9H sertlikte UV ve yakıt damlamalarına dayanıklı seramik zırh.',
+    category: 'Motosiklet Detailing',
+    type: 'bike',
+    icon: ShieldCheck,
+    actionType: 'call',
+  },
+  {
+    id: 'moto-ppf',
+    title: 'Motosiklet PPF Kaplama',
+    subtitle: 'Ön kafa, far camı, depo yanları ve diz sürtünme bölgelerine şeffaf kendini yenileyen film.',
+    category: 'Motosiklet Detailing',
+    type: 'bike',
+    icon: Shield,
+    actionType: 'call',
+  },
+  {
+    id: 'moto-ozel-kaplama',
+    title: 'Motosiklet Kişiye Özel Kaplama (Custom Wrap)',
+    subtitle: 'Renk değişimi, özel cast folyo kaplama, şerit ve grafik uygulamaları ile benzersiz görünüm.',
+    category: 'Motosiklet Detailing',
+    type: 'bike',
+    icon: Layers,
+    actionType: 'call',
+  },
+
+  // ─── MOTOSİKLET TAMİR, BAKIM & ÇEKİCİ (GÖRSEL SAĞ SÜTUN ALT & BANNER) ───
+  {
+    id: 'moto-yag-bakimi',
+    title: 'Motosiklet Yağ Bakımı',
+    subtitle: 'Motul / Castrol sentetik yağ, filtre değişimi, tapa pulu yenileme ve zincir gerginlik ayarı.',
+    category: 'Motosiklet Mekanik & Çekici',
+    type: 'bike',
+    icon: Droplets,
+    actionType: 'call',
+  },
+  {
+    id: 'moto-varyator',
+    title: 'Varyatör Bakımı (Scooter & Maxi-Scooter)',
+    subtitle: 'Varyatör kapağı temizliği, baga aşınma kontrolü, kayış genişlik testi ve debriyaj balata zımparalama.',
+    category: 'Motosiklet Mekanik & Çekici',
+    type: 'bike',
+    icon: Settings,
+    actionType: 'call',
+  },
+  {
+    id: 'moto-mekanik-tamir',
+    title: 'Motosiklet Mekanik Tamiri',
+    subtitle: 'Fren kaliper & balata değişimi, rulman, debriyaj, zincir dişli seti ve genel mekanik revizyon.',
+    category: 'Motosiklet Mekanik & Çekici',
+    type: 'bike',
+    icon: Wrench,
+    actionType: 'call',
+  },
+  {
+    id: 'moto-grenaj-tamiri',
+    title: 'Grenaj Tamiri (Plastik Kaynak & Boya)',
+    subtitle: 'Kırık, çatlak ve tırnakları kopmuş plastik parçaların termo-kaynak ve fırın boya ile tamiri.',
+    category: 'Motosiklet Mekanik & Çekici',
+    type: 'bike',
+    icon: Shield,
+    actionType: 'call',
+  },
+  {
+    id: 'moto-aksesuar-montaj',
+    title: 'Motosiklet Aksesuar Montajı',
+    subtitle: 'Sis farı tesisatı & röle montajı, koruma demiri, motor takozu, çanta demiri ve telefon tutucu.',
+    category: 'Motosiklet Mekanik & Çekici',
+    type: 'bike',
+    icon: Sparkles,
+    actionType: 'call',
+  },
+  {
+    id: 'moto-cekici-hizmeti',
+    title: '7/24 Motosiklet Çekici & VIP Transfer',
+    subtitle: 'Özel ön teker kitleme beşiği ve askı kemerleriyle yolda kalan motorlar için acil kurtarma ve adresten teslim alma.',
+    category: 'Motosiklet Mekanik & Çekici',
+    type: 'bike',
+    icon: Truck,
     actionType: 'call',
   },
 ];
 
 export function ServicesCatalog({ theme, onOpenModal }: ServicesCatalogProps) {
   const isCream = theme === 'cream';
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+
+  const filterCategories = [
+    { id: 'all', label: 'Tüm Hizmetler' },
+    { id: 'Motosiklet Detailing', label: 'Motosiklet Detailing' },
+    { id: 'Motosiklet Mekanik & Çekici', label: 'Motosiklet Mekanik & Çekici' },
+    { id: 'Boya & Koruma', label: 'Boya & Seramik' },
+    { id: 'İç Hijyen & İzolasyon', label: 'İç Hijyen & İzolasyon' },
+    { id: 'Teknik Detay & Cam', label: 'Yıkama & Cam' },
+  ];
+
+  const filteredServices =
+    selectedCategory === 'all'
+      ? SERVICES
+      : SERVICES.filter((s) => s.category === selectedCategory);
 
   return (
     <section
@@ -164,9 +327,9 @@ export function ServicesCatalog({ theme, onOpenModal }: ServicesCatalogProps) {
     >
       <div className="max-w-6xl mx-auto">
         {/* Başlık Alanı */}
-        <div className="max-w-2xl mb-12">
+        <div className="max-w-2xl mb-8">
           <div className="flex items-center gap-2 mb-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#6B1418]" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#1E3A8A]" />
             <span
               className={`text-xs font-bold uppercase tracking-wider ${
                 isCream ? 'text-[#6C6A6B]' : 'text-[#9DA3AA]'
@@ -176,47 +339,82 @@ export function ServicesCatalog({ theme, onOpenModal }: ServicesCatalogProps) {
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-black tracking-tight">
-            Uzmanlık Alanlarımız
+            Uzmanlık Alanlarımız &amp; Hizmetlerimiz
           </h2>
           <p
             className={`text-sm sm:text-base mt-2 leading-relaxed ${
               isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
             }`}
           >
-            Bahçelievler atölyemizde otomobil ve motosikletler için uygulanan 13 resmi bakım ve
-            restorasyon disiplini.
+            Bahçelievler stüdyomuzda otomobil ve motosikletler için uygulanan profesyonel boya koruma,
+            iç hijyen, mekanik bakım, grenaj onarımı ve 7/24 çekici disiplinleri.
           </p>
+        </div>
+
+        {/* Kategori Filtre Hapları */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none">
+          {filterCategories.map((cat) => {
+            const isSelected = selectedCategory === cat.id;
+            return (
+              <button
+                key={cat.id}
+                type="button"
+                onClick={() => setSelectedCategory(cat.id)}
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition border ${
+                  isSelected
+                    ? isCream
+                      ? 'bg-[#1E3A8A] text-white border-[#1E3A8A] shadow-md shadow-[#1E3A8A]/25'
+                      : 'bg-[#1E3A8A] text-white border-[#1E3A8A] shadow-md shadow-[#1E3A8A]/40'
+                    : isCream
+                    ? 'bg-white/80 text-[#565352] border-[#6C6A6B]/20 hover:bg-white hover:text-[#0D0D0D]'
+                    : 'bg-[#222529] text-[#9DA3AA] border-white/10 hover:bg-[#2C3035] hover:text-white'
+                }`}
+              >
+                {cat.id.startsWith('Motosiklet') && <Flame className="w-3 h-3 inline mr-1 text-amber-500" />}
+                <span>{cat.label}</span>
+              </button>
+            );
+          })}
         </div>
 
         {/* Hizmet Kartelası Tablosu / Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-          {SERVICES.map((item) => {
+          {filteredServices.map((item) => {
             const Icon = item.icon;
+            const isBikeRelated = item.type === 'bike' || item.category.startsWith('Motosiklet');
+
             return (
               <div
                 key={item.id}
                 className={`p-5 rounded-2xl border flex flex-col justify-between transition duration-200 group ${
                   isCream
-                    ? 'bg-white/80 border-[#6C6A6B]/20 hover:border-[#6B1418] hover:shadow-md'
-                    : 'bg-[#222529] border-white/10 hover:border-[#881B22] hover:shadow-lg'
+                    ? 'bg-white/85 border-[#6C6A6B]/20 hover:border-[#1E3A8A] hover:shadow-md'
+                    : 'bg-[#222529] border-white/10 hover:border-[#2563EB] hover:shadow-lg'
                 }`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-3.5">
-                    {/* Yuvarlak Bordo Rozet İkon (Görsel 2'deki tasarım) */}
-                    <div className="w-10 h-10 rounded-full bg-[#6B1418] text-white flex items-center justify-center shrink-0 shadow-sm shadow-[#6B1418]/30">
+                    {/* Yuvarlak Koyu Kraliyet Mavisi Rozet İkon */}
+                    <div className="w-10 h-10 rounded-full bg-[#1E3A8A] text-white flex items-center justify-center shrink-0 shadow-sm shadow-[#1E3A8A]/30">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <span
-                      className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded ${
-                        isCream ? 'bg-black/5 text-[#6C6A6B]' : 'bg-white/5 text-[#80868E]'
-                      }`}
-                    >
-                      {item.category}
-                    </span>
+                    <div className="flex items-center gap-1.5">
+                      {isBikeRelated && (
+                        <span className="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-amber-500/15 text-amber-700 dark:text-amber-400 border border-amber-500/30 flex items-center gap-1">
+                          <Bike className="w-3 h-3" /> Motor
+                        </span>
+                      )}
+                      <span
+                        className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded ${
+                          isCream ? 'bg-black/5 text-[#6C6A6B]' : 'bg-white/5 text-[#80868E]'
+                        }`}
+                      >
+                        {item.category}
+                      </span>
+                    </div>
                   </div>
 
-                  <h3 className="text-base font-bold tracking-tight mb-1.5 group-hover:text-[#6B1418] transition">
+                  <h3 className="text-base font-bold tracking-tight mb-1.5 group-hover:text-[#1E3A8A] dark:group-hover:text-[#60A5FA] transition">
                     {item.title}
                   </h3>
                   <p
@@ -233,7 +431,7 @@ export function ServicesCatalog({ theme, onOpenModal }: ServicesCatalogProps) {
                     <button
                       type="button"
                       onClick={() => onOpenModal(item.modalType!)}
-                      className="text-xs font-bold text-[#6B1418] hover:underline flex items-center gap-1"
+                      className="text-xs font-bold text-[#1E3A8A] dark:text-[#60A5FA] hover:underline flex items-center gap-1"
                     >
                       <span>Protokolü Gör</span>
                       <ChevronRight className="w-3.5 h-3.5" />
@@ -241,9 +439,9 @@ export function ServicesCatalog({ theme, onOpenModal }: ServicesCatalogProps) {
                   ) : (
                     <a
                       href="tel:05524703610"
-                      className="text-xs font-bold text-[#6B1418] hover:underline flex items-center gap-1"
+                      className="text-xs font-bold text-[#1E3A8A] dark:text-[#60A5FA] hover:underline flex items-center gap-1"
                     >
-                      <span>Bilgi & Randevu</span>
+                      <span>Bilgi &amp; Randevu</span>
                       <ChevronRight className="w-3.5 h-3.5" />
                     </a>
                   )}
@@ -252,7 +450,7 @@ export function ServicesCatalog({ theme, onOpenModal }: ServicesCatalogProps) {
                     href="tel:05524703610"
                     className={`p-1.5 rounded-lg border transition ${
                       isCream
-                        ? 'border-[#6C6A6B]/20 text-[#6C6A6B] hover:text-[#6B1418] hover:border-[#6B1418]'
+                        ? 'border-[#6C6A6B]/20 text-[#6C6A6B] hover:text-[#1E3A8A] hover:border-[#1E3A8A]'
                         : 'border-white/10 text-[#80868E] hover:text-white hover:border-white/30'
                     }`}
                     title="Hemen Ara: 0552 470 36 10"

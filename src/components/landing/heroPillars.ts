@@ -5,11 +5,14 @@ export interface WorkshopPillar {
   tabLabel: string;
   shortLabel: string;
   headline: string;
+  displayTitle: string;
   subtitle: string;
   iconName: 'Gem' | 'ShieldCheck' | 'Zap' | 'Droplets' | 'Car' | 'Bike';
   badge: string;
   image: string;
   imageAlt: string;
+  videoSrc?: string;
+  videoPoster?: string;
   telemetryTag: string;
   telemetryMetric: string;
   bottomDescription: string;
@@ -22,12 +25,15 @@ export const WORKSHOP_PILLARS: WorkshopPillar[] = [
     tabLabel: 'Mikron & Seramik',
     shortLabel: 'Mikron Analiz',
     headline: 'Mikron Boya Restorasyonu & 9H Seramik.',
+    displayTitle: 'MİKRON BOYA RESTORASYONU',
     subtitle:
       'Dijital mikron analizi ve profesyonel pasta cila ile fabrika verniğini inceltmeden harez ve çizikleri %95+ gideriyor, 9H nano seramik kalkan uyguluyoruz.',
     iconName: 'Gem',
     badge: 'Mikron Boya Analizi',
     image: '/images/hero/hero_coating_exploded_3d.jpg',
     imageAlt: 'Bumex Garage Mikron Boya Analizi ve Vernik Restorasyonu',
+    videoSrc: '/videos/sample_workshop.mp4',
+    videoPoster: '/images/hero/hero_coating_exploded_3d.jpg',
     telemetryTag: 'Vernik İnceltilmez',
     telemetryMetric: '0.5µm Dijital Ölçüm',
     bottomDescription: 'Fabrika vernik kalınlığı korunarak çizik giderme',
@@ -38,12 +44,15 @@ export const WORKSHOP_PILLARS: WorkshopPillar[] = [
     tabLabel: 'Dielektrik Buharlı Motor',
     shortLabel: 'Kuru Buhar',
     headline: 'Sıfır Riskli Dielektrik Kuru Buhar.',
+    displayTitle: 'DİELEKTRİK KURU BUHAR',
     subtitle:
       '140°C kuru buhar ve sıfır iletkenlikli dielektrik kimyasal; elektronik beyin, soket ve sensör arıza riski kesinlikle sıfır.',
     iconName: 'Zap',
     badge: '140°C Kuru Buhar',
     image: '/images/before-after/engine_bay_after.jpg',
     imageAlt: 'Bumex Garage Dielektrik Kuru Buharlı Motor Temizliği ve Koruma',
+    videoSrc: '/videos/sample_workshop.mp4',
+    videoPoster: '/images/before-after/engine_bay_after.jpg',
     telemetryTag: 'Sıfır Su Hasarı',
     telemetryMetric: '0V İletkenlik',
     bottomDescription: 'Elektronik soket ve beyin arıza riski kesinlikle sıfır',
@@ -54,12 +63,15 @@ export const WORKSHOP_PILLARS: WorkshopPillar[] = [
     tabLabel: 'pH Nötr Çiziksiz Yıkama',
     shortLabel: 'Çiziksiz Yıkama',
     headline: 'pH Nötr & Çiziksiz Detaylı Yıkama.',
+    displayTitle: 'pH NÖTR ÇİZİKSİZ YIKAMA',
     subtitle:
       'Kostiksiz aktif kar köpüğü, çift kova grit-guard ve saf mikrofiber kurulama. Sıfır yıkama çiziği güvencesi.',
     iconName: 'Droplets',
     badge: 'pH Nötr Aktif Köpük',
     image: '/images/hero/hero_red_water_bead.jpg',
     imageAlt: 'Bumex pH Nötr Çiziksiz Yıkama ve Yüzey Boncuklanması',
+    videoSrc: '/videos/sample_workshop.mp4',
+    videoPoster: '/images/hero/hero_red_water_bead.jpg',
     telemetryTag: 'Sıfır Çizik Garantisi',
     telemetryMetric: 'Grit-Guard Çift Kova',
     bottomDescription: 'Fırçasız, kostiksiz ve haresiz mikrofiber bakım',
@@ -67,31 +79,37 @@ export const WORKSHOP_PILLARS: WorkshopPillar[] = [
   },
   {
     id: 'motosiklet',
-    tabLabel: 'Motosiklet Detailing',
+    tabLabel: 'Motosiklet Detailing & Bakım',
     shortLabel: 'Motosiklet',
-    headline: 'Motosiklet Detailing & Grenaj Seramik Zırh.',
+    headline: 'Motosiklet Detailing, Mekanik Bakım & 7/24 Çekici.',
+    displayTitle: 'MOTOSİKLET DETAILING & BAKIM',
     subtitle:
-      'Superbike ve cruiser grenajlarında mikron pasta cila, 9H seramik koruma, zincir arındırma ve korozyon önleyici dielektrik koruma.',
+      'Superbike, scooter ve cruiser makineler için hassas buharlı yıkama, 9H grenaj seramik zırh, varyatör & yağ mekanik bakımı, grenaj onarımı ve 7/24 çekici desteği.',
     iconName: 'Bike',
-    badge: 'Grenaj & Zincir Bakımı',
+    badge: 'Detailing, Mekanik & Çekici',
     image: '/images/before-after/moto_detail_full.jpg',
-    imageAlt: 'Bumex Garage Profesyonel Motosiklet Detailing ve Grenaj Seramik Kaplama',
-    telemetryTag: 'Özel Grenaj Kalkanı',
-    telemetryMetric: '110° Hidrofobik Grenaj',
-    bottomDescription: 'Hassas aksamlar için fırçasız ve çiziksiz motosiklet bakımı',
-    whatsappMessage: 'Merhaba Bumex Garage, motosiklet detailing ve seramik kaplama hizmetiniz hakkında bilgi almak istiyorum.',
+    imageAlt: 'Bumex Garage Profesyonel Motosiklet Detailing, Mekanik Bakım ve Çekici Hizmeti',
+    videoSrc: '/videos/sample_workshop.mp4',
+    videoPoster: '/images/before-after/moto_detail_full.jpg',
+    telemetryTag: 'Tam Kapsamlı Atölye',
+    telemetryMetric: 'Detailing + Mekanik + Çekici',
+    bottomDescription: 'Hassas grenaj koruma, varyatör/yağ bakımı ve 7/24 transfer',
+    whatsappMessage: 'Merhaba Bumex Garage, motosiklet detailing, mekanik bakım ve çekici hizmetiniz hakkında bilgi almak istiyorum.',
   },
   {
     id: 'otopark',
     tabLabel: 'Güvenli Kapalı Otopark',
     shortLabel: 'Kapalı Otopark',
     headline: '24/7 Güvenli Kapalı Otopark & Yıkama.',
+    displayTitle: '24/7 GÜVENLİ KAPALI OTOPARK',
     subtitle:
       'Bahçelievler 7. Cadde\'ye 350 metre; 24 saat kesintisiz CCTV kameralı, korunaklı girişli kapalı otopark ve Park & Wash konsepti.',
     iconName: 'Car',
     badge: 'Bahçelievler 7. Cadde',
     image: '/images/hero/hero_bumex_ceramic.jpg',
     imageAlt: 'Bumex Garage Bahçelievler Güvenli Kapalı Otopark ve Detailing Stüdyosu',
+    videoSrc: '/videos/sample_workshop.mp4',
+    videoPoster: '/images/hero/hero_bumex_ceramic.jpg',
     telemetryTag: '7. Cadde 350m',
     telemetryMetric: '24/7 CCTV Kamera',
     bottomDescription: 'Geniş manevra alanı ve güvenli kapalı araç muhafazası',

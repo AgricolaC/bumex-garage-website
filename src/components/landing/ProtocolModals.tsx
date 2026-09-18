@@ -52,7 +52,7 @@ export function ProtocolModals({ activeModal, onClose, theme }: ProtocolModalsPr
         <button
           onClick={onClose}
           aria-label="Kapat"
-          className="absolute top-5 right-5 p-2 rounded-full text-[#6C6A6B] hover:text-white hover:bg-[#6B1418] transition"
+          className="absolute top-5 right-5 p-2 rounded-full text-[#6C6A6B] hover:text-white hover:bg-[#1E3A8A] transition"
         >
           <X className="w-5 h-5" />
         </button>
@@ -61,14 +61,14 @@ export function ProtocolModals({ activeModal, onClose, theme }: ProtocolModalsPr
         {activeModal === 'motor' && (
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#6B1418]" />
-              <span className="text-xs font-black text-[#6B1418] tracking-widest uppercase">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#1E3A8A]" />
+              <span className="text-xs font-black text-[#1E3A8A] dark:text-[#60A5FA] tracking-widest uppercase">
                 Bumex Garage Özel Protokolü
               </span>
             </div>
 
             <h3 className="text-2xl sm:text-3xl font-black tracking-tight mb-3">
-              Motor Temizliği & Koruma Protokolü
+              Motor Temizliği &amp; Koruma Protokolü
             </h3>
 
             <p
@@ -102,12 +102,12 @@ export function ProtocolModals({ activeModal, onClose, theme }: ProtocolModalsPr
                   isCream ? 'bg-[#F4EFEA] border-[#6C6A6B]/20' : 'bg-[#1A1C1F] border-white/10'
                 }`}
               >
-                <span className="w-6 h-6 rounded-full bg-[#6B1418] text-white flex items-center justify-center text-xs font-bold shrink-0">
+                <span className="w-6 h-6 rounded-full bg-[#1E3A8A] text-white flex items-center justify-center text-xs font-bold shrink-0">
                   1
                 </span>
                 <div>
                   <h4 className="text-xs font-bold uppercase tracking-wide">
-                    Elektronik İzolasyon & Maskeleme
+                    Elektronik İzolasyon &amp; Maskeleme
                   </h4>
                   <p
                     className={`text-xs mt-0.5 ${
@@ -124,12 +124,12 @@ export function ProtocolModals({ activeModal, onClose, theme }: ProtocolModalsPr
                   isCream ? 'bg-[#F4EFEA] border-[#6C6A6B]/20' : 'bg-[#1A1C1F] border-white/10'
                 }`}
               >
-                <span className="w-6 h-6 rounded-full bg-[#6B1418] text-white flex items-center justify-center text-xs font-bold shrink-0">
+                <span className="w-6 h-6 rounded-full bg-[#1E3A8A] text-white flex items-center justify-center text-xs font-bold shrink-0">
                   2
                 </span>
                 <div>
                   <h4 className="text-xs font-bold uppercase tracking-wide">
-                    Dielektrik Yağ & Kir Çözücü
+                    Dielektrik Yağ &amp; Kir Çözücü
                   </h4>
                   <p
                     className={`text-xs mt-0.5 ${
@@ -146,12 +146,12 @@ export function ProtocolModals({ activeModal, onClose, theme }: ProtocolModalsPr
                   isCream ? 'bg-[#F4EFEA] border-[#6C6A6B]/20' : 'bg-[#1A1C1F] border-white/10'
                 }`}
               >
-                <span className="w-6 h-6 rounded-full bg-[#6B1418] text-white flex items-center justify-center text-xs font-bold shrink-0">
+                <span className="w-6 h-6 rounded-full bg-[#1E3A8A] text-white flex items-center justify-center text-xs font-bold shrink-0">
                   3
                 </span>
                 <div>
                   <h4 className="text-xs font-bold uppercase tracking-wide">
-                    140°C Kuru Buhar & Detay Fırçalama
+                    140°C Kuru Buhar &amp; Detay Fırçalama
                   </h4>
                   <p
                     className={`text-xs mt-0.5 ${
@@ -168,12 +168,12 @@ export function ProtocolModals({ activeModal, onClose, theme }: ProtocolModalsPr
                   isCream ? 'bg-[#F4EFEA] border-[#6C6A6B]/20' : 'bg-[#1A1C1F] border-white/10'
                 }`}
               >
-                <span className="w-6 h-6 rounded-full bg-[#6B1418] text-white flex items-center justify-center text-xs font-bold shrink-0">
+                <span className="w-6 h-6 rounded-full bg-[#1E3A8A] text-white flex items-center justify-center text-xs font-bold shrink-0">
                   4
                 </span>
                 <div>
                   <h4 className="text-xs font-bold uppercase tracking-wide">
-                    Antistatik Plastik & Hortum Koruması
+                    Antistatik Plastik &amp; Hortum Koruması
                   </h4>
                   <p
                     className={`text-xs mt-0.5 ${
@@ -201,14 +201,14 @@ export function ProtocolModals({ activeModal, onClose, theme }: ProtocolModalsPr
                 </div>
                 <div className="text-sm font-extrabold mt-0.5">
                   Taban Fiyat:{' '}
-                  <span className="text-[#6B1418] text-base">1.750 ₺&apos;den</span>
+                  <span className="text-[#1E3A8A] dark:text-[#60A5FA] text-base">1.750 ₺&apos;den</span>
                 </div>
               </div>
 
               <div className="flex items-center gap-2.5">
                 <a
                   href="tel:05524703610"
-                  className="inline-flex items-center gap-1.5 bg-[#6B1418] hover:bg-[#841920] text-white text-xs font-bold px-4 py-2.5 rounded transition shadow-md shadow-[#6B1418]/25"
+                  className="inline-flex items-center gap-1.5 bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white text-xs font-bold px-4 py-2.5 rounded transition shadow-md shadow-[#1E3A8A]/25"
                 >
                   <Phone className="w-3.5 h-3.5" />
                   <span>0552 470 36 10</span>
@@ -231,14 +231,14 @@ export function ProtocolModals({ activeModal, onClose, theme }: ProtocolModalsPr
         {activeModal === 'detailing' && (
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#6B1418]" />
-              <span className="text-xs font-black text-[#6B1418] tracking-widest uppercase">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#1E3A8A]" />
+              <span className="text-xs font-black text-[#1E3A8A] dark:text-[#60A5FA] tracking-widest uppercase">
                 Bumex Detailing Standartları
               </span>
             </div>
 
             <h3 className="text-2xl sm:text-3xl font-black tracking-tight mb-3">
-              Boya Düzeltme & 9H Seramik Protokolü
+              Boya Düzeltme &amp; 9H Seramik Protokolü
             </h3>
 
             <p
@@ -262,7 +262,7 @@ export function ProtocolModals({ activeModal, onClose, theme }: ProtocolModalsPr
                 <span className="px-2.5 py-1 rounded bg-black/85 text-white text-[11px] font-bold backdrop-blur-xs">
                   Bumex Garage 9H Nano-Seramik Zırhı
                 </span>
-                <span className="px-2.5 py-1 rounded bg-[#6B1418] text-white text-[10px] font-extrabold shadow">
+                <span className="px-2.5 py-1 rounded bg-[#1E3A8A] text-white text-[10px] font-extrabold shadow">
                   24 Ay Dayanım
                 </span>
               </div>
@@ -275,12 +275,12 @@ export function ProtocolModals({ activeModal, onClose, theme }: ProtocolModalsPr
                   isCream ? 'bg-[#F4EFEA] border-[#6C6A6B]/20' : 'bg-[#1A1C1F] border-white/10'
                 }`}
               >
-                <span className="w-6 h-6 rounded-full bg-[#6B1418] text-white flex items-center justify-center text-xs font-bold shrink-0">
+                <span className="w-6 h-6 rounded-full bg-[#1E3A8A] text-white flex items-center justify-center text-xs font-bold shrink-0">
                   1
                 </span>
                 <div>
                   <h4 className="text-xs font-bold uppercase tracking-wide">
-                    Demir Tozu & Kil (Clay Bar) Dekontaminasyonu
+                    Demir Tozu &amp; Kil (Clay Bar) Dekontaminasyonu
                   </h4>
                   <p
                     className={`text-xs mt-0.5 ${
@@ -297,7 +297,7 @@ export function ProtocolModals({ activeModal, onClose, theme }: ProtocolModalsPr
                   isCream ? 'bg-[#F4EFEA] border-[#6C6A6B]/20' : 'bg-[#1A1C1F] border-white/10'
                 }`}
               >
-                <span className="w-6 h-6 rounded-full bg-[#6B1418] text-white flex items-center justify-center text-xs font-bold shrink-0">
+                <span className="w-6 h-6 rounded-full bg-[#1E3A8A] text-white flex items-center justify-center text-xs font-bold shrink-0">
                   2
                 </span>
                 <div>
@@ -319,12 +319,12 @@ export function ProtocolModals({ activeModal, onClose, theme }: ProtocolModalsPr
                   isCream ? 'bg-[#F4EFEA] border-[#6C6A6B]/20' : 'bg-[#1A1C1F] border-white/10'
                 }`}
               >
-                <span className="w-6 h-6 rounded-full bg-[#6B1418] text-white flex items-center justify-center text-xs font-bold shrink-0">
+                <span className="w-6 h-6 rounded-full bg-[#1E3A8A] text-white flex items-center justify-center text-xs font-bold shrink-0">
                   3
                 </span>
                 <div>
                   <h4 className="text-xs font-bold uppercase tracking-wide">
-                    Çift Aşamalı Rotary & Orbital Düzeltme
+                    Çift Aşamalı Rotary &amp; Orbital Düzeltme
                   </h4>
                   <p
                     className={`text-xs mt-0.5 ${
@@ -341,12 +341,12 @@ export function ProtocolModals({ activeModal, onClose, theme }: ProtocolModalsPr
                   isCream ? 'bg-[#F4EFEA] border-[#6C6A6B]/20' : 'bg-[#1A1C1F] border-white/10'
                 }`}
               >
-                <span className="w-6 h-6 rounded-full bg-[#6B1418] text-white flex items-center justify-center text-xs font-bold shrink-0">
+                <span className="w-6 h-6 rounded-full bg-[#1E3A8A] text-white flex items-center justify-center text-xs font-bold shrink-0">
                   4
                 </span>
                 <div>
                   <h4 className="text-xs font-bold uppercase tracking-wide">
-                    İzopropil Alkol (IPA) & 9H Seramik Mühürleme
+                    İzopropil Alkol (IPA) &amp; 9H Seramik Mühürleme
                   </h4>
                   <p
                     className={`text-xs mt-0.5 ${
@@ -374,14 +374,14 @@ export function ProtocolModals({ activeModal, onClose, theme }: ProtocolModalsPr
                 </div>
                 <div className="text-sm font-extrabold mt-0.5">
                   Boya Ekspertizi:{' '}
-                  <span className="text-[#6B1418] text-base">Garajımızda Ücretsiz</span>
+                  <span className="text-[#1E3A8A] dark:text-[#60A5FA] text-base">Garajımızda Ücretsiz</span>
                 </div>
               </div>
 
               <div className="flex items-center gap-2.5">
                 <a
                   href="tel:05524703610"
-                  className="inline-flex items-center gap-1.5 bg-[#6B1418] hover:bg-[#841920] text-white text-xs font-bold px-4 py-2.5 rounded transition shadow-md shadow-[#6B1418]/25"
+                  className="inline-flex items-center gap-1.5 bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white text-xs font-bold px-4 py-2.5 rounded transition shadow-md shadow-[#1E3A8A]/25"
                 >
                   <Phone className="w-3.5 h-3.5" />
                   <span>Hemen Ara: 0552 470 36 10</span>

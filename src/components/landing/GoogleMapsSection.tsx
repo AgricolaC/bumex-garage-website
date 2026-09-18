@@ -25,7 +25,7 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#6B1418]" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#1E3A8A]" />
               <span
                 className={`text-xs font-bold uppercase tracking-wider ${
                   isCream ? 'text-[#6C6A6B]' : 'text-[#9DA3AA]'
@@ -52,7 +52,7 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
             href="https://maps.app.goo.gl/UGsfYD1ZUdB7L5w4A"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[#6B1418] hover:bg-[#841920] text-white font-bold text-xs sm:text-sm px-5 py-3 rounded-xl shadow-md transition shrink-0 active:scale-95"
+            className="inline-flex items-center gap-2 bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white font-bold text-xs sm:text-sm px-5 py-3 rounded-xl shadow-md transition shrink-0 active:scale-95"
           >
             <span>Google Haritalar&apos;da Aç</span>
             <ExternalLink className="w-4 h-4" />
@@ -88,14 +88,14 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
               }`}
             >
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#6B1418] shrink-0 mt-0.5" />
+                <MapPin className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
                 <div>
                   <span className="font-bold block">Açık Adres</span>
                   <a
                     href="https://maps.app.goo.gl/UGsfYD1ZUdB7L5w4A"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`hover:text-[#6B1418] transition underline decoration-dotted ${
+                    className={`hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition underline decoration-dotted ${
                       isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                     }`}
                   >
@@ -105,7 +105,7 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
               </div>
 
               <div className="flex items-start gap-2.5">
-                <Clock className="w-4 h-4 text-[#6B1418] shrink-0 mt-0.5" />
+                <Clock className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
                 <div>
                   <span className="font-bold block">Çalışma Saatleri</span>
                   <span className={isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}>
@@ -119,7 +119,7 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
                   href="https://www.google.com/maps/dir/?api=1&destination=BUMEX+GARAGE+BAH%C3%87EL%C4%B0EVLER&destination_place_id=ChIJlQLz8WJP0xQR5ahmG3GTF88"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-1.5 bg-[#6B1418] hover:bg-[#841920] text-white font-bold py-2 px-3 rounded-xl transition shadow-sm active:scale-95 text-center"
+                  className="inline-flex items-center justify-center gap-1.5 bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white font-bold py-2 px-3 rounded-xl transition shadow-sm active:scale-95 text-center"
                 >
                   <Navigation className="w-3.5 h-3.5" />
                   <span>Yol Tarifi Al</span>
@@ -138,7 +138,7 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
               {/* Google Rozet Başlığı */}
               <div className="flex items-center justify-between pb-4 border-b border-black/5 dark:border-white/10">
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-lg bg-[#6B1418]/10 text-[#6B1418] flex items-center justify-center font-black text-lg">
+                  <div className="w-8 h-8 rounded-lg bg-[#1E3A8A]/10 text-[#1E3A8A] dark:text-[#60A5FA] flex items-center justify-center font-black text-lg">
                     G
                   </div>
                   <div>
@@ -213,7 +213,7 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
                 href="https://maps.app.goo.gl/UGsfYD1ZUdB7L5w4A"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3 px-4 rounded-xl bg-[#6B1418] hover:bg-[#841920] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md shadow-[#6B1418]/25 transition active:scale-95"
+                className="w-full py-3 px-4 rounded-xl bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md shadow-[#1E3A8A]/25 transition active:scale-95"
               >
                 <MessageSquareQuote className="w-4 h-4" />
                 <span>Google&apos;daki Tüm Yorumları İncele (4.9 ★)</span>

@@ -34,7 +34,7 @@ export function MobileCallBar({ theme }: MobileCallBarProps) {
         {/* Doğrudan Arama Butonu */}
         <a
           href="tel:05524703610"
-          className="flex items-center justify-center gap-1.5 bg-[#6B1418] hover:bg-[#841920] text-white font-bold text-xs py-3 px-2 rounded-xl shadow-md shadow-[#6B1418]/30 transition active:scale-95"
+          className="flex items-center justify-center gap-1.5 bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white font-bold text-xs py-3 px-2 rounded-xl shadow-md shadow-[#1E3A8A]/30 transition active:scale-95"
         >
           <Phone className="w-4 h-4 shrink-0" />
           <span>0552 470 36 10</span>

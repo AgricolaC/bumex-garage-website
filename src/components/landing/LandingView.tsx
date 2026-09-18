@@ -4,7 +4,9 @@ import React, { useState, useEffect } from 'react';
 import { useLandingTheme } from '@/hooks/useLandingTheme';
 import { LandingNavbar } from '@/components/landing/LandingNavbar';
 import { HeroSection } from '@/components/landing/HeroSection';
+import { WorkshopVideoSection } from '@/components/landing/WorkshopVideoSection';
 import { ServicesCatalog } from '@/components/landing/ServicesCatalog';
+import { VisualReelSection } from '@/components/landing/VisualReelSection';
 import { BeforeAfterSlider } from '@/components/landing/BeforeAfterSlider';
 import { PricingSection } from '@/components/landing/PricingSection';
 import { GoogleMapsSection } from '@/components/landing/GoogleMapsSection';
@@ -45,25 +47,31 @@ export function LandingView() {
 
       {/* Ana Gövde */}
       <main>
-        {/* Hero Vitrini */}
+        {/* 1. Video & Fotoğraf Odaklı Sinematik Hero Vitrini */}
         <HeroSection theme={theme} />
 
-        {/* 13 Kalemlik Resmi Atölye Hizmet Yelpazesi */}
+        {/* 2. Milano Car Care İlhamlı Zanaat Video Turu ("Neden Bumex?") */}
+        <WorkshopVideoSection theme={theme} />
+
+        {/* 3. 13 Kalemlik Resmi Atölye Hizmet Yelpazesi */}
         <ServicesCatalog
           theme={theme}
           onOpenModal={(type) => setActiveModal(type)}
         />
 
-        {/* Boya Düzeltme Öncesi / Sonrası Karşılaştırma Kaydırıcısı */}
+        {/* 4. Canlı Fotoğraf & Reels Görsel Kanıt Vitrini */}
+        <VisualReelSection theme={theme} />
+
+        {/* 5. Boya Düzeltme Öncesi / Sonrası Karşılaştırma Kaydırıcısı */}
         <BeforeAfterSlider theme={theme} />
 
-        {/* Şeffaf Fiyat Listesi & Motosiklet Detailing Paketleri */}
+        {/* 6. Şeffaf Fiyat Listesi & Motosiklet Detailing Paketleri */}
         <PricingSection
           theme={theme}
           onOpenModal={(type) => setActiveModal(type)}
         />
 
-        {/* Google Haritalar, Yol Tarifi & Müşteri İncelemeleri */}
+        {/* 7. Google Haritalar, Yol Tarifi & Müşteri İncelemeleri */}
         <GoogleMapsSection theme={theme} />
       </main>
 
