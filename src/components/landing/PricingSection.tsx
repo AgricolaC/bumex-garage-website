@@ -466,7 +466,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
               <div className="flex items-center gap-2 mb-4">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#1E3A8A]" />
                 <h4 className="text-lg font-black tracking-tight uppercase">
-                  1. Motosiklet Yıkama, Detailing &amp; Koruma Paketleri
+                  1. Motosiklet Yıkama &amp; Detailing Paketleri
                 </h4>
               </div>
 
@@ -483,13 +483,13 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                         1
                       </span>
                       <span className="text-[11px] font-bold text-[#6C6A6B] uppercase tracking-wider">
-                        Hızlı & Güvenli Temizlik
+                        Temel Bakım
                       </span>
                     </div>
 
                     <h4 className="text-xl font-black tracking-tight">START PAKET</h4>
                     <p className={`text-xs font-bold mt-1 mb-2 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`}>
-                      Motor Yıkama &amp; Cilalı Koruma
+                      Hızlı ve Uygun Fiyatlı Temizlik
                     </p>
 
                     <div className="my-3">
@@ -502,27 +502,35 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                     <ul className="text-xs sm:text-sm space-y-2.5 mb-8">
                       <li className="flex items-start gap-2">
                         <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                        <span>Motor Yıkama (pH Nötr Aktif Köpükleme)</span>
+                        <span>Ön Yıkama</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                        <span>Cilalı Yıkama ile Hidrofobik Parlaklık</span>
+                        <span>Köpükleme (pH Nötr Şampuan)</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                        <span>Jant ve Lastik Detay Temizliği</span>
+                        <span>Detaylı Dış Yıkama</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                        <span>Plastik Aksam Mat Besleme &amp; Bakımı</span>
+                        <span>Jant ve Lastik Temizliği</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                        <span>Özel Peluş Bezlerle Çiziksiz Kurulama</span>
+                        <span>Plastik Aksam Temizliği</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                        <span>Lastik Parlatma &amp; Koruyucu Kaplama</span>
+                        <span>Kurulama</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
+                        <span>Lastik Parlatma</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
+                        <span>Hafif Plastik Bakım</span>
                       </li>
                     </ul>
                   </div>
@@ -556,13 +564,13 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                         2
                       </span>
                       <span className={`text-[11px] font-bold uppercase tracking-wider ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`}>
-                        Buhar &amp; Mekanik Hijyen
+                        Derinlemesine Yenileme
                       </span>
                     </div>
 
                     <h4 className="text-xl font-black tracking-tight">PRO PAKET</h4>
                     <p className={`text-xs font-bold mt-1 mb-4 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`}>
-                      Buharlı Yıkama, Zincir &amp; Derinlemesine Şase
+                      Günlük Kirden Öte, Detaylı Temizlik &amp; Yenileme
                     </p>
 
                     <div className="w-full h-[1px] bg-black/5 dark:bg-white/10 mb-5" />
@@ -574,27 +582,35 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                       </li>
                       <li className="flex items-start gap-2 font-semibold text-[#1E3A8A] dark:text-[#60A5FA]">
                         <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" />
-                        <span>Buharlı Yıkama (140°C Kuru Buhar ile Yağ Arındırma)</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                        <span>Motor Bloğu ve Şase Detay Arındırma</span>
+                        <span>Motor ve Şase Detay Temizliği</span>
                       </li>
                       <li className="flex items-start gap-2 font-semibold text-[#1E3A8A] dark:text-[#60A5FA]">
                         <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" />
-                        <span>Zincir Temizliği &amp; Profesyonel Yağlama</span>
+                        <span>Zincir Temizliği</span>
+                      </li>
+                      <li className="flex items-start gap-2 font-semibold text-[#1E3A8A] dark:text-[#60A5FA]">
+                        <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" />
+                        <span>Zincir Yağlama (Yüksek Tutunmalı)</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                        <span>Fren Kaliperlerinin &amp; Jant Balata Tozlarının Silimi</span>
+                        <span>Fren Kaliperlerinin Temizliği</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                        <span>Sele Derisi Temizliği &amp; UV Besleme</span>
+                        <span>Plastik Aksam Bakım / Yenileme</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                        <span>Egzoz ve Metal Yüzeylerin Arındırılması</span>
+                        <span>Sele Detay Temizliği</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
+                        <span>Egzoz ve Metal Yüzeylerin Temizliği</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
+                        <span>Mikrofiber Bezlerle Detaylı Kurutma</span>
                       </li>
                     </ul>
                   </div>
@@ -608,7 +624,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                   </a>
                 </div>
 
-                {/* 3. PREMIUM DETAILING, SERAMİK & KAPLAMA */}
+                {/* 3. PREMIUM DETAILING */}
                 <div
                   className={`p-6 sm:p-7 rounded-2xl flex flex-col justify-between border shadow-md transition duration-200 hover:-translate-y-1 ${
                     isCream ? 'bg-white border-[#6C6A6B]/20' : 'bg-[#222529] border-white/10'
@@ -620,13 +636,13 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                         3
                       </span>
                       <span className="text-[11px] font-bold text-[#6C6A6B] uppercase tracking-wider">
-                        Zirve Kondisyon
+                        Sıfır Kondisyon
                       </span>
                     </div>
 
-                    <h4 className="text-xl font-black tracking-tight">PREMIUM DETAILING &amp; SERAMİK</h4>
+                    <h4 className="text-xl font-black tracking-tight">PREMIUM DETAILING</h4>
                     <p className={`text-xs font-bold mt-1 mb-4 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`}>
-                      Pasta Cila, 9H Seramik, PPF &amp; Özel Kaplama
+                      Motosikleti Teslim Aldığınızda Sıfır Gibi Hissettiren Paket
                     </p>
 
                     <div className="w-full h-[1px] bg-black/5 dark:bg-white/10 mb-5" />
@@ -634,31 +650,55 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                     <ul className="text-xs sm:text-sm space-y-2.5 mb-8">
                       <li className="flex items-start gap-2 font-semibold">
                         <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                        <span>Pro Paketindeki Tüm Buhar ve Şase İşlemleri</span>
+                        <span>Pro Paketindeki Tüm İşlemler</span>
                       </li>
                       <li className="flex items-start gap-2 font-semibold text-[#1E3A8A] dark:text-[#60A5FA]">
                         <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" />
-                        <span>Pasta Cila ve Boya Koruma (Grenaj Çizik Giderme)</span>
+                        <span>Yüksek Detay Motor ve Şase Temizliği</span>
                       </li>
                       <li className="flex items-start gap-2 font-semibold text-[#1E3A8A] dark:text-[#60A5FA]">
                         <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" />
-                        <span>Motosiklet 9H Seramik Kaplama (Grenaj &amp; Depo Zırhı)</span>
+                        <span>Jant, Kaliper &amp; Ulaşılması Zor Bölgelerin Detaylandırılması</span>
+                      </li>
+                      <li className="flex items-start gap-2 font-semibold text-[#1E3A8A] dark:text-[#60A5FA]">
+                        <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" />
+                        <span>Zincir Derin Temizlik ve Yağlama</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                        <span>PPF Kaplama (Ön Kafa, Far &amp; Sürtünme Koruması)</span>
+                        <span>Metal Yüzey Parlatma</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                        <span>Kişiye Özel Kaplama (Custom Renk / Cast Folyo)</span>
+                        <span>Plastik Trim Yenileme</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                        <span>Kil Dekontaminasyonu &amp; Egzoz Metal Polisajı</span>
+                        <span>Sele ve Kauçuk Aksam Bakım</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
+                        <span>Boya Yüzeyinin Detaylı Temizliği</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
+                        <span>Kil Uygulaması + Yüzey Dekontaminasyonu</span>
+                      </li>
+                      <li className="flex items-start gap-2 font-semibold text-[#1E3A8A] dark:text-[#60A5FA]">
+                        <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" />
+                        <span>Boya Parlatma (Hare &amp; Çizik Giderme)</span>
+                      </li>
+                      <li className="flex items-start gap-2 font-semibold text-[#1E3A8A] dark:text-[#60A5FA]">
+                        <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" />
+                        <span>Boya Koruyucu Uygulama</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
+                        <span>Cam / Pleksi Temizliği ve Parlatma</span>
                       </li>
                       <li className="flex items-start gap-2 font-bold">
                         <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                        <span>Son Kontrol &amp; Showroom Sıfır Teslimatı</span>
+                        <span>Son Kontrol + Showroom Teslimi</span>
                       </li>
                     </ul>
                   </div>
@@ -674,7 +714,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
               </div>
             </div>
 
-            {/* BÖLÜM 2: Motosiklet Tamir ve Bakım Hizmetlerimiz (Mekanik Servis Atölyesi) */}
+            {/* BÖLÜM 2: Motosiklet Mekanik Servisi (Bakım - Arıza - Tamir) */}
             <div
               className={`p-6 sm:p-8 rounded-2xl border ${
                 isCream ? 'bg-white/85 border-[#6C6A6B]/20' : 'bg-[#222529] border-white/10'
@@ -685,14 +725,14 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                   <div className="flex items-center gap-2 mb-1">
                     <Wrench className="w-4 h-4 text-[#1E3A8A] dark:text-[#60A5FA]" />
                     <span className="text-xs font-bold uppercase tracking-wider text-[#6C6A6B]">
-                      Atölye Mekanik Servisi
+                      Motosiklet Mekanik Atölyesi
                     </span>
                   </div>
                   <h4 className="text-xl sm:text-2xl font-black tracking-tight">
-                    Motosiklet Tamir ve Bakım Hizmetlerimiz
+                    Motosiklet Servis Hizmetlerimiz: Bakım • Arıza • Tamir
                   </h4>
                   <p className={`text-xs sm:text-sm mt-1 ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}`}>
-                    Yalnızca estetik değil; motorunuzun mekanik sağlığı, yürüyeni ve sürüş güvenliği için uzman usta kadrosu.
+                    Rutin periyodik bakımdan arıza teşhisine ve kaza sonrası hasar onarımına kadar 3 ana uzmanlık kalemi.
                   </p>
                 </div>
                 <a
@@ -704,134 +744,181 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                 </a>
               </div>
 
-              {/* 5 Mekanik Hizmet Kartı */}
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {/* 1- Yağ Bakımı */}
+              {/* 3 Ana Uzmanlık Sütunu: Bakım - Arıza - Tamir */}
+              <div className="grid md:grid-cols-3 gap-6">
+                {/* 1. SÜTUN: BAKIM (Rutin & Periyodik Bakım) */}
                 <div
-                  className={`p-5 rounded-xl border flex flex-col justify-between transition hover:-translate-y-0.5 ${
+                  className={`p-6 rounded-2xl border flex flex-col justify-between transition hover:-translate-y-1 ${
                     isCream ? 'bg-[#F2ECE8]/80 border-black/5' : 'bg-[#191B1F] border-white/5'
                   }`}
                 >
                   <div>
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="w-9 h-9 rounded-lg bg-[#1E3A8A] text-white flex items-center justify-center font-bold">
-                        <Droplets className="w-5 h-5" />
-                      </div>
-                      <span className="text-xs font-black text-[#1E3A8A] dark:text-[#60A5FA]">01</span>
-                    </div>
-                    <h5 className="text-base font-black tracking-tight mb-1.5">1- Yağ Bakımı</h5>
-                    <p className={`text-xs leading-relaxed ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}`}>
-                      Motul / Castrol tam sentetik yüksek performans yağı, orijinal yağ filtresi değişimi, karter tapa pulu yenileme ve zincir gerginlik kontrolü.
-                    </p>
-                  </div>
-                  <div className="mt-4 pt-3 border-t border-black/5 dark:border-white/5 flex items-center justify-between text-xs font-bold">
-                    <span className="text-[#6C6A6B]">Periyodik Değişim</span>
-                    <a href="tel:05524703610" className="text-[#1E3A8A] dark:text-[#60A5FA] hover:underline">
-                      Randevu Al ↗
-                    </a>
-                  </div>
-                </div>
-
-                {/* 2- Varyatör Bakımı */}
-                <div
-                  className={`p-5 rounded-xl border flex flex-col justify-between transition hover:-translate-y-0.5 ${
-                    isCream ? 'bg-[#F2ECE8]/80 border-black/5' : 'bg-[#191B1F] border-white/5'
-                  }`}
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="w-9 h-9 rounded-lg bg-[#1E3A8A] text-white flex items-center justify-center font-bold">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-10 h-10 rounded-xl bg-[#1E3A8A] text-white flex items-center justify-center font-bold shadow-md">
                         <Settings className="w-5 h-5" />
                       </div>
-                      <span className="text-xs font-black text-[#1E3A8A] dark:text-[#60A5FA]">02</span>
+                      <span className="px-2.5 py-1 rounded-full text-[10px] font-black tracking-wider uppercase bg-[#1E3A8A]/10 dark:bg-[#1E3A8A]/30 text-[#1E3A8A] dark:text-[#60A5FA]">
+                        01 • BAKIM
+                      </span>
                     </div>
-                    <h5 className="text-base font-black tracking-tight mb-1.5">2- Varyatör Bakımı</h5>
-                    <p className={`text-xs leading-relaxed ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}`}>
-                      Maxi-scooter &amp; scooter modelleri için varyatör kapağı sökümü, iç toz arındırma, baga (kaydırıcı) ağırlık ölçümü, kayış kontrolü ve debriyaj balata bakımı.
+
+                    <h5 className="text-lg font-black tracking-tight mb-1">Rutin &amp; Periyodik Bakım</h5>
+                    <p className={`text-xs font-semibold mb-3 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`}>
+                      Düzenli Servis, Yağ &amp; Varyatör
                     </p>
+
+                    <p className={`text-xs leading-relaxed mb-4 ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}`}>
+                      Motosikletinizin motor ömrünü, yakıt verimini ve yürüyen aksam sağlığını koruyan rutin kontroller ve periyodik sıvı/filtre değişimleri.
+                    </p>
+
+                    <div className="w-full h-[1px] bg-black/5 dark:bg-white/10 mb-4" />
+
+                    <ul className="text-xs space-y-2 mb-6">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
+                        <span>Tam Sentetik Motor Yağı &amp; Orijinal Filtre</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
+                        <span>Varyatör Bakımı (Baga, Kayış, Debriyaj Temizliği)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
+                        <span>Zincir Gerginlik Ayarı, Temizlik &amp; Yağlama</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
+                        <span>Buji &amp; Hava Filtresi Kontrol / Değişimi</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
+                        <span>Fren Hidroliği, Soğutma Sıvısı &amp; Genel Kontrol</span>
+                      </li>
+                    </ul>
                   </div>
-                  <div className="mt-4 pt-3 border-t border-black/5 dark:border-white/5 flex items-center justify-between text-xs font-bold">
-                    <span className="text-[#6C6A6B]">Scooter &amp; Maxi-Scooter</span>
+
+                  <div className="pt-3 border-t border-black/5 dark:border-white/5 flex items-center justify-between text-xs font-bold">
+                    <span className="text-[#6C6A6B]">Periyodik Servis</span>
                     <a href="tel:05524703610" className="text-[#1E3A8A] dark:text-[#60A5FA] hover:underline">
                       Randevu Al ↗
                     </a>
                   </div>
                 </div>
 
-                {/* 3- Mekanik Tamiri */}
+                {/* 2. SÜTUN: ARIZA (Mekanik & Elektriksel Arıza Onarımı) */}
                 <div
-                  className={`p-5 rounded-xl border flex flex-col justify-between transition hover:-translate-y-0.5 ${
+                  className={`p-6 rounded-2xl border flex flex-col justify-between transition hover:-translate-y-1 ${
                     isCream ? 'bg-[#F2ECE8]/80 border-black/5' : 'bg-[#191B1F] border-white/5'
                   }`}
                 >
                   <div>
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="w-9 h-9 rounded-lg bg-[#1E3A8A] text-white flex items-center justify-center font-bold">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-10 h-10 rounded-xl bg-[#1E3A8A] text-white flex items-center justify-center font-bold shadow-md">
                         <Wrench className="w-5 h-5" />
                       </div>
-                      <span className="text-xs font-black text-[#1E3A8A] dark:text-[#60A5FA]">03</span>
+                      <span className="px-2.5 py-1 rounded-full text-[10px] font-black tracking-wider uppercase bg-[#1E3A8A]/10 dark:bg-[#1E3A8A]/30 text-[#1E3A8A] dark:text-[#60A5FA]">
+                        02 • ARIZA
+                      </span>
                     </div>
-                    <h5 className="text-base font-black tracking-tight mb-1.5">3- Mekanik Tamiri</h5>
-                    <p className={`text-xs leading-relaxed ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}`}>
-                      Fren kaliper &amp; balata değişimi, rulman, debriyaj teli, zincir-dişli seti montajı, süspansiyon ve genel arıza tespit/onarım hizmetleri.
+
+                    <h5 className="text-lg font-black tracking-tight mb-1">Mekanik &amp; Elektrik Arıza</h5>
+                    <p className={`text-xs font-semibold mb-3 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`}>
+                      Hızlı Teşhis &amp; Nokta Atışı Onarım
                     </p>
+
+                    <p className={`text-xs leading-relaxed mb-4 ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}`}>
+                      Sürüş esnasında ya da park halinde beliren mekanik sesler, ateşleme problemleri, şarj/elektrik ve fren arızalarının tespiti ve tamiri.
+                    </p>
+
+                    <div className="w-full h-[1px] bg-black/5 dark:bg-white/10 mb-4" />
+
+                    <ul className="text-xs space-y-2 mb-6">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
+                        <span>Mekanik Ses, Kompresyon &amp; Performans Arızası</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
+                        <span>Ateşleme, Enjeksiyon &amp; Yakıt Sistemi Teşhisi</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
+                        <span>Marş Motoru, Şarj Dinamosu &amp; Elektrik Tesisatı</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
+                        <span>Fren Kaliperi, Balata, Disk &amp; Debriyaj Onarımı</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
+                        <span>Amortisör Keçesi, Rulman &amp; Yürüyen Aksam</span>
+                      </li>
+                    </ul>
                   </div>
-                  <div className="mt-4 pt-3 border-t border-black/5 dark:border-white/5 flex items-center justify-between text-xs font-bold">
-                    <span className="text-[#6C6A6B]">Genel Revizyon</span>
+
+                  <div className="pt-3 border-t border-black/5 dark:border-white/5 flex items-center justify-between text-xs font-bold">
+                    <span className="text-[#6C6A6B]">Arıza Teşhis</span>
                     <a href="tel:05524703610" className="text-[#1E3A8A] dark:text-[#60A5FA] hover:underline">
-                      Randevu Al ↗
+                      Arıza Bildir ↗
                     </a>
                   </div>
                 </div>
 
-                {/* 4- Grenaj Tamiri */}
+                {/* 3. SÜTUN: TAMİR (Kaza Sonrası Tamirat & Hasar Onarımı) */}
                 <div
-                  className={`p-5 rounded-xl border flex flex-col justify-between transition hover:-translate-y-0.5 ${
+                  className={`p-6 rounded-2xl border flex flex-col justify-between transition hover:-translate-y-1 ${
                     isCream ? 'bg-[#F2ECE8]/80 border-black/5' : 'bg-[#191B1F] border-white/5'
                   }`}
                 >
                   <div>
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="w-9 h-9 rounded-lg bg-[#1E3A8A] text-white flex items-center justify-center font-bold">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-10 h-10 rounded-xl bg-[#1E3A8A] text-white flex items-center justify-center font-bold shadow-md">
                         <Shield className="w-5 h-5" />
                       </div>
-                      <span className="text-xs font-black text-[#1E3A8A] dark:text-[#60A5FA]">04</span>
+                      <span className="px-2.5 py-1 rounded-full text-[10px] font-black tracking-wider uppercase bg-[#1E3A8A]/10 dark:bg-[#1E3A8A]/30 text-[#1E3A8A] dark:text-[#60A5FA]">
+                        03 • TAMİR
+                      </span>
                     </div>
-                    <h5 className="text-base font-black tracking-tight mb-1.5">4- Grenaj Tamiri</h5>
-                    <p className={`text-xs leading-relaxed ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}`}>
-                      Kırık, çatlak ve tırnakları kopmuş plastik grenajların termo-kaynağı, özel plastik dolgu macunu, astarlama ve orijinal renk kodunda fırın boya onarımı.
-                    </p>
-                  </div>
-                  <div className="mt-4 pt-3 border-t border-black/5 dark:border-white/5 flex items-center justify-between text-xs font-bold">
-                    <span className="text-[#6C6A6B]">Plastik Kaynak &amp; Boya</span>
-                    <a href="tel:05524703610" className="text-[#1E3A8A] dark:text-[#60A5FA] hover:underline">
-                      Fiyat Al ↗
-                    </a>
-                  </div>
-                </div>
 
-                {/* 5- Aksesuar Montajı */}
-                <div
-                  className={`p-5 rounded-xl border flex flex-col justify-between transition hover:-translate-y-0.5 sm:col-span-2 lg:col-span-2 ${
-                    isCream ? 'bg-[#F2ECE8]/80 border-black/5' : 'bg-[#191B1F] border-white/5'
-                  }`}
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="w-9 h-9 rounded-lg bg-[#1E3A8A] text-white flex items-center justify-center font-bold">
-                        <Sparkles className="w-5 h-5" />
-                      </div>
-                      <span className="text-xs font-black text-[#1E3A8A] dark:text-[#60A5FA]">05</span>
-                    </div>
-                    <h5 className="text-base font-black tracking-tight mb-1.5">5- Aksesuar Montajı</h5>
-                    <p className={`text-xs leading-relaxed ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}`}>
-                      Çakarlı LED sis farı ve röleli tesisat montajı, motor koruma demiri, koruma takozu, topcase çanta demiri, kablosuz şarjlı telefon tutucu ve egzoz montajı gibi tüm donanım eklemeleri.
+                    <h5 className="text-lg font-black tracking-tight mb-1">Kaza Sonrası Tamirat</h5>
+                    <p className={`text-xs font-semibold mb-3 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`}>
+                      Hasar Onarımı, Grenaj Kaynak &amp; Boya
                     </p>
+
+                    <p className={`text-xs leading-relaxed mb-4 ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}`}>
+                      Düşme ve kaza sonrası kırılan grenajların plastik kaynağı, fırın boya, şasi/maşa kontrolü ve hasar onarımı.
+                    </p>
+
+                    <div className="w-full h-[1px] bg-black/5 dark:bg-white/10 mb-4" />
+
+                    <ul className="text-xs space-y-2 mb-6">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
+                        <span>Kaza Hasar Tespiti &amp; Orijinal Parça Temini</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
+                        <span>Kırık/Çatlak Grenaj Termo-Plastik Kaynağı</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
+                        <span>Orijinal Renk Fırın Boya &amp; Rötuş Eşleme</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
+                        <span>Şasi, Maşa, Gidon &amp; Jant Doğrultma Kontrolü</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
+                        <span>Koruma Demiri, Manet &amp; Aksesuar Montajı</span>
+                      </li>
+                    </ul>
                   </div>
-                  <div className="mt-4 pt-3 border-t border-black/5 dark:border-white/5 flex items-center justify-between text-xs font-bold">
-                    <span className="text-[#6C6A6B]">Profesyonel Elektrik &amp; Mekanik Montaj</span>
+
+                  <div className="pt-3 border-t border-black/5 dark:border-white/5 flex items-center justify-between text-xs font-bold">
+                    <span className="text-[#6C6A6B]">Hasar Restorasyonu</span>
                     <a href="tel:05524703610" className="text-[#1E3A8A] dark:text-[#60A5FA] hover:underline">
-                      Randevu Al ↗
+                      Hasar Bildir ↗
                     </a>
                   </div>
                 </div>
