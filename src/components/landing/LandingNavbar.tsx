@@ -146,9 +146,6 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
             <Link href="/#hizmetler" className="hover:text-[#6B1418] transition">
               Hizmetlerimiz
             </Link>
-            <Link href="/#motosiklet" className="hover:text-[#6B1418] transition">
-              Motosiklet Detailing
-            </Link>
             <Link href="/#restorasyon" className="hover:text-[#6B1418] transition">
               Restorasyon
             </Link>

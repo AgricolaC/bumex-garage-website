@@ -43,6 +43,11 @@ export function HeroSection({ theme }: HeroSectionProps) {
   const activePillar =
     WORKSHOP_PILLARS.find((p) => p.id === activePillarId) ?? WORKSHOP_PILLARS[0];
 
+  // Motosiklet detailing seçildiğinde 3 kartın tamamı kırmızı vurgulanır (kuru buhar, mikron analiz, çiziksiz yıkama)
+  const isCard1Active = activePillar.id === 'buhar' || activePillar.id === 'motosiklet';
+  const isCard2Active = activePillar.id === 'mikron' || activePillar.id === 'motosiklet';
+  const isCard3Active = activePillar.id === 'yikama' || activePillar.id === 'motosiklet';
+
   // Sonraki sütuna geçiş fonksiyonu
   const advancePillar = useCallback(() => {
     setActivePillarId((currentId) => {
@@ -233,14 +238,14 @@ export function HeroSection({ theme }: HeroSectionProps) {
           >
             {/* Güvence 1 */}
             <div
-              className={`p-3.5 rounded-xl border transition-colors ${
-                activePillar.id === 'buhar'
-                  ? 'ring-2 ring-[#6B1418] bg-[#6B1418]/5'
-                  : ''
-              } ${
-                isCream
-                  ? 'bg-white/85 border-[#6C6A6B]/25 text-[#0D0D0D] shadow-xs'
-                  : 'bg-[#222529]/80 border-white/10 text-white'
+              className={`p-3.5 rounded-xl border transition-all duration-300 ${
+                isCard1Active
+                  ? isCream
+                    ? 'ring-2 ring-[#6B1418] bg-[#6B1418]/10 border-[#6B1418]/40 shadow-sm'
+                    : 'ring-2 ring-[#6B1418] bg-[#6B1418]/15 border-[#6B1418]/50 shadow-md shadow-[#6B1418]/20'
+                  : isCream
+                    ? 'bg-white/85 border-[#6C6A6B]/25 text-[#0D0D0D] shadow-xs'
+                    : 'bg-[#222529]/80 border-white/10 text-white'
               }`}
             >
               <div className="flex items-center gap-2 mb-1.5">
@@ -258,14 +263,14 @@ export function HeroSection({ theme }: HeroSectionProps) {
 
             {/* Güvence 2 */}
             <div
-              className={`p-3.5 rounded-xl border transition-colors ${
-                activePillar.id === 'mikron' || activePillar.id === 'motosiklet'
-                  ? 'ring-2 ring-[#6B1418] bg-[#6B1418]/5'
-                  : ''
-              } ${
-                isCream
-                  ? 'bg-white/85 border-[#6C6A6B]/25 text-[#0D0D0D] shadow-xs'
-                  : 'bg-[#222529]/80 border-white/10 text-white'
+              className={`p-3.5 rounded-xl border transition-all duration-300 ${
+                isCard2Active
+                  ? isCream
+                    ? 'ring-2 ring-[#6B1418] bg-[#6B1418]/10 border-[#6B1418]/40 shadow-sm'
+                    : 'ring-2 ring-[#6B1418] bg-[#6B1418]/15 border-[#6B1418]/50 shadow-md shadow-[#6B1418]/20'
+                  : isCream
+                    ? 'bg-white/85 border-[#6C6A6B]/25 text-[#0D0D0D] shadow-xs'
+                    : 'bg-[#222529]/80 border-white/10 text-white'
               }`}
             >
               <div className="flex items-center gap-2 mb-1.5">
@@ -283,14 +288,14 @@ export function HeroSection({ theme }: HeroSectionProps) {
 
             {/* Güvence 3 */}
             <div
-              className={`p-3.5 rounded-xl border transition-colors ${
-                activePillar.id === 'yikama'
-                  ? 'ring-2 ring-[#6B1418] bg-[#6B1418]/5'
-                  : ''
-              } ${
-                isCream
-                  ? 'bg-white/85 border-[#6C6A6B]/25 text-[#0D0D0D] shadow-xs'
-                  : 'bg-[#222529]/80 border-white/10 text-white'
+              className={`p-3.5 rounded-xl border transition-all duration-300 ${
+                isCard3Active
+                  ? isCream
+                    ? 'ring-2 ring-[#6B1418] bg-[#6B1418]/10 border-[#6B1418]/40 shadow-sm'
+                    : 'ring-2 ring-[#6B1418] bg-[#6B1418]/15 border-[#6B1418]/50 shadow-md shadow-[#6B1418]/20'
+                  : isCream
+                    ? 'bg-white/85 border-[#6C6A6B]/25 text-[#0D0D0D] shadow-xs'
+                    : 'bg-[#222529]/80 border-white/10 text-white'
               }`}
             >
               <div className="flex items-center gap-2 mb-1.5">
