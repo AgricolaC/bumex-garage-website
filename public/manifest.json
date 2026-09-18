@@ -1,0 +1,16 @@
+{
+  "name": "Bumex Garage OS",
+  "short_name": "Bumex OS",
+  "description": "Bumex Garage Akıllı Araç Takip, Yıkama Sırası ve Operasyon Sistemi",
+  "start_url": "/bay",
+  "display": "standalone",
+  "background_color": "#090d16",
+  "theme_color": "#090d16",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}
