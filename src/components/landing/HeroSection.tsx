@@ -16,7 +16,6 @@ import {
   Pause,
 } from 'lucide-react';
 import { LandingTheme } from '@/hooks/useLandingTheme';
-import { HeroVisualCard } from './HeroVisualCard';
 import { WORKSHOP_PILLARS, WorkshopPillarId, WorkshopPillar } from './heroPillars';
 
 interface HeroSectionProps {
@@ -114,9 +113,7 @@ export function HeroSection({ theme }: HeroSectionProps) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="max-w-6xl mx-auto w-full grid lg:grid-cols-12 gap-10 items-center">
-        {/* Sol Metin Kolonu */}
-        <div className="lg:col-span-7">
+      <div className="max-w-4xl mx-auto w-full">
           {/* Konum Rozeti */}
           <div className="flex items-center gap-2 mb-3">
             <span className="w-2.5 h-2.5 rounded-full bg-[#6B1418]" />
@@ -310,15 +307,6 @@ export function HeroSection({ theme }: HeroSectionProps) {
             </div>
           </div>
         </div>
-
-        {/* Sağ Görsel Kolonu (Senkronize Görsel Vitrin) */}
-        <div className="lg:col-span-5">
-          <HeroVisualCard
-            theme={theme}
-            activePillar={activePillar}
-          />
-        </div>
-      </div>
-    </section>
+      </section>
   );
 }
