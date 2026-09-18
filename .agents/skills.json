@@ -1,0 +1,11 @@
+{
+  "entries": [
+    { "path": "./plugins/core/skills" },
+    { "path": "./plugins/craft/skills" },
+    { "path": "./plugins/design/skills" },
+    { "path": "./plugins/pstack/skills" },
+    { "path": "./plugins/web/skills" },
+    { "path": "./plugins/mobile/skills" },
+    { "path": "./plugins/meta/skills" }
+  ]
+}

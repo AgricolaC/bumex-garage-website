@@ -1,15 +1,45 @@
 import type { Metadata, Viewport } from 'next';
+import { StructuredData } from '@/components/landing/StructuredData';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Bumex Garage — Premium Detailing, Seramik & Motor Bakım Stüdyosu | Ankara',
-  description: 'Ankara Bahçelievler\'de mikron seviyesinde boya düzeltme, 9H nano seramik zırh, motosiklet detailing ve dielektrik kuru buharlı motor temizliği.',
-  keywords: ['oto yıkama', 'detailing', 'seramik kaplama', 'ankara pasta cila', 'motosiklet detailing', 'bumex garage', 'bahçelievler oto bakım'],
+  metadataBase: new URL('https://bumexgarage.com'),
+  title: 'Bumex Garage — Bahçelievler Premium Detailing, Motosiklet Bakım & Kapalı Otopark | Ankara',
+  description:
+    'Ankara Bahçelievler 7. Cadde\'ye 350m: Mikron seviyesinde boya düzeltme, 9H nano seramik zırh, motosiklet yıkama & detailing, dielektrik kuru buharlı motor temizliği ve 24/7 CCTV izlemeli kapalı otopark.',
+  keywords: [
+    'bumex garage',
+    'bahçelievler oto yıkama',
+    'bahçelievler kapalı otopark',
+    '7 cadde otopark',
+    'ankara kapalı otopark',
+    'motosiklet yıkama ankara',
+    'motosiklet detailing',
+    'ankara pasta cila',
+    'seramik kaplama ankara',
+    '9H nano seramik',
+    'dielektrik buharlı motor temizliği',
+    'fırçasız oto yıkama',
+    'çankaya boya koruma',
+    'park and wash ankara',
+  ],
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
-    title: 'Bumex Garage — Premium Detailing & Araç Bakım',
-    description: 'Ankara Bahçelievler\'in seçkin otomobil ve motosikletlerine mikron seviyesinde boya restorasyonu ve 9H seramik koruma.',
+    title: 'Bumex Garage — Bahçelievler Premium Detailing, Motosiklet Bakım & Kapalı Otopark',
+    description:
+      'Ankara Bahçelievler 7. Cadde\'ye 350m: Mikron boya restorasyonu, 9H nano seramik, motosiklet detailing, dielektrik motor koruma ve güvenli kapalı otopark.',
+    url: 'https://bumexgarage.com',
+    siteName: 'Bumex Garage',
     locale: 'tr_TR',
     type: 'website',
+  },
+  other: {
+    'geo.region': 'TR-06',
+    'geo.placename': 'Ankara',
+    'geo.position': '39.9277018;32.8246501',
+    ICBM: '39.9277018, 32.8246501',
   },
 };
 
@@ -26,7 +56,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="tr" suppressHydrationWarning>
-      <body>{children}</body>
+      <body>
+        {children}
+        <StructuredData />
+      </body>
     </html>
   );
 }

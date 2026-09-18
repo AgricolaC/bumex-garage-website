@@ -80,34 +80,44 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <a
-                  href="#hizmetler"
+                <Link
+                  href="/otopark"
+                  className={`hover:text-[#6B1418] transition flex items-center gap-1 font-semibold ${
+                    isCream ? 'text-[#0D0D0D]' : 'text-white'
+                  }`}
+                >
+                  7. Cadde Kapalı Otoparkı <ArrowUpRight className="w-3 h-3 text-[#6B1418]" />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/#hizmetler"
                   className={`hover:text-[#6B1418] transition ${
                     isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                   }`}
                 >
                   13 Hizmetlik Kartela
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#fiyatlar"
+                <Link
+                  href="/#fiyatlar"
                   className={`hover:text-[#6B1418] transition ${
                     isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                   }`}
                 >
-                  Motosiklet Detailing
-                </a>
+                  Motosiklet Detailing & Paketler
+                </Link>
               </li>
               <li>
-                <a
-                  href="#restorasyon"
+                <Link
+                  href="/#restorasyon"
                   className={`hover:text-[#6B1418] transition ${
                     isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                   }`}
                 >
                   Boya Düzeltme (Öncesi / Sonrası)
-                </a>
+                </Link>
               </li>
               <li>
                 <button
@@ -132,14 +142,14 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
                 </button>
               </li>
               <li>
-                <a
-                  href="#konum"
+                <Link
+                  href="/#konum"
                   className={`hover:text-[#6B1418] transition ${
                     isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                   }`}
                 >
                   Google Harita & Yol Tarifi
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -172,6 +182,19 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Sessiz Varlık Uzlaşması (Entity Reconciliation Bridge) */}
+        <div
+          className={`py-4 border-b text-[11px] leading-relaxed transition-colors duration-200 ${
+            isCream
+              ? 'border-[#6C6A6B]/20 text-[#6C6A6B]'
+              : 'border-white/10 text-[#80868E]'
+          }`}
+        >
+          <p>
+            <strong>Lokasyon & Hizmet Bilgisi:</strong> Bumex Garage, Ankara Bahçelievler Prof. Muammer Aksoy Caddesi No: 48 adresinde (eski Supark Otopark ve Yıkama lokasyonunda) 5 ana operasyonel alanda — Otomobil Yıkama, Otomobil Detailing, Motosiklet Yıkama, Motosiklet Detailing ve 7. Cadde Kapalı Otopark Tesisleri — kesintisiz hizmet vermektedir.
+          </p>
         </div>
 
         {/* Alt Bar: Telif */}

@@ -144,22 +144,29 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
           </Link>
 
           {/* Menü Linkleri */}
-          <div className="hidden lg:flex items-center gap-7 text-xs font-bold uppercase tracking-wider">
-            <a href="#hizmetler" className="hover:text-[#6B1418] transition">
+          <div className="hidden lg:flex items-center gap-6 text-xs font-bold uppercase tracking-wider">
+            <Link href="/#hizmetler" className="hover:text-[#6B1418] transition">
               Hizmetlerimiz
-            </a>
-            <a href="#motosiklet" className="hover:text-[#6B1418] transition">
+            </Link>
+            <Link href="/#motosiklet" className="hover:text-[#6B1418] transition">
               Motosiklet Detailing
-            </a>
-            <a href="#restorasyon" className="hover:text-[#6B1418] transition">
+            </Link>
+            <Link href="/#restorasyon" className="hover:text-[#6B1418] transition">
               Restorasyon
-            </a>
-            <a href="#fiyatlar" className="hover:text-[#6B1418] transition">
-              Paketler & Fiyatlar
-            </a>
-            <a href="#konum" className="hover:text-[#6B1418] transition">
+            </Link>
+            <Link href="/#fiyatlar" className="hover:text-[#6B1418] transition">
+              Fiyatlar
+            </Link>
+            <Link
+              href="/otopark"
+              className="px-2.5 py-1 rounded bg-[#6B1418]/10 text-[#6B1418] hover:bg-[#6B1418] hover:text-white transition font-black tracking-wide border border-[#6B1418]/30 flex items-center gap-1.5"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-[#6B1418]" />
+              <span>Kapalı Otopark</span>
+            </Link>
+            <Link href="/#konum" className="hover:text-[#6B1418] transition">
               Konum
-            </a>
+            </Link>
           </div>
 
           {/* Sağ Aksiyonlar */}
