@@ -39,8 +39,8 @@ const SERVICES: ServiceItem[] = [
   // Boya & Koruma
   {
     id: 'pasta-cila',
-    title: 'Pasta-Cila ve Boya Koruma',
-    subtitle: 'Mikron boya analizi ile kılcal çizik ve harezlerin %95+ giderilmesi.',
+    title: 'Pasta Cila ve Boya Restorasyonu',
+    subtitle: 'Mikron boya analizi ve profesyonel pasta cila ile kılcal çizik ve harezlerin %95+ giderilmesi.',
     category: 'Boya & Koruma',
     icon: Gem,
     modalType: 'detailing',
@@ -83,8 +83,8 @@ const SERVICES: ServiceItem[] = [
   },
   {
     id: 'detayli-kuafor',
-    title: 'Detaylı Araç İçi Kuaför',
-    subtitle: 'Koltuk, tavan ve taban halılarında sıcak ekstraksiyonlu leke ve kir arındırma.',
+    title: 'Detaylı Oto Kuaför & İç Hijyen',
+    subtitle: 'Koltuk, tavan ve taban halılarında sıcak ekstraksiyon ve buharlı hijyen ile profesyonel oto kuaför ve koltuk/taban restorasyonu.',
     category: 'İç Hijyen & İzolasyon',
     icon: Armchair,
     actionType: 'call',

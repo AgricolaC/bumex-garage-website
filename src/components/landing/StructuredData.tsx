@@ -17,9 +17,11 @@ export function StructuredData() {
         url: 'https://bumexgarage.com',
         telephone: '+905524703610',
         priceRange: '₺₺',
+        currenciesAccepted: 'TRY',
+        paymentAccepted: 'Nakit, Kredi Kartı, Havale/EFT',
         image: 'https://bumexgarage.com/og-image.jpg',
         description:
-          'Ankara Bahçelievler\'de 7. Cadde\'ye 350m mesafede fırçasız oto yıkama, mikron boya restorasyonu, 9H nano seramik, dielektrik kuru buharlı motor koruma, motosiklet detailing ve 24/7 CCTV izlemeli kapalı otopark tesisi.',
+          'Ankara Bahçelievler\'de 7. Cadde\'ye 350m mesafede fırçasız oto yıkama, detaylı araç içi kuaför, mikron boya restorasyonu ve pasta cila, 9H nano seramik kaplama, dielektrik kuru buharlı motor koruma, motosiklet detailing ve 24/7 CCTV izlemeli kapalı otopark tesisi.',
         address: {
           '@type': 'PostalAddress',
           streetAddress: 'Prof. Muammer Aksoy Cad. (2. Cd.) No: 48',
@@ -46,8 +48,8 @@ export function StructuredData() {
               'Saturday',
               'Sunday',
             ],
-            opens: '08:30',
-            closes: '20:00',
+            opens: '10:00',
+            closes: '22:00',
           },
         ],
         areaServed: [

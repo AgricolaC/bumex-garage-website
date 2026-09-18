@@ -447,7 +447,7 @@ export function OtoparkView() {
                     isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                   }`}
                 >
-                  Garajımız haftanın 7 günü 08:30 – 20:00 saatleri arasında kesintisiz açık olup
+                  Garajımız haftanın 7 günü 10:00 – 22:00 saatleri arasında kesintisiz açık olup
                   personel eşliğinde giriş-çıkış yapılmaktadır. Özel teslimat veya geç çıkış
                   talepleriniz için gün içinde görevli ekibimize bilgi vermeniz yeterlidir.
                 </p>

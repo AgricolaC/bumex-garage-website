@@ -109,7 +109,7 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
                 <div>
                   <span className="font-bold block">Çalışma Saatleri</span>
                   <span className={isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}>
-                    08:30 – 20:00 (Her Gün Açık)
+                    10:00 – 22:00 (Her Gün Açık)
                   </span>
                 </div>
               </div>

@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Phone, MessageCircle, Sun, Moon, MapPin, Instagram, ExternalLink } from 'lucide-react';
 import { LandingTheme } from '@/hooks/useLandingTheme';
+import { BumexLogo } from './BumexLogo';
 
 interface LandingNavbarProps {
   theme: LandingTheme;
@@ -49,7 +50,7 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
               }`}
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#1FAD4E] animate-pulse" />
-              <span>Açık • 08:30 – 20:00</span>
+              <span>Açık • 10:00 – 22:00</span>
             </span>
           </div>
 
@@ -128,19 +129,16 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
         }`}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-8 py-3.5 flex items-center justify-between">
-          {/* Elit ve Bold 'BG' İmzası */}
+          {/* Bumex Garage Logo */}
           <Link
             href="/"
             className="flex items-center gap-2 group select-none py-1"
             aria-label="Bumex Garage Ana Sayfa"
           >
-            <span
-              className={`font-black text-2xl sm:text-3xl tracking-tighter transition-all duration-200 group-hover:scale-105 ${
-                isCream ? 'text-[#0D0D0D]' : 'text-white'
-              }`}
-            >
-              B<span className="text-[#6B1418]">G</span>
-            </span>
+            <BumexLogo
+              isCream={isCream}
+              className="h-9 sm:h-10 w-auto transition-transform duration-200 group-hover:scale-105"
+            />
           </Link>
 
           {/* Menü Linkleri */}

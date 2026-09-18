@@ -1,20 +1,109 @@
 'use client';
 
-import React from 'react';
-import { Phone, MessageCircle, ShieldCheck, Sparkles, CheckCircle2 } from 'lucide-react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import {
+  Phone,
+  MessageCircle,
+  ShieldCheck,
+  Sparkles,
+  CheckCircle2,
+  Gem,
+  Zap,
+  Droplets,
+  Car,
+  Bike,
+  Play,
+  Pause,
+} from 'lucide-react';
 import { LandingTheme } from '@/hooks/useLandingTheme';
 import { HeroVisualCard } from './HeroVisualCard';
+import { WORKSHOP_PILLARS, WorkshopPillarId, WorkshopPillar } from './heroPillars';
 
 interface HeroSectionProps {
   theme: LandingTheme;
 }
 
+const TAB_ICONS: Record<WorkshopPillar['iconName'], React.ElementType> = {
+  Gem,
+  ShieldCheck,
+  Zap,
+  Droplets,
+  Car,
+  Bike,
+};
+
 export function HeroSection({ theme }: HeroSectionProps) {
   const isCream = theme === 'cream';
 
+  const [activePillarId, setActivePillarId] = useState<WorkshopPillarId>('mikron');
+  const [isUserPaused, setIsUserPaused] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isTemporarilyPaused, setIsTemporarilyPaused] = useState(false);
+  const pauseTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const activePillar =
+    WORKSHOP_PILLARS.find((p) => p.id === activePillarId) ?? WORKSHOP_PILLARS[0];
+
+  // Sonraki sütuna geçiş fonksiyonu
+  const advancePillar = useCallback(() => {
+    setActivePillarId((currentId) => {
+      const currentIndex = WORKSHOP_PILLARS.findIndex((p) => p.id === currentId);
+      const nextIndex = (currentIndex + 1) % WORKSHOP_PILLARS.length;
+      return WORKSHOP_PILLARS[nextIndex].id;
+    });
+  }, []);
+
+  // Kullanıcı etkileşimi (tıklama): Geçici olarak otomatik geçişi duraklat
+  const handleSelectPillar = (id: WorkshopPillarId) => {
+    setActivePillarId(id);
+    setIsTemporarilyPaused(true);
+
+    if (pauseTimeoutRef.current) {
+      clearTimeout(pauseTimeoutRef.current);
+    }
+    // Kullanıcı bir sekmeye tıkladıktan 15 saniye sonra otomatik akışa devam et
+    pauseTimeoutRef.current = setTimeout(() => {
+      setIsTemporarilyPaused(false);
+    }, 15000);
+  };
+
+  // WCAG 2.2.2 Pause/Play tetikleyicisi
+  const handleTogglePause = () => {
+    if (isUserPaused) {
+      setIsUserPaused(false);
+    } else {
+      setIsUserPaused(true);
+      if (pauseTimeoutRef.current) {
+        clearTimeout(pauseTimeoutRef.current);
+        pauseTimeoutRef.current = null;
+      }
+      setIsTemporarilyPaused(false);
+    }
+  };
+
+  // 7 saniyede bir ambient dikey akış (Kullanıcı duraklatmadığı, hover etmediği veya sekmeye tıklamadığı sürece)
+  useEffect(() => {
+    if (isUserPaused || isHovered || isTemporarilyPaused) return;
+
+    const interval = setInterval(() => {
+      advancePillar();
+    }, 7000);
+
+    return () => clearInterval(interval);
+  }, [isUserPaused, isHovered, isTemporarilyPaused, advancePillar]);
+
+  // Bileşen unmount temizliği
+  useEffect(() => {
+    return () => {
+      if (pauseTimeoutRef.current) {
+        clearTimeout(pauseTimeoutRef.current);
+      }
+    };
+  }, []);
+
   return (
     <section
-      className={`relative min-h-[80vh] flex items-center px-4 sm:px-8 py-14 sm:py-18 border-b transition-colors duration-200 ${
+      className={`relative min-h-[82vh] flex items-center px-4 sm:px-8 py-12 sm:py-16 border-b transition-colors duration-200 ${
         isCream ? 'border-[#6C6A6B]/20' : 'border-white/10'
       }`}
       style={{
@@ -22,37 +111,96 @@ export function HeroSection({ theme }: HeroSectionProps) {
           ? 'radial-gradient(circle at 72% 35%, rgba(107, 20, 24, 0.08) 0%, rgba(232, 227, 223, 0.95) 65%), #E8E3DF'
           : 'radial-gradient(circle at 72% 35%, rgba(107, 20, 24, 0.22) 0%, rgba(27, 29, 32, 0.98) 65%), #1B1D20',
       }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <div className="max-w-6xl mx-auto w-full grid lg:grid-cols-12 gap-10 items-center">
         {/* Sol Metin Kolonu */}
         <div className="lg:col-span-7">
-          <div className="flex items-center gap-2 mb-4">
+          {/* Konum Rozeti */}
+          <div className="flex items-center gap-2 mb-3">
             <span className="w-2.5 h-2.5 rounded-full bg-[#6B1418]" />
             <span
               className={`text-xs font-bold tracking-wider ${
                 isCream ? 'text-[#6C6A6B]' : 'text-[#9DA3AA]'
               }`}
             >
-              Bahçelievler, Çankaya — Ankara
+              Bahçelievler, Çankaya — Ankara • 7. Cadde&apos;ye 350m
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.12] mb-5">
-            Otomobil & Motosiklet Boyasını{' '}
-            <span className="underline decoration-[#6B1418] decoration-4 underline-offset-8">
-              Kusursuzlaştıran
-            </span>{' '}
-            Zanaat.
+          {/* Model B: İnteraktif Atölye Protokol Sekmeleri (Pill Switcher & Play/Pause) */}
+          <div className="flex items-center gap-2 mb-4">
+            <div
+              className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none"
+              role="tablist"
+              aria-label="Bumex Garage Atölye Uzmanlıkları"
+            >
+              {WORKSHOP_PILLARS.map((pillar) => {
+                const Icon = TAB_ICONS[pillar.iconName];
+                const isSelected = pillar.id === activePillar.id;
+
+                return (
+                  <button
+                    key={pillar.id}
+                    type="button"
+                    role="tab"
+                    aria-selected={isSelected}
+                    onClick={() => handleSelectPillar(pillar.id)}
+                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition-all duration-200 border ${
+                      isSelected
+                        ? isCream
+                          ? 'bg-[#6B1418] text-white border-[#6B1418] shadow-md shadow-[#6B1418]/25 scale-105'
+                          : 'bg-[#6B1418] text-white border-[#6B1418] shadow-md shadow-[#6B1418]/40 scale-105'
+                        : isCream
+                          ? 'bg-white/80 text-[#565352] border-[#6C6A6B]/25 hover:bg-white hover:text-[#0D0D0D]'
+                          : 'bg-[#222529]/80 text-[#9DA3AA] border-white/10 hover:bg-[#2A2E34] hover:text-white'
+                    }`}
+                  >
+                    <Icon className="w-3.5 h-3.5 shrink-0" />
+                    <span>{pillar.tabLabel}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* WCAG 2.2.2 Pause/Play Kontrol Butonu */}
+            <button
+              type="button"
+              onClick={handleTogglePause}
+              aria-label={isUserPaused ? 'Otomatik geçişi başlat' : 'Otomatik geçişi duraklat'}
+              title={isUserPaused ? 'Otomatik geçişi başlat' : 'Otomatik geçişi duraklat'}
+              className={`p-1.5 rounded-full border transition shrink-0 ${
+                isCream
+                  ? 'bg-white/80 border-[#6C6A6B]/25 text-[#565352] hover:bg-white hover:text-[#0D0D0D]'
+                  : 'bg-[#222529]/80 border-white/10 text-[#9DA3AA] hover:bg-[#2A2E34] hover:text-white'
+              }`}
+            >
+              {isUserPaused ? <Play className="w-3.5 h-3.5" /> : <Pause className="w-3.5 h-3.5" />}
+            </button>
+          </div>
+
+          {/* Model A: Dinamik Morfolojik H1 Başlık (CLS Korumalı Sabit Min-Yükseklik) */}
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.12] mb-5 min-h-[8.5rem] sm:min-h-[7rem] lg:min-h-[6.5rem] flex flex-col justify-start">
+            <span className={isCream ? 'text-[#0D0D0D]' : 'text-white'}>
+              Otomobil ve Motosiklette{' '}
+            </span>
+            <span
+              key={activePillar.id}
+              className="text-[#6B1418] inline-block animate-in fade-in slide-in-from-bottom-2 duration-300 underline decoration-[#6B1418]/30 decoration-4 underline-offset-8"
+            >
+              {activePillar.headline}
+            </span>
           </h1>
 
+          {/* Dinamik Alt Metin (CLS Korumalı Sabit Min-Yükseklik) */}
           <p
-            className={`text-base sm:text-lg leading-relaxed mb-8 max-w-xl ${
+            key={`sub-${activePillar.id}`}
+            className={`text-base sm:text-lg leading-relaxed mb-8 max-w-xl min-h-[6.5rem] sm:min-h-[5.5rem] lg:min-h-[4.5rem] transition-opacity animate-in fade-in duration-300 ${
               isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
             }`}
           >
-            Alelade bir oto yıkama değil; aracınızın ve motosikletinizin ilk günkü fabrika
-            derinliğine kavuştuğu, mikron seviyesinde boya düzeltme, 9H seramik, PPF kaplama ve ses
-            izolasyonu atölyesi.
+            {activePillar.subtitle}
           </p>
 
           {/* Aksiyon Butonları */}
@@ -66,7 +214,7 @@ export function HeroSection({ theme }: HeroSectionProps) {
             </a>
 
             <a
-              href="https://wa.me/905524703610?text=Merhaba%20Bumex%20Garage,%20arac%C4%B1m%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum"
+              href={`https://wa.me/905524703610?text=${encodeURIComponent(activePillar.whatsappMessage)}`}
               target="_blank"
               rel="noopener noreferrer"
               className={`inline-flex items-center gap-2 text-xs sm:text-sm font-bold px-5 py-3.5 rounded border transition ${
@@ -80,7 +228,7 @@ export function HeroSection({ theme }: HeroSectionProps) {
             </a>
           </div>
 
-          {/* Müşteri İçin Gerçekten Önem Taşıyan Güvenceler (Pillars that Matter) */}
+          {/* Müşteri İçin Gerçekten Önem Taşıyan 3 Kalıcı Güvence */}
           <div
             className={`grid sm:grid-cols-3 gap-3.5 pt-6 border-t ${
               isCream ? 'border-[#6C6A6B]/20' : 'border-white/10'
@@ -88,7 +236,11 @@ export function HeroSection({ theme }: HeroSectionProps) {
           >
             {/* Güvence 1 */}
             <div
-              className={`p-3.5 rounded-xl border ${
+              className={`p-3.5 rounded-xl border transition-colors ${
+                activePillar.id === 'buhar'
+                  ? 'ring-2 ring-[#6B1418] bg-[#6B1418]/5'
+                  : ''
+              } ${
                 isCream
                   ? 'bg-white/85 border-[#6C6A6B]/25 text-[#0D0D0D] shadow-xs'
                   : 'bg-[#222529]/80 border-white/10 text-white'
@@ -109,7 +261,11 @@ export function HeroSection({ theme }: HeroSectionProps) {
 
             {/* Güvence 2 */}
             <div
-              className={`p-3.5 rounded-xl border ${
+              className={`p-3.5 rounded-xl border transition-colors ${
+                activePillar.id === 'mikron' || activePillar.id === 'motosiklet'
+                  ? 'ring-2 ring-[#6B1418] bg-[#6B1418]/5'
+                  : ''
+              } ${
                 isCream
                   ? 'bg-white/85 border-[#6C6A6B]/25 text-[#0D0D0D] shadow-xs'
                   : 'bg-[#222529]/80 border-white/10 text-white'
@@ -130,7 +286,11 @@ export function HeroSection({ theme }: HeroSectionProps) {
 
             {/* Güvence 3 */}
             <div
-              className={`p-3.5 rounded-xl border ${
+              className={`p-3.5 rounded-xl border transition-colors ${
+                activePillar.id === 'yikama'
+                  ? 'ring-2 ring-[#6B1418] bg-[#6B1418]/5'
+                  : ''
+              } ${
                 isCream
                   ? 'bg-white/85 border-[#6C6A6B]/25 text-[#0D0D0D] shadow-xs'
                   : 'bg-[#222529]/80 border-white/10 text-white'
@@ -151,9 +311,12 @@ export function HeroSection({ theme }: HeroSectionProps) {
           </div>
         </div>
 
-        {/* Sağ Görsel Kolonu */}
+        {/* Sağ Görsel Kolonu (Senkronize Görsel Vitrin) */}
         <div className="lg:col-span-5">
-          <HeroVisualCard theme={theme} />
+          <HeroVisualCard
+            theme={theme}
+            activePillar={activePillar}
+          />
         </div>
       </div>
     </section>

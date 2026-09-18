@@ -79,7 +79,7 @@ Bumex Garage is not a generic corner car wash, nor is it merely a software platf
 | **Latitude / Longitude** | `39.9277018, 32.8246501` | Exact Google Maps Embed URL |
 | **Google Place ID** | `ChIJlQLz8WJP0xQR5ahmG3GTF88` | Google Maps API & Direction Target |
 | **Telephone** | `+90 552 470 36 10` (`0552 470 36 10`) | Website Navbar / Mobile Call Bar |
-| **Operating Hours** | Pazartesi – Pazar: 08:30 – 20:00 (Her gün açık) | Verified Business Hours |
+| **Operating Hours** | Pazartesi – Pazar: 10:00 – 22:00 (Her gün açık) | Verified Business Hours |
 | **Social / Web Footprint** | Website: `bumexgarage.com` · IG: `@bumex_garage` | Active Channels |
 
 ---
@@ -239,8 +239,8 @@ Injected into the Next.js App Router root layout:
         {
           "@type": "OpeningHoursSpecification",
           "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-          "opens": "08:30",
-          "closes": "20:00"
+          "opens": "10:00",
+          "closes": "22:00"
         }
       ],
       "areaServed": [

@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from 'next';
-import { StructuredData } from '@/components/landing/StructuredData';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -10,19 +9,27 @@ export const metadata: Metadata = {
   keywords: [
     'bumex garage',
     'bahçelievler oto yıkama',
+    'bahçelievler oto kuaför',
+    'ankara oto kuaför',
     'bahçelievler kapalı otopark',
     '7 cadde otopark',
     'ankara kapalı otopark',
     'motosiklet yıkama ankara',
     'motosiklet detailing',
     'ankara pasta cila',
+    'bahçelievler pasta cila',
     'seramik kaplama ankara',
+    'bahçelievler seramik kaplama',
     '9H nano seramik',
     'dielektrik buharlı motor temizliği',
     'fırçasız oto yıkama',
+    'bahçelievler fırçasız oto yıkama',
     'çankaya boya koruma',
+    'emek oto yıkama',
+    'beşevler otopark',
     'park and wash ankara',
   ],
+  manifest: '/manifest.json',
   alternates: {
     canonical: '/',
   },
@@ -34,10 +41,25 @@ export const metadata: Metadata = {
     siteName: 'Bumex Garage',
     locale: 'tr_TR',
     type: 'website',
+    images: [
+      {
+        url: 'https://bumexgarage.com/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Bumex Garage Bahçelievler Detailing & Otopark',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Bumex Garage — Bahçelievler Premium Detailing, Motosiklet Bakım & Kapalı Otopark',
+    description:
+      'Ankara Bahçelievler 7. Cadde\'ye 350m: Mikron boya restorasyonu, 9H nano seramik, motosiklet detailing, dielektrik motor koruma ve güvenli kapalı otopark.',
+    images: ['https://bumexgarage.com/og-image.jpg'],
   },
   other: {
     'geo.region': 'TR-06',
-    'geo.placename': 'Ankara',
+    'geo.placename': 'Bahçelievler, Çankaya, Ankara',
     'geo.position': '39.9277018;32.8246501',
     ICBM: '39.9277018, 32.8246501',
   },
@@ -58,7 +80,6 @@ export default function RootLayout({
     <html lang="tr" suppressHydrationWarning>
       <body>
         {children}
-        <StructuredData />
       </body>
     </html>
   );

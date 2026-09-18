@@ -1,12 +1,24 @@
 {
-  "name": "Bumex Garage OS",
-  "short_name": "Bumex OS",
-  "description": "Bumex Garage Akıllı Araç Takip, Yıkama Sırası ve Operasyon Sistemi",
-  "start_url": "/bay",
+  "name": "Bumex Garage Bahçelievler",
+  "short_name": "Bumex Garage",
+  "description": "Ankara Bahçelievler Kapalı Otopark, Fırçasız Oto Yıkama & 9H Seramik Detailing Stüdyosu",
+  "start_url": "/",
   "display": "standalone",
-  "background_color": "#090d16",
-  "theme_color": "#090d16",
+  "background_color": "#121315",
+  "theme_color": "#1B1D20",
   "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
     {
       "src": "/favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",

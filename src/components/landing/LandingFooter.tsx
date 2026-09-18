@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Phone, MessageCircle, MapPin, Clock, ArrowUpRight, Instagram } from 'lucide-react';
 import { LandingTheme } from '@/hooks/useLandingTheme';
+import { BumexLogo } from './BumexLogo';
 
 interface LandingFooterProps {
   theme: LandingTheme;
@@ -27,13 +28,10 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
           {/* Sütun 1: Logo & Hakkında (5 kolon) */}
           <div className="md:col-span-5 space-y-4">
             <Link href="/" className="inline-block group select-none">
-              <span
-                className={`font-black text-3xl tracking-tighter transition-all duration-200 group-hover:scale-105 ${
-                  isCream ? 'text-[#0D0D0D]' : 'text-white'
-                }`}
-              >
-                B<span className="text-[#6B1418]">G</span>
-              </span>
+              <BumexLogo
+                isCream={isCream}
+                className="h-12 sm:h-14 w-auto transition-transform duration-200 group-hover:scale-105"
+              />
             </Link>
             <p
               className={`text-xs sm:text-sm leading-relaxed max-w-sm ${
@@ -177,7 +175,7 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
               <div className="flex items-start gap-2">
                 <Clock className="w-4 h-4 text-[#6B1418] shrink-0 mt-0.5" />
                 <span className={isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}>
-                  Her Gün: 08:30 – 20:00 (Haftanın 7 Günü Açık)
+                  Her Gün: 10:00 – 22:00 (Haftanın 7 Günü Açık)
                 </span>
               </div>
             </div>

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { OtoparkView } from '@/components/otopark/OtoparkView';
+import { OtoparkStructuredData } from '@/components/otopark/OtoparkStructuredData';
 
 export const metadata: Metadata = {
   title: '7. Cadde Kapalı Otoparkı & Park & Wash | Bumex Garage Bahçelievler Ankara',
@@ -28,9 +29,29 @@ export const metadata: Metadata = {
     siteName: 'Bumex Garage',
     locale: 'tr_TR',
     type: 'website',
+    images: [
+      {
+        url: 'https://bumexgarage.com/og-otopark.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Bumex Garage 7. Cadde Kapalı Otoparkı Bahçelievler',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '7. Cadde Kapalı Otoparkı & Park & Wash | Bumex Garage Bahçelievler',
+    description:
+      '7. Cadde\'ye 350m mesafede 24/7 CCTV gözetimli kapalı otopark ve Park & Wash hizmeti.',
+    images: ['https://bumexgarage.com/og-otopark.jpg'],
   },
 };
 
 export default function OtoparkPage() {
-  return <OtoparkView />;
+  return (
+    <>
+      <OtoparkStructuredData />
+      <OtoparkView />
+    </>
+  );
 }
