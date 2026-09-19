@@ -269,6 +269,46 @@ for (const q of requiredKonumQuestions) {
 }
 pass("All 4 konum FAQ questions strictly synchronized between visible UI and Schema.org JSON-LD");
 
+// 3d. Validate Dedicated Service Hubs (/hizmetler/[slug]) and Unified Schema
+const servicePagePath = path.join(ROOT, 'src/app/hizmetler/[slug]/page.tsx');
+if (!fs.existsSync(servicePagePath)) fail(`src/app/hizmetler/[slug]/page.tsx not found`);
+const servicePageCode = fs.readFileSync(servicePagePath, 'utf8');
+
+if (!servicePageCode.includes('<ServiceStructuredData') || !servicePageCode.includes('generateStaticParams')) {
+  fail("src/app/hizmetler/[slug]/page.tsx must mount <ServiceStructuredData /> and declare generateStaticParams for SSG");
+}
+
+const serviceStructuredDataPath = path.join(ROOT, 'src/components/hizmetler/ServiceStructuredData.tsx');
+if (!fs.existsSync(serviceStructuredDataPath)) fail(`ServiceStructuredData.tsx not found at ${serviceStructuredDataPath}`);
+const serviceStructuredDataCode = fs.readFileSync(serviceStructuredDataPath, 'utf8');
+
+if (
+  !serviceStructuredDataCode.includes("'@type': 'Service'") ||
+  !serviceStructuredDataCode.includes("'@type': 'BreadcrumbList'") ||
+  !serviceStructuredDataCode.includes("'@type': 'FAQPage'")
+) {
+  fail("ServiceStructuredData.tsx must provide a unified @graph with Service, BreadcrumbList, and FAQPage");
+}
+
+const servicesDataPath = path.join(ROOT, 'src/data/servicesData.ts');
+if (!fs.existsSync(servicesDataPath)) fail(`src/data/servicesData.ts not found`);
+const servicesDataCode = fs.readFileSync(servicesDataPath, 'utf8');
+
+const requiredSlugs = [
+  'ppf-kaplama',
+  'seramik-kaplama',
+  'boya-restorasyonu',
+  'buharli-motor-temizligi',
+  'detayli-ic-hijyen',
+];
+
+for (const slug of requiredSlugs) {
+  if (!servicesDataCode.includes(`'${slug}'`)) {
+    fail(`src/data/servicesData.ts missing required service slug: "${slug}"`);
+  }
+}
+pass("All 5 dedicated Service Hubs (ppf, seramik, pasta cila, motor, kuafor) verified with SSG and Schema.org @graph");
+
 // 4. Validate True 1200x630 OpenGraph & Dedicated Route Images
 const ogImagePath = path.join(ROOT, 'public/og-image.jpg');
 const ogDims = getImageDimensions(ogImagePath);
@@ -382,5 +422,5 @@ if (!footerCode.includes('eski Supark Otopark') || !footerCode.includes('Prof. M
 }
 pass("Quiet entity reconciliation bridge (Han-gar, Sonax-Würth, Supark) verified in footer");
 
-console.log('\n\x1b[32m=== All 21 Rigorous SEO, OpenGraph, PWA & Schema Invariants Passed! ===\x1b[0m\n');
+console.log('\n\x1b[32m=== All 22 Rigorous SEO, OpenGraph, PWA & Schema Invariants Passed! ===\x1b[0m\n');
 process.exit(0);

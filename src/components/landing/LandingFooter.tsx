@@ -109,55 +109,53 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
               </li>
               <li>
                 <Link
-                  href="/#hizmetler"
-                  className={`hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition ${
-                    isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
+                  href="/hizmetler/ppf-kaplama"
+                  className={`hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition flex items-center gap-1 font-medium ${
+                    isCream ? 'text-[#3D3A39]' : 'text-zinc-200'
                   }`}
                 >
-                  Resmi Hizmet Kartelası
+                  PPF Boya Koruma Filmi <ArrowUpRight className="w-3 h-3 text-[#1E3A8A] dark:text-[#60A5FA]" />
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/#fiyatlar"
-                  className={`hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition ${
-                    isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
+                  href="/hizmetler/seramik-kaplama"
+                  className={`hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition flex items-center gap-1 font-medium ${
+                    isCream ? 'text-[#3D3A39]' : 'text-zinc-200'
                   }`}
                 >
-                  Motosiklet Transfer Desteği (Yakında)
+                  9H Nano Seramik Kaplama <ArrowUpRight className="w-3 h-3 text-[#1E3A8A] dark:text-[#60A5FA]" />
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/#restorasyon"
-                  className={`hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition ${
-                    isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
+                  href="/hizmetler/boya-restorasyonu"
+                  className={`hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition flex items-center gap-1 font-medium ${
+                    isCream ? 'text-[#3D3A39]' : 'text-zinc-200'
                   }`}
                 >
-                  Boya Düzeltme (Öncesi / Sonrası)
+                  Mikron Boya Restorasyonu <ArrowUpRight className="w-3 h-3 text-[#1E3A8A] dark:text-[#60A5FA]" />
                 </Link>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={() => onOpenModal('detailing')}
-                  className={`hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition text-left flex items-center gap-1 ${
-                    isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
+                <Link
+                  href="/hizmetler/buharli-motor-temizligi"
+                  className={`hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition flex items-center gap-1 font-medium ${
+                    isCream ? 'text-[#3D3A39]' : 'text-zinc-200'
                   }`}
                 >
-                  Detailing Protokolü <ArrowUpRight className="w-3 h-3" />
-                </button>
+                  Buharlı Motor Temizliği <ArrowUpRight className="w-3 h-3 text-[#1E3A8A] dark:text-[#60A5FA]" />
+                </Link>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={() => onOpenModal('motor')}
-                  className={`hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition text-left flex items-center gap-1 ${
-                    isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
+                <Link
+                  href="/hizmetler/detayli-ic-hijyen"
+                  className={`hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition flex items-center gap-1 font-medium ${
+                    isCream ? 'text-[#3D3A39]' : 'text-zinc-200'
                   }`}
                 >
-                  Kuru Buharlı Motor Protokolü <ArrowUpRight className="w-3 h-3" />
-                </button>
+                  Detaylı İç Hijyen &amp; Kuaför <ArrowUpRight className="w-3 h-3 text-[#1E3A8A] dark:text-[#60A5FA]" />
+                </Link>
               </li>
             </ul>
           </div>

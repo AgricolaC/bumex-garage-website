@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useMemo } from 'react';
+import Link from 'next/link';
 import {
   Gem,
   Volume2,
@@ -47,6 +48,7 @@ interface ServiceItem {
   icon: React.ElementType;
   modalType?: 'motor' | 'detailing';
   actionType: 'modal' | 'call';
+  href?: string;
 }
 
 const SERVICES: ServiceItem[] = [
@@ -60,6 +62,7 @@ const SERVICES: ServiceItem[] = [
     icon: Gem,
     modalType: 'detailing',
     actionType: 'modal',
+    href: '/hizmetler/boya-restorasyonu',
   },
   {
     id: 'seramik-kaplama',
@@ -70,6 +73,7 @@ const SERVICES: ServiceItem[] = [
     icon: ShieldCheck,
     modalType: 'detailing',
     actionType: 'modal',
+    href: '/hizmetler/seramik-kaplama',
   },
   {
     id: 'ppf-kaplama',
@@ -79,6 +83,7 @@ const SERVICES: ServiceItem[] = [
     type: 'both',
     icon: Shield,
     actionType: 'call',
+    href: '/hizmetler/ppf-kaplama',
   },
   {
     id: 'wax-uygulamasi',
@@ -108,6 +113,7 @@ const SERVICES: ServiceItem[] = [
     type: 'car',
     icon: Armchair,
     actionType: 'call',
+    href: '/hizmetler/detayli-ic-hijyen',
   },
   {
     id: 'buharli-temizlik',
@@ -138,6 +144,7 @@ const SERVICES: ServiceItem[] = [
     icon: Wrench,
     modalType: 'motor',
     actionType: 'modal',
+    href: '/hizmetler/buharli-motor-temizligi',
   },
   {
     id: 'far-temizligi',
@@ -439,7 +446,15 @@ export function ServicesCatalog({ theme, onOpenModal }: ServicesCatalogProps) {
                 </div>
 
                 <div className="mt-5 pt-3 border-t border-black/5 dark:border-white/5 flex items-center justify-between">
-                  {item.actionType === 'modal' && item.modalType ? (
+                  {item.href ? (
+                    <Link
+                      href={item.href}
+                      className="text-xs font-bold hover:underline flex items-center gap-1 text-[#1E3A8A] dark:text-[#60A5FA]"
+                    >
+                      <span>Detaylı İncele</span>
+                      <ChevronRight className="w-3.5 h-3.5" />
+                    </Link>
+                  ) : item.actionType === 'modal' && item.modalType ? (
                     <button
                       type="button"
                       onClick={() => onOpenModal(item.modalType!)}
