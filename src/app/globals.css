@@ -52,3 +52,21 @@ body {
   --l-shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.35);
   --l-shadow-strong: 0 20px 50px rgba(0, 0, 0, 0.55);
 }
+
+/* ─── Floating Rolling Window (Müşteri Yorumları Kayan Pencere) ─── */
+@keyframes floatRolling {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-floating-reviews {
+  animation: floatRolling 26s linear infinite;
+}
+
+.animate-floating-reviews:hover {
+  animation-play-state: paused;
+}

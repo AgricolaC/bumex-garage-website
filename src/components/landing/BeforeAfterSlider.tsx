@@ -112,7 +112,7 @@ const TRANSFORMATIONS: TransformationItem[] = [
       result: 'Derin yüzey yansıması, hare ve mikro çiziklerden arındırılmış pürüzsüz boya',
       testimonial: {
         quote: 'Arabadan çıkmayacak denen lekeleri bile tek yıkamada çıkardılar. Kaliteli hizmet için çok teşekkürler.',
-        author: 'Mehmet Ali Çoban • Doğrulanmış Google Yorumu',
+        author: 'Mehmet Ali Ç. • Doğrulanmış Google Yorumu',
       },
     },
     highlights: [
