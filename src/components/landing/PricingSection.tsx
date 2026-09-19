@@ -201,8 +201,8 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                       isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                     }`}
                   >
-                    Koltuklar, taban-tavan halıları, 140°C kuru buhar, medikal ozon ve sıfır riskli dielektrik
-                    motor temizliğini içeren tam kondisyon paketi.
+                    Koltuklar, taban-tavan halıları, buharlı menfez temizliği, ozonla koku giderme ve dielektrik
+                    korumalı güvenli motor temizliğini içeren tam kondisyon paketi.
                   </p>
 
                   <div className="w-full h-[1px] bg-black/5 dark:bg-white/10 mb-5" />
@@ -214,7 +214,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                     </li>
                     <li className="flex items-start gap-2.5">
                       <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                      <span>Buharlı Araç Temizliği (Klima & Havalandırma 140°C)</span>
+                      <span>Buharlı Araç Temizliği (Klima & Havalandırma Kanalları)</span>
                     </li>
                     <li className="flex items-start gap-2.5">
                       <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
@@ -222,11 +222,11 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                     </li>
                     <li className="flex items-start gap-2.5">
                       <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                      <span>Ozon Temizliği (Medikal O₃ ile Koku ve Bakteri İmhası)</span>
+                      <span>Ozonlama ile İnatçı Koku & Bakteri Arındırma</span>
                     </li>
                     <li className="flex items-start gap-2.5">
                       <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                      <span>Far Temizliği & Torpido Mat UV Kalkanı</span>
+                      <span>Torpido Mat UV Koruma & Far Yüzey Temizliği</span>
                     </li>
                   </ul>
                 </div>
@@ -268,14 +268,16 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                 <div>
                   <div className="flex items-center gap-2 mb-2 text-xs font-extrabold uppercase tracking-wider text-[#6C6A6B]">
                     <Shield className={`w-4 h-4 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                    Boya Restorasyonu & Zırh
+                    İncelemeye Dayalı Özel Proje
                   </div>
 
-                  <h3 className="text-xl font-black tracking-tight">Detailing, PPF & 9H Seramik</h3>
+                  <h3 className="text-xl font-black tracking-tight">Boya Restorasyonu, PPF & 9H Seramik</h3>
 
                   <div className="my-4">
-                    <span className="text-3xl sm:text-4xl font-black tracking-tight">Özel Teklif</span>
-                    <span className="text-xs text-[#6C6A6B] block mt-1">/ Garajımızda Ücretsiz Ekspertizle</span>
+                    <span className="text-2xl sm:text-3xl font-black tracking-tight text-[#1E3A8A] dark:text-[#60A5FA]">
+                      Ücretsiz Ekspertiz
+                    </span>
+                    <span className="text-xs text-[#6C6A6B] block mt-1">/ Araç Durumu & İhtiyaca Göre Özel Teklif</span>
                   </div>
 
                   <p
@@ -283,8 +285,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                       isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                     }`}
                   >
-                    Mikron kalınlık analiziyle fabrika verniği korunur; pasta cila, 9H nano seramik kalkan,
-                    taş vuruklarına karşı PPF kaplama ve araç içi ses izolasyonu uygulanır.
+                    Sabit paket yerine araca özel çalışma: Mikron vernik analizi, panel ölçüleri ve mevcut çizik durumuna göre atölyemizde incelenerek sürprizsiz net teklif belirlenir.
                   </p>
 
                   <div className="w-full h-[1px] bg-black/5 dark:bg-white/10 mb-5" />
@@ -292,15 +293,15 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                   <ul className="text-xs sm:text-sm space-y-3 mb-6">
                     <li className="flex items-start gap-2.5">
                       <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                      <span>Pasta Cila ve Boya Koruma (Harezlerin %95+ Giderilmesi)</span>
+                      <span>Pasta Cila & Boya Restorasyonu (Harez ve Çizik Giderme)</span>
                     </li>
                     <li className="flex items-start gap-2.5">
                       <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                      <span>9H Nano Seramik Kaplama (24 Aya Kadar Dayanım)</span>
+                      <span>9H Seramik Kaplama (Su İticilik & Kimyasal Direnç)</span>
                     </li>
                     <li className="flex items-start gap-2.5">
                       <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                      <span>PPF Kaplama (Poliüretan Kendi Kendini Yenileyen Zırh)</span>
+                      <span>TPU PPF Kaplama (Taş Vuruklarına Karşı Şeffaf Koruma)</span>
                     </li>
                     <li className="flex items-start gap-2.5">
                       <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
@@ -340,6 +341,37 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                   </a>
                 </div>
               </div>
+            </div>
+
+            {/* Şeffaf Fiyatlandırma ve Self-Qualification Bilgilendirme Kutusu (Strateji C) */}
+            <div
+              className={`mt-8 p-5 sm:p-6 rounded-2xl border text-xs sm:text-sm leading-relaxed flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 ${
+                isCream
+                  ? 'bg-white/90 border-[#1E3A8A]/20 text-[#0D0D0D]'
+                  : 'bg-[#222529]/80 border-white/10 text-zinc-300'
+              }`}
+            >
+              <div className="space-y-1 max-w-3xl">
+                <div className="flex items-center gap-2 font-bold text-sm text-[#1E3A8A] dark:text-[#60A5FA]">
+                  <span>💡</span>
+                  <span>Fiyatlandırma Politikamız (Sabit Bakım vs. Özel Proje Ayrımı)</span>
+                </div>
+                <p className={isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}>
+                  Yıkama ve kuaför gibi düzenli bakım işlemleri standart taban fiyatlıdır (Hatchback baz alınır; SUV ve büyük segmentlerde işçilik süresine göre ölçeklenir). PPF kaplama, boya restorasyonu ve seramik gibi yüksek zanaat gerektiren projeler ise aracınızın boya kalınlığı ve panel durumu incelenmeden ezbere fiyatlandırılamaz; atölyemizde ücretsiz mikron ekspertizi sonrası karşılıklı teyit edilir.
+                </p>
+              </div>
+
+              <a
+                href={`https://wa.me/905524703610?text=${encodeURIComponent(
+                  'Merhaba Bumex Garage, aracım için güncel fiyat bilgisi ve randevu almak istiyorum. Araç modelim: '
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shrink-0 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white font-bold text-xs shadow-md transition active:scale-95"
+              >
+                <MessageCircle className="w-3.5 h-3.5" />
+                <span>Modeliniz İçin Fiyat Sorun</span>
+              </a>
             </div>
           </div>
         )}

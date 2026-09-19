@@ -78,7 +78,7 @@ export function ProtocolModals({ activeModal, onClose, theme }: ProtocolModalsPr
             >
               Modern motor bölümleri hassas elektronik sensörler ve beyin üniteleri (ECU) barındırır.
               Bumex Garage&apos;da tazyikli su kesinlikle kullanılmaz; akım iletmeyen dielektrik
-              kimyasallar, 140°C kuru buhar ve detay fırçalarıyla sıfır arıza riskiyle temizlenir.
+              kimyasallar, yüksek ısı kuru buhar ve detay fırçalarıyla elektronik aksama su değdirilmeden güvenle temizlenir.
             </p>
 
             {/* Gerçek Atölye Öncesi/Sonrası Uygulama Görseli */}

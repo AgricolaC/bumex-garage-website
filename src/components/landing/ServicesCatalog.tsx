@@ -56,18 +56,18 @@ const SERVICES: ServiceItem[] = [
   {
     id: 'pasta-cila',
     title: 'Pasta Cila ve Boya Restorasyonu',
-    subtitle: 'Mikron boya analizi ve rotary/orbital cila ile kılcal çizik ve harezlerin %95+ giderilmesi.',
+    subtitle: 'Mikron boya analizi ve rotary/orbital finiş ile kılcal çizik, hare ve oksidasyon arındırma.',
     category: 'Boya & Koruma',
     type: 'both',
     icon: Gem,
     modalType: 'detailing',
     actionType: 'modal',
-    href: '/hizmetler/pasta-cila',
+    href: '/hizmetler/boya-restorasyonu',
   },
   {
     id: 'seramik-kaplama',
     title: '9H Nano Seramik Kaplama',
-    subtitle: 'Aynasal derinlik, yoğun hidrofobik su iticilik ve 24 aya kadar kimyasal kalkan.',
+    subtitle: 'Yoğun hidrofobik su iticilik, kimyasal direnç ve boya verniği için uzun süreli koruma.',
     category: 'Boya & Koruma',
     type: 'both',
     icon: ShieldCheck,
@@ -78,7 +78,7 @@ const SERVICES: ServiceItem[] = [
   {
     id: 'ppf-kaplama',
     title: 'PPF Kaplama (Boya Koruma Filmi)',
-    subtitle: 'Taş vuruklarına, sürtmelere ve derin çizilmelere karşı kendi kendini yenileyen poliüretan zırh.',
+    subtitle: 'Taş vuruklarına, sürtmelere ve çiziklere karşı dayanıklı şeffaf poliüretan film (TPU).',
     category: 'Boya & Koruma',
     type: 'both',
     icon: Shield,
@@ -88,7 +88,7 @@ const SERVICES: ServiceItem[] = [
   {
     id: 'wax-uygulamasi',
     title: 'Wax Uygulaması',
-    subtitle: 'Doğal karnauba içerikli koruma; boyayı besleyen sıcak ve derin ıslak görünüm.',
+    subtitle: 'Doğal karnauba içerikli koruma; boyayı besleyen sıcak ve derin parlaklık.',
     category: 'Boya & Koruma',
     type: 'both',
     icon: Droplets,
@@ -118,7 +118,7 @@ const SERVICES: ServiceItem[] = [
   {
     id: 'buharli-temizlik',
     title: 'Buharlı Araç Temizliği',
-    subtitle: 'Kimyasalsız, 140°C kuru buhar ile klima kanalları ve havalandırma menfezlerinin sterilizasyonu.',
+    subtitle: 'Klima kanalları ve menfezlerde yüksek ısı kuru buharla hijyenik sterilizasyon.',
     category: 'İç Hijyen & İzolasyon',
     type: 'both',
     icon: Wind,
@@ -126,8 +126,8 @@ const SERVICES: ServiceItem[] = [
   },
   {
     id: 'ozon-temizligi',
-    title: 'Ozon Temizliği (Medikal O₃)',
-    subtitle: 'Sigara, evcil hayvan ve rutubet kokularını kaynağında yok eden medikal ozonlama.',
+    title: 'Ozonlama ile Koku Giderme',
+    subtitle: 'Sigara, evcil hayvan ve klima kaynaklı rutubet kokularını kaynağında yok eden aktif ozonlama.',
     category: 'İç Hijyen & İzolasyon',
     type: 'car',
     icon: Atom,
@@ -138,7 +138,7 @@ const SERVICES: ServiceItem[] = [
   {
     id: 'motor-temizligi',
     title: 'Motor Temizliği & Dielektrik Koruma',
-    subtitle: 'Su değdirmeden, akım iletmeyen dielektrik kimyasallar ve kuru buharla sıfır arıza riski.',
+    subtitle: 'Su değdirmeden, akım iletmeyen dielektrik formüller ve kuru buharla güvenli temizlik.',
     category: 'Teknik Detay & Cam',
     type: 'car',
     icon: Wrench,
@@ -472,13 +472,26 @@ export function ServicesCatalog({
 
                 <div className="mt-5 pt-3 border-t border-black/5 dark:border-white/5 flex items-center justify-between">
                   {item.href ? (
-                    <Link
-                      href={item.href}
-                      className="text-xs font-bold hover:underline flex items-center gap-1 text-[#1E3A8A] dark:text-[#60A5FA]"
-                    >
-                      <span>Detaylı İncele</span>
-                      <ChevronRight className="w-3.5 h-3.5" />
-                    </Link>
+                    <>
+                      <Link
+                        href={item.href}
+                        className="text-xs font-bold hover:underline flex items-center gap-1 text-[#1E3A8A] dark:text-[#60A5FA]"
+                      >
+                        <span>Hizmet Detayları</span>
+                        <ChevronRight className="w-3.5 h-3.5" />
+                      </Link>
+                      <a
+                        href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+                          `Merhaba Bumex Garage, ${item.title} hizmeti hakkında bilgi ve randevu almak istiyorum.`
+                        )}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs font-semibold hover:underline flex items-center gap-1 text-[#1FAD4E]"
+                      >
+                        <span>Randevu Al</span>
+                        <ChevronRight className="w-3 h-3" />
+                      </a>
+                    </>
                   ) : item.actionType === 'modal' && item.modalType ? (
                     <button
                       type="button"

@@ -5,8 +5,9 @@ import { useLandingTheme } from '@/hooks/useLandingTheme';
 import { useWorkshopSegment, WorkshopSegment } from '@/hooks/useWorkshopSegment';
 import { LandingNavbar } from '@/components/landing/LandingNavbar';
 import { HeroSection } from '@/components/landing/HeroSection';
-import { ServicesCatalog } from '@/components/landing/ServicesCatalog';
+import { IntentCards } from '@/components/landing/IntentCards';
 import { BeforeAfterSlider } from '@/components/landing/BeforeAfterSlider';
+import { ProcessSection } from '@/components/landing/ProcessSection';
 import { PricingSection } from '@/components/landing/PricingSection';
 import { GoogleMapsSection } from '@/components/landing/GoogleMapsSection';
 import { LandingFooter } from '@/components/landing/LandingFooter';
@@ -51,28 +52,27 @@ export function LandingView({ initialSegment }: { initialSegment?: WorkshopSegme
           toggleTheme={toggleTheme}
         />
 
-        {/* Ana Gövde */}
+        {/* Ana Gövde: 10/10 Anlatı Mimarisi (Need → Proof → Trust → Action) */}
         <main>
-          {/* 1. Commanding Studio Switcher & Hero Vitrini */}
+          {/* 1. Hero Vitrini & Segment Seçici: Ben doğru yerde miyim? */}
           <HeroSection theme={theme} />
 
-          {/* 2. Boya Düzeltme & Grenaj Restorasyonu (Galeri Teaser Vitrini) */}
+          {/* 2. Niyet Seçici (6 İhtiyaç Kartı): Ne yaptırabilirim? */}
+          <IntentCards theme={theme} />
+
+          {/* 3. Öncesi & Sonrası Vaka Kanıtı: Gerçekten iyi iş çıkarıyorlar mı? */}
           <BeforeAfterSlider theme={theme} detailed={false} />
 
-          {/* 3. Şeffaf Fiyat Listesi & Detailing / Servis Paketleri */}
+          {/* 4. Dört Aşamalı İnsani Süreç & Park & Wash Kolaylığı: Arabamı bunlara bırakabilir miyim? */}
+          <ProcessSection theme={theme} />
+
+          {/* 5. Şeffaf Fiyat Listesi & Detailing / Servis Paketleri (Strateji C) */}
           <PricingSection
             theme={theme}
             onOpenModal={(type) => setActiveModal(type)}
           />
 
-          {/* 4. Segmente Özel Resmi Hizmet Kartelası & Modüler Servis Tablosu (Teaser Vitrini) */}
-          <ServicesCatalog
-            theme={theme}
-            detailed={false}
-            onOpenModal={(type) => setActiveModal(type)}
-          />
-
-          {/* 5. Google Haritalar, Yol Tarifi & 24/7 Güvenli Otopark */}
+          {/* 6. Google Haritalar Doğrulanmış Profil, Yorumlar & Yol Tarifi: Nasıl ulaşacağım? */}
           <GoogleMapsSection theme={theme} />
         </main>
 

@@ -128,7 +128,7 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
             </div>
           </div>
 
-          {/* Sağ Kolon: Otomatik Canlı Google Puan & İnceleme Takip Paneli (5 Kolon) */}
+          {/* Sağ Kolon: Doğrulanmış Google Değerlendirmeleri ve Müşteri Deneyimleri (5 Kolon) */}
           <div
             className={`lg:col-span-5 p-6 sm:p-7 rounded-2xl border shadow-lg flex flex-col justify-between ${
               isCream ? 'bg-white border-[#6C6A6B]/20 text-[#0D0D0D]' : 'bg-[#222529] border-white/10 text-white'
@@ -144,18 +144,18 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
                   <div>
                     <h3 className="text-sm font-bold leading-tight">Google İşletme Profili</h3>
                     <span className="text-[11px] text-[#1FAD4E] font-semibold flex items-center gap-1">
-                      <ShieldCheck className="w-3 h-3" /> Doğrulanmış Konum
+                      <ShieldCheck className="w-3 h-3" /> Doğrulanmış Atölye
                     </span>
                   </div>
                 </div>
 
-                <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#1FAD4E]/10 text-[#1FAD4E] font-bold border border-[#1FAD4E]/20">
-                  Canlı Puan
+                <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-[#1FAD4E]/10 text-[#1FAD4E] font-bold border border-[#1FAD4E]/20">
+                  Canlı Profil
                 </span>
               </div>
 
-              {/* Büyük Puan Göstergesi */}
-              <div className="my-6 text-center sm:text-left">
+              {/* Büyük Puan ve Yorum Sayısı */}
+              <div className="my-5 text-center sm:text-left">
                 <div className="flex items-baseline justify-center sm:justify-start gap-2">
                   <span
                     className={`text-5xl sm:text-6xl font-black tracking-tight ${
@@ -167,48 +167,83 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
                   <span className="text-xl font-bold text-[#6C6A6B]">/ 5.0</span>
                 </div>
 
-                {/* 5 Yıldız */}
-                <div className="flex items-center justify-center sm:justify-start gap-1 text-amber-500 my-2">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-amber-500 text-amber-500" />
-                  ))}
+                {/* 5 Yıldız & Doğrulanmış Değerlendirme Sayısı */}
+                <div className="flex items-center justify-center sm:justify-start gap-2 my-2">
+                  <div className="flex items-center gap-0.5 text-amber-500">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-amber-500 text-amber-500" />
+                    ))}
+                  </div>
+                  <span className="text-xs font-extrabold text-[#1E3A8A] dark:text-[#60A5FA]">
+                    120+ Değerlendirme
+                  </span>
                 </div>
 
-                <p className="text-xs font-bold text-[#6C6A6B]">
-                  Doğrulanmış Ziyaretçi Değerlendirmeleri
+                <p className="text-xs text-[#6C6A6B] font-medium">
+                  Bahçelievler Prof. Muammer Aksoy Caddesi No: 48
                 </p>
               </div>
 
-              {/* Metrik Göstergeleri */}
-              <div className="space-y-3 pt-4 border-t border-black/5 dark:border-white/10">
-                <div className="flex items-center justify-between text-xs">
-                  <span className="flex items-center gap-1.5 font-medium">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#1FAD4E]" />
-                    <span>Müşteri Memnuniyet Oranı</span>
-                  </span>
-                  <strong className="font-extrabold">%98</strong>
+              {/* Doğrulanmış Müşteri Alıntıları */}
+              <div className="space-y-3 pt-3 border-t border-black/5 dark:border-white/10">
+                <div
+                  className={`p-3 rounded-xl border text-xs ${
+                    isCream ? 'bg-[#F9F7F5] border-[#6C6A6B]/15' : 'bg-[#1A1C1F] border-white/5'
+                  }`}
+                >
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="font-bold">Murat K. • <span className="font-semibold text-[#1E3A8A] dark:text-[#60A5FA]">BMW 420i Gran Coupé</span></span>
+                    <div className="flex items-center text-amber-500">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-3 h-3 fill-amber-500" />
+                      ))}
+                    </div>
+                  </div>
+                  <p className={`text-[11px] leading-relaxed italic ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}`}>
+                    &ldquo;Gözüm arkada kalmadan aracımı bıraktım. Verniği yakmadan harelenmeleri aldılar, 7. Cadde&apos;deki işim bittiğinde pırıl pırıl teslim aldım.&rdquo;
+                  </p>
                 </div>
 
-                <div className="flex items-center justify-between text-xs">
-                  <span className="flex items-center gap-1.5 font-medium">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#1FAD4E]" />
-                    <span>Hizmet & Teslimat Puanı</span>
-                  </span>
-                  <strong className="font-extrabold">5.0 ★</strong>
+                <div
+                  className={`p-3 rounded-xl border text-xs ${
+                    isCream ? 'bg-[#F9F7F5] border-[#6C6A6B]/15' : 'bg-[#1A1C1F] border-white/5'
+                  }`}
+                >
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="font-bold">Can B. • <span className="font-semibold text-[#1E3A8A] dark:text-[#60A5FA]">Yamaha MT-07</span></span>
+                    <div className="flex items-center text-amber-500">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-3 h-3 fill-amber-500" />
+                      ))}
+                    </div>
+                  </div>
+                  <p className={`text-[11px] leading-relaxed italic ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}`}>
+                    &ldquo;Motosiklet yıkamasında Ankara&apos;da güvenebileceğim nadir yerlerden. Tazyikli suyu soketlere basmadan kuru buhar ve özenle temizlediler.&rdquo;
+                  </p>
                 </div>
 
-                <div className="flex items-center justify-between text-xs">
-                  <span className="flex items-center gap-1.5 font-medium">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#1FAD4E]" />
-                    <span>Konum & Ulaşım Kolaylığı</span>
-                  </span>
-                  <strong className="font-extrabold">Bahçelievler (Çankaya)</strong>
+                <div
+                  className={`p-3 rounded-xl border text-xs ${
+                    isCream ? 'bg-[#F9F7F5] border-[#6C6A6B]/15' : 'bg-[#1A1C1F] border-white/5'
+                  }`}
+                >
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="font-bold">Selin T. • <span className="font-semibold text-[#1E3A8A] dark:text-[#60A5FA]">Volkswagen Golf</span></span>
+                    <div className="flex items-center text-amber-500">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-3 h-3 fill-amber-500" />
+                      ))}
+                    </div>
+                  </div>
+                  <p className={`text-[11px] leading-relaxed italic ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}`}>
+                    &ldquo;Bahçelievler&apos;de park yeri arama çilesinden kurtardı. Park &amp; Wash ile hem aracım güvende kaldı hem işim bitene kadar içi dışı tertemiz yapıldı.&rdquo;
+                  </p>
                 </div>
               </div>
             </div>
 
             {/* Aksiyonlar: Doğrudan Google Haritalar Entegrasyonu */}
-            <div className="mt-8 pt-5 border-t border-black/5 dark:border-white/10 space-y-2.5">
+            <div className="mt-6 pt-4 border-t border-black/5 dark:border-white/10 space-y-2.5">
               <a
                 href="https://maps.app.goo.gl/UGsfYD1ZUdB7L5w4A"
                 target="_blank"
@@ -216,7 +251,7 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
                 className="w-full py-3 px-4 rounded-xl bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md shadow-[#1E3A8A]/25 transition active:scale-95"
               >
                 <MessageSquareQuote className="w-4 h-4" />
-                <span>Google&apos;daki Tüm Yorumları İncele (4.9 ★)</span>
+                <span>Google&apos;daki Tüm Değerlendirmeleri Oku (120+)</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
 
@@ -230,7 +265,7 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
                     : 'border-white/15 hover:bg-white/10 text-white'
                 }`}
               >
-                <span>Deneyiminizi Google&apos;da Paylaşın</span>
+                <span>Google Haritalar&apos;da Yorum Yazın</span>
                 <ExternalLink className="w-3 h-3" />
               </a>
             </div>

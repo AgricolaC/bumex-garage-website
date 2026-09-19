@@ -17,6 +17,18 @@ interface MethodHighlight {
   desc: string;
 }
 
+interface CaseStudyEvidence {
+  vehicle: string;
+  problem: string;
+  application: string;
+  duration: string;
+  result: string;
+  testimonial: {
+    quote: string;
+    author: string;
+  };
+}
+
 interface TransformationItem {
   id: string;
   vehicleType: 'otomobil' | 'motosiklet';
@@ -31,6 +43,7 @@ interface TransformationItem {
   afterLabel: string;
   aspectClass: string;
   highlights: MethodHighlight[];
+  caseStudy?: CaseStudyEvidence;
 }
 
 const TRANSFORMATIONS: TransformationItem[] = [
@@ -39,7 +52,7 @@ const TRANSFORMATIONS: TransformationItem[] = [
     vehicleType: 'motosiklet',
     tabLabel: 'Motosiklet Grenaj & Blok',
     badge: 'Bahçelievler Stüdyosu • Hassas Motosiklet Detailing',
-    title: 'Yamaha Supersport Grenaj, Blok & Zincir Detaylandırma',
+    title: 'Yamaha MT-07: Grenaj, Blok & Zincir Restorasyonu',
     description:
       'Ağır yol çamuru, egzoz isi ve yanmış zincir yağı; hassas elektronik soketlere, dijital ekrana ve zincir o-ringlerine tazyikli su değdirilmeden, buhar ve pH nötr formüllerle fabrika kondisyonuna getirilir.',
     beforeImage: '/images/before-after/moto_detail_before.webp',
@@ -48,6 +61,17 @@ const TRANSFORMATIONS: TransformationItem[] = [
     beforeLabel: 'Önce • Ağır Çamur & Katran',
     afterLabel: 'Sonra • Sıfır Fabrika Parlaklığı',
     aspectClass: 'aspect-[9/16] sm:aspect-[3/5] max-w-md mx-auto',
+    caseStudy: {
+      vehicle: 'Yamaha MT-07',
+      problem: 'Yanmış zincir yağı, blok çamuru ve hassas grenaj matlığı',
+      application: 'Tazyiksiz kuru buhar, zincir arındırma + yağlama, grenaj finiş cilası',
+      duration: '2.5 saat hassas işçilik',
+      result: 'Elektronik soketlere su basmadan arındırılmış motor bloğu ve parlak grenaj',
+      testimonial: {
+        quote: 'Motosiklet yıkamasında Ankara’da güvenebileceğim nadir yerlerden.',
+        author: 'Can B. • Yamaha MT-07',
+      },
+    },
     highlights: [
       {
         icon: ShieldCheck,
@@ -71,15 +95,26 @@ const TRANSFORMATIONS: TransformationItem[] = [
     vehicleType: 'otomobil',
     tabLabel: 'BMW 4 Restorasyon',
     badge: 'Bahçelievler Stüdyosu • Ham Karşılaştırma',
-    title: 'BMW 4 Gran Coupé: Ağır Çamur & Kusursuz Yüzey Restorasyonu',
+    title: 'BMW 4 Gran Coupé: Ağır Çamur & Yüzey Temizliği',
     description:
-      'Ağır yol çamuru, zift ve statik kir tabakası; mikron boya yüzeyine zarar verilmeden aktif kar köpüğü, 140°C kuru buhar ve pH nötr detaylandırma protokolü ile sıfır kilometre fabrika parlaklığına kavuşturulur.',
+      'Ağır yol çamuru, zift ve statik kir tabakası; boya verniğine sürtme yapılmadan aktif kar köpüğü, buharlı detay ve pH nötr yıkama protokolü ile temizlenir.',
     beforeImage: '/images/before-after/bmw_dirty_car.webp',
     afterImage: '/images/before-after/bmw_clean_car.webp',
     fullComparisonImage: '/images/before-after/bmw_clean_car.webp',
     beforeLabel: 'Önce • Ağır Yol Çamuru',
-    afterLabel: 'Sonra • Sıfır Fabrika Parlaklığı',
+    afterLabel: 'Sonra • Arındırılmış Yüzey',
     aspectClass: 'aspect-[16/9]',
+    caseStudy: {
+      vehicle: 'BMW 420i Gran Coupé',
+      problem: 'Girdap izleri (swirl marks), hafif vernik oksidasyonu ve yüzey matlığı',
+      application: '3 aşamalı mikron boya düzeltme + 9H seramik kaplama',
+      duration: '8 saat atölye işçiliği',
+      result: 'Daha derin yüzey yansıması, homojen ve pürüzsüz ayna parlaklığı',
+      testimonial: {
+        quote: 'Aracı teslim aldığımda fark ilk bakışta belli oluyordu.',
+        author: 'Mehmet K. • BMW 420i',
+      },
+    },
     highlights: [
       {
         icon: Sparkles,
@@ -88,13 +123,13 @@ const TRANSFORMATIONS: TransformationItem[] = [
       },
       {
         icon: Zap,
-        title: '140°C Buharlı Izgara Detayı',
-        desc: 'Böbrek ızgara petekleri, far yuvaları ve amblem diplerinde sıfır kireç veya su lekesi garantisi.',
+        title: 'Buharlı Izgara & Detay',
+        desc: 'Böbrek ızgara petekleri, far yuvaları ve amblem diplerinde lekesiz ve pürüzsüz arındırma.',
       },
       {
         icon: ShieldCheck,
-        title: 'Mikron Seviyesinde Parlaklık',
-        desc: 'Girdap izi (hare) bırakmayan özel kurutma tekniği ile kusursuz fabrika derinliği ve ayna efekti.',
+        title: 'Çiziksiz Kurutma & Parlaklık',
+        desc: 'Harez bırakmayan çift kovalı yıkama ve mikrofiber kurulama ile derin parlaklık.',
       },
     ],
   },
@@ -133,27 +168,27 @@ const TRANSFORMATIONS: TransformationItem[] = [
   {
     id: 'motor-kompartmani',
     vehicleType: 'otomobil',
-    tabLabel: 'Kuru Buharlı Motor',
-    badge: '140°C Buhar & Dielektrik İzolasyon',
-    title: 'Kuru Buharlı Motor Kompartmanı Restorasyonu',
+    tabLabel: 'Buharlı Motor Temizliği',
+    badge: 'Buhar & Dielektrik Koruma',
+    title: 'Buharlı Motor Temizliği ve Koruma',
     description:
-      'Toz, çamur ve yağ tabakası; hassas elektronik soketlere, sigorta kutusuna ve beyne tek damla tazyikli su değdirilmeden, 140°C kuru buhar ve dielektrik formüllerle fabrika kondisyonuna getirilir.',
+      'Toz, çamur ve yağ tabakası; hassas elektronik soketlere ve beyne tazyikli su değdirilmeden, yüksek ısı kuru buhar ve dielektrik formüllerle temizlenir.',
     beforeImage: '/images/before-after/engine_bay_before.webp',
     afterImage: '/images/before-after/engine_bay_after.webp',
     fullComparisonImage: '/images/before-after/engine_bay_full.webp',
-    beforeLabel: 'Önce • Çamur & Toz Katmanı',
-    afterLabel: 'Sonra • Fabrika Mat Kondisyon',
+    beforeLabel: 'Önce • Yağ & Toz Katmanı',
+    afterLabel: 'Sonra • Temizlenmiş & Korunmuş Motor',
     aspectClass: 'aspect-[16/10] sm:aspect-[16/9]',
     highlights: [
       {
         icon: Zap,
-        title: 'Dielektrik Yalıtkan',
-        desc: 'Elektrik iletmeyen koruyucu solüsyonla sıfır soket veya beyin arıza riski.',
+        title: 'Dielektrik Koruma',
+        desc: 'Akım iletmeyen koruyucu solüsyonla soket ve beyin aksamında neme karşı güvenli izolasyon.',
       },
       {
         icon: Sparkles,
-        title: '140°C Kuru Buhar',
-        desc: 'Ağır motor yağı ve kireç kalıntıları fırçasız, aşınma riski olmadan çözülür.',
+        title: 'Kuru Buharlı Çözüm',
+        desc: 'Ağır motor yağı ve toz birikintileri su birikintisi yapmadan buharla çözülür.',
       },
       {
         icon: ShieldCheck,
@@ -282,11 +317,11 @@ const REAL_AUTOMOBILE_STUDIO_GALLERY = [
   {
     id: 'bmw-buhar',
     targetTabId: 'bmw-tam-donusum',
-    title: '140°C Buharlı Detay',
-    badge: '140°C Kuru Buhar',
+    title: 'Detaylı Buharlı Temizlik',
+    badge: 'Buharlı Arındırma',
     src: '/images/before-after/bmw_steam_wash.webp',
     alt: 'Bumex Garage BMW 4 Serisi Buharlı Detay Yıkama',
-    desc: 'Böbrek ızgara petekleri, lazer far dipleri ve amblem yuvalarında buharlı arındırma.',
+    desc: 'Böbrek ızgara petekleri, lazer far dipleri ve amblem yuvalarında derin buharlı arındırma.',
   },
   {
     id: 'bmw-kopuk',
@@ -538,6 +573,75 @@ export function BeforeAfterSlider({
           >
             {activeItem.description}
           </p>
+
+          {/* Vaka Kanıtı ve Operasyon Kaydı (Problem → Uygulama → Süre → Sonuç → Alıntı) */}
+          {activeItem.caseStudy && (
+            <div
+              className={`mt-6 p-5 sm:p-6 rounded-2xl border text-left ${
+                isCream
+                  ? 'bg-white/95 border-[#1E3A8A]/25 text-[#0D0D0D] shadow-sm'
+                  : 'bg-[#1F2226] border-white/10 text-white shadow-md'
+              }`}
+            >
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3.5 mb-3.5 border-b border-black/5 dark:border-white/10 gap-2">
+                <div>
+                  <span className="text-[10px] font-black uppercase tracking-widest text-[#1E3A8A] dark:text-[#60A5FA]">
+                    Atölye Vaka Kaydı (Gerçek Operasyon)
+                  </span>
+                  <h4 className="text-base font-black tracking-tight mt-0.5">
+                    {activeItem.caseStudy.vehicle}
+                  </h4>
+                </div>
+
+                <div className="flex items-center gap-2 text-xs">
+                  <span className="font-bold text-[#6C6A6B]">Atölye Süresi:</span>
+                  <span className="px-2.5 py-0.5 rounded-full bg-[#1E3A8A]/10 text-[#1E3A8A] dark:text-[#60A5FA] font-black text-xs">
+                    {activeItem.caseStudy.duration}
+                  </span>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 text-xs">
+                <div>
+                  <span className="font-bold uppercase tracking-wider text-[10px] text-[#6C6A6B] block mb-1">
+                    01 // Problem
+                  </span>
+                  <p className={isCream ? 'text-[#4A4746]' : 'text-[#9DA3AA]'}>
+                    {activeItem.caseStudy.problem}
+                  </p>
+                </div>
+
+                <div>
+                  <span className="font-bold uppercase tracking-wider text-[10px] text-[#1E3A8A] dark:text-[#60A5FA] block mb-1">
+                    02 // Uygulama
+                  </span>
+                  <p className={isCream ? 'text-[#4A4746]' : 'text-[#9DA3AA]'}>
+                    {activeItem.caseStudy.application}
+                  </p>
+                </div>
+
+                <div>
+                  <span className="font-bold uppercase tracking-wider text-[10px] text-[#1FAD4E] block mb-1">
+                    03 // Sonuç
+                  </span>
+                  <p className={isCream ? 'text-[#4A4746]' : 'text-[#9DA3AA]'}>
+                    {activeItem.caseStudy.result}
+                  </p>
+                </div>
+              </div>
+
+              {activeItem.caseStudy.testimonial && (
+                <div className="mt-4 pt-3 border-t border-black/5 dark:border-white/5 flex flex-col sm:flex-row sm:items-center justify-between text-xs italic gap-1">
+                  <p className={isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}>
+                    &ldquo;{activeItem.caseStudy.testimonial.quote}&rdquo;
+                  </p>
+                  <span className="font-bold not-italic text-[11px] text-[#1E3A8A] dark:text-[#60A5FA] shrink-0">
+                    — {activeItem.caseStudy.testimonial.author}
+                  </span>
+                </div>
+              )}
+            </div>
+          )}
 
           {/* Süreç ve Metot Kazanımları */}
           <div className="grid sm:grid-cols-3 gap-4 mt-8">

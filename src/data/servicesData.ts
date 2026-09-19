@@ -50,13 +50,13 @@ export const SERVICES_DATA: Record<ServiceHubSlug, ServiceHubData> = {
   'ppf-kaplama': {
     slug: 'ppf-kaplama',
     title: 'PPF Kaplama (Boya Koruma Filmi)',
-    badge: '190–210 Mikron Kendi Kendini İyileştiren TPU Zırh',
+    badge: '190–210 Mikron Kendi Kendini İyileştiren TPU Film',
     metaTitle: 'Ankara PPF Kaplama — TPU Boya Koruma Filmi | Bumex Garage Bahçelievler',
     metaDescription:
-      "Ankara Bahçelievler 7. Cadde'ye 350m: 190–210 mikron termoplastik TPU PPF kaplama, sararmazlık garantisi, çiziklere karşı ısıyla kendini yenileyen optik netlik ve mikron vernik kalkanı.",
-    heroHeadline: 'BOYANIZA KUSURSUZ ZIRH: ŞEFFAF PPF KAPLAMA',
+      "Ankara Bahçelievler 7. Cadde'ye 350m: 190–210 mikron termoplastik TPU PPF kaplama, sararmazlık garantisi, çiziklere karşı ısıyla kendini yenileyen optik netlik ve mikron vernik koruması.",
+    heroHeadline: 'BOYANIZA ŞEFFAF KORUMA: KENDİNİ YENİLEYEN TPU PPF',
     heroSubtitle:
-      'Yol mıcırlanmaları, yüksek sürat taş vurukları ve anahtar sürtmelerine karşı 200 mikronluk elastik poliüretan kalkan. Isı tabancası veya güneş ışığı ile kılcal çizikleri kendiliğinden onaran optik TPU teknolojisi.',
+      'Yol mıcırlanmaları, yüksek sürat taş vurukları ve anahtar sürtmelerine karşı 200 mikronluk elastik poliüretan koruma. Sıcak su veya güneş ışığı ile kılcal çizikleri kendiliğinden onaran optik TPU teknolojisi.',
     pricingHint: 'Garajımızda Ücretsiz Panel Ekspertizi ile Belirlenir',
     estimatedDuration: '2 – 3 İş Günü',
     warrantyPeriod: '5 – 10 Yıl Sararmazlık & Ayrılmama Garantisi',
@@ -78,82 +78,82 @@ export const SERVICES_DATA: Record<ServiceHubSlug, ServiceHubData> = {
       },
       {
         label: 'Işık Geçirgenliği',
-        value: '%99.4 Optik Netlik',
-        detail: 'Aracın orijinal boya tonunu, simlerini ve derinliğini hiçbir şekilde bozmaz.',
+        value: '%99 Optik Şeffaflık',
+        detail: 'Orijinal boya renginde ve metalik taneciklerde hiçbir ton kaybı veya matlaşma yaratmaz.',
       },
     ],
     benefits: [
       {
-        title: 'Yüksek Hızlı Taş Vuruklarına Tam Koruma',
+        title: 'Taş Vuruklarına Karşı Üstün Koruma',
         description:
-          'Şehirlerarası otoban sürüşlerinde öndeki araçların fırlattığı taşların boyayı astara kadar delmesini tamamen engeller.',
+          'Otoyol süratlerinde ön tampon, kaput ve çamurluklara çarpan taşların boyayı delmesini önler.',
       },
       {
-        title: 'Sararma ve Matlaşmaya Karşı UV Kalkanı',
+        title: 'Park Sürtmelerine Karşı Tampon Koruması',
         description:
-          'Alifatik TPU polimerler UV radyasyonuna dirençlidir; güneş altında sararmaz ve verniğe asla yapışıp leke bırakmaz.',
+          'Dar otopark manevralarında oluşabilecek sürtmelerde boyayı değil, filmi çizdirirsiniz.',
       },
       {
-        title: 'Kusursuz Kenar Kıvırma (Tucked Edges)',
+        title: 'Geri Dönüşümlü Orijinallik',
         description:
-          'Paneller keskin bıçak izi bırakılmadan söküm yapılmadan veya minimum riskle kenarların altına kıvrılarak görünmez hale getirilir.',
+          'Söküldüğünde orijinal verniğe zarar vermez; ikinci el değerini fabrika kondisyonunda korur.',
       },
       {
-        title: 'İkinci El Değerini Muhafaza Eder',
+        title: 'Kendi Kendini İyileştirme',
         description:
-          'Orijinal boyanın fabrika kondisyonunu koruyarak ekspertiz sırasında mikron boya kalınlığını güvenceye alır.',
+          'Kılcal fırça ve bez çizikleri güneş altında veya sıcak su döküldüğünde kendiliğinden düzelir.',
       },
     ],
     protocolSteps: [
       {
         stepNumber: '01',
-        title: 'Dekontaminasyon ve Demir Tozu Arındırma',
+        title: 'Detaylı Dekontaminasyon ve Demir Tozu Arındırma',
         description:
-          'Boya yüzeyindeki reçine, zift ve gözeneklere işlemiş demir tozları pH nötr kimyasallar ve kil hamuru ile tamamen sıfırlanır.',
+          'Panel üzerindeki zift, katran ve demir tozları kille temizlenerek cam gibi pürüzsüzleştirilir.',
         duration: '3 - 4 Saat',
       },
       {
         stepNumber: '02',
-        title: 'Boya Düzeltme & Mikron İyileştirme',
+        title: 'Mikron Düzeltme & Yüzey Hazırlığı',
         description:
-          'Film altına hiçbir kılcal çizik hapsedilmemesi için vernik yüzeyi tek veya çift aşamalı pasta cila protokolüyle ayna parlaklığına getirilir.',
+          'Film altında hiçbir hare veya çizik kalmaması için tek aşama finiş cilası uygulanır.',
         duration: '4 - 6 Saat',
       },
       {
         stepNumber: '03',
-        title: 'Tozsuz Stüdyo & Islak Montaj',
+        title: 'Tozsuz Odada Islak Pozisyonlama',
         description:
-          'Pozitif basınçlı tozsuz montaj peronumuzda özel kaydırıcı jel ve mikrofiber spatulalarla hava kabarcığı kalmadan milimetrik yerleşim yapılır.',
+          'Özel montaj jeli ile film panele milimetrik oturtulur, hava kabarcıkları ragle ile tahliye edilir.',
         duration: '1 - 2 Gün',
       },
       {
         stepNumber: '04',
-        title: 'Kenar Kürleşmesi & Kalite Kontrolü',
+        title: 'Kenar Kıvırma ve Kürleşme Kontrolü',
         description:
-          'Kenar kıvrımları ısı tabancasıyla sabitlenir; 24 saatlik statik kürleşme sonrasında ultraviyole lambalar altında 360° son kontrol yapılır.',
+          'Tüm kenarlar görünmeyecek şekilde panel arkasına kıvrılır; ısı tabancasıyla sabitlenir.',
         duration: '12 - 24 Saat',
       },
     ],
     faqs: [
       {
-        question: 'PPF kaplama ile seramik kaplama arasındaki temel fark nedir?',
+        question: 'PPF kaplama zamanla sararma veya matlaşma yapar mı?',
         answer:
-          'Seramik kaplama kimyasal bir sıvı katman olup su iticilik, UV koruması ve kılcal hare direnci sağlar ancak taş vuruklarını ve derin sürtmeleri engelleyemez. PPF ise 200 mikronluk fiziksel bir poliüretan zırhtır; taş darbelerini emerek boyanın delinmesini önler.',
+          'Hayır. Kullandığımız yüksek kaliteli termoplastik poliüretan (TPU) filmler UV stabilizatörlüdür. 5 ila 10 yıl boyunca sararmama, çatlamama ve kabarmama garantilidir.',
       },
       {
-        question: 'PPF sökülürken orijinal fabrika boyasına zarar verir mi?',
+        question: 'Aracın tamamını mı yoksa sadece ön kısmını mı kaplatmalıyım?',
         answer:
-          'Hayır. Bumex Garage stüdyosunda uygulanan birinci sınıf optik TPU filmler, boya dostu medikal yapıştırıcıya sahiptir. Söküm işlemi profesyonel buhar desteğiyle yapıldığında vernikte hiçbir iz veya yapışkan kalıntısı bırakmaz.',
+          'En yaygın tercih, taş darbelerinin %90’ına maruz kalan ön tampon, kaput, çamurluklar ve aynaları içeren Ön Koruma Paketidir. Bütçenize göre komple araç kaplama da yapılabilir.',
       },
       {
-        question: 'Yalnızca ön koruma paketi (kaput, çamurluklar, tampon) yaptırabilir miyim?',
+        question: 'Seramik kaplama ile PPF arasındaki fark nedir?',
         answer:
-          'Evet. Taş vuruklarına en açık olan ön tampon, tam kaput, sağ/sol ön çamurluklar, farlar ve yan ayna kapaklarını içeren Ön Koruma Paketi en çok tercih edilen opsiyonlarımızdandır.',
+          'Seramik kaplama kimyasal bir sıvı katman olup su iticilik, UV koruması ve kılcal hare direnci sağlar ancak taş vuruklarını ve derin sürtmeleri engelleyemez. PPF ise 200 mikronluk fiziksel bir poliüretan filmdir; taş darbelerini emerek boyanın delinmesini önler.',
       },
       {
-        question: 'PPF kaplamalı araç nasıl yıkanmalıdır?',
+        question: 'PPF sökülürken orijinal boyaya zarar verir mi?',
         answer:
-          'pH nötr aktif köpük ve fırçasız mikrofiber yıkama önerilir. Basınçlı su tabancasının filmin kenar kıvrımlarına 15 cm’den daha yakın tutulmaması filmin ömrünü uzatır.',
+          'Profesyonel buhar ve söküm teknikleriyle söküldüğünde orijinal boyaya veya verniğe kesinlikle zarar vermez, yapışkan izi bırakmaz.',
       },
     ],
     whatsappMessage:
@@ -163,13 +163,13 @@ export const SERVICES_DATA: Record<ServiceHubSlug, ServiceHubData> = {
   'seramik-kaplama': {
     slug: 'seramik-kaplama',
     title: '9H Nano Seramik Kaplama',
-    badge: 'Çift Katmanlı 9H Kristal Sertlik & 24 Aya Varan Hidrofobik Kalkan',
+    badge: 'Çift Katmanlı 9H Kristal Sertlik & 24 Aya Varan Hidrofobik Koruma',
     metaTitle: 'Ankara Seramik Kaplama — 9H Nano Koruma | Bumex Garage Bahçelievler',
     metaDescription:
-      "Ankara Bahçelievler'de 9H nano seramik kaplama: Elektronik mikron vernik analizi, %95+ hare giderme, aynasal derinlik, yoğun su iticilik ve 24 aya kadar kimyasal kalkan.",
-    heroHeadline: 'AYNASAL DERİNLİK & 9H NANO SERAMİK ZIRH',
+      "Ankara Bahçelievler'de 9H seramik kaplama: Elektronik mikron vernik analizi, kılcal çizik arındırma, derin parlaklık, yoğun su iticilik ve uzun süreli kimyasal direnç.",
+    heroHeadline: 'DERİN PARLAKLIK & 9H NANO SERAMİK KORUMA',
     heroSubtitle:
-      'Boyanızın mikron seviyesinde kusursuzlaştırılmasının ardından uygulanan 9H sertliğindeki inorganik silika (SiO₂) kalkan; asit yağmurları, kuş pisliği ve UV ışınlarına karşı 24 ay kalıcı koruma sağlar.',
+      'Boya verniğinin mikron hassasiyetinde pürüzsüzleştirilmesinin ardından uygulanan 9H inorganik silika (SiO₂) katman; asit yağmurları, kuş pisliği ve güneşin UV ışınlarına karşı kalıcı koruma sağlar.',
     pricingHint: 'Boya Durumu & Araç Segmentine Göre Belirlenir',
     estimatedDuration: '1.5 – 2 İş Günü',
     warrantyPeriod: '2 Yıl Hidrofobik & Kimyasal Direnç Garantisi',
@@ -388,17 +388,17 @@ export const SERVICES_DATA: Record<ServiceHubSlug, ServiceHubData> = {
 
   'buharli-motor-temizligi': {
     slug: 'buharli-motor-temizligi',
-    title: '140°C Dielektrik Kuru Buharlı Motor Temizliği',
-    badge: 'Sıfır Basınçlı Su Riski & Yalıtkan Koruyucu Dielektrik Katman',
+    title: 'Dielektrik Kuru Buharlı Motor Temizliği',
+    badge: 'Basınçsız Kuru Buhar & Dielektrik Yalıtkan Koruma',
     metaTitle: 'Ankara Buharlı Motor Temizliği — Dielektrik Güvenlik | Bumex Garage',
     metaDescription:
-      "Ankara Bahçelievler'de 140°C kuru buharla su birikintisi bırakmayan, dielektrik yalıtkan koruma ile sensör ve ECU (beyin) arıza riskini sıfıra indiren motor temizliği.",
-    heroHeadline: 'ELEKTRONİK SENSÖRLERE SIFIR RİSK: DİELEKTRİK KURU BUHAR',
+      "Ankara Bahçelievler'de yüksek ısı kuru buharla su birikintisi bırakmayan, dielektrik yalıtkan koruma ile sensör ve ECU (beyin) aksamını koruyan güvenli motor temizliği.",
+    heroHeadline: 'ELEKTRONİK SENSÖRLERE BASINÇLI SU DEĞDİRMEDEN: DİELEKTRİK KURU BUHAR',
     heroSubtitle:
-      'Geleneksel basınçlı suyla motor yıkamak alternatör, buji yuvaları ve beyin soketlerine telafisiz hasarlar verir. 140°C kuru buhar teknolojimiz yağ ve zifti su birikintisi yapmadan çözer; iletken olmayan dielektrik koruyucu soketleri neme karşı mühürler.',
+      'Geleneksel basınçlı suyla motor yıkamak alternatör, buji yuvaları ve beyin soketlerine telafisiz hasarlar verir. Yüksek ısı kuru buhar teknolojimiz yağ ve zifti su birikintisi yapmadan çözer; iletken olmayan dielektrik koruyucu soketleri neme karşı mühürler.',
     pricingHint: 'VIP Paket İçerisinde veya Münferit Olarak Sunulur',
     estimatedDuration: '2 – 3 Saat',
-    warrantyPeriod: 'Sıfır Elektronik Arıza Garantisi',
+    warrantyPeriod: 'Elektronik Güvenlik Protokolü',
     technicalSpecs: [
       {
         label: 'Buhar Sıcaklığı',
@@ -413,7 +413,7 @@ export const SERVICES_DATA: Record<ServiceHubSlug, ServiceHubData> = {
       {
         label: 'Dielektrik Mukavemet',
         value: 'İletken Olmayan Özel Formül',
-        detail: 'Kablo soketleri ve sensör bağlantılarına sıkıldığında kısa devre riskini sıfırlar.',
+        detail: 'Kablo soketleri ve sensör bağlantılarına uygulandığında neme bağlı kısa devre riskini engeller.',
       },
       {
         label: 'Koruyucu Bitiş',
@@ -502,13 +502,13 @@ export const SERVICES_DATA: Record<ServiceHubSlug, ServiceHubData> = {
   'detayli-ic-hijyen': {
     slug: 'detayli-ic-hijyen',
     title: 'Detaylı Araç İçi Hijyen & Koltuk Taban Kuaförü',
-    badge: '80°C Sıcak Su Ekstraksiyonu & Medikal Ozon (O₃) Dezenfeksiyonu',
+    badge: 'Sıcak Su Ekstraksiyonu & Aktif Ozon Dezenfeksiyonu',
     metaTitle: 'Ankara Bahçelievler Oto Kuaför & Detaylı İç Temizlik | Bumex Garage',
     metaDescription:
-      "Ankara Bahçelievler'de sıcak su ekstraksiyonlu koltuk ve taban yıkama, tavan sterilizasyonu, havalandırma kanalı buharı ve medikal ozon gazı ile derinlemesine oto kuaför.",
-    heroHeadline: 'FABRİKA KOKUSU VE DERİN HİJYEN: İÇ RESTORASYON',
+      "Ankara Bahçelievler'de sıcak su ekstraksiyonlu koltuk ve taban temizliği, tavan bakımı, menfez buharı ve aktif ozonlama ile derinlemesine oto kuaför.",
+    heroHeadline: 'DERİN TEMİZLİK VE HİJYEN: İÇ RESTORASYON',
     heroSubtitle:
-      'Kumaş ve deri koltuklardaki inatçı lekeler sıcak ekstraksiyon vakumuyla kökten çekilir. Havalandırma kanalları 140°C buharla sterilize edilir; medikal ozon jeneratörü ile sigara kokusu, bakteri ve maytlar %99.9 oranında yok edilir.',
+      'Kumaş ve deri koltuklardaki inatçı lekeler sıcak su ekstraksiyonuyla liften çekilir. Havalandırma kanalları yüksek ısı buharla arındırılır; aktif ozon jeneratörü ile sigara ve nem kokuları kaynağında giderilir.',
     pricingHint: '3.000 ₺ Taban Fiyattan Başlayan Paketlerle',
     estimatedDuration: '1 İş Günü',
     warrantyPeriod: 'Kusursuz Leke Çıkarma & Kokusuz Teslimat',
@@ -519,9 +519,9 @@ export const SERVICES_DATA: Record<ServiceHubSlug, ServiceHubData> = {
         detail: 'Koltuk süngerine su basmadan, kiri anında geri çeken profesyonel Kärcher sistemi.',
       },
       {
-        label: 'Koku & Bakteri İmhası',
-        value: 'Medikal Ozon (O₃) Jeneratörü',
-        detail: 'Parfümle kokuyu maskelemez; koku üreten bakteri ve mantarları moleküler düzeyde parçalar.',
+        label: 'Koku & Bakteri Giderme',
+        value: 'Aktif Ozon (O₃) Jeneratörü',
+        detail: 'Parfümle kokuyu maskelemez; koku üreten bakteri ve mantarları kaynağında parçalar.',
       },
       {
         label: 'Deri Bakımı',
