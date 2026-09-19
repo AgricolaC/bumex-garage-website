@@ -14,12 +14,6 @@ import {
   Wrench,
   Settings,
   Truck,
-  Layers,
-  Wind,
-  Atom,
-  Sun,
-  Volume2,
-  Armchair,
   MessageCircle,
 } from 'lucide-react';
 import { LandingTheme } from '@/hooks/useLandingTheme';
@@ -339,76 +333,6 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                 </div>
               </div>
             </div>
-
-            {/* Bireysel Otomobil Hizmet Listesi (Görseldeki 12 Maddenin Hızlı Kartelası) */}
-            <div
-              className={`p-6 sm:p-8 rounded-2xl border ${
-                isCream ? 'bg-white/80 border-[#6C6A6B]/20' : 'bg-[#222529]/90 border-white/10'
-              }`}
-            >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-                <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="w-2 h-2 rounded-full bg-[#1E3A8A]" />
-                    <span className="text-xs font-bold uppercase tracking-wider text-[#6C6A6B]">
-                      Modüler Servis Tablosu
-                    </span>
-                  </div>
-                  <h3 className="text-xl font-black tracking-tight">
-                    Tüm Bireysel Otomobil Hizmetlerimiz (12 Kalem)
-                  </h3>
-                </div>
-                <a
-                  href="tel:05524703610"
-                  className="inline-flex items-center gap-2 text-xs font-bold text-[#1E3A8A] dark:text-[#60A5FA] hover:underline"
-                >
-                  <span>Özel Fiyat & Peron Müsaitliği Sorgula</span>
-                  <ChevronRight className="w-3.5 h-3.5" />
-                </a>
-              </div>
-
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3.5 text-xs">
-                {[
-                  { num: '01', title: 'İç-Dış Yıkama', desc: 'pH nötr köpük, çift kova ve mikrofiber kurulama', icon: Car },
-                  { num: '02', title: 'Cilalı Yıkama', desc: 'Hidrofobik polimer koruma ve su iticilik', icon: Sparkles },
-                  { num: '03', title: 'Buharlı Araç Temizliği', desc: '140°C kuru buharla havalandırma sterilizasyonu', icon: Wind },
-                  { num: '04', title: 'Far Temizliği', desc: 'Sararan polikarbonat farların optik yenilenmesi', icon: Sun },
-                  { num: '05', title: 'Motor Temizliği', desc: 'Sıfır su hasarlı dielektrik kuru buhar', icon: Wrench },
-                  { num: '06', title: 'Wax Uygulaması', desc: 'Karnauba cila ile derin ıslak görünüm', icon: Droplets },
-                  { num: '07', title: 'Ozon Temizliği', desc: 'Medikal O₃ ile bakteri ve koku yok etme', icon: Atom },
-                  { num: '08', title: 'Detaylı Araç İçi Kuaför', desc: 'Sıcak ekstraksiyon koltuk ve taban yıkama', icon: Armchair },
-                  { num: '09', title: 'Pasta Cila ve Boya Koruma', desc: 'Mikron analizli çizik ve hare giderme', icon: Sparkles },
-                  { num: '10', title: 'Seramik Kaplama', desc: '9H nano koruma kalkanı ve ayna parlaklığı', icon: Shield },
-                  { num: '11', title: 'PPF Kaplama', desc: 'Taş vuruklarına karşı TPU koruyucu film', icon: Layers },
-                  { num: '12', title: 'Araç İçi Ses İzolasyonu', desc: 'Akustik sönümleme ve kabin uğultu önleme', icon: Volume2 },
-                ].map((s) => {
-                  const Icon = s.icon;
-                  return (
-                    <div
-                      key={s.num}
-                      className={`p-3.5 rounded-xl border flex items-start gap-3 transition ${
-                        isCream
-                          ? 'bg-[#F2ECE8]/70 border-black/5 hover:border-[#1E3A8A]/30'
-                          : 'bg-[#181A1D] border-white/5 hover:border-[#2563EB]/40'
-                      }`}
-                    >
-                      <span className="w-6 h-6 rounded-md bg-[#1E3A8A]/10 text-[#1E3A8A] dark:text-[#60A5FA] flex items-center justify-center font-black text-[11px] shrink-0">
-                        {s.num}
-                      </span>
-                      <div className="flex-1">
-                        <div className="flex items-center gap-1.5 font-bold mb-0.5">
-                          <Icon className="w-3.5 h-3.5 text-[#1E3A8A] dark:text-[#60A5FA] shrink-0" />
-                          <span>{s.title}</span>
-                        </div>
-                        <p className={`text-[11px] leading-tight ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}`}>
-                          {s.desc}
-                        </p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
           </div>
         )}
 
@@ -427,7 +351,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                 <Flame className="w-4 h-4 text-amber-400" /> ANKARA&apos;NIN 1 NUMARALI MOTOSİKLET ATÖLYESİ
               </div>
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight">
-                Motosiklet Detailing, Mekanik Bakım &amp; 7/24 Çekici
+                Motosiklet Detailing, Mekanik Bakım &amp; Transfer Desteği
               </h3>
               <p
                 className={`text-xs sm:text-sm max-w-3xl mx-auto mt-3 leading-relaxed ${
@@ -436,7 +360,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
               >
                 Ankara Bahçelievler&apos;de iki teker tutkunlarına özel komple atölye: Basınçsız buharlı yıkama,
                 grenaj pasta cila &amp; seramik, PPF, varyatör temizliği, yağ/mekanik tamiri, plastik grenaj kaynağı
-                ve yolda kalanlar için 7/24 özel motosiklet çekici hizmeti.
+                ve atölye randevularında özel aparatlı transfer hazırlığı.
               </p>
               <div className="mt-4 flex flex-wrap items-center justify-center gap-2.5">
                 <a
@@ -936,16 +860,16 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
             >
               <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 relative z-10">
                 <div className="space-y-2.5 max-w-2xl">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 text-white text-xs font-extrabold uppercase tracking-wider backdrop-blur-sm">
-                    <Truck className="w-3.5 h-3.5" /> 7/24 ANKARA İÇİ ÖZEL MOTOSİKLET TAŞIMA
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 text-xs font-extrabold uppercase tracking-wider backdrop-blur-sm border border-amber-400/30">
+                    <Truck className="w-3.5 h-3.5" /> ÖZEL MOTOSİKLET TAŞIMA DESTEĞİ • ÇOK YAKINDA
                   </div>
                   <h4 className="text-2xl sm:text-3xl font-black tracking-tight">
-                    Motosiklet Çekici Hizmeti
+                    Motosiklet Transfer &amp; Taşıma Hizmeti (Çok Yakında)
                   </h4>
                   <p className="text-xs sm:text-sm text-blue-100 leading-relaxed">
-                    Yolda kaldığınızda veya motosikletinizi bakım/detailing için garaja kendiniz getiremediğinizde
-                    özel tekerlek sabitleme beşiği (wheel chock) ve yumuşak askı kemerli aracımızla adresinizden teslim
-                    alıyor, işlemler tamamlandığında kapınıza güvenle geri getiriyoruz. Sıfır devrilme ve çizilme garantisi!
+                    Motosikletinizi bakım veya detailing için garaja kendiniz getiremediğiniz durumlarda;
+                    özel tekerlek sabitleme beşiği (wheel chock) ve süspansiyon korumalı yumuşak askı aparatlı
+                    kapalı transfer altyapımız çok yakında hizmetinizde olacaktır.
                   </p>
                   <div className="flex flex-wrap gap-4 pt-1 text-xs font-bold text-blue-200">
                     <span className="flex items-center gap-1.5">
@@ -958,7 +882,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                     </span>
                     <span className="flex items-center gap-1.5">
                       <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                      Kapıdan Kapıya VIP Transfer
+                      Atölye Randevulu Transfer Desteği
                     </span>
                   </div>
                 </div>
@@ -969,7 +893,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                     className="inline-flex items-center justify-center gap-2 bg-white text-[#1E3A8A] font-black text-sm px-6 py-3.5 rounded-xl shadow-lg hover:bg-blue-50 transition active:scale-95"
                   >
                     <Phone className="w-4 h-4" />
-                    <span>Acil Çekici Çağır: 0546 533 28 44</span>
+                    <span>Motosiklet Destek: 0546 533 28 44</span>
                   </a>
                   <a
                     href="https://wa.me/905465332844?text=Merhaba%20Bumex%20Garage,%20motosiklet%20%C3%A7ekici%20ve%20transfer%20hizmeti%20almak%20istiyorum."

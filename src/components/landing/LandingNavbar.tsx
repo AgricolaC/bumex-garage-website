@@ -95,18 +95,6 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
 
             <span className="h-3 w-px bg-black/15 dark:bg-white/15" />
 
-            {/* Segmente Özel Uzman Telefon Hattı */}
-            <a
-              href={`tel:${phone}`}
-              className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition font-bold flex items-center gap-1"
-              title={segment === 'otomobil' ? 'Otomobil Randevu Hattı' : 'Motosiklet Randevu Hattı'}
-            >
-              <Phone className="w-3.5 h-3.5 text-[#1E3A8A] dark:text-[#60A5FA]" />
-              <span>{phoneDisplay}</span>
-            </a>
-
-            <span className="h-3 w-px bg-black/15 dark:bg-white/15" />
-
             {/* Tema Geçiş Butonu */}
             <button
               onClick={toggleTheme}
@@ -154,16 +142,25 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
             />
           </Link>
 
-          {/* Menü Linkleri (Segmente Özel Dinamik Etiketler) */}
+          {/* Menü Linkleri: Galeri -> Fiyatlar -> Hizmet Listesi -> Otopark -> Konum */}
           <div className="hidden lg:flex items-center gap-5 text-xs font-bold uppercase tracking-wider">
-            <Link href="/#hizmetler" className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition">
-              {segment === 'otomobil' ? 'Otomobil Hizmetleri' : 'Motosiklet Hizmetleri'}
+            <Link
+              href={segment === 'motosiklet' ? '/motosiklet#restorasyon' : '/#restorasyon'}
+              className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition"
+            >
+              Galeri
             </Link>
-            <Link href="/#restorasyon" className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition">
-              {segment === 'otomobil' ? 'Boya Restorasyonu' : 'Grenaj & Zincir Bakım'}
-            </Link>
-            <Link href="/#fiyatlar" className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition">
+            <Link
+              href={segment === 'motosiklet' ? '/motosiklet#fiyatlar' : '/#fiyatlar'}
+              className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition"
+            >
               Fiyatlar
+            </Link>
+            <Link
+              href={segment === 'motosiklet' ? '/motosiklet#hizmetler' : '/#hizmetler'}
+              className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition"
+            >
+              Hizmet Listesi
             </Link>
             <Link
               href="/otopark"
@@ -172,8 +169,8 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
               <ShieldCheck className="w-3.5 h-3.5" />
               <span>Güvenli Otopark</span>
             </Link>
-            <Link href="/#konum" className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition">
-              Konum
+            <Link href="/konum" className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition">
+              Konum &amp; Ulaşım
             </Link>
           </div>
 

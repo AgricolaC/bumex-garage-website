@@ -272,8 +272,8 @@ const SERVICES: ServiceItem[] = [
   },
   {
     id: 'moto-cekici-hizmeti',
-    title: '7/24 Motosiklet Çekici & VIP Kurtarma',
-    subtitle: 'Özel ön teker sabitleme beşiği ve 4 noktalı yumuşak askı kemerleriyle yolda kalan veya garaja gelemeyen motorlar için güvenli transfer.',
+    title: 'Motosiklet Çekici & Özel Taşıma (Çok Yakında)',
+    subtitle: 'Özel ön teker sabitleme beşiği ve 4 noktalı askı aparatlarıyla atölye randevulu bakım ve transfer durumları için hazırlanan taşıma altyapısı.',
     category: 'Motosiklet Mekanik & Çekici',
     type: 'bike',
     icon: Truck,
@@ -308,7 +308,7 @@ export function ServicesCatalog({ theme, onOpenModal }: ServicesCatalogProps) {
     return [
       { id: 'all', label: 'Tüm Motosiklet Hizmetleri' },
       { id: 'Motosiklet Detailing', label: 'Detailing & Yıkama' },
-      { id: 'Motosiklet Mekanik & Çekici', label: 'Mekanik Servis & Çekici' },
+      { id: 'Motosiklet Mekanik & Çekici', label: 'Mekanik Servis & Transfer (Yakında)' },
       { id: 'Boya & Koruma', label: 'Boya & Seramik Zırh' },
     ];
   }, [segment]);
@@ -343,13 +343,13 @@ export function ServicesCatalog({ theme, onOpenModal }: ServicesCatalogProps) {
               }`}
             >
               {segment === 'otomobil'
-                ? 'Resmi Otomobil Hizmet Kartelası'
+                ? 'Resmi Otomobil Hizmet Kartelası & Modüler Servis Tablosu'
                 : 'Resmi Motosiklet Hizmet & Servis Kartelası'}
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-black tracking-tight">
             {segment === 'otomobil'
-              ? 'Otomobil Detailing, PPF & Boya Koruma'
+              ? 'Otomobil Detailing, PPF, Boya Koruma & Modüler Servis'
               : 'Motosiklet Detailing, Bakım & Mekanik Servis'}
           </h2>
           <p
@@ -358,8 +358,8 @@ export function ServicesCatalog({ theme, onOpenModal }: ServicesCatalogProps) {
             }`}
           >
             {segment === 'otomobil'
-              ? 'Bahçelievler stüdyomuzda otomobiliniz için uygulanan mikron boya restorasyonu, PPF şeffaf kaplama, 9H nano seramik ve detaylı oto kuaför disiplinleri.'
-              : 'Hassas motosiklet detailing, 9H seramik, periyodik bakım (yağ, filtre, varyatör, zincir), mekanik arıza onarımı ve 7/24 özel aparatlı çekici desteği.'}
+              ? 'Bahçelievler stüdyomuzda paket harici tekil ihtiyaçlarınız ve komple stüdyo uygulamalarımız için mikron boya restorasyonu, PPF kaplama, 9H nano seramik, detaylı oto kuaför ve 12+ kalem şeffaf atölye birim hizmetleri.'
+              : 'Hassas motosiklet detailing, 9H seramik, periyodik bakım (yağ, filtre, varyatör, zincir), mekanik arıza onarımı ve hazırlık aşamasındaki transfer desteği.'}
           </p>
         </div>
 

@@ -217,6 +217,58 @@ for (const q of requiredOtoparkQuestions) {
 }
 pass("All 4 otopark FAQ questions strictly synchronized between visible UI and Schema.org JSON-LD");
 
+// 3b. Validate Subpage (/motosiklet) Route and Dedicated Schema
+const motoPath = path.join(ROOT, 'src/app/motosiklet/page.tsx');
+if (!fs.existsSync(motoPath)) fail(`src/app/motosiklet/page.tsx not found`);
+const motoCode = fs.readFileSync(motoPath, 'utf8');
+
+if (!motoCode.includes('<MotorcycleStructuredData />')) {
+  fail("src/app/motosiklet/page.tsx must mount <MotorcycleStructuredData />");
+}
+
+const motoStructuredDataPath = path.join(ROOT, 'src/components/motosiklet/MotorcycleStructuredData.tsx');
+if (!fs.existsSync(motoStructuredDataPath)) fail(`MotorcycleStructuredData.tsx not found at ${motoStructuredDataPath}`);
+const motoStructuredDataCode = fs.readFileSync(motoStructuredDataPath, 'utf8');
+
+if (!motoStructuredDataCode.includes("'MotorcycleRepair'") || !motoStructuredDataCode.includes("telephone: '+905465332844'")) {
+  fail("MotorcycleStructuredData missing MotorcycleRepair type or dedicated phone +905465332844");
+}
+pass("Motosiklet route dedicated MotorcycleRepair schema and hotline verified");
+
+// 3c. Validate Subpage (/konum) Route and Synchronized Location FAQ
+const konumPath = path.join(ROOT, 'src/app/konum/page.tsx');
+if (!fs.existsSync(konumPath)) fail(`src/app/konum/page.tsx not found`);
+const konumCode = fs.readFileSync(konumPath, 'utf8');
+
+if (!konumCode.includes('<KonumStructuredData />')) {
+  fail("src/app/konum/page.tsx must mount <KonumStructuredData />");
+}
+
+const konumStructuredDataPath = path.join(ROOT, 'src/components/konum/KonumStructuredData.tsx');
+if (!fs.existsSync(konumStructuredDataPath)) fail(`KonumStructuredData.tsx not found at ${konumStructuredDataPath}`);
+const konumStructuredDataCode = fs.readFileSync(konumStructuredDataPath, 'utf8');
+
+const konumViewPath = path.join(ROOT, 'src/components/konum/KonumView.tsx');
+if (!fs.existsSync(konumViewPath)) fail(`KonumView.tsx not found at ${konumViewPath}`);
+const konumViewCode = fs.readFileSync(konumViewPath, 'utf8');
+
+const requiredKonumQuestions = [
+  'Bumex Garage nerede ve 7. Cadde\'ye nasıl gidilir?',
+  'Burası eski Han-gar, Sonax-Würth veya Supark lokasyonu mu?',
+  'Metro veya toplu taşıma ile nasıl ulaşabilirim?',
+  'Alçak spor otomobiller veya büyük SUV\'lar için giriş rampası uygun mu?',
+];
+
+for (const q of requiredKonumQuestions) {
+  if (!konumStructuredDataCode.includes(q)) {
+    fail(`/konum schema missing question: "${q}"`);
+  }
+  if (!konumViewCode.includes(q)) {
+    fail(`Visible KonumView missing on-page question matching schema: "${q}"`);
+  }
+}
+pass("All 4 konum FAQ questions strictly synchronized between visible UI and Schema.org JSON-LD");
+
 // 4. Validate True 1200x630 OpenGraph & Dedicated Route Images
 const ogImagePath = path.join(ROOT, 'public/og-image.jpg');
 const ogDims = getImageDimensions(ogImagePath);
@@ -306,10 +358,15 @@ if (!fs.existsSync(robotsPath)) fail("robots.ts missing in src/app");
 const sitemapCode = fs.readFileSync(sitemapPath, 'utf8');
 const robotsCode = fs.readFileSync(robotsPath, 'utf8');
 
-if (!sitemapCode.includes('https://bumexgarage.com') || !sitemapCode.includes('/otopark')) {
-  fail("sitemap.ts does not advertise root and /otopark routes with canonical domain");
+if (
+  !sitemapCode.includes('https://bumexgarage.com') ||
+  !sitemapCode.includes('/motosiklet') ||
+  !sitemapCode.includes('/otopark') ||
+  !sitemapCode.includes('/konum')
+) {
+  fail("sitemap.ts does not advertise all 4 hubs (/, /motosiklet, /otopark, /konum)");
 }
-pass("Dynamic sitemap.ts routes verified");
+pass("Dynamic sitemap.ts 4-hub routes (root, /motosiklet, /otopark, /konum) verified");
 
 if (!robotsCode.includes("sitemap: 'https://bumexgarage.com/sitemap.xml'")) {
   fail("robots.ts does not reference canonical sitemap URL");
@@ -320,10 +377,10 @@ const footerPath = path.join(ROOT, 'src/components/landing/LandingFooter.tsx');
 if (!fs.existsSync(footerPath)) fail("LandingFooter.tsx not found");
 const footerCode = fs.readFileSync(footerPath, 'utf8');
 
-if (!footerCode.includes('eski Supark Otopark') || !footerCode.includes('Prof. Muammer Aksoy')) {
-  fail("LandingFooter.tsx missing quiet entity reconciliation bridge text for historical Place ID continuity");
+if (!footerCode.includes('eski Supark Otopark') || !footerCode.includes('Prof. Muammer Aksoy') || !footerCode.includes('Han-gar')) {
+  fail("LandingFooter.tsx missing quiet entity reconciliation bridge text for historical Place ID continuity (Han-gar, Supark)");
 }
-pass("Quiet entity reconciliation bridge for historical Place ID verified in footer");
+pass("Quiet entity reconciliation bridge (Han-gar, Sonax-Würth, Supark) verified in footer");
 
-console.log('\n\x1b[32m=== All 18 Rigorous SEO, OpenGraph, PWA & Schema Invariants Passed! ===\x1b[0m\n');
+console.log('\n\x1b[32m=== All 21 Rigorous SEO, OpenGraph, PWA & Schema Invariants Passed! ===\x1b[0m\n');
 process.exit(0);

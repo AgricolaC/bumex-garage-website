@@ -39,7 +39,7 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
               }`}
             >
               Ankara Bahçelievler&apos;in seçkin otomobil ve motosikletlerine mikron seviyesinde boya
-              restorasyonu, 9H nano seramik, ses izolasyonu, mekanik periyodik bakım ve 7/24 çekici desteği
+              restorasyonu, 9H nano seramik, ses izolasyonu, mekanik periyodik bakım ve randevulu transfer desteği
               sunan uzman bakım stüdyosu.
             </p>
             <div className="pt-2 flex flex-wrap gap-2.5">
@@ -79,12 +79,32 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
             <ul className="space-y-2 text-xs">
               <li>
                 <Link
+                  href="/motosiklet"
+                  className={`hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition flex items-center gap-1 font-semibold ${
+                    isCream ? 'text-[#0D0D0D]' : 'text-white'
+                  }`}
+                >
+                  Motosiklet Detailing &amp; Bakım <ArrowUpRight className="w-3 h-3 text-[#1E3A8A] dark:text-[#60A5FA]" />
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/otopark"
                   className={`hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition flex items-center gap-1 font-semibold ${
                     isCream ? 'text-[#0D0D0D]' : 'text-white'
                   }`}
                 >
                   7. Cadde Güvenli Otoparkı <ArrowUpRight className="w-3 h-3 text-[#1E3A8A] dark:text-[#60A5FA]" />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/konum"
+                  className={`hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition flex items-center gap-1 font-semibold ${
+                    isCream ? 'text-[#0D0D0D]' : 'text-white'
+                  }`}
+                >
+                  Konum, Ulaşım &amp; Yol Tarifi <ArrowUpRight className="w-3 h-3 text-[#1E3A8A] dark:text-[#60A5FA]" />
                 </Link>
               </li>
               <li>
@@ -104,17 +124,7 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
                     isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                   }`}
                 >
-                  Motosiklet Detailing &amp; Bakım
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/#fiyatlar"
-                  className={`hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition ${
-                    isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
-                  }`}
-                >
-                  7/24 Motosiklet Çekici Hizmeti
+                  Motosiklet Transfer Desteği (Yakında)
                 </Link>
               </li>
               <li>
@@ -149,16 +159,6 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
                   Kuru Buharlı Motor Protokolü <ArrowUpRight className="w-3 h-3" />
                 </button>
               </li>
-              <li>
-                <Link
-                  href="/#konum"
-                  className={`hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition ${
-                    isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
-                  }`}
-                >
-                  Google Harita &amp; Yol Tarifi
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -170,17 +170,15 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
             <div className="space-y-2.5 text-xs">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-[#1E3A8A] dark:text-[#60A5FA] shrink-0 mt-0.5" />
-                <a
-                  href="https://maps.app.goo.gl/UGsfYD1ZUdB7L5w4A"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/konum"
                   className={`hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition underline decoration-dotted ${
                     isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                   }`}
-                  title="Google Haritalar'da Bumex Garage Konumunu Aç"
+                  title="Bumex Garage Konum & Ulaşım Bilgisi"
                 >
                   Prof. Muammer Aksoy Cad. (Eski 2. Cadde) No: 48, Bahçelievler Mah. Çankaya / ANKARA ↗
-                </a>
+                </Link>
               </div>
               <div className="flex items-start gap-2">
                 <Clock className="w-4 h-4 text-[#1E3A8A] dark:text-[#60A5FA] shrink-0 mt-0.5" />
@@ -221,7 +219,7 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
           }`}
         >
           <p>
-            <strong>Lokasyon &amp; Hizmet Bilgisi:</strong> Bumex Garage, Ankara Bahçelievler Prof. Muammer Aksoy Caddesi No: 48 adresinde (eski Supark Otopark ve Yıkama lokasyonunda) 5 ana operasyonel alanda — Otomobil Yıkama, Otomobil Detailing, Motosiklet Yıkama, Motosiklet Detailing ve 7. Cadde Güvenli Otopark Tesisleri — kesintisiz hizmet vermektedir.
+            <strong>Lokasyon &amp; Hizmet Bilgisi:</strong> Bumex Garage, Ankara Bahçelievler Prof. Muammer Aksoy Caddesi No: 48 adresinde (eski Han-gar, Sonax-Würth ve eski Supark Otopark ve Yıkama lokasyonunda) 5 ana operasyonel alanda — Otomobil Yıkama, Otomobil Detailing, Motosiklet Yıkama, Motosiklet Detailing ve 7. Cadde Güvenli Otopark Tesisleri — kesintisiz hizmet vermektedir.
           </p>
         </div>
 

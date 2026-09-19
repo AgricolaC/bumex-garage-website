@@ -68,9 +68,8 @@ export function OtoparkView() {
             </div>
 
             {/* Rozet */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold border border-[#1E3A8A]/30 dark:border-[#3B82F6]/30 bg-[#1E3A8A]/10 dark:bg-[#1E3A8A]/25 text-[#1E3A8A] dark:text-[#60A5FA] mb-4">
-              <span className="w-2 h-2 rounded-full bg-[#1E3A8A] dark:bg-[#60A5FA] animate-ping" />
-              <span>7. Cadde&apos;ye 350 Metre • 24/7 CCTV Güvenlikli • Güvenli Otopark</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold border border-black/10 dark:border-white/15 bg-black/5 dark:bg-white/5 text-[#1E3A8A] dark:text-[#60A5FA] mb-4">
+              <span>7. Cadde&apos;ye 350 Metre • 24/7 CCTV Kamera • Geniş Manevra Alanı</span>
             </div>
 
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] mb-6">
@@ -90,7 +89,7 @@ export function OtoparkView() {
             {/* Aksiyon Butonları */}
             <div className="flex flex-wrap items-center gap-4">
               <a
-                href="https://wa.me/905524703610?text=Merhaba%20Bumex%20Garage,%207.%20Cadde%20kapal%C4%B1%20otopark%20m%C3%BCsaitlik%20ve%20giri%C5%9F%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum"
+                href="https://wa.me/905524703610?text=Merhaba%20Bumex%20Garage,%207.%20Cadde%20g%C3%BCvenli%20otopark%20m%C3%BCsaitlik%20ve%20giri%C5%9F%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-[#1FAD4E] hover:bg-[#25C058] text-white text-sm sm:text-base font-bold px-6 py-3.5 rounded-lg shadow-lg shadow-[#1FAD4E]/20 transition active:scale-95"
@@ -172,14 +171,14 @@ export function OtoparkView() {
                 <div className="w-12 h-12 rounded-lg bg-[#1E3A8A]/10 dark:bg-[#1E3A8A]/30 text-[#1E3A8A] dark:text-[#60A5FA] flex items-center justify-center mb-4">
                   <CloudRain className="w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-bold mb-2">Dolu, Kar & UV Güneş Kalkanı</h3>
+                <h3 className="text-lg font-bold mb-2">Hava Şartlarına Karşı Korunaklı Park</h3>
                 <p
                   className={`text-sm leading-relaxed ${
                     isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                   }`}
                 >
                   Ankara&apos;nın aniden bastıran yıkıcı dolu fırtınalarına, boyayı yıpratan kavurucu
-                  yaz güneşine ve kış donlarına karşı tam kapalı sığınak. Aracınızın boya ve vernik
+                  yaz güneşine ve kış donlarına karşı korunaklı park alanı. Aracınızın boya ve vernik
                   ömrünü hava olaylarına karşı korur.
                 </p>
               </div>
@@ -272,7 +271,7 @@ export function OtoparkView() {
                     <div className="text-xl font-black text-[#1E3A8A] dark:text-[#60A5FA] mb-1">01</div>
                     <div className="font-bold text-sm mb-1">Aracınızı Bırakın</div>
                     <div className="text-xs opacity-70">
-                      Girişte kapalı perona park edin ve anahtarı teslim edin.
+                      Girişte güvenli perona park edin ve anahtarı teslim edin.
                     </div>
                   </div>
 

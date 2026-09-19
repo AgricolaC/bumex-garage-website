@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useLandingTheme } from '@/hooks/useLandingTheme';
-import { WorkshopSegmentProvider } from '@/hooks/useWorkshopSegment';
+import { WorkshopSegmentProvider, WorkshopSegment } from '@/hooks/useWorkshopSegment';
 import { LandingNavbar } from '@/components/landing/LandingNavbar';
 import { HeroSection } from '@/components/landing/HeroSection';
 import { ServicesCatalog } from '@/components/landing/ServicesCatalog';
@@ -13,7 +13,7 @@ import { LandingFooter } from '@/components/landing/LandingFooter';
 import { MobileCallBar } from '@/components/landing/MobileCallBar';
 import { ProtocolModals, ProtocolType } from '@/components/landing/ProtocolModals';
 
-export function LandingView() {
+export function LandingView({ initialSegment }: { initialSegment?: WorkshopSegment } = {}) {
   const { theme, isCream, toggleTheme } = useLandingTheme();
   const [activeModal, setActiveModal] = useState<ProtocolType>(null);
 
@@ -33,7 +33,7 @@ export function LandingView() {
   }, [toggleTheme]);
 
   return (
-    <WorkshopSegmentProvider>
+    <WorkshopSegmentProvider initialSegment={initialSegment}>
       <div
         className={`min-h-screen transition-colors duration-200 landing-theme-${theme} ${
           isCream ? 'bg-[#E8E3DF] text-[#0D0D0D]' : 'bg-[#1B1D20] text-[#F4F4F5]'
@@ -47,20 +47,20 @@ export function LandingView() {
 
         {/* Ana Gövde */}
         <main>
-          {/* 1. Commanding Studio Switcher & Hero Vitrini (Split Hero Kontrast Seviyesi & Royal Blue) */}
+          {/* 1. Commanding Studio Switcher & Hero Vitrini */}
           <HeroSection theme={theme} />
 
-          {/* 2. Segmente Özel Filtrelenen Resmi Atölye Hizmet Yelpazesi */}
-          <ServicesCatalog
+          {/* 2. Boya Düzeltme & Grenaj Restorasyonu (Galeri) */}
+          <BeforeAfterSlider theme={theme} />
+
+          {/* 3. Şeffaf Fiyat Listesi & Detailing / Servis Paketleri */}
+          <PricingSection
             theme={theme}
             onOpenModal={(type) => setActiveModal(type)}
           />
 
-          {/* 3. Boya Düzeltme & Grenaj Restorasyonu Karşılaştırma Kaydırıcısı */}
-          <BeforeAfterSlider theme={theme} />
-
-          {/* 4. Şeffaf Fiyat Listesi & Detailing / Servis Paketleri */}
-          <PricingSection
+          {/* 4. Segmente Özel Resmi Hizmet Kartelası & Modüler Servis Tablosu */}
+          <ServicesCatalog
             theme={theme}
             onOpenModal={(type) => setActiveModal(type)}
           />

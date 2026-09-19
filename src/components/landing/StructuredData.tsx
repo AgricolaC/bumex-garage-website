@@ -12,6 +12,8 @@ export function StructuredData() {
           'Bumex Garage',
           'Bumex Detailing',
           'Bumex Güvenli Otopark',
+          'Han-gar (Eski Lokasyon)',
+          'Sonax Würth Bahçelievler (Eski Lokasyon)',
           'Supark Otopark ve Yıkama (Eski Lokasyon)',
         ],
         url: 'https://bumexgarage.com',
@@ -215,7 +217,7 @@ export function StructuredData() {
             name: 'Bumex Garage eski Supark Otopark ve Yıkama lokasyonunda mı?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'Evet. Bumex Garage, daha önce Supark Otopark ve Yıkama ile Sonax Würth olarak hizmet vermiş olan Prof. Muammer Aksoy Cad. No: 48 adresinde tamamen yenilenmiş premium stüdyo altyapısıyla hizmet vermektedir.',
+              text: 'Evet. Bumex Garage, daha önce Han-gar, Sonax Würth ve Supark Otopark ve Yıkama olarak hizmet vermiş olan Prof. Muammer Aksoy Cad. No: 48 adresinde tamamen yenilenmiş premium stüdyo altyapısıyla hizmet vermektedir.',
             },
           },
           {

@@ -34,8 +34,12 @@ const SEGMENT_HOTLINES = {
 
 const WorkshopSegmentContext = createContext<WorkshopSegmentContextValue | undefined>(undefined);
 
-function getInitialSegment(): WorkshopSegment {
-  if (typeof window === 'undefined') return 'otomobil';
+function getInitialSegment(fallback?: WorkshopSegment): WorkshopSegment {
+  if (typeof window === 'undefined') return fallback ?? 'otomobil';
+
+  if (window.location.pathname.startsWith('/motosiklet')) {
+    return 'motosiklet';
+  }
 
   const hash = window.location.hash.toLowerCase();
   if (hash.includes('motosiklet') || hash.includes('moto')) {
@@ -51,15 +55,25 @@ function getInitialSegment(): WorkshopSegment {
     return 'motosiklet';
   }
 
-  return 'otomobil';
+  return fallback ?? 'otomobil';
 }
 
-export function WorkshopSegmentProvider({ children }: { children: React.ReactNode }) {
-  const [segment, setSegmentState] = useState<WorkshopSegment>(getInitialSegment);
+export function WorkshopSegmentProvider({
+  children,
+  initialSegment,
+}: {
+  children: React.ReactNode;
+  initialSegment?: WorkshopSegment;
+}) {
+  const [segment, setSegmentState] = useState<WorkshopSegment>(() => getInitialSegment(initialSegment));
 
   // URL hash veya popstate dinlemesi
   useEffect(() => {
     const handleHashChange = () => {
+      if (window.location.pathname.startsWith('/motosiklet')) {
+        setSegmentState('motosiklet');
+        return;
+      }
       const hash = window.location.hash.toLowerCase();
       if (hash.includes('motosiklet') || hash.includes('moto')) {
         setSegmentState('motosiklet');
@@ -69,15 +83,25 @@ export function WorkshopSegmentProvider({ children }: { children: React.ReactNod
     };
 
     window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    window.addEventListener('popstate', handleHashChange);
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+      window.removeEventListener('popstate', handleHashChange);
+    };
   }, []);
 
   const setSegment = useCallback((newSegment: WorkshopSegment) => {
     setSegmentState(newSegment);
     if (typeof window !== 'undefined') {
-      const newHash = newSegment === 'motosiklet' ? '#motosiklet' : '#otomobil';
-      if (window.location.hash !== newHash) {
-        window.history.replaceState(null, '', newHash);
+      if (newSegment === 'motosiklet' && !window.location.pathname.startsWith('/motosiklet')) {
+        window.history.pushState(null, '', '/motosiklet');
+      } else if (newSegment === 'otomobil' && window.location.pathname.startsWith('/motosiklet')) {
+        window.history.pushState(null, '', '/#otomobil');
+      } else {
+        const newHash = newSegment === 'motosiklet' ? '#motosiklet' : '#otomobil';
+        if (window.location.hash !== newHash) {
+          window.history.replaceState(null, '', newHash);
+        }
       }
     }
   }, []);

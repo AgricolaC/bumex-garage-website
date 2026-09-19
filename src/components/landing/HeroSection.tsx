@@ -185,21 +185,6 @@ export function HeroSection({ theme }: HeroSectionProps) {
               <Bike className="w-4 h-4 shrink-0" />
               <span>02 Motosiklet Stüdyosu</span>
             </button>
-
-            {/* 03 OTOPARK GEÇİDİ (Doğrudan /otopark Sayfasına) */}
-            <Link
-              href="/otopark"
-              title="24/7 Güvenli Otopark Sayfasını Aç"
-              className={`flex items-center gap-2 px-4 py-3 rounded-xl font-bold text-xs sm:text-sm tracking-wide transition-all duration-200 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#1E3A8A] ${
-                isCream
-                  ? 'text-[#565352] hover:bg-black/5 hover:text-[#0D0D0D]'
-                  : 'text-[#9DA3AA] hover:bg-white/10 hover:text-white'
-              }`}
-            >
-              <ShieldCheck className="w-4 h-4 text-[#1E3A8A] dark:text-[#60A5FA]" />
-              <span>03 Otopark</span>
-              <ArrowRight className="w-3.5 h-3.5 opacity-60" />
-            </Link>
           </div>
         </div>
 

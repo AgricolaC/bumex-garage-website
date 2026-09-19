@@ -30,12 +30,24 @@ The reactive client architecture governed by `useWorkshopSegment` and URL synchr
 **Anti-synonyms:** The Segmented Router is NOT an auto-rotating distraction carousel, and NOT an isolated doorway page sprawl.
 
 ### Entity Reconciliation Bridge
-A concise, machine-readable statement placed in the footer and FAQ linking Bumex Garage to the historical business names (`SUPARK`, `SONAX WÜRTH`) previously mapped to Google Place ID `ChIJlQLz8WJP0xQR5ahmG3GTF88` at No: 48.
+A concise, machine-readable statement placed in the footer, SSS, and dedicated `/konum` hub linking Bumex Garage to the historical business names (`HAN-GAR`, `SUPARK`, `SONAX WÜRTH`) previously mapped to Google Place ID `ChIJlQLz8WJP0xQR5ahmG3GTF88` at No: 48.
 **Anti-synonyms:** The Entity Bridge is NOT co-branding, NOT keyword stuffing, and NOT a doorway page.
 
-### Dual-Core Architecture
-The Next.js App Router routing strategy maintaining `/` as the primary luxury studio showcase and `/otopark` as the dedicated high-rigor secure parking and "Park & Wash" destination hub.
-**Anti-synonyms:** Dual-Core Architecture is NOT a single-page anchor hack, and NOT a cluster of thin doorway pages (`/7-cadde-otopark`, `/emek-otopark`).
+### Four-Hub Architecture
+The Next.js App Router routing strategy maintaining four high-authority, intent-isolated routes:
+1. `/`: Primary luxury automotive detailing, micron paint correction, and fırçasız wash showcase.
+2. `/motosiklet`: Dedicated motorcycle care and detailing hub rendered via `initialSegment="motosiklet"`.
+3. `/otopark`: Utilitarian, zero-fluff parking guide detailing 350m 7. Cadde walking proximity, ramp clearance, and Park & Wash.
+4. `/konum`: Centralized physical access, transit directions, ramp guidance, and historical entity continuity hub.
+**Anti-synonyms:** Four-Hub Architecture is NOT single-page anchor clutter, and NOT a cluster of thin doorway pages (`/7-cadde-otopark`, `/emek-otopark`).
+
+### Upcoming Service Flag ("Çok Yakında")
+An explicit, honest operational status badge applied to services currently in development or preparation (specifically motorcycle towing and emergency transport), preventing false immediate dispatch expectations.
+**Anti-synonyms:** Upcoming Service Flag is NOT deceptive bait-and-switch, and NOT unverified immediate 24/7 emergency dispatch.
+
+### Zero-Fluff Utility Framing
+An architectural framing invariant applied to parking facilities and operations that presents verifiable physical facts (24/7 CCTV, wide maneuvering room, sports car ramp clearance, 4-minute walk to 7. Cadde) without wishful marketing, oversized luxury hype, or false promises.
+**Anti-synonyms:** Zero-Fluff Utility Framing is NOT low-effort or neglected design, and NOT wishful marketing.
 
 ### Review Velocity (18-Day Rule)
 The local SEO operational benchmark requiring at least one verified customer review on Google Maps every 14 to 18 days to prevent algorithmic prominence cliffs.
