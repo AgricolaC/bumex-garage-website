@@ -6,6 +6,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
+  background-color: #1B1D20;
+  color: #F4F4F5;
 }
 
 /* ─── Bumex Garage Landing Page Tema Sistemi (Krem & Titanyum Grisi) ─── */

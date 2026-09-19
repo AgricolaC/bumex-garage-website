@@ -2,11 +2,10 @@
 
 import React, { useState, useEffect } from 'react';
 import { useLandingTheme } from '@/hooks/useLandingTheme';
+import { WorkshopSegmentProvider } from '@/hooks/useWorkshopSegment';
 import { LandingNavbar } from '@/components/landing/LandingNavbar';
 import { HeroSection } from '@/components/landing/HeroSection';
-import { WorkshopVideoSection } from '@/components/landing/WorkshopVideoSection';
 import { ServicesCatalog } from '@/components/landing/ServicesCatalog';
-import { VisualReelSection } from '@/components/landing/VisualReelSection';
 import { BeforeAfterSlider } from '@/components/landing/BeforeAfterSlider';
 import { PricingSection } from '@/components/landing/PricingSection';
 import { GoogleMapsSection } from '@/components/landing/GoogleMapsSection';
@@ -34,62 +33,58 @@ export function LandingView() {
   }, [toggleTheme]);
 
   return (
-    <div
-      className={`min-h-screen transition-colors duration-200 landing-theme-${theme} ${
-        isCream ? 'bg-[#E8E3DF] text-[#0D0D0D]' : 'bg-[#1B1D20] text-[#F4F4F5]'
-      }`}
-    >
-      {/* Üst Bar ve Navigasyon */}
-      <LandingNavbar
-        theme={theme}
-        toggleTheme={toggleTheme}
-      />
+    <WorkshopSegmentProvider>
+      <div
+        className={`min-h-screen transition-colors duration-200 landing-theme-${theme} ${
+          isCream ? 'bg-[#E8E3DF] text-[#0D0D0D]' : 'bg-[#1B1D20] text-[#F4F4F5]'
+        }`}
+      >
+        {/* Üst Bar ve Segment-Duyarlı Navigasyon */}
+        <LandingNavbar
+          theme={theme}
+          toggleTheme={toggleTheme}
+        />
 
-      {/* Ana Gövde */}
-      <main>
-        {/* 1. Video & Fotoğraf Odaklı Sinematik Hero Vitrini */}
-        <HeroSection theme={theme} />
+        {/* Ana Gövde */}
+        <main>
+          {/* 1. Commanding Studio Switcher & Hero Vitrini (Split Hero Kontrast Seviyesi & Royal Blue) */}
+          <HeroSection theme={theme} />
 
-        {/* 2. Milano Car Care İlhamlı Zanaat Video Turu ("Neden Bumex?") */}
-        <WorkshopVideoSection theme={theme} />
+          {/* 2. Segmente Özel Filtrelenen Resmi Atölye Hizmet Yelpazesi */}
+          <ServicesCatalog
+            theme={theme}
+            onOpenModal={(type) => setActiveModal(type)}
+          />
 
-        {/* 3. 13 Kalemlik Resmi Atölye Hizmet Yelpazesi */}
-        <ServicesCatalog
+          {/* 3. Boya Düzeltme & Grenaj Restorasyonu Karşılaştırma Kaydırıcısı */}
+          <BeforeAfterSlider theme={theme} />
+
+          {/* 4. Şeffaf Fiyat Listesi & Detailing / Servis Paketleri */}
+          <PricingSection
+            theme={theme}
+            onOpenModal={(type) => setActiveModal(type)}
+          />
+
+          {/* 5. Google Haritalar, Yol Tarifi & 24/7 Güvenli Otopark */}
+          <GoogleMapsSection theme={theme} />
+        </main>
+
+        {/* Altbilgi (Footer) */}
+        <LandingFooter
           theme={theme}
           onOpenModal={(type) => setActiveModal(type)}
         />
 
-        {/* 4. Canlı Fotoğraf & Reels Görsel Kanıt Vitrini */}
-        <VisualReelSection theme={theme} />
+        {/* Mobilde Sabit Segmente Özel Arama ve WhatsApp Barı */}
+        <MobileCallBar theme={theme} />
 
-        {/* 5. Boya Düzeltme Öncesi / Sonrası Karşılaştırma Kaydırıcısı */}
-        <BeforeAfterSlider theme={theme} />
-
-        {/* 6. Şeffaf Fiyat Listesi & Motosiklet Detailing Paketleri */}
-        <PricingSection
+        {/* Bilgilendirme Protokol Modalları */}
+        <ProtocolModals
+          activeModal={activeModal}
+          onClose={() => setActiveModal(null)}
           theme={theme}
-          onOpenModal={(type) => setActiveModal(type)}
         />
-
-        {/* 7. Google Haritalar, Yol Tarifi & Müşteri İncelemeleri */}
-        <GoogleMapsSection theme={theme} />
-      </main>
-
-      {/* Altbilgi (Footer) */}
-      <LandingFooter
-        theme={theme}
-        onOpenModal={(type) => setActiveModal(type)}
-      />
-
-      {/* Mobilde Sabit Arama ve WhatsApp Barı */}
-      <MobileCallBar theme={theme} />
-
-      {/* Hibrit Bilgilendirme Modalları (Motor & Detailing) */}
-      <ProtocolModals
-        activeModal={activeModal}
-        onClose={() => setActiveModal(null)}
-        theme={theme}
-      />
-    </div>
+      </div>
+    </WorkshopSegmentProvider>
   );
 }

@@ -84,7 +84,7 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
                     isCream ? 'text-[#0D0D0D]' : 'text-white'
                   }`}
                 >
-                  7. Cadde Kapalı Otoparkı <ArrowUpRight className="w-3 h-3 text-[#1E3A8A] dark:text-[#60A5FA]" />
+                  7. Cadde Güvenli Otoparkı <ArrowUpRight className="w-3 h-3 text-[#1E3A8A] dark:text-[#60A5FA]" />
                 </Link>
               </li>
               <li>
@@ -188,6 +188,26 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
                   Her Gün: 10:00 – 22:00 (Haftanın 7 Günü Açık)
                 </span>
               </div>
+              <div className="pt-2 border-t border-black/5 dark:border-white/10 space-y-1.5">
+                <div>
+                  <span className="text-[#6C6A6B] block text-[11px]">Otomobil Destek &amp; Randevu:</span>
+                  <a
+                    href="tel:05524703610"
+                    className="font-bold text-[#1E3A8A] dark:text-[#60A5FA] hover:underline"
+                  >
+                    0552 470 36 10
+                  </a>
+                </div>
+                <div>
+                  <span className="text-[#6C6A6B] block text-[11px]">Motosiklet Destek &amp; Randevu:</span>
+                  <a
+                    href="tel:05465332844"
+                    className="font-bold text-[#1E3A8A] dark:text-[#60A5FA] hover:underline"
+                  >
+                    0546 533 28 44
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -201,7 +221,7 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
           }`}
         >
           <p>
-            <strong>Lokasyon & Hizmet Bilgisi:</strong> Bumex Garage, Ankara Bahçelievler Prof. Muammer Aksoy Caddesi No: 48 adresinde (eski Supark Otopark ve Yıkama lokasyonunda) 5 ana operasyonel alanda — Otomobil Yıkama, Otomobil Detailing, Motosiklet Yıkama, Motosiklet Detailing ve 7. Cadde Kapalı Otopark Tesisleri — kesintisiz hizmet vermektedir.
+            <strong>Lokasyon &amp; Hizmet Bilgisi:</strong> Bumex Garage, Ankara Bahçelievler Prof. Muammer Aksoy Caddesi No: 48 adresinde (eski Supark Otopark ve Yıkama lokasyonunda) 5 ana operasyonel alanda — Otomobil Yıkama, Otomobil Detailing, Motosiklet Yıkama, Motosiklet Detailing ve 7. Cadde Güvenli Otopark Tesisleri — kesintisiz hizmet vermektedir.
           </p>
         </div>
 

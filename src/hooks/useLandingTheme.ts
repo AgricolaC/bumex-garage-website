@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 export type LandingTheme = 'cream' | 'titanium';
 
 export function useLandingTheme() {
-  const [theme, setTheme] = useState<LandingTheme>('cream');
+  const [theme, setTheme] = useState<LandingTheme>('titanium');
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {

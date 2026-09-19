@@ -3,6 +3,7 @@
 import React from 'react';
 import { Phone, MessageCircle } from 'lucide-react';
 import { LandingTheme } from '@/hooks/useLandingTheme';
+import { useWorkshopSegment } from '@/hooks/useWorkshopSegment';
 
 interface MobileCallBarProps {
   theme: LandingTheme;
@@ -10,6 +11,8 @@ interface MobileCallBarProps {
 
 export function MobileCallBar({ theme }: MobileCallBarProps) {
   const isCream = theme === 'cream';
+  const { segment, phone, phoneDisplay, whatsappNumber, whatsappDefaultMessage } =
+    useWorkshopSegment();
 
   return (
     <div
@@ -22,7 +25,7 @@ export function MobileCallBar({ theme }: MobileCallBarProps) {
       <div className="grid grid-cols-2 gap-2.5">
         {/* WhatsApp Butonu */}
         <a
-          href="https://wa.me/905524703610?text=Merhaba%20Bumex%20Garage,%20bilgi%20ve%20m%C3%BCsaitlik%20almak%20istiyorum"
+          href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappDefaultMessage)}`}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-1.5 bg-[#1FAD4E] hover:bg-[#25C058] text-white font-bold text-xs py-3 px-2 rounded-xl shadow-sm transition active:scale-95"
@@ -31,13 +34,13 @@ export function MobileCallBar({ theme }: MobileCallBarProps) {
           <span>WhatsApp</span>
         </a>
 
-        {/* Doğrudan Arama Butonu */}
+        {/* Segmente Özel Doğrudan Arama Butonu (Daima Royal Blue) */}
         <a
-          href="tel:05524703610"
-          className="flex items-center justify-center gap-1.5 bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white font-bold text-xs py-3 px-2 rounded-xl shadow-md shadow-[#1E3A8A]/30 transition active:scale-95"
+          href={`tel:${phone}`}
+          className="flex items-center justify-center gap-1.5 text-white font-bold text-xs py-3 px-2 rounded-xl shadow-md transition active:scale-95 bg-[#1E3A8A] hover:bg-[#1D4ED8] shadow-[#1E3A8A]/30"
         >
           <Phone className="w-4 h-4 shrink-0" />
-          <span>0552 470 36 10</span>
+          <span>{phoneDisplay}</span>
         </a>
       </div>
     </div>

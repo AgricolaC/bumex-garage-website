@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   Gem,
   Volume2,
@@ -24,6 +24,7 @@ import {
   Flame,
 } from 'lucide-react';
 import { LandingTheme } from '@/hooks/useLandingTheme';
+import { useWorkshopSegment } from '@/hooks/useWorkshopSegment';
 
 interface ServicesCatalogProps {
   theme: LandingTheme;
@@ -282,21 +283,45 @@ const SERVICES: ServiceItem[] = [
 
 export function ServicesCatalog({ theme, onOpenModal }: ServicesCatalogProps) {
   const isCream = theme === 'cream';
+  const { segment, phone, phoneDisplay } = useWorkshopSegment();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
-  const filterCategories = [
-    { id: 'all', label: 'Tüm Hizmetler' },
-    { id: 'Motosiklet Detailing', label: 'Motosiklet Detailing' },
-    { id: 'Motosiklet Mekanik & Çekici', label: 'Motosiklet Mekanik & Çekici' },
-    { id: 'Boya & Koruma', label: 'Boya & Seramik' },
-    { id: 'İç Hijyen & İzolasyon', label: 'İç Hijyen & İzolasyon' },
-    { id: 'Teknik Detay & Cam', label: 'Yıkama & Cam' },
-  ];
+  // Segmente göre geçerli temel hizmet listesi
+  const segmentServices = useMemo(() => {
+    return SERVICES.filter((s) =>
+      segment === 'otomobil'
+        ? s.type === 'car' || s.type === 'both'
+        : s.type === 'bike' || s.type === 'both'
+    );
+  }, [segment]);
 
-  const filteredServices =
-    selectedCategory === 'all'
-      ? SERVICES
-      : SERVICES.filter((s) => s.category === selectedCategory);
+  // Segmente özel alt filtre sekmeleri
+  const filterCategories = useMemo(() => {
+    if (segment === 'otomobil') {
+      return [
+        { id: 'all', label: 'Tüm Otomobil Hizmetleri' },
+        { id: 'Boya & Koruma', label: 'Boya & Seramik' },
+        { id: 'İç Hijyen & İzolasyon', label: 'İç Hijyen & Kuaför' },
+        { id: 'Teknik Detay & Cam', label: 'Yıkama & Cam & Motor' },
+      ];
+    }
+    return [
+      { id: 'all', label: 'Tüm Motosiklet Hizmetleri' },
+      { id: 'Motosiklet Detailing', label: 'Detailing & Yıkama' },
+      { id: 'Motosiklet Mekanik & Çekici', label: 'Mekanik Servis & Çekici' },
+      { id: 'Boya & Koruma', label: 'Boya & Seramik Zırh' },
+    ];
+  }, [segment]);
+
+  // Segment değiştiğinde filtre kategori kontrolü
+  useEffect(() => {
+    setSelectedCategory('all');
+  }, [segment]);
+
+  const filteredServices = useMemo(() => {
+    if (selectedCategory === 'all') return segmentServices;
+    return segmentServices.filter((s) => s.category === selectedCategory);
+  }, [selectedCategory, segmentServices]);
 
   return (
     <section
@@ -308,7 +333,7 @@ export function ServicesCatalog({ theme, onOpenModal }: ServicesCatalogProps) {
       }`}
     >
       <div className="max-w-6xl mx-auto">
-        {/* Başlık Alanı */}
+        {/* Başlık Alanı (Segment Odaklı) */}
         <div className="max-w-2xl mb-8">
           <div className="flex items-center gap-2 mb-2">
             <span className="w-2.5 h-2.5 rounded-full bg-[#1E3A8A]" />
@@ -317,19 +342,24 @@ export function ServicesCatalog({ theme, onOpenModal }: ServicesCatalogProps) {
                 isCream ? 'text-[#6C6A6B]' : 'text-[#9DA3AA]'
               }`}
             >
-              Resmi Atölye Hizmet Kartelası
+              {segment === 'otomobil'
+                ? 'Resmi Otomobil Hizmet Kartelası'
+                : 'Resmi Motosiklet Hizmet & Servis Kartelası'}
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-black tracking-tight">
-            Uzmanlık Alanlarımız &amp; Hizmetlerimiz
+            {segment === 'otomobil'
+              ? 'Otomobil Detailing, PPF & Boya Koruma'
+              : 'Motosiklet Detailing, Bakım & Mekanik Servis'}
           </h2>
           <p
             className={`text-sm sm:text-base mt-2 leading-relaxed ${
               isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
             }`}
           >
-            Bahçelievler stüdyomuzda otomobil ve motosikletler için uygulanan profesyonel boya koruma,
-            iç hijyen, mekanik bakım, grenaj onarımı ve 7/24 çekici disiplinleri.
+            {segment === 'otomobil'
+              ? 'Bahçelievler stüdyomuzda otomobiliniz için uygulanan mikron boya restorasyonu, PPF şeffaf kaplama, 9H nano seramik ve detaylı oto kuaför disiplinleri.'
+              : 'Hassas motosiklet detailing, 9H seramik, periyodik bakım (yağ, filtre, varyatör, zincir), mekanik arıza onarımı ve 7/24 özel aparatlı çekici desteği.'}
           </p>
         </div>
 
@@ -342,28 +372,28 @@ export function ServicesCatalog({ theme, onOpenModal }: ServicesCatalogProps) {
                 key={cat.id}
                 type="button"
                 onClick={() => setSelectedCategory(cat.id)}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition border ${
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition border cursor-pointer ${
                   isSelected
-                    ? isCream
-                      ? 'bg-[#1E3A8A] text-white border-[#1E3A8A] shadow-md shadow-[#1E3A8A]/25'
-                      : 'bg-[#1E3A8A] text-white border-[#1E3A8A] shadow-md shadow-[#1E3A8A]/40'
+                    ? 'bg-[#1E3A8A] text-white border-[#1E3A8A] shadow-md shadow-[#1E3A8A]/25'
                     : isCream
-                    ? 'bg-white/80 text-[#565352] border-[#6C6A6B]/20 hover:bg-white hover:text-[#0D0D0D]'
-                    : 'bg-[#222529] text-[#9DA3AA] border-white/10 hover:bg-[#2C3035] hover:text-white'
+                      ? 'bg-white/80 text-[#565352] border-[#6C6A6B]/20 hover:bg-white hover:text-[#0D0D0D]'
+                      : 'bg-[#222529] text-[#9DA3AA] border-white/10 hover:bg-[#2C3035] hover:text-white'
                 }`}
               >
-                {cat.id.startsWith('Motosiklet') && <Flame className="w-3 h-3 inline mr-1 text-amber-500" />}
+                {segment === 'motosiklet' && cat.id !== 'all' && (
+                  <Flame className="w-3 h-3 inline mr-1 text-amber-500" />
+                )}
                 <span>{cat.label}</span>
               </button>
             );
           })}
         </div>
 
-        {/* Hizmet Kartelası Tablosu / Grid */}
+        {/* Hizmet Kartelası Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {filteredServices.map((item) => {
             const Icon = item.icon;
-            const isBikeRelated = item.type === 'bike' || item.category.startsWith('Motosiklet');
+            const isBikeItem = item.type === 'bike';
 
             return (
               <div
@@ -376,14 +406,14 @@ export function ServicesCatalog({ theme, onOpenModal }: ServicesCatalogProps) {
               >
                 <div>
                   <div className="flex items-center justify-between mb-3.5">
-                    {/* Yuvarlak Koyu Kraliyet Mavisi Rozet İkon */}
-                    <div className="w-10 h-10 rounded-full bg-[#1E3A8A] text-white flex items-center justify-center shrink-0 shadow-sm shadow-[#1E3A8A]/30">
+                    {/* İkon Rozeti (Daima Royal Blue) */}
+                    <div className="w-10 h-10 rounded-full text-white flex items-center justify-center shrink-0 shadow-sm bg-[#1E3A8A] shadow-[#1E3A8A]/30">
                       <Icon className="w-5 h-5" />
                     </div>
                     <div className="flex items-center gap-1.5">
-                      {isBikeRelated && (
+                      {isBikeItem && (
                         <span className="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-amber-500/15 text-amber-700 dark:text-amber-400 border border-amber-500/30 flex items-center gap-1">
-                          <Bike className="w-3 h-3" /> Motor
+                          <Bike className="w-3 h-3" /> Moto
                         </span>
                       )}
                       <span
@@ -413,15 +443,15 @@ export function ServicesCatalog({ theme, onOpenModal }: ServicesCatalogProps) {
                     <button
                       type="button"
                       onClick={() => onOpenModal(item.modalType!)}
-                      className="text-xs font-bold text-[#1E3A8A] dark:text-[#60A5FA] hover:underline flex items-center gap-1"
+                      className="text-xs font-bold hover:underline flex items-center gap-1 cursor-pointer text-[#1E3A8A] dark:text-[#60A5FA]"
                     >
                       <span>Protokolü Gör</span>
                       <ChevronRight className="w-3.5 h-3.5" />
                     </button>
                   ) : (
                     <a
-                      href="tel:05524703610"
-                      className="text-xs font-bold text-[#1E3A8A] dark:text-[#60A5FA] hover:underline flex items-center gap-1"
+                      href={`tel:${phone}`}
+                      className="text-xs font-bold hover:underline flex items-center gap-1 text-[#1E3A8A] dark:text-[#60A5FA]"
                     >
                       <span>Bilgi &amp; Randevu</span>
                       <ChevronRight className="w-3.5 h-3.5" />
@@ -429,13 +459,13 @@ export function ServicesCatalog({ theme, onOpenModal }: ServicesCatalogProps) {
                   )}
 
                   <a
-                    href="tel:05524703610"
+                    href={`tel:${phone}`}
                     className={`p-1.5 rounded-lg border transition ${
                       isCream
                         ? 'border-[#6C6A6B]/20 text-[#6C6A6B] hover:text-[#1E3A8A] hover:border-[#1E3A8A]'
                         : 'border-white/10 text-[#80868E] hover:text-white hover:border-white/30'
                     }`}
-                    title="Hemen Ara: 0552 470 36 10"
+                    title={`Hemen Ara: ${phoneDisplay}`}
                   >
                     <Phone className="w-3.5 h-3.5" />
                   </a>

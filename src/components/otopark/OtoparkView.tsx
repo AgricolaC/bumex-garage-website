@@ -60,22 +60,22 @@ export function OtoparkView() {
           <div className="max-w-5xl mx-auto relative z-10">
             {/* Breadcrumb */}
             <div className="flex items-center gap-2 text-xs font-semibold mb-6 opacity-70">
-              <Link href="/" className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition">
+              <Link href="/" className="hover:text-[#1E3A8A] dark:text-[#60A5FA] transition">
                 Ana Sayfa
               </Link>
               <span>/</span>
-              <span className="text-[#1E3A8A] dark:text-[#60A5FA]">Kapalı Otopark & Park & Wash</span>
+              <span className="text-[#1E3A8A] dark:text-[#60A5FA]">Güvenli Otopark &amp; Park &amp; Wash</span>
             </div>
 
             {/* Rozet */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold border border-[#1E3A8A]/30 dark:border-[#3B82F6]/30 bg-[#1E3A8A]/10 dark:bg-[#1E3A8A]/25 text-[#1E3A8A] dark:text-[#60A5FA] mb-4">
               <span className="w-2 h-2 rounded-full bg-[#1E3A8A] dark:bg-[#60A5FA] animate-ping" />
-              <span>7. Cadde&apos;ye 350 Metre • 24/7 CCTV Güvenlikli • Kapalı Otopark</span>
+              <span>7. Cadde&apos;ye 350 Metre • 24/7 CCTV Güvenlikli • Güvenli Otopark</span>
             </div>
 
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] mb-6">
-              Bahçelievler&apos;in Güvenli, Ferah ve{' '}
-              <span className="text-[#1E3A8A] dark:text-[#60A5FA]">Korunaklı Kapalı Otoparkı</span>
+              Bahçelievler&apos;in Geniş Manevralı ve{' '}
+              <span className="text-[#1E3A8A] dark:text-[#60A5FA]">24/7 Güvenli Otoparkı</span>
             </h1>
 
             <p
@@ -83,9 +83,8 @@ export function OtoparkView() {
                 isCream ? 'text-[#4A4746]' : 'text-[#A1A7B0]'
               }`}
             >
-              Dar sokakların park krizinden, kaldırım sürtme risklerinden ve Ankara&apos;nın sert hava
-              şartlarından (dolu, kavurucu güneş, kar) uzakta. 7. Cadde&apos;ye (Aşkabat Caddesi) sadece 4 dakika
-              yürüme mesafesinde, 24 saat kamera gözetimli kapalı park alanı.
+              Dar sokakların park krizinden ve kaldırım sürtme risklerinden uzakta. 7. Cadde&apos;ye (Aşkabat Caddesi)
+              sadece 4 dakika yürüme mesafesinde, 24 saat kamera gözetimli ve geniş manevra alanlı güvenli park alanı.
             </p>
 
             {/* Aksiyon Butonları */}
@@ -134,7 +133,7 @@ export function OtoparkView() {
                 Maksimum Güvenlik Standartları
               </span>
               <h2 className="text-2xl sm:text-3xl font-black mt-2">
-                Neden Bumex Garage Kapalı Otoparkı?
+                Neden Bumex Garage Güvenli Otoparkı?
               </h2>
             </div>
 
@@ -258,7 +257,7 @@ export function OtoparkView() {
                   }`}
                 >
                   7. Cadde&apos;de kafe, restoran veya iş randevunuza giderken aracınızı ya da
-                  motosikletinizi kapalı otoparkımıza bırakın. Siz vakit geçirirken biz aracınızı
+                  motosikletinizi güvenli otoparkımıza bırakın. Siz vakit geçirirken biz aracınızı
                   fırçasız pH-nötr köpükle yıkayalım, iç hijyenini tamamlayalım veya seramik
                   bakımını yapalım.
                 </p>
@@ -428,7 +427,7 @@ export function OtoparkView() {
                   }`}
                 >
                   Kesinlikle hayır. Aracınız üçüncü şahıslara veya sokak aralarına emanet edilmez.
-                  Doğrudan Prof. Muammer Aksoy Cad. No: 48 adresindeki resmi kapalı otopark
+                  Doğrudan Prof. Muammer Aksoy Cad. No: 48 adresindeki resmi otopark
                   tesisimize alınır ve kameralı güvenli peronda kalır.
                 </p>
               </div>

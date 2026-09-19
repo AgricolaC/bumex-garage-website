@@ -7,14 +7,14 @@ export function OtoparkStructuredData() {
       {
         '@type': 'ParkingFacility',
         '@id': 'https://bumexgarage.com/otopark#facility',
-        name: 'Bumex Garage Bahçelievler 7. Cadde Kapalı Otoparkı',
-        alternateName: ['Bumex Kapalı Otopark', 'Supark Otopark (Eski Lokasyon)'],
+        name: 'Bumex Garage Bahçelievler 7. Cadde Güvenli Otoparkı',
+        alternateName: ['Bumex Güvenli Otopark', 'Supark Otopark (Eski Lokasyon)'],
         url: 'https://bumexgarage.com/otopark',
         telephone: '+905524703610',
         priceRange: '₺₺',
         image: 'https://bumexgarage.com/og-otopark.jpg',
         description:
-          "Bahçelievler 7. Cadde'ye 350m yürüme mesafesinde 24/7 CCTV gözetimli, dolu/hava korumalı ve spor araç rampalı kapalı otopark tesisi.",
+          "Bahçelievler 7. Cadde'ye 350m yürüme mesafesinde 24/7 CCTV gözetimli, geniş manevra alanlı ve spor araç rampalı güvenli otopark tesisi.",
         address: {
           '@type': 'PostalAddress',
           streetAddress: 'Prof. Muammer Aksoy Cad. (2. Cd.) No: 48',
@@ -64,7 +64,7 @@ export function OtoparkStructuredData() {
           {
             '@type': 'ListItem',
             position: 2,
-            name: '7. Cadde Kapalı Otoparkı',
+            name: '7. Cadde Güvenli Otoparkı',
             item: 'https://bumexgarage.com/otopark',
           },
         ],
@@ -86,7 +86,7 @@ export function OtoparkStructuredData() {
             name: 'Vale riski veya aracı sokakta bırakma durumu olur mu?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'Kesinlikle hayır. Aracınız üçüncü şahıslara veya sokak aralarına emanet edilmez. Doğrudan Prof. Muammer Aksoy Cad. No: 48 adresindeki resmi kapalı otopark tesisimize alınır ve kameralı güvenli peronda kalır.',
+              text: 'Kesinlikle hayır. Aracınız üçüncü şahıslara veya sokak aralarına emanet edilmez. Doğrudan Prof. Muammer Aksoy Cad. No: 48 adresindeki resmi otopark tesisimize alınır ve kameralı güvenli peronda kalır.',
             },
           },
           {

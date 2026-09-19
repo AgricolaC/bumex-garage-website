@@ -2,8 +2,18 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Phone, MessageCircle, Sun, Moon, MapPin, Instagram, ExternalLink } from 'lucide-react';
+import {
+  Phone,
+  MessageCircle,
+  Sun,
+  Moon,
+  MapPin,
+  Instagram,
+  ExternalLink,
+  ShieldCheck,
+} from 'lucide-react';
 import { LandingTheme } from '@/hooks/useLandingTheme';
+import { useWorkshopSegment } from '@/hooks/useWorkshopSegment';
 import { BumexLogo } from './BumexLogo';
 
 interface LandingNavbarProps {
@@ -13,10 +23,12 @@ interface LandingNavbarProps {
 
 export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
   const isCream = theme === 'cream';
+  const { segment, setSegment, phone, phoneDisplay, whatsappNumber, whatsappDefaultMessage } =
+    useWorkshopSegment();
 
   return (
     <div className="w-full">
-      {/* ─── YENİLENMİŞ PRESTİJLİ TOPBAR ─── */}
+      {/* ─── 1. PRESTİJLİ TOPBAR ─── */}
       <div
         className={`py-2 px-4 sm:px-8 text-xs transition-colors duration-200 border-b ${
           isCream
@@ -25,7 +37,7 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
         }`}
       >
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-2.5">
-          {/* Sol: Harita & Açık Adres (Doğrudan Google Haritalar Profiline Tıklanabilir) */}
+          {/* Sol: Harita & Açık Adres */}
           <div className="flex items-center gap-3 flex-wrap">
             <a
               href="https://maps.app.goo.gl/UGsfYD1ZUdB7L5w4A"
@@ -54,7 +66,7 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
             </span>
           </div>
 
-          {/* Sağ: Düzenli İletişim Kanalları & Tema Seçici */}
+          {/* Sağ: Segment Telefonu, WhatsApp, Instagram & Tema Seçici */}
           <div className="flex items-center gap-3 sm:gap-3.5 flex-wrap self-end md:self-auto text-xs">
             {/* Instagram */}
             <a
@@ -72,7 +84,7 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
 
             {/* WhatsApp */}
             <a
-              href="https://wa.me/905524703610?text=Merhaba%20Bumex%20Garage,%20bilgi%20almak%20istiyorum"
+              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappDefaultMessage)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-[#1FAD4E] transition flex items-center gap-1 font-medium"
@@ -83,13 +95,14 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
 
             <span className="h-3 w-px bg-black/15 dark:bg-white/15" />
 
-            {/* Telefon */}
+            {/* Segmente Özel Uzman Telefon Hattı */}
             <a
-              href="tel:05524703610"
+              href={`tel:${phone}`}
               className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition font-bold flex items-center gap-1"
+              title={segment === 'otomobil' ? 'Otomobil Randevu Hattı' : 'Motosiklet Randevu Hattı'}
             >
               <Phone className="w-3.5 h-3.5 text-[#1E3A8A] dark:text-[#60A5FA]" />
-              <span>0552 470 36 10</span>
+              <span>{phoneDisplay}</span>
             </a>
 
             <span className="h-3 w-px bg-black/15 dark:bg-white/15" />
@@ -120,7 +133,7 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
         </div>
       </div>
 
-      {/* ─── ANA NAVİGASYON ─── */}
+      {/* ─── 2. ANA NAVİGASYON ─── */}
       <nav
         className={`sticky top-0 z-40 backdrop-blur-md border-b transition-colors duration-200 ${
           isCream
@@ -128,69 +141,50 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
             : 'bg-[#1B1D20]/95 border-white/10 text-white'
         }`}
       >
-        <div className="max-w-6xl mx-auto px-4 sm:px-8 py-3.5 flex items-center justify-between">
-          {/* Bumex Garage Logo */}
+        <div className="max-w-6xl mx-auto px-4 sm:px-8 py-3 flex items-center justify-between gap-4">
+          {/* Sol: Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2 group select-none py-1"
+            className="flex items-center gap-2 group select-none py-1 shrink-0"
             aria-label="Bumex Garage Ana Sayfa"
           >
             <BumexLogo
               isCream={isCream}
-              className="h-9 sm:h-10 w-auto transition-transform duration-200 group-hover:scale-105"
+              className="h-8 sm:h-9 w-auto transition-transform duration-200 group-hover:scale-105"
             />
           </Link>
 
-          {/* Menü Linkleri */}
-          <div className="hidden lg:flex items-center gap-6 text-xs font-bold uppercase tracking-wider">
+          {/* Menü Linkleri (Segmente Özel Dinamik Etiketler) */}
+          <div className="hidden lg:flex items-center gap-5 text-xs font-bold uppercase tracking-wider">
             <Link href="/#hizmetler" className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition">
-              Hizmetlerimiz
+              {segment === 'otomobil' ? 'Otomobil Hizmetleri' : 'Motosiklet Hizmetleri'}
             </Link>
             <Link href="/#restorasyon" className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition">
-              Restorasyon
+              {segment === 'otomobil' ? 'Boya Restorasyonu' : 'Grenaj & Zincir Bakım'}
             </Link>
             <Link href="/#fiyatlar" className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition">
-              Fiyatlar &amp; Atölye
+              Fiyatlar
             </Link>
             <Link
               href="/otopark"
               className="px-2.5 py-1 rounded bg-[#1E3A8A]/10 text-[#1E3A8A] dark:text-[#60A5FA] hover:bg-[#1E3A8A] hover:text-white transition font-black tracking-wide border border-[#1E3A8A]/30 flex items-center gap-1.5"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#1E3A8A] dark:bg-[#60A5FA]" />
-              <span>Kapalı Otopark</span>
+              <ShieldCheck className="w-3.5 h-3.5" />
+              <span>Güvenli Otopark</span>
             </Link>
             <Link href="/#konum" className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition">
               Konum
             </Link>
           </div>
 
-          {/* Sağ Aksiyonlar */}
-          <div className="flex items-center gap-3">
-
-            {/* Tema Geçiş Butonu (Ana Menüde Hızlı Erişim) */}
-            <button
-              onClick={toggleTheme}
-              aria-label={isCream ? 'Titanyum Grisi Koyu Moda Geç' : 'Krem Açık Moda Geç'}
-              className={`inline-flex items-center justify-center p-2 rounded-lg transition border cursor-pointer active:scale-95 ${
-                isCream
-                  ? 'bg-white/80 border-black/10 text-[#0D0D0D] hover:bg-white'
-                  : 'bg-white/10 border-white/15 text-white hover:bg-white/20'
-              }`}
-              title={isCream ? 'Titanyum Grisi Koyu Moda Geç (Kısayol: T)' : 'Krem Açık Moda Geç (Kısayol: T)'}
-            >
-              {isCream ? (
-                <Moon className="w-4 h-4 text-[#1E3A8A]" />
-              ) : (
-                <Sun className="w-4 h-4 text-[#E8A838]" />
-              )}
-            </button>
-
+          {/* Sağ Aksiyon: Segmente Özel Tek Tıkla Arama Butonu */}
+          <div className="flex items-center gap-2.5 shrink-0">
             <a
-              href="tel:05524703610"
-              className="inline-flex items-center gap-1.5 bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white text-xs sm:text-sm font-bold px-4 py-2 sm:px-5 sm:py-2.5 rounded shadow-md shadow-[#1E3A8A]/25 transition active:scale-95"
+              href={`tel:${phone}`}
+              className="inline-flex items-center gap-1.5 text-white text-xs font-black px-3.5 py-2 sm:px-4 sm:py-2 rounded-lg shadow-md transition active:scale-95 bg-[#1E3A8A] hover:bg-[#1D4ED8] shadow-[#1E3A8A]/25"
             >
-              <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-              <span>Hemen Ara</span>
+              <Phone className="w-3.5 h-3.5" />
+              <span>{phoneDisplay}</span>
             </a>
           </div>
         </div>

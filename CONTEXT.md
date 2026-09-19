@@ -12,20 +12,29 @@ The five distinct commercial service divisions operated by Bumex Garage at `Prof
 2. **Auto Detailing & Boya Koruma (Mikron analiz, 9H nano seramik, PPF, dielektrik kuru buhar)**: Micron-measured paint correction, 9H nano ceramic armor, PPF film, and dielectric dry steam engine cleaning.
 3. **Motorcycle Wash & Hassas Yıkama (Sportbike, cruiser, scooter zincir ve jant arındırma)**: Specialized touchless cleaning for sportbikes, cruisers, and scooters with chain and wheel degreasing.
 4. **Motorcycle Detailing & Grenaj Koruma (Grenaj mikron pasta cila, 9H seramik, kışlama bakımı)**: Dedicated motorcycle paint correction, fairing polishing, 9H ceramic shield, and winterization prep.
-5. **Parking Facilities (Kapalı Otopark - 7. Cadde 350m, 24/7 CCTV, Park & Wash)**: Secure, camera-monitored indoor parking located 350m from 7. Cadde, protecting vehicles from weather and street congestion.
+5. **Parking Facilities (Güvenli Otopark - 7. Cadde 350m, 24/7 CCTV, Park & Wash)**: Secure, camera-monitored parking located 350m from 7. Cadde, offering wide maneuvering room and Park & Wash integration.
 
 **Approved Commercial Bridges & High-Intent Synonyms:**
 - **Oto Kuaför**: Authorized as an approved high-intent Turkish commercial bridge and search synonym specifically representing *Detaylı Araç İçi Hijyen & Koltuk/Taban Restorasyonu* (sıcak ekstraksiyonlu koltuk temizliği, taban halısı derin arındırma, tavan sterilizasyonu ve buharlı hijyen).
 
 **Anti-synonyms:**
-The Five Pillars remain strictly distinct from unattended open parking lots, low-end abrasive self-servis jet-washes, or unregulated street wash hacks (fırçalı, kostikli veya çizilme riski barındıran kontrolsüz yıkama işlemleri).
+The Five Pillars remain strictly distinct from unattended open parking lots, low-end abrasive self-servis jet-washes, or unregulated street wash hacks. Crucially, Parking Facilities is NOT an underground or fully enclosed ("kapalı") garage; advertising it as "kapalı" is strictly forbidden to protect truth-in-advertising.
+
+### Dual Dedicated Hotlines
+The workshop operates two specialized telephone dispatch lines mapped to distinct technician teams:
+- **Otomobil Destek & Randevu**: `0552 470 36 10`
+- **Motosiklet Destek & Randevu**: `0546 533 28 44`
+
+### Segmented Studio Router
+The reactive client architecture governed by `useWorkshopSegment` and URL synchronisation (`#otomobil`, `#motosiklet`), routing parking directly to `/otopark`. Downstream components (`ServicesCatalog`, `PricingSection`, `BeforeAfterSlider`) strictly isolate content to the active vehicle segment.
+**Anti-synonyms:** The Segmented Router is NOT an auto-rotating distraction carousel, and NOT an isolated doorway page sprawl.
 
 ### Entity Reconciliation Bridge
 A concise, machine-readable statement placed in the footer and FAQ linking Bumex Garage to the historical business names (`SUPARK`, `SONAX WÜRTH`) previously mapped to Google Place ID `ChIJlQLz8WJP0xQR5ahmG3GTF88` at No: 48.
 **Anti-synonyms:** The Entity Bridge is NOT co-branding, NOT keyword stuffing, and NOT a doorway page.
 
 ### Dual-Core Architecture
-The Next.js App Router routing strategy maintaining `/` as the primary luxury studio showcase and `/otopark` as the dedicated high-rigor indoor parking and "Park & Wash" destination hub.
+The Next.js App Router routing strategy maintaining `/` as the primary luxury studio showcase and `/otopark` as the dedicated high-rigor secure parking and "Park & Wash" destination hub.
 **Anti-synonyms:** Dual-Core Architecture is NOT a single-page anchor hack, and NOT a cluster of thin doorway pages (`/7-cadde-otopark`, `/emek-otopark`).
 
 ### Review Velocity (18-Day Rule)
@@ -42,3 +51,5 @@ An engine bay and electrical restoration technique utilizing high-temperature dr
 1. **Zero Internal Platform Leakage**: No operational keys, database credentials, or customer data from `bumex-garage` internal OS may ever be placed in this repository.
 2. **Deterministic Verification**: Every change must pass `./check.sh` (TypeScript typecheck and Next.js production build).
 3. **Structured Data Fidelity**: JSON-LD Schema.org entities must strictly reflect the verified physical location, opening hours, and real service offerings.
+4. **Facility Truthfulness**: The parking service must never be described as "kapalı" (enclosed/underground); it is a secure, camera-monitored facility.
+5. **Dedicated Dispatch Routing**: Automotive and motorcycle user actions must route to their dedicated phone lines (`0552 470 36 10` for cars, `0546 533 28 44` for motorcycles).

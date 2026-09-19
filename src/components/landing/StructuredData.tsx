@@ -11,7 +11,7 @@ export function StructuredData() {
         alternateName: [
           'Bumex Garage',
           'Bumex Detailing',
-          'Bumex Kapalı Otopark',
+          'Bumex Güvenli Otopark',
           'Supark Otopark ve Yıkama (Eski Lokasyon)',
         ],
         url: 'https://bumexgarage.com',
@@ -21,7 +21,7 @@ export function StructuredData() {
         paymentAccepted: 'Nakit, Kredi Kartı, Havale/EFT',
         image: 'https://bumexgarage.com/og-image.jpg',
         description:
-          'Ankara Bahçelievler\'de 7. Cadde\'ye 350m mesafede fırçasız oto yıkama, detaylı araç içi kuaför, mikron boya restorasyonu ve pasta cila, 9H nano seramik kaplama, dielektrik kuru buharlı motor koruma, motosiklet detailing ve 24/7 CCTV izlemeli kapalı otopark tesisi.',
+          'Ankara Bahçelievler\'de 7. Cadde\'ye 350m mesafede fırçasız oto yıkama, detaylı araç içi kuaför, mikron boya restorasyonu ve pasta cila, 9H nano seramik kaplama, dielektrik kuru buharlı motor koruma, motosiklet detailing ve 24/7 CCTV izlemeli güvenli otopark tesisi.',
         address: {
           '@type': 'PostalAddress',
           streetAddress: 'Prof. Muammer Aksoy Cad. (2. Cd.) No: 48',
@@ -158,15 +158,15 @@ export function StructuredData() {
             },
             {
               '@type': 'OfferCatalog',
-              name: '5. Kapalı Otopark Tesisleri (Parking Facilities)',
+              name: '5. Güvenli Otopark Tesisleri (Parking Facilities)',
               itemListElement: [
                 {
                   '@type': 'Offer',
                   itemOffered: {
                     '@type': 'Service',
-                    name: 'Bahçelievler 7. Cadde Kapalı Otopark & Park & Wash',
+                    name: 'Bahçelievler 7. Cadde Güvenli Otopark & Park & Wash',
                     description:
-                      '7. Cadde\'ye 350 metre yürüme mesafesinde, 24/7 CCTV kamera gözetimli, dolu/hava korumalı ve spor araç rampalı kapalı otopark.',
+                      '7. Cadde\'ye 350 metre yürüme mesafesinde, 24/7 CCTV kamera gözetimli, geniş manevra alanlı ve spor araç rampalı güvenli otopark.',
                   },
                 },
               ],
@@ -191,15 +191,15 @@ export function StructuredData() {
             name: 'Aracımı otoparka bırakıp yıkama veya detailing yaptırabilir miyim?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'Evet. "Park & Wash" konseptimiz sayesinde aracınızı kapalı otoparkımıza güvenle bırakıp 7. Cadde\'deki işlerinizi tamamlarken, fırçasız yıkama, iç hijyen veya boya koruma işlemlerini titizlikle tamamlıyoruz.',
+              text: 'Evet. "Park & Wash" konseptimiz sayesinde aracınızı güvenli otoparkımıza bırakıp 7. Cadde\'deki işlerinizi tamamlarken, fırçasız yıkama, iç hijyen veya boya koruma işlemlerini titizlikle tamamlıyoruz.',
             },
           },
           {
             '@type': 'Question',
-            name: 'Motosikletler için kapalı park ve özel detailing hizmetiniz var mı?',
+            name: 'Motosikletler için güvenli park ve özel detailing hizmetiniz var mı?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'Evet. Bumex Garage bünyesinde motosikletler için ayrılmış güvenli kapalı park alanı bulunmakta; zincir arındırma, fırçasız hassas yıkama, grenaj boya restorasyonu ve kask seramik kaplama hizmetleri sunulmaktadır.',
+              text: 'Evet. Bumex Garage bünyesinde motosikletler için ayrılmış güvenli park alanı bulunmakta; zincir arındırma, fırçasız hassas yıkama, grenaj boya restorasyonu ve periyodik bakım hizmetleri sunulmaktadır.',
             },
           },
           {

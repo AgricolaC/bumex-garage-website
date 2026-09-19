@@ -1,448 +1,277 @@
 'use client';
 
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import {
   Phone,
   MessageCircle,
-  ShieldCheck,
-  Sparkles,
-  CheckCircle2,
-  Gem,
-  Zap,
-  Droplets,
   Car,
   Bike,
-  Play,
-  Pause,
-  Volume2,
-  VolumeX,
-  PlayCircle,
+  ShieldCheck,
+  ArrowRight,
+  ChevronDown,
+  Sparkles,
 } from 'lucide-react';
 import { LandingTheme } from '@/hooks/useLandingTheme';
-import { WORKSHOP_PILLARS, WorkshopPillarId, WorkshopPillar } from './heroPillars';
+import { useWorkshopSegment, WorkshopSegment } from '@/hooks/useWorkshopSegment';
+import { WORKSHOP_PILLARS } from './heroPillars';
+
+export const AUTOMOBILE_STUDIO_SHOTS = [
+  {
+    id: 'temiz-arac',
+    label: 'Kusursuz Parlaklık',
+    badge: 'BMW 4 • BUMEX Detailing',
+    src: '/images/hero/hero_bmw_clean.jpg',
+    alt: 'Bumex Garage Bahçelievler BMW 4 Serisi Kusursuz Detailing ve Parlaklık',
+    caption: 'Bumex Detailing Stüdyosu Kusursuz Boya ve Ayna Parlaklığı',
+  },
+  {
+    id: 'buhar-yikama',
+    label: 'Buharlı Detay',
+    badge: 'BMW 4 • BUMEX Plaka',
+    src: '/images/hero/hero_bmw_steam_wash.jpg',
+    alt: 'Bumex Garage Bahçelievler BMW 4 Serisi Buharlı Detaylı Yıkama ve Parlatma',
+    caption: '140°C Kuru Buhar ile Böbrek Izgara ve Lazer Far Detaylandırması',
+  },
+  {
+    id: 'kar-kopugu',
+    label: 'Aktif Kar Köpüğü',
+    badge: 'Bumex Detailing Stüdyosu',
+    src: '/images/hero/hero_bmw_snow_foam.jpg',
+    alt: 'Bumex Garage Detailing Stüdyosu Aktif Kar Köpüğü Ön Yıkama',
+    caption: 'Temassız Ön Yıkama & Asitsiz Kir Çözücü Kar Köpüğü',
+  },
+  {
+    id: 'jant-temiz',
+    label: 'M-Sport Jant',
+    badge: 'M-Sport Jant',
+    src: '/images/hero/hero_bmw_wheel_clean.jpg',
+    alt: 'Bumex Garage BMW M-Sport Jant Detaylandırma ve Koruma',
+    caption: 'Kusursuz Arındırılmış Bi-Color M-Sport Jant ve M Kaliper',
+  },
+];
 
 interface HeroSectionProps {
   theme: LandingTheme;
 }
 
-const TAB_ICONS: Record<WorkshopPillar['iconName'], React.ElementType> = {
-  Gem,
-  ShieldCheck,
-  Zap,
-  Droplets,
-  Car,
-  Bike,
-};
-
 export function HeroSection({ theme }: HeroSectionProps) {
   const isCream = theme === 'cream';
+  const [activeShotIndex, setActiveShotIndex] = useState(0);
 
-  const [activePillarId, setActivePillarId] = useState<WorkshopPillarId>('mikron');
-  const [isUserPaused, setIsUserPaused] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
-  const [isTemporarilyPaused, setIsTemporarilyPaused] = useState(false);
-  const [isMuted, setIsMuted] = useState(true);
-  const [videoLoaded, setVideoLoaded] = useState(false);
+  const { segment, setSegment, phone, phoneDisplay, whatsappNumber, whatsappDefaultMessage } =
+    useWorkshopSegment();
 
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-  const pauseTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-  const activePillar =
-    WORKSHOP_PILLARS.find((p) => p.id === activePillarId) ?? WORKSHOP_PILLARS[0];
-  const activeIndex = WORKSHOP_PILLARS.findIndex((p) => p.id === activePillar.id);
-
-  // Motosiklet detailing seçildiğinde 3 kartın tamamı vurgulanır
-  const isCard1Active = activePillar.id === 'buhar' || activePillar.id === 'motosiklet';
-  const isCard2Active = activePillar.id === 'mikron' || activePillar.id === 'motosiklet';
-  const isCard3Active = activePillar.id === 'yikama' || activePillar.id === 'motosiklet';
-
-  // Sonraki sütuna geçiş fonksiyonu
-  const advancePillar = useCallback(() => {
-    setActivePillarId((currentId) => {
-      const currentIndex = WORKSHOP_PILLARS.findIndex((p) => p.id === currentId);
-      const nextIndex = (currentIndex + 1) % WORKSHOP_PILLARS.length;
-      return WORKSHOP_PILLARS[nextIndex].id;
-    });
-  }, []);
-
-  // Kullanıcı etkileşimi: Geçici olarak otomatik geçişi duraklat
-  const handleSelectPillar = (id: WorkshopPillarId) => {
-    setActivePillarId(id);
-    setIsTemporarilyPaused(true);
-
-    if (pauseTimeoutRef.current) {
-      clearTimeout(pauseTimeoutRef.current);
-    }
-    pauseTimeoutRef.current = setTimeout(() => {
-      setIsTemporarilyPaused(false);
-    }, 15000);
-  };
-
-  // WCAG 2.2.2 Pause/Play tetikleyicisi
-  const handleTogglePause = () => {
-    if (isUserPaused) {
-      setIsUserPaused(false);
-      if (videoRef.current) {
-        videoRef.current.play().catch(() => {});
-      }
-    } else {
-      setIsUserPaused(true);
-      if (videoRef.current) {
-        videoRef.current.pause();
-      }
-      if (pauseTimeoutRef.current) {
-        clearTimeout(pauseTimeoutRef.current);
-        pauseTimeoutRef.current = null;
-      }
-      setIsTemporarilyPaused(false);
-    }
-  };
-
-  // Ses Aç/Kapat tetikleyicisi
-  const handleToggleMute = () => {
-    setIsMuted((prev) => {
-      const next = !prev;
-      if (videoRef.current) {
-        videoRef.current.muted = next;
-      }
-      return next;
-    });
-  };
-
-  // 7 saniyede bir ambient dikey akış
+  // Otomobil stüdyo görselleri için 3 saniyelik otomatik zamanlı galeri döngüsü
   useEffect(() => {
-    if (isUserPaused || isHovered || isTemporarilyPaused) return;
-
+    if (segment !== 'otomobil') return;
     const interval = setInterval(() => {
-      advancePillar();
-    }, 7000);
-
+      setActiveShotIndex((prev) => (prev + 1) % AUTOMOBILE_STUDIO_SHOTS.length);
+    }, 3000);
     return () => clearInterval(interval);
-  }, [isUserPaused, isHovered, isTemporarilyPaused, advancePillar]);
+  }, [segment]);
 
-  // Video kaynağı veya durum değiştiğinde oynatmayı koru
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.muted = isMuted;
-      if (!isUserPaused) {
-        videoRef.current.play().catch(() => {});
-      }
-    }
-  }, [activePillar.id, isMuted, isUserPaused]);
+  const currentPillar =
+    WORKSHOP_PILLARS.find((p) => p.id === segment) ?? WORKSHOP_PILLARS[0];
 
-  // Temizlik
-  useEffect(() => {
-    return () => {
-      if (pauseTimeoutRef.current) {
-        clearTimeout(pauseTimeoutRef.current);
-      }
-    };
-  }, []);
-
-  const scrollToWorkshopVideo = () => {
-    const el = document.getElementById('workshop-video');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
+  const handleSelectSegment = (newSeg: WorkshopSegment) => {
+    setSegment(newSeg);
   };
 
   return (
     <section
-      className="relative min-h-[88vh] lg:min-h-[94vh] flex items-center overflow-hidden border-b transition-colors duration-200"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      aria-label="Bumex Garage Giriş Vitrini"
+      className="relative min-h-[86vh] lg:min-h-[92vh] flex items-center overflow-hidden border-b transition-colors duration-300"
+      aria-label="Bumex Garage Giriş ve Stüdyo Seçici"
     >
-      {/* 1. ARKA PLAN: Medya Katmanı (Next.js Image Poster + Looping HTML5 Video) */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden">
-        {/* Yüksek Çözünürlüklü Yedek Fotoğraf Posteri */}
-        <Image
-          src={activePillar.image}
-          alt={activePillar.imageAlt}
-          fill
-          priority
-          sizes="100vw"
-          className={`object-cover object-center transition-opacity duration-1000 transform scale-105 ${
-            videoLoaded ? 'opacity-40' : 'opacity-100'
-          }`}
-        />
+      {/* ─── 1. SİNEMATİK ARKA PLAN MEDYA GEÇİŞİ (Cross-Fade) ─── */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden select-none">
+        {/* Otomobil Görsel Katmanı: Gerçek Bumex Bahçelievler Detailing Stüdyosu */}
+        {AUTOMOBILE_STUDIO_SHOTS.map((shot, idx) => (
+          <div
+            key={shot.id}
+            className={`absolute inset-0 transition-opacity duration-700 ease-out ${
+              segment === 'otomobil' && activeShotIndex === idx
+                ? 'opacity-100 scale-100'
+                : 'opacity-0 scale-105'
+            } transform transition-transform duration-1000`}
+          >
+            <Image
+              src={shot.src}
+              alt={shot.alt}
+              fill
+              priority={idx === 0}
+              sizes="100vw"
+              className="object-cover object-center"
+            />
+          </div>
+        ))}
 
-        {/* Ambient Otomotiv Looping Videosu */}
-        <video
-          ref={videoRef}
-          src={activePillar.videoSrc || '/videos/sample_workshop.mp4'}
-          poster={activePillar.videoPoster || activePillar.image}
-          autoPlay
-          playsInline
-          loop
-          muted={isMuted}
-          onLoadedData={() => setVideoLoaded(true)}
-          className="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 opacity-80"
-        />
-
-        {/* 2. SİNEMATİK DERİNLİK VE OKUNABİLİRLİK KAPLAMASI (Dual Theme Grading) */}
+        {/* Motosiklet Görsel Katmanı */}
         <div
-          className={`absolute inset-0 transition-colors duration-300 ${
-            isCream
-              ? 'bg-gradient-to-t from-[#E8E3DF] via-[#E8E3DF]/85 to-[#1B1D20]/65 backdrop-blur-[1px]'
-              : 'bg-gradient-to-t from-[#1B1D20] via-[#1B1D20]/85 to-black/75 backdrop-blur-[1px]'
-          }`}
-        />
+          className={`absolute inset-0 transition-opacity duration-700 ease-out ${
+            segment === 'motosiklet' ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+          } transform transition-transform duration-1000`}
+        >
+          <Image
+            src="/images/before-after/moto_detail_full.jpg"
+            alt="Bumex Garage Profesyonel Motosiklet Detailing, Mekanik Servis ve Boya Koruma"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+        </div>
 
-        {/* Radyal Işık Vurgusu */}
+        {/* Sinematik Arka Plan Gradyanı (Split Hero Kontrast Kalibrasyonu) */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/65 to-black/30 md:bg-gradient-to-r md:from-black/95 md:via-black/60 md:to-black/30 transition-opacity duration-500" />
+        <div className="absolute inset-0 bg-[#1E3A8A]/15 mix-blend-overlay pointer-events-none" />
+
+        {/* Prestijli Mavi Işık Hüzmesi (Otomobil & Motosiklet İçin Tek Tip Kraliyet Mavisi) */}
         <div
-          className="absolute inset-0 opacity-35 mix-blend-screen pointer-events-none"
+          className="absolute inset-0 opacity-25 mix-blend-screen pointer-events-none"
           style={{
             background:
-              'radial-gradient(ellipse at 50% 30%, rgba(30, 58, 138, 0.45) 0%, transparent 70%)',
+              'radial-gradient(ellipse at 50% 40%, rgba(30, 58, 138, 0.45) 0%, transparent 70%)',
           }}
         />
       </div>
 
-      {/* 3. SAĞ ÜST WCAG & MEDYA KONTROL BUTONLARI */}
-      <div className="absolute top-6 right-4 sm:right-8 z-20 flex items-center gap-2">
-        {/* Canlı Atölye Çekimi Rozeti */}
-        <div
-          className={`hidden sm:inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold border backdrop-blur-md transition ${
-            isCream
-              ? 'bg-white/90 text-[#0D0D0D] border-black/10 shadow-xs'
-              : 'bg-black/60 text-white border-white/15 shadow-sm'
-          }`}
-        >
-          <span className="w-2 h-2 rounded-full bg-red-500 animate-ping" />
-          <span className="w-2 h-2 rounded-full bg-red-500 -ml-4" />
-          <span>Atölye Canlı Çekim</span>
-        </div>
-
-        {/* Ses Aç / Kapat Butonu */}
-        <button
-          type="button"
-          onClick={handleToggleMute}
-          aria-label={isMuted ? 'Sesi aç' : 'Sesi kapat'}
-          title={isMuted ? 'Atölye sesini aç' : 'Sesi kapat'}
-          className={`p-2 rounded-full border transition active:scale-95 backdrop-blur-md ${
-            isCream
-              ? 'bg-white/85 border-[#6C6A6B]/25 text-[#0D0D0D] hover:bg-white shadow-xs'
-              : 'bg-black/60 border-white/20 text-white hover:bg-black/80 shadow-sm'
-          }`}
-        >
-          {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4 text-[#60A5FA]" />}
-        </button>
-
-        {/* Oynat / Duraklat Butonu */}
-        <button
-          type="button"
-          onClick={handleTogglePause}
-          aria-label={isUserPaused ? 'Videoyu oynat' : 'Videoyu duraklat'}
-          title={isUserPaused ? 'Videoyu oynat' : 'Videoyu duraklat'}
-          className={`p-2 rounded-full border transition active:scale-95 backdrop-blur-md ${
-            isCream
-              ? 'bg-white/85 border-[#6C6A6B]/25 text-[#0D0D0D] hover:bg-white shadow-xs'
-              : 'bg-black/60 border-white/20 text-white hover:bg-black/80 shadow-sm'
-          }`}
-        >
-          {isUserPaused ? <Play className="w-4 h-4 text-emerald-400" /> : <Pause className="w-4 h-4" />}
-        </button>
-      </div>
-
-      {/* 4. ÖN PLAN: HERO İÇERİK IZGARASI */}
-      <div className="relative z-10 max-w-6xl mx-auto w-full px-4 sm:px-8 py-16 lg:py-24">
-        {/* Üst Rozet: Konum & Uzmanlık */}
-        <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#1E3A8A] text-white text-xs font-black tracking-wider uppercase mb-5 shadow-lg shadow-[#1E3A8A]/30">
-          <Sparkles className="w-3.5 h-3.5" />
-          <span>BUMEX GARAGE • BAHÇELİEVLER 7. CADDE 350M</span>
-        </div>
-
-        {/* Milano Car Care İlhamlı Display Manşet */}
-        <div className="mb-6">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight uppercase leading-[1.08]">
-            <span
-              key={activePillar.id}
-              className={`block transition-all duration-300 animate-in fade-in slide-in-from-bottom-2 ${
-                isCream ? 'text-[#0D0D0D]' : 'text-white'
+      {/* ─── 2. ANA HERO İÇERİĞİ VE KONTROL MASASI ─── */}
+      <div className="relative z-10 max-w-6xl mx-auto w-full px-4 sm:px-8 py-12 sm:py-16 lg:py-20">
+        {/* Üst Segment Seçici Deck (Commanding Studio Switcher) */}
+        <div className="max-w-xl mb-8">
+          <div
+            role="tablist"
+            aria-label="Atölye Uzmanlık Segmenti"
+            className={`p-1.5 rounded-2xl inline-flex flex-wrap items-center gap-1.5 border shadow-xl backdrop-blur-md transition-colors duration-200 ${
+              isCream
+                ? 'bg-white/85 border-black/10 text-[#0D0D0D]'
+                : 'bg-black/60 border-white/15 text-white'
+            }`}
+          >
+            {/* 01 OTOMOBİL BUTONU */}
+            <button
+              type="button"
+              role="tab"
+              aria-selected={segment === 'otomobil'}
+              onClick={() => handleSelectSegment('otomobil')}
+              className={`flex items-center gap-2.5 px-5 py-3 rounded-xl font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#1E3A8A] cursor-pointer ${
+                segment === 'otomobil'
+                  ? 'bg-[#1E3A8A] text-white shadow-lg shadow-[#1E3A8A]/40 scale-[1.02]'
+                  : isCream
+                    ? 'text-[#4A4746] hover:bg-black/5 hover:text-black'
+                    : 'text-[#B0B6BD] hover:bg-white/10 hover:text-white'
               }`}
-              style={{
-                textShadow: isCream
-                  ? '0 2px 20px rgba(255,255,255,0.85)'
-                  : '0 4px 24px rgba(0,0,0,0.9)',
-              }}
             >
-              {activePillar.displayTitle}
+              <Car className="w-4 h-4 shrink-0" />
+              <span>01 Otomobil Stüdyosu</span>
+            </button>
+
+            {/* 02 MOTOSİKLET BUTONU (Kırmızı yerine tam mavi palet) */}
+            <button
+              type="button"
+              role="tab"
+              aria-selected={segment === 'motosiklet'}
+              onClick={() => handleSelectSegment('motosiklet')}
+              className={`flex items-center gap-2.5 px-5 py-3 rounded-xl font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#1E3A8A] cursor-pointer ${
+                segment === 'motosiklet'
+                  ? 'bg-[#1E3A8A] text-white shadow-lg shadow-[#1E3A8A]/40 scale-[1.02]'
+                  : isCream
+                    ? 'text-[#4A4746] hover:bg-black/5 hover:text-black'
+                    : 'text-[#B0B6BD] hover:bg-white/10 hover:text-white'
+              }`}
+            >
+              <Bike className="w-4 h-4 shrink-0" />
+              <span>02 Motosiklet Stüdyosu</span>
+            </button>
+
+            {/* 03 OTOPARK GEÇİDİ (Doğrudan /otopark Sayfasına) */}
+            <Link
+              href="/otopark"
+              title="24/7 Güvenli Otopark Sayfasını Aç"
+              className={`flex items-center gap-2 px-4 py-3 rounded-xl font-bold text-xs sm:text-sm tracking-wide transition-all duration-200 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#1E3A8A] ${
+                isCream
+                  ? 'text-[#565352] hover:bg-black/5 hover:text-[#0D0D0D]'
+                  : 'text-[#9DA3AA] hover:bg-white/10 hover:text-white'
+              }`}
+            >
+              <ShieldCheck className="w-4 h-4 text-[#1E3A8A] dark:text-[#60A5FA]" />
+              <span>03 Otopark</span>
+              <ArrowRight className="w-3.5 h-3.5 opacity-60" />
+            </Link>
+          </div>
+        </div>
+
+        {/* Tipografi ve Manşet (Split Hero Yüksek Kontrastı & Drop Shadow) */}
+        <div className="max-w-3xl mb-8">
+          <h1 className="text-3xl sm:text-4xl lg:text-[46px] font-black tracking-tight uppercase leading-[1.12]">
+            <span
+              key={`title-${segment}`}
+              className="block transition-all duration-300 text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]"
+            >
+              {currentPillar.displayTitle}
             </span>
           </h1>
+
           <p
-            key={`sub-${activePillar.id}`}
-            className={`mt-4 text-base sm:text-lg lg:text-xl font-medium leading-relaxed max-w-2xl transition-opacity duration-300 animate-in fade-in ${
-              isCream ? 'text-[#333030]' : 'text-[#D1D5DB]'
-            }`}
-            style={{
-              textShadow: isCream ? 'none' : '0 2px 10px rgba(0,0,0,0.7)',
-            }}
+            key={`sub-${segment}`}
+            className="mt-4 text-sm sm:text-base lg:text-lg font-medium leading-relaxed max-w-2xl transition-opacity duration-300 text-zinc-200 drop-shadow-[0_1px_4px_rgba(0,0,0,0.85)]"
           >
-            {activePillar.subtitle}
+            {currentPillar.subtitle}
           </p>
         </div>
 
-        {/* Milano Usulü Slayt & Progress Bar Göstergesi */}
-        <div className="flex items-center gap-4 mb-8 max-w-md">
-          <span
-            className={`text-xs font-mono font-black tracking-widest ${
-              isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'
-            }`}
-          >
-            0{activeIndex + 1}
-          </span>
-          <div className="flex-1 h-1 rounded-full bg-black/15 dark:bg-white/15 overflow-hidden">
-            <div
-              className="h-full bg-[#1E3A8A] dark:bg-[#60A5FA] transition-all duration-500 rounded-full"
-              style={{
-                width: `${((activeIndex + 1) / WORKSHOP_PILLARS.length) * 100}%`,
-              }}
-            />
-          </div>
-          <span className="text-xs font-mono font-bold text-[#6C6A6B] dark:text-[#9DA3AA]">
-            0{WORKSHOP_PILLARS.length}
-          </span>
-        </div>
-
-        {/* İnteraktif Sütun Değiştirici Sekmeler (Pill Switcher) */}
-        <div
-          className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none mb-8"
-          role="tablist"
-          aria-label="Atölye Uzmanlıkları"
-        >
-          {WORKSHOP_PILLARS.map((pillar, idx) => {
-            const Icon = TAB_ICONS[pillar.iconName];
-            const isSelected = pillar.id === activePillar.id;
-
-            return (
-              <button
-                key={pillar.id}
-                type="button"
-                role="tab"
-                aria-selected={isSelected}
-                onClick={() => handleSelectPillar(pillar.id)}
-                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all duration-200 border backdrop-blur-md ${
-                  isSelected
-                    ? isCream
-                      ? 'bg-[#1E3A8A] text-white border-[#1E3A8A] shadow-md shadow-[#1E3A8A]/30 scale-105'
-                      : 'bg-[#1E3A8A] text-white border-[#1E3A8A] shadow-md shadow-[#1E3A8A]/50 scale-105'
-                    : isCream
-                      ? 'bg-white/85 text-[#333030] border-[#6C6A6B]/25 hover:bg-white hover:text-black shadow-xs'
-                      : 'bg-black/50 text-[#D1D5DB] border-white/15 hover:bg-black/80 hover:text-white'
-                }`}
-              >
-                <Icon className="w-3.5 h-3.5 shrink-0" />
-                <span>
-                  0{idx + 1} {pillar.shortLabel}
-                </span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Hızlı Eylem Butonları */}
-        <div className="flex flex-wrap items-center gap-4 mb-10">
+        {/* Eylem Butonları: Daima Royal Blue Hat Arama ve WhatsApp */}
+        <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-8">
+          {/* Birincil Hat Arama Butonu (Daima Royal Blue) */}
           <a
-            href="tel:05524703610"
-            className="inline-flex items-center justify-center gap-2.5 bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white font-black text-sm px-6 py-4 rounded-xl shadow-xl shadow-[#1E3A8A]/40 transition transform hover:-translate-y-0.5 active:translate-y-0"
+            href={`tel:${phone}`}
+            className="inline-flex items-center justify-center gap-2.5 text-white font-black text-xs sm:text-sm px-6 py-4 rounded-xl shadow-xl transition transform hover:-translate-y-0.5 active:translate-y-0 bg-[#1E3A8A] hover:bg-[#1D4ED8] shadow-[#1E3A8A]/35"
           >
             <Phone className="w-4 h-4" />
-            <span>Hemen Randevu Al: 0552 470 36 10</span>
+            <span>
+              {segment === 'otomobil' ? 'Otomobil Randevu' : 'Motosiklet Randevu'}: {phoneDisplay}
+            </span>
           </a>
 
+          {/* WhatsApp Butonu */}
           <a
-            href={`https://wa.me/905524703610?text=${encodeURIComponent(activePillar.whatsappMessage)}`}
+            href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappDefaultMessage)}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 bg-[#1FAD4E] hover:bg-[#25C058] text-white font-bold text-sm px-6 py-4 rounded-xl shadow-md transition transform hover:-translate-y-0.5 active:translate-y-0"
+            className="inline-flex items-center justify-center gap-2 bg-[#1FAD4E] hover:bg-[#25C058] text-white font-bold text-xs sm:text-sm px-6 py-4 rounded-xl shadow-md transition transform hover:-translate-y-0.5 active:translate-y-0"
           >
             <MessageCircle className="w-4 h-4" />
             <span>WhatsApp Peron Durumu</span>
           </a>
 
-          <button
-            type="button"
-            onClick={scrollToWorkshopVideo}
-            className={`inline-flex items-center justify-center gap-2 font-bold text-sm px-5 py-4 rounded-xl border transition backdrop-blur-md ${
-              isCream
-                ? 'bg-white/85 border-[#6C6A6B]/30 hover:bg-white text-[#0D0D0D] shadow-xs'
-                : 'bg-black/60 border-white/20 hover:bg-black/90 text-white'
-            }`}
+          {/* Hızlı Atölye Fiyatlarına İniş Butonu */}
+          <a
+            href="#fiyatlar"
+            className="inline-flex items-center justify-center gap-2 font-bold text-xs sm:text-sm px-5 py-4 rounded-xl border border-white/20 bg-black/60 hover:bg-black/90 text-white transition backdrop-blur-md shadow-md"
           >
-            <PlayCircle className="w-4 h-4 text-[#1E3A8A] dark:text-[#60A5FA]" />
-            <span>Atölye Turunu İzle</span>
-          </button>
+            <span>Fiyatlar</span>
+            <ChevronDown className="w-4 h-4 text-[#60A5FA]" />
+          </a>
         </div>
 
-        {/* Alt Bilgi: 3 Kalıcı Güvence Kartı (Glassmorphism) */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-6 border-t border-black/10 dark:border-white/10">
-          <div
-            className={`p-3.5 rounded-xl border backdrop-blur-md transition-all duration-300 ${
-              isCard1Active
-                ? isCream
-                  ? 'ring-2 ring-[#1E3A8A] bg-white/95 border-[#1E3A8A]/40 shadow-sm'
-                  : 'ring-2 ring-[#2563EB] bg-black/70 border-[#2563EB]/50 shadow-md shadow-[#1E3A8A]/30'
-                : isCream
-                  ? 'bg-white/75 border-[#6C6A6B]/20 text-[#0D0D0D]'
-                  : 'bg-black/40 border-white/10 text-white'
-            }`}
+        {/* Hızlı Kısayol Şeridi: Restorasyon ve Hizmetler */}
+        <div className="flex items-center gap-6 text-xs font-bold uppercase tracking-wider">
+          <a
+            href="#hizmetler"
+            className="hover:underline flex items-center gap-1.5 opacity-80 hover:opacity-100 transition"
           >
-            <div className="flex items-center gap-2 mb-1">
-              <ShieldCheck
-                className={`w-4 h-4 shrink-0 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`}
-              />
-              <h4 className="text-xs font-black tracking-tight">Sıfır Su Hasarı Riski</h4>
-            </div>
-            <p className={`text-[11px] leading-relaxed ${isCream ? 'text-[#4A4746]' : 'text-[#9DA3AA]'}`}>
-              140°C kuru buhar ve dielektrik kimyasal; elektronik beyin ve soket hasarı kesinlikle sıfır.
-            </p>
-          </div>
-
-          <div
-            className={`p-3.5 rounded-xl border backdrop-blur-md transition-all duration-300 ${
-              isCard2Active
-                ? isCream
-                  ? 'ring-2 ring-[#1E3A8A] bg-white/95 border-[#1E3A8A]/40 shadow-sm'
-                  : 'ring-2 ring-[#2563EB] bg-black/70 border-[#2563EB]/50 shadow-md shadow-[#1E3A8A]/30'
-                : isCream
-                  ? 'bg-white/75 border-[#6C6A6B]/20 text-[#0D0D0D]'
-                  : 'bg-black/40 border-white/10 text-white'
-            }`}
+            <Sparkles className="w-3.5 h-3.5 text-[#1E3A8A] dark:text-[#60A5FA]" />
+            <span>{segment === 'otomobil' ? 'Otomobil Hizmet Yelpazesi' : 'Motosiklet Servis Kataloğu'}</span>
+          </a>
+          <span className="opacity-30">•</span>
+          <a
+            href="#restorasyon"
+            className="hover:underline flex items-center gap-1.5 opacity-80 hover:opacity-100 transition"
           >
-            <div className="flex items-center gap-2 mb-1">
-              <CheckCircle2
-                className={`w-4 h-4 shrink-0 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`}
-              />
-              <h4 className="text-xs font-black tracking-tight">Vernik Koruma Analizi</h4>
-            </div>
-            <p className={`text-[11px] leading-relaxed ${isCream ? 'text-[#4A4746]' : 'text-[#9DA3AA]'}`}>
-              Dijital mikron ölçümüyle fabrika verniği inceltilmeden harez ve çizikler giderilir.
-            </p>
-          </div>
-
-          <div
-            className={`p-3.5 rounded-xl border backdrop-blur-md transition-all duration-300 ${
-              isCard3Active
-                ? isCream
-                  ? 'ring-2 ring-[#1E3A8A] bg-white/95 border-[#1E3A8A]/40 shadow-sm'
-                  : 'ring-2 ring-[#2563EB] bg-black/70 border-[#2563EB]/50 shadow-md shadow-[#1E3A8A]/30'
-                : isCream
-                  ? 'bg-white/75 border-[#6C6A6B]/20 text-[#0D0D0D]'
-                  : 'bg-black/40 border-white/10 text-white'
-            }`}
-          >
-            <div className="flex items-center gap-2 mb-1">
-              <Sparkles
-                className={`w-4 h-4 shrink-0 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`}
-              />
-              <h4 className="text-xs font-black tracking-tight">pH Nötr & Çiziksiz</h4>
-            </div>
-            <p className={`text-[11px] leading-relaxed ${isCream ? 'text-[#4A4746]' : 'text-[#9DA3AA]'}`}>
-              Kostiksiz kar köpüğü ve çift kova grit-guard sistemi ile sıfır harelenme garantisi.
-            </p>
-          </div>
+            <span>{segment === 'otomobil' ? 'Mikron Boya Restorasyonu' : 'Grenaj & Boya Karşılaştırması'}</span>
+          </a>
         </div>
       </div>
     </section>
