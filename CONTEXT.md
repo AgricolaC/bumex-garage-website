@@ -57,6 +57,18 @@ The local SEO operational benchmark requiring at least one verified customer rev
 An engine bay and electrical restoration technique utilizing high-temperature dry steam and non-conductive dielectric sealants that clean without water intrusion into sensors, ECUs, or battery terminals.
 **Anti-synonyms:** Dielectric Cleaning is NOT pressure washing the engine bay with water jets.
 
+### Persistent Mobile Anchor
+The dedicated fixed bottom bar (`MobileCallBar`) serving as the single persistent, thumb-accessible channel on mobile viewports (< 768px) for direct telephone calls and global WhatsApp inquiries.
+**Anti-synonyms:** Persistent Mobile Anchor is NOT screen-obscuring spam, NOT intrusive modal popups, and NOT arbitrary floating badges blocking content.
+
+### Contextual Inquiry Action
+In-card or in-section interaction triggers that initiate pre-filled, package-specific communication (e.g. dynamic WhatsApp message detailing the specific service package) rather than repeating generic raw telephone numbers.
+**Anti-synonyms:** Contextual Inquiry Action is NOT generic raw phone link bombardment, and NOT lead-capture friction walls.
+
+### Calm Atelier Posture
+A core design and communication invariant enforcing measured restraint, quiet confidence, and zero aggressive sales pressure across all viewports, matching the standards of a high-precision automotive craft studio.
+**Anti-synonyms:** Calm Atelier Posture is NOT conversion apathy, NOT hidden contact information, and NOT artificial urgency countdown banners.
+
 ---
 
 ## Architectural Invariants
@@ -65,3 +77,5 @@ An engine bay and electrical restoration technique utilizing high-temperature dr
 3. **Structured Data Fidelity**: JSON-LD Schema.org entities must strictly reflect the verified physical location, opening hours, and real service offerings.
 4. **Facility Truthfulness**: The parking service must never be described as "kapalı" (enclosed/underground); it is a secure, camera-monitored facility.
 5. **Dedicated Dispatch Routing**: Automotive and motorcycle user actions must route to their dedicated phone lines (`0552 470 36 10` for cars, `0546 533 28 44` for motorcycles).
+6. **Mobile CTA Hierarchy**: The persistent mobile bottom bar (`MobileCallBar`) is the sole universal contact anchor on screens < 768px. In-card elements must provide contextual inquiries or protocol navigation rather than repeating raw phone numbers.
+

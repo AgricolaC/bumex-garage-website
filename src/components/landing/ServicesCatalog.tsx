@@ -17,7 +17,6 @@ import {
   Sun,
   Maximize2,
   ChevronRight,
-  Phone,
   Bike,
   Settings,
   Truck,
@@ -290,7 +289,7 @@ const SERVICES: ServiceItem[] = [
 
 export function ServicesCatalog({ theme, onOpenModal }: ServicesCatalogProps) {
   const isCream = theme === 'cream';
-  const { segment, phone, phoneDisplay } = useWorkshopSegment();
+  const { segment, phone, phoneDisplay, whatsappNumber } = useWorkshopSegment();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
   // Segmente göre geçerli temel hizmet listesi
@@ -465,25 +464,17 @@ export function ServicesCatalog({ theme, onOpenModal }: ServicesCatalogProps) {
                     </button>
                   ) : (
                     <a
-                      href={`tel:${phone}`}
+                      href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+                        `Merhaba Bumex Garage, ${item.title} hizmeti hakkında bilgi ve randevu almak istiyorum.`
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-xs font-bold hover:underline flex items-center gap-1 text-[#1E3A8A] dark:text-[#60A5FA]"
                     >
                       <span>Bilgi &amp; Randevu</span>
                       <ChevronRight className="w-3.5 h-3.5" />
                     </a>
                   )}
-
-                  <a
-                    href={`tel:${phone}`}
-                    className={`p-1.5 rounded-lg border transition ${
-                      isCream
-                        ? 'border-[#6C6A6B]/20 text-[#6C6A6B] hover:text-[#1E3A8A] hover:border-[#1E3A8A]'
-                        : 'border-white/10 text-[#80868E] hover:text-white hover:border-white/30'
-                    }`}
-                    title={`Hemen Ara: ${phoneDisplay}`}
-                  >
-                    <Phone className="w-3.5 h-3.5" />
-                  </a>
                 </div>
               </div>
             );

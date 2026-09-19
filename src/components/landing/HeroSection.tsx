@@ -207,17 +207,26 @@ export function HeroSection({ theme }: HeroSectionProps) {
           </p>
         </div>
 
-        {/* Eylem Butonları: Daima Royal Blue Hat Arama ve WhatsApp */}
+        {/* Eylem Butonları: Masaüstünde Hat Arama, Mobilde Keşif & WhatsApp Odaklı */}
         <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-8">
-          {/* Birincil Hat Arama Butonu (Daima Royal Blue) */}
+          {/* Birincil Hat Arama Butonu (Masaüstü & Tablet; Mobilde Persistent Bottom Call Bar mevcut) */}
           <a
             href={`tel:${phone}`}
-            className="inline-flex items-center justify-center gap-2.5 text-white font-black text-xs sm:text-sm px-6 py-4 rounded-xl shadow-xl transition transform hover:-translate-y-0.5 active:translate-y-0 bg-[#1E3A8A] hover:bg-[#1D4ED8] shadow-[#1E3A8A]/35"
+            className="hidden sm:inline-flex items-center justify-center gap-2.5 text-white font-black text-xs sm:text-sm px-6 py-4 rounded-xl shadow-xl transition transform hover:-translate-y-0.5 active:translate-y-0 bg-[#1E3A8A] hover:bg-[#1D4ED8] shadow-[#1E3A8A]/35"
           >
             <Phone className="w-4 h-4" />
             <span>
               {segment === 'otomobil' ? 'Otomobil Randevu' : 'Motosiklet Randevu'}: {phoneDisplay}
             </span>
+          </a>
+
+          {/* Hızlı Atölye Fiyatları ve Paketler (Mobilde Birincil Keşif Butonu) */}
+          <a
+            href="#fiyatlar"
+            className="inline-flex items-center justify-center gap-2 font-black text-xs sm:text-sm px-6 py-4 rounded-xl border border-white/30 bg-black/70 hover:bg-black/90 text-white transition backdrop-blur-md shadow-lg"
+          >
+            <span>Fiyatları &amp; Paketleri İncele</span>
+            <ChevronDown className="w-4 h-4 text-[#60A5FA]" />
           </a>
 
           {/* WhatsApp Butonu */}
@@ -228,16 +237,7 @@ export function HeroSection({ theme }: HeroSectionProps) {
             className="inline-flex items-center justify-center gap-2 bg-[#1FAD4E] hover:bg-[#25C058] text-white font-bold text-xs sm:text-sm px-6 py-4 rounded-xl shadow-md transition transform hover:-translate-y-0.5 active:translate-y-0"
           >
             <MessageCircle className="w-4 h-4" />
-            <span>WhatsApp Peron Durumu</span>
-          </a>
-
-          {/* Hızlı Atölye Fiyatlarına İniş Butonu */}
-          <a
-            href="#fiyatlar"
-            className="inline-flex items-center justify-center gap-2 font-bold text-xs sm:text-sm px-5 py-4 rounded-xl border border-white/20 bg-black/60 hover:bg-black/90 text-white transition backdrop-blur-md shadow-md"
-          >
-            <span>Fiyatlar</span>
-            <ChevronDown className="w-4 h-4 text-[#60A5FA]" />
+            <span>WhatsApp Randevu &amp; Bilgi</span>
           </a>
         </div>
 

@@ -82,18 +82,18 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
 
             <span className="h-3 w-px bg-black/15 dark:bg-white/15" />
 
-            {/* WhatsApp */}
+            {/* WhatsApp (Desktop & Tablet: Tickerda, Mobilde Sticky Bottom Barda) */}
             <a
               href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappDefaultMessage)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#1FAD4E] transition flex items-center gap-1 font-medium"
+              className="hidden sm:flex hover:text-[#1FAD4E] transition items-center gap-1 font-medium"
             >
               <MessageCircle className="w-3.5 h-3.5 text-[#1FAD4E]" />
               <span>WhatsApp</span>
             </a>
 
-            <span className="h-3 w-px bg-black/15 dark:bg-white/15" />
+            <span className="hidden sm:inline-block h-3 w-px bg-black/15 dark:bg-white/15" />
 
             {/* Tema Geçiş Butonu */}
             <button
@@ -103,7 +103,7 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
                   ? 'bg-white/80 border-black/10 text-[#0D0D0D] hover:bg-white shadow-xs'
                   : 'bg-white/10 border-white/15 text-white hover:bg-white/20'
               }`}
-              title={isCream ? 'Titanyum Grisi Koyu Moda Geç (Kısayol: T)' : 'Krem Açık Moda Geç (Kısayol: T)'}
+              title={isCream ? 'Titanyum Grisi Koyu Moda Geç (Kısayol: T)' : 'Krem Zemin (Kısayol: T)'}
             >
               {isCream ? (
                 <>
@@ -174,8 +174,8 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
             </Link>
           </div>
 
-          {/* Sağ Aksiyon: Segmente Özel Tek Tıkla Arama Butonu */}
-          <div className="flex items-center gap-2.5 shrink-0">
+          {/* Sağ Aksiyon: Segmente Özel Tek Tıkla Arama Butonu (Masaüstü & Tablet; Mobilde Persistent Call Bar mevcut) */}
+          <div className="hidden sm:flex items-center gap-2.5 shrink-0">
             <a
               href={`tel:${phone}`}
               className="inline-flex items-center gap-1.5 text-white text-xs font-black px-3.5 py-2 sm:px-4 sm:py-2 rounded-lg shadow-md transition active:scale-95 bg-[#1E3A8A] hover:bg-[#1D4ED8] shadow-[#1E3A8A]/25"

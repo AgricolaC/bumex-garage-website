@@ -26,7 +26,7 @@ interface PricingSectionProps {
 
 export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
   const isCream = theme === 'cream';
-  const { segment, setSegment, phone, phoneDisplay } = useWorkshopSegment();
+  const { segment, setSegment, phone, phoneDisplay, whatsappNumber } = useWorkshopSegment();
   const activeTab = segment === 'otomobil' ? 'car' : 'bike';
 
   return (
@@ -160,15 +160,15 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
 
                 <div>
                   <a
-                    href="tel:05524703610"
-                    className={`w-full py-3 px-4 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 border transition ${
-                      isCream
-                        ? 'border-[#6C6A6B]/30 hover:bg-black/5 text-[#0D0D0D]'
-                        : 'border-white/15 hover:bg-white/10 text-white'
-                    }`}
+                    href={`https://wa.me/905524703610?text=${encodeURIComponent(
+                      'Merhaba Bumex Garage, Hızlı Bakım & Yıkama paketi için müsaitlik ve randevu almak istiyorum.'
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-3 px-4 rounded-xl bg-[#1FAD4E] hover:bg-[#25C058] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm transition active:scale-95"
                   >
-                    <Phone className={`w-4 h-4 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                    <span>Hemen Arayın: 0552 470 36 10</span>
+                    <MessageCircle className="w-4 h-4" />
+                    <span>WhatsApp ile Randevu Al</span>
                   </a>
                 </div>
               </div>
@@ -246,11 +246,15 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                   </button>
 
                   <a
-                    href="tel:05524703610"
-                    className="w-full py-3 px-4 rounded-xl bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-[#1E3A8A]/30 transition"
+                    href={`https://wa.me/905524703610?text=${encodeURIComponent(
+                      'Merhaba Bumex Garage, VIP Kuaför, Buhar & Motor paketi için randevu ve peron müsaitliği almak istiyorum.'
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-3 px-4 rounded-xl bg-[#1FAD4E] hover:bg-[#25C058] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition active:scale-95"
                   >
-                    <Phone className="w-4 h-4" />
-                    <span>Müsaitlik İçin Ara: 0552 470 36 10</span>
+                    <MessageCircle className="w-4 h-4" />
+                    <span>WhatsApp ile Randevu Al</span>
                   </a>
                 </div>
               </div>
@@ -324,11 +328,15 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                   </button>
 
                   <a
-                    href="tel:05524703610"
-                    className="w-full py-3 px-4 rounded-xl bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-[#1E3A8A]/30 transition"
+                    href={`https://wa.me/905524703610?text=${encodeURIComponent(
+                      'Merhaba Bumex Garage, Detailing, PPF ve Seramik paketi için ücretsiz boya mikron ekspertizi randevusu almak istiyorum.'
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-3 px-4 rounded-xl bg-[#1FAD4E] hover:bg-[#25C058] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition active:scale-95"
                   >
-                    <Phone className="w-4 h-4" />
-                    <span>Ücretsiz Ekspertiz İste</span>
+                    <MessageCircle className="w-4 h-4" />
+                    <span>WhatsApp ile Ekspertiz İste</span>
                   </a>
                 </div>
               </div>
@@ -372,7 +380,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                 </a>
                 <a
                   href="tel:05465332844"
-                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#1E3A8A] text-white hover:bg-[#1D4ED8] transition shadow-md shadow-[#1E3A8A]/30"
+                  className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#1E3A8A] text-white hover:bg-[#1D4ED8] transition shadow-md shadow-[#1E3A8A]/30"
                 >
                   <Phone className="w-3.5 h-3.5" />
                   <span>Motosiklet Hattı: 0546 533 28 44</span>
@@ -455,15 +463,15 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                   </div>
 
                   <a
-                    href="tel:05465332844"
-                    className={`w-full py-3 px-4 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 border transition ${
-                      isCream
-                        ? 'border-[#6C6A6B]/30 hover:bg-black/5 text-[#0D0D0D]'
-                        : 'border-white/15 hover:bg-white/10 text-white'
-                    }`}
+                    href={`https://wa.me/905465332844?text=${encodeURIComponent(
+                      'Merhaba Bumex Garage, Motosiklet Start Paket (800 TL) için randevu ve müsaitlik almak istiyorum.'
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-3 px-4 rounded-xl bg-[#1FAD4E] hover:bg-[#25C058] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm transition active:scale-95"
                   >
-                    <Phone className="w-4 h-4 text-[#1E3A8A] dark:text-[#60A5FA]" />
-                    <span>Start Paket İçin Ara</span>
+                    <MessageCircle className="w-4 h-4" />
+                    <span>WhatsApp ile Randevu Al</span>
                   </a>
                 </div>
 
@@ -548,11 +556,15 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                   </div>
 
                   <a
-                    href="tel:05465332844"
-                    className="w-full py-3 px-4 rounded-xl bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-[#1E3A8A]/30 transition"
+                    href={`https://wa.me/905465332844?text=${encodeURIComponent(
+                      'Merhaba Bumex Garage, Motosiklet Pro Paket için randevu ve peron müsaitliği almak istiyorum.'
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-3 px-4 rounded-xl bg-[#1FAD4E] hover:bg-[#25C058] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition active:scale-95"
                   >
-                    <Phone className="w-4 h-4" />
-                    <span>Pro Paket Randevusu Al</span>
+                    <MessageCircle className="w-4 h-4" />
+                    <span>WhatsApp ile Randevu Al</span>
                   </a>
                 </div>
 
@@ -629,11 +641,15 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                   </div>
 
                   <a
-                    href="tel:05465332844"
-                    className="w-full py-3 px-4 rounded-xl bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-[#1E3A8A]/30 transition"
+                    href={`https://wa.me/905465332844?text=${encodeURIComponent(
+                      'Merhaba Bumex Garage, Motosiklet Premium Detailing (Showroom) için ekspertiz ve randevu almak istiyorum.'
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-3 px-4 rounded-xl bg-[#1FAD4E] hover:bg-[#25C058] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition active:scale-95"
                   >
-                    <Phone className="w-4 h-4" />
-                    <span>Showroom Randevusu Al</span>
+                    <MessageCircle className="w-4 h-4" />
+                    <span>WhatsApp ile Randevu Al</span>
                   </a>
                 </div>
               </div>
@@ -661,7 +677,11 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                   </p>
                 </div>
                 <a
-                  href="tel:05465332844"
+                  href={`https://wa.me/905465332844?text=${encodeURIComponent(
+                    'Merhaba Bumex Garage, Motosiklet mekanik servis randevusu almak istiyorum.'
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-xl shadow transition shrink-0"
                 >
                   <Wrench className="w-4 h-4" />
@@ -724,8 +744,16 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
 
                   <div className="pt-3 border-t border-black/5 dark:border-white/5 flex items-center justify-between text-xs font-bold">
                     <span className="text-[#6C6A6B]">Periyodik Servis</span>
-                    <a href="tel:05465332844" className="text-[#1E3A8A] dark:text-[#60A5FA] hover:underline">
-                      Randevu Al ↗
+                    <a
+                      href={`https://wa.me/905465332844?text=${encodeURIComponent(
+                        'Merhaba Bumex Garage, Motosiklet periyodik bakım ve servis randevusu almak istiyorum.'
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#1E3A8A] dark:text-[#60A5FA] hover:underline flex items-center gap-1"
+                    >
+                      <span>Randevu Al</span>
+                      <ChevronRight className="w-3 h-3" />
                     </a>
                   </div>
                 </div>
@@ -783,8 +811,16 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
 
                   <div className="pt-3 border-t border-black/5 dark:border-white/5 flex items-center justify-between text-xs font-bold">
                     <span className="text-[#6C6A6B]">Arıza Teşhis</span>
-                    <a href="tel:05465332844" className="text-[#1E3A8A] dark:text-[#60A5FA] hover:underline">
-                      Arıza Bildir ↗
+                    <a
+                      href={`https://wa.me/905465332844?text=${encodeURIComponent(
+                        'Merhaba Bumex Garage, Motosiklet arıza teşhisi ve mekanik onarım için randevu almak istiyorum.'
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#1E3A8A] dark:text-[#60A5FA] hover:underline flex items-center gap-1"
+                    >
+                      <span>Arıza Bildir</span>
+                      <ChevronRight className="w-3 h-3" />
                     </a>
                   </div>
                 </div>
@@ -842,8 +878,16 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
 
                   <div className="pt-3 border-t border-black/5 dark:border-white/5 flex items-center justify-between text-xs font-bold">
                     <span className="text-[#6C6A6B]">Hasar Restorasyonu</span>
-                    <a href="tel:05465332844" className="text-[#1E3A8A] dark:text-[#60A5FA] hover:underline">
-                      Hasar Bildir ↗
+                    <a
+                      href={`https://wa.me/905465332844?text=${encodeURIComponent(
+                        'Merhaba Bumex Garage, Motosiklet hasar onarımı ve grenaj tamiri için randevu almak istiyorum.'
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#1E3A8A] dark:text-[#60A5FA] hover:underline flex items-center gap-1"
+                    >
+                      <span>Hasar Bildir</span>
+                      <ChevronRight className="w-3 h-3" />
                     </a>
                   </div>
                 </div>
@@ -890,7 +934,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                 <div className="flex flex-col sm:flex-row lg:flex-col gap-3 w-full lg:w-auto shrink-0">
                   <a
                     href="tel:05465332844"
-                    className="inline-flex items-center justify-center gap-2 bg-white text-[#1E3A8A] font-black text-sm px-6 py-3.5 rounded-xl shadow-lg hover:bg-blue-50 transition active:scale-95"
+                    className="hidden sm:inline-flex items-center justify-center gap-2 bg-white text-[#1E3A8A] font-black text-sm px-6 py-3.5 rounded-xl shadow-lg hover:bg-blue-50 transition active:scale-95"
                   >
                     <Phone className="w-4 h-4" />
                     <span>Motosiklet Destek: 0546 533 28 44</span>
@@ -902,7 +946,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                     className="inline-flex items-center justify-center gap-2 bg-[#1FAD4E] hover:bg-[#25C058] text-white font-bold text-sm px-6 py-3.5 rounded-xl shadow transition active:scale-95"
                   >
                     <MessageCircle className="w-4 h-4" />
-                    <span>WhatsApp Konum Gönder</span>
+                    <span>WhatsApp ile Bilgi Al</span>
                   </a>
                 </div>
               </div>
