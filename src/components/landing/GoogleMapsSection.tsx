@@ -8,6 +8,29 @@ interface GoogleMapsSectionProps {
   theme: LandingTheme;
 }
 
+const VERIFIED_GOOGLE_REVIEWS = [
+  {
+    name: 'İsmet Özel',
+    timeAgo: '2 gün önce',
+    text: 'Çok memnun kaldım çok temiz iş yaptılar özenle çalışıyorlar.',
+  },
+  {
+    name: 'Tuğba Yüceer',
+    timeAgo: '6 gün önce',
+    text: 'Aracımı hep burda yıkatıyorum tertemiz yapıyorlar ve güleryüzlü personelleri var ilgileri için teşekkür ederim 🙏🏻',
+  },
+  {
+    name: 'Mehmet Ali Çoban',
+    timeAgo: '2 hafta önce',
+    text: 'Arabadan çıkmayacak denen lekeleri bile tek yıkamada çıkardılar. Kaliteli hizmet için çok teşekkürler.',
+  },
+  {
+    name: 'Hayati Küpeli',
+    timeAgo: '2 ay önce',
+    text: 'Herkese tavsiye ediyorum bunu da yorumda yazacağımı söylemiştim oto yıkamacıya göre aşırı düzgün insanlar şaşırdım gönül rahatlığıyla gidebilirsiniz kadınlar için bile saçma sapan malum tiplerle muhatap olmadan oto yıkatmak için mükemmel bir yer arabayı da gayet güzel temizliyorlar böyle esnafların sayısının artması dileğiyle.',
+  },
+];
+
 export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
   const isCream = theme === 'cream';
 
@@ -175,7 +198,7 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
                     ))}
                   </div>
                   <span className="text-xs font-extrabold text-[#1E3A8A] dark:text-[#60A5FA]">
-                    120+ Değerlendirme
+                    60+ Değerlendirme
                   </span>
                 </div>
 
@@ -184,61 +207,31 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
                 </p>
               </div>
 
-              {/* Doğrulanmış Müşteri Alıntıları */}
+              {/* Doğrulanmış Gerçek Google Yorumları */}
               <div className="space-y-3 pt-3 border-t border-black/5 dark:border-white/10">
-                <div
-                  className={`p-3 rounded-xl border text-xs ${
-                    isCream ? 'bg-[#F9F7F5] border-[#6C6A6B]/15' : 'bg-[#1A1C1F] border-white/5'
-                  }`}
-                >
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="font-bold">Murat K. • <span className="font-semibold text-[#1E3A8A] dark:text-[#60A5FA]">BMW 420i Gran Coupé</span></span>
-                    <div className="flex items-center text-amber-500">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-3 h-3 fill-amber-500" />
-                      ))}
+                {VERIFIED_GOOGLE_REVIEWS.map((rev) => (
+                  <div
+                    key={rev.name}
+                    className={`p-3 rounded-xl border text-xs ${
+                      isCream ? 'bg-[#F9F7F5] border-[#6C6A6B]/15' : 'bg-[#1A1C1F] border-white/5'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between mb-1">
+                      <div className="flex items-center gap-1.5">
+                        <span className="font-bold">{rev.name}</span>
+                        <span className="text-[10px] text-[#6C6A6B]">· {rev.timeAgo}</span>
+                      </div>
+                      <div className="flex items-center text-amber-500">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="w-3 h-3 fill-amber-500" />
+                        ))}
+                      </div>
                     </div>
+                    <p className={`text-[11px] leading-relaxed italic ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}`}>
+                      &ldquo;{rev.text}&rdquo;
+                    </p>
                   </div>
-                  <p className={`text-[11px] leading-relaxed italic ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}`}>
-                    &ldquo;Gözüm arkada kalmadan aracımı bıraktım. Verniği yakmadan harelenmeleri aldılar, 7. Cadde&apos;deki işim bittiğinde pırıl pırıl teslim aldım.&rdquo;
-                  </p>
-                </div>
-
-                <div
-                  className={`p-3 rounded-xl border text-xs ${
-                    isCream ? 'bg-[#F9F7F5] border-[#6C6A6B]/15' : 'bg-[#1A1C1F] border-white/5'
-                  }`}
-                >
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="font-bold">Can B. • <span className="font-semibold text-[#1E3A8A] dark:text-[#60A5FA]">Yamaha MT-07</span></span>
-                    <div className="flex items-center text-amber-500">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-3 h-3 fill-amber-500" />
-                      ))}
-                    </div>
-                  </div>
-                  <p className={`text-[11px] leading-relaxed italic ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}`}>
-                    &ldquo;Motosiklet yıkamasında Ankara&apos;da güvenebileceğim nadir yerlerden. Tazyikli suyu soketlere basmadan kuru buhar ve özenle temizlediler.&rdquo;
-                  </p>
-                </div>
-
-                <div
-                  className={`p-3 rounded-xl border text-xs ${
-                    isCream ? 'bg-[#F9F7F5] border-[#6C6A6B]/15' : 'bg-[#1A1C1F] border-white/5'
-                  }`}
-                >
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="font-bold">Selin T. • <span className="font-semibold text-[#1E3A8A] dark:text-[#60A5FA]">Volkswagen Golf</span></span>
-                    <div className="flex items-center text-amber-500">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-3 h-3 fill-amber-500" />
-                      ))}
-                    </div>
-                  </div>
-                  <p className={`text-[11px] leading-relaxed italic ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}`}>
-                    &ldquo;Bahçelievler&apos;de park yeri arama çilesinden kurtardı. Park &amp; Wash ile hem aracım güvende kaldı hem işim bitene kadar içi dışı tertemiz yapıldı.&rdquo;
-                  </p>
-                </div>
+                ))}
               </div>
             </div>
 
@@ -251,7 +244,7 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
                 className="w-full py-3 px-4 rounded-xl bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md shadow-[#1E3A8A]/25 transition active:scale-95"
               >
                 <MessageSquareQuote className="w-4 h-4" />
-                <span>Google&apos;daki Tüm Değerlendirmeleri Oku (120+)</span>
+                <span>Google&apos;daki Tüm Değerlendirmeleri Oku (60+)</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
 

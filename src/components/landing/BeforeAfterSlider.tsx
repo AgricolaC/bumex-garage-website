@@ -59,14 +59,14 @@ const TRANSFORMATIONS: TransformationItem[] = [
     afterImage: '/images/before-after/moto_detail_after.webp',
     fullComparisonImage: '/images/before-after/moto_detail_full.webp',
     beforeLabel: 'Önce • Ağır Çamur & Katran',
-    afterLabel: 'Sonra • Sıfır Fabrika Parlaklığı',
+    afterLabel: 'Sonra • Yenilenmiş Yüzey & Koruma',
     aspectClass: 'aspect-[9/16] sm:aspect-[3/5] max-w-md mx-auto',
     caseStudy: {
       vehicle: 'Yamaha MT-07',
       problem: 'Yanmış zincir yağı, blok çamuru ve hassas grenaj matlığı',
       application: 'Tazyiksiz kuru buhar, zincir arındırma + yağlama, grenaj finiş cilası',
       duration: '2.5 saat hassas işçilik',
-      result: 'Elektronik soketlere su basmadan arındırılmış motor bloğu ve parlak grenaj',
+      result: 'Elektronik soketlere su basmadan arındırılmış motor bloğu ve korumalı grenaj',
       testimonial: {
         quote: 'Motosiklet yıkamasında Ankara’da güvenebileceğim nadir yerlerden.',
         author: 'Can B. • Yamaha MT-07',
@@ -106,13 +106,13 @@ const TRANSFORMATIONS: TransformationItem[] = [
     aspectClass: 'aspect-[16/9]',
     caseStudy: {
       vehicle: 'BMW 420i Gran Coupé',
-      problem: 'Girdap izleri (swirl marks), hafif vernik oksidasyonu ve yüzey matlığı',
-      application: '3 aşamalı mikron boya düzeltme + 9H seramik kaplama',
+      problem: 'Girdap izleri (swirl marks), vernik oksidasyonu ve yüzey matlığı',
+      application: '3 aşamalı boya düzeltme ve 9H seramik kaplama',
       duration: '8 saat atölye işçiliği',
-      result: 'Daha derin yüzey yansıması, homojen ve pürüzsüz ayna parlaklığı',
+      result: 'Derin yüzey yansıması, hare ve mikro çiziklerden arındırılmış pürüzsüz boya',
       testimonial: {
-        quote: 'Aracı teslim aldığımda fark ilk bakışta belli oluyordu.',
-        author: 'Mehmet K. • BMW 420i',
+        quote: 'Arabadan çıkmayacak denen lekeleri bile tek yıkamada çıkardılar. Kaliteli hizmet için çok teşekkürler.',
+        author: 'Mehmet Ali Çoban • Doğrulanmış Google Yorumu',
       },
     },
     highlights: [
@@ -214,8 +214,8 @@ const TRANSFORMATIONS: TransformationItem[] = [
     highlights: [
       {
         icon: Sparkles,
-        title: 'Sıfır Kusma Garantisi',
-        desc: 'Kir sünger tabanına itilmez; vakumla çekildiği için kuruduktan sonra leke geri çıkmaz.',
+        title: 'Derin Ekstraksiyon & Leke Tahliyesi',
+        desc: 'Kir sünger tabanına itilmez; ters vakumla liflerden çekildiği için kuruduktan sonra leke geri kusmaz.',
       },
       {
         icon: ShieldCheck,
@@ -268,7 +268,7 @@ const TRANSFORMATIONS: TransformationItem[] = [
     badge: 'Detay Fırçaları & Orijinal Mat Görünüm',
     title: 'İç Trim, Konsol & Bardaklık Detaylandırma',
     description:
-      'Bardaklık dipleri, buton çevreleri ve havalandırma kanallarında kemikleşen yapışkan kirler; at kılı detay fırçaları ve yağsız mat koruyucularla sıfır araç kondisyonuna kavuşturulur.',
+      'Bardaklık dipleri, buton çevreleri ve havalandırma kanallarında kemikleşen yapışkan kirler; at kılı detay fırçaları ve yağsız mat koruyucularla ilk günkü kondisyonuna kavuşturulur.',
     beforeImage: '/images/before-after/trim_detail_before.webp',
     afterImage: '/images/before-after/trim_detail_after.webp',
     fullComparisonImage: '/images/before-after/trim_detail_full.webp',
@@ -279,7 +279,7 @@ const TRANSFORMATIONS: TransformationItem[] = [
       {
         icon: Sparkles,
         title: 'Milimetrik Temizlik',
-        desc: 'Ulaşılması zor buton dipleri, vites konsolu ve bardaklık yuvaları fırçayla sıfırlanır.',
+        desc: 'Ulaşılması zor buton dipleri, vites konsolu ve bardaklık yuvaları detay fırçalarıyla arındırılır.',
       },
       {
         icon: ShieldCheck,
@@ -303,7 +303,7 @@ const REAL_AUTOMOBILE_STUDIO_GALLERY = [
     badge: 'Çamur & Kusursuz Yüzey',
     src: '/images/before-after/bmw_clean_car.webp',
     alt: 'Bumex Garage BMW 4 Serisi Çamur ve Boya Restorasyonu',
-    desc: 'Ağır yol çamurundan fabrika çıkışı derin ayna parlaklığına tam dönüşüm.',
+    desc: 'Ağır yol çamurundan arındırılmış, derin yüzey yansımasına sahip temizlik sonucu.',
   },
   {
     id: 'bmw-jant',
@@ -312,7 +312,7 @@ const REAL_AUTOMOBILE_STUDIO_GALLERY = [
     badge: 'pH Nötr Morarma',
     src: '/images/before-after/bmw_wheel_clean.webp',
     alt: 'Bumex Garage BMW M-Sport Jant Demir Tozu Kimyasal Reaksiyonu',
-    desc: 'M fren kaliperine ve elmas kesim alaşıma zarar vermeden mikron seviyede balata tozu arındırması.',
+    desc: 'M fren kaliperine ve elmas kesim alaşıma zarar vermeden derinlemesine balata tozu arındırması.',
   },
   {
     id: 'bmw-buhar',
@@ -457,11 +457,11 @@ export function BeforeAfterSlider({
           >
             {segment === 'otomobil'
               ? detailed
-                ? 'Bahçelievler atölyemizde tamamlanan gerçek otomobil uygulamalarını inceleyin. İnteraktif kaydırıcı ile mikron seviyesindeki temizlik ve restorasyon farkına tanık olun.'
-                : 'Bahçelievler stüdyomuzda tamamlanan gerçek restorasyon farkını interaktif kaydırıcı ile deneyimleyin.'
+                ? 'Bahçelievler atölyemizde tamamlanan gerçek otomobil uygulamalarını inceleyin. İnteraktif kaydırıcı ile yüzey temizliği ve boya koruma farkını canlı görün.'
+                : 'Bahçelievler stüdyomuzda tamamlanan gerçek boya koruma ve temizlik farkını interaktif kaydırıcı ile deneyimleyin.'
               : detailed
-                ? 'Hassas motosiklet detailing ve grenaj yenileme çalışmalarımız. Tazyiksiz kuru buhar ve nano polisaj ile fabrikasyon parlaklığına tanık olun.'
-                : 'Motosikletler için tazyiksiz kuru buhar ve nano polisaj ile fabrikasyon parlaklık dönüşümü.'}
+                ? 'Hassas motosiklet detailing ve grenaj yenileme çalışmalarımız. Tazyiksiz kuru buhar ve özenli polisaj ile ilk günkü temizliğine tanık olun.'
+                : 'Motosikletler için tazyiksiz kuru buhar ve özenli grenaj bakımı.'}
           </p>
         </div>
 
