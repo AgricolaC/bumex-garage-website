@@ -69,12 +69,12 @@ export function OtoparkView() {
 
             {/* Rozet */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold border border-black/10 dark:border-white/15 bg-black/5 dark:bg-white/5 text-[#1E3A8A] dark:text-[#60A5FA] mb-4">
-              <span>7. Cadde&apos;ye 350 Metre • 24/7 CCTV Kamera • Geniş Manevra Alanı</span>
+              <span>7. Cadde&apos;ye 350 Metre • 24/7 CCTV Kamera • 10:00 – 22:00 Giriş-Çıkış</span>
             </div>
 
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] mb-6">
               Bahçelievler&apos;in Geniş Manevralı ve{' '}
-              <span className="text-[#1E3A8A] dark:text-[#60A5FA]">24/7 Güvenli Otoparkı</span>
+              <span className="text-[#1E3A8A] dark:text-[#60A5FA]">24/7 Kameralı Güvenli Otoparkı</span>
             </h1>
 
             <p
@@ -83,7 +83,7 @@ export function OtoparkView() {
               }`}
             >
               Dar sokakların park krizinden ve kaldırım sürtme risklerinden uzakta. 7. Cadde&apos;ye (Aşkabat Caddesi)
-              sadece 4 dakika yürüme mesafesinde, 24 saat kamera gözetimli ve geniş manevra alanlı güvenli park alanı.
+              sadece 4 dakika yürüme mesafesinde, 24 saat kesintisiz CCTV kamera gözetimli ve her gün 10:00 – 22:00 saatlerinde personelli geniş manevra alanlı güvenli park alanı.
             </p>
 
             {/* Aksiyon Butonları */}

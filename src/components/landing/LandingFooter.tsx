@@ -247,11 +247,11 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
           }`}
         >
           <p>
-            <strong>Lokasyon &amp; Hizmet Bilgisi:</strong> Bumex Garage, Ankara Bahçelievler Prof. Muammer Aksoy Caddesi No: 48 adresinde (eski Han-gar, Sonax-Würth ve eski Supark Otopark ve Yıkama lokasyonunda) 5 ana operasyonel alanda — Otomobil Yıkama, Otomobil Detailing, Motosiklet Yıkama, Motosiklet Detailing ve 7. Cadde Güvenli Otopark Tesisleri — kesintisiz hizmet vermektedir.
+            <strong>Lokasyon &amp; Hizmet Bilgisi:</strong> Bumex Garage, Ankara Bahçelievler Prof. Muammer Aksoy Caddesi No: 48 adresinde (eski Han-gar ve eski Supark Otopark ve Yıkama lokasyonunda) 5 ana operasyonel alanda — Otomobil Yıkama, Otomobil Detailing, Motosiklet Yıkama, Motosiklet Detailing ve 7. Cadde Güvenli Otopark Tesisleri — kesintisiz hizmet vermektedir.
           </p>
         </div>
 
-        {/* Alt Bar: Telif */}
+        {/* Alt Bar: Telif & KVKK Aydınlatması */}
         <div
           className={`pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs ${
             isCream ? 'text-[#6C6A6B]' : 'text-[#80868E]'
@@ -260,8 +260,15 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
           <div>
             © {new Date().getFullYear()} Bumex Garage Ankara. Tüm hakları saklıdır.
           </div>
-          <div className="flex items-center gap-4">
-            <span>Bahçelievler Otomobil & Motosiklet Bakım Stüdyosu</span>
+          <div className="flex items-center gap-4 text-[11px]">
+            <span>Bahçelievler Otomobil &amp; Motosiklet Bakım Stüdyosu</span>
+            <span>•</span>
+            <span
+              className="underline cursor-help opacity-80 hover:opacity-100 transition"
+              title="6698 sayılı KVKK kapsamında harita ve teknik oturum çerezleri yalnızca navigasyon ve temel site işlevleri için kullanılır."
+            >
+              KVKK &amp; Gizlilik
+            </span>
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import {
   Phone,
@@ -26,6 +26,16 @@ interface LandingNavbarProps {
 export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
   const isCream = theme === 'cream';
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [isOpenNow, setIsOpenNow] = useState(true);
+
+  useEffect(() => {
+    setMounted(true);
+    const now = new Date();
+    const turkeyHours = (now.getUTCHours() + 3) % 24;
+    setIsOpenNow(turkeyHours >= 10 && turkeyHours < 22);
+  }, []);
+
   const { segment, setSegment, phone, phoneDisplay, whatsappNumber, whatsappDefaultMessage } =
     useWorkshopSegment();
 
@@ -64,8 +74,17 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
                   : 'bg-white/5 border-white/10 text-[#B0B6BD]'
               }`}
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#1FAD4E] animate-pulse" />
-              <span>Açık • 10:00 – 22:00</span>
+              {mounted && !isOpenNow ? (
+                <>
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                  <span>Kapalı • 10:00&apos;da Açılıyor</span>
+                </>
+              ) : (
+                <>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#1FAD4E] animate-pulse" />
+                  <span>Açık • 22:00&apos;ye kadar</span>
+                </>
+              )}
             </span>
           </div>
 
@@ -100,24 +119,20 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
 
             {/* Tema Geçiş Butonu */}
             <button
+              type="button"
               onClick={toggleTheme}
-              className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold transition border cursor-pointer active:scale-95 ${
+              className={`inline-flex items-center justify-center w-7 h-7 rounded-full transition border cursor-pointer active:scale-95 ${
                 isCream
                   ? 'bg-white/80 border-black/10 text-[#0D0D0D] hover:bg-white shadow-xs'
                   : 'bg-white/10 border-white/15 text-white hover:bg-white/20'
               }`}
+              aria-label={isCream ? 'Titanyum Grisi Koyu Moda Geç (Kısayol: T)' : 'Krem Zemin Temasına Geç (Kısayol: T)'}
               title={isCream ? 'Titanyum Grisi Koyu Moda Geç (Kısayol: T)' : 'Krem Zemin (Kısayol: T)'}
             >
               {isCream ? (
-                <>
-                  <Moon className="w-3 h-3 text-[#1E3A8A]" />
-                  <span>Koyu Mod</span>
-                </>
+                <Moon className="w-3.5 h-3.5 text-[#1E3A8A]" />
               ) : (
-                <>
-                  <Sun className="w-3 h-3 text-[#E8A838]" />
-                  <span>Krem Zemin</span>
-                </>
+                <Sun className="w-3.5 h-3.5 text-[#E8A838]" />
               )}
             </button>
           </div>
@@ -145,19 +160,19 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
             />
           </Link>
 
-          {/* Menü Linkleri: Hakkımızda -> Galeri -> Fiyatlar -> Hizmetlerimiz -> Otopark -> Konum */}
+          {/* Menü Linkleri */}
           <div className="hidden lg:flex items-center gap-4 xl:gap-5 text-xs font-bold uppercase tracking-wider">
             <Link
-              href="/hakkimizda"
+              href="/motosiklet"
               className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition"
             >
-              Hakkımızda
+              Motosiklet
             </Link>
             <Link
-              href={segment === 'motosiklet' ? '/galeri#motosiklet' : '/galeri'}
+              href={segment === 'motosiklet' ? '/hizmetler#motosiklet' : '/hizmetler'}
               className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition"
             >
-              Galeri
+              Hizmetlerimiz
             </Link>
             <Link
               href={segment === 'motosiklet' ? '/motosiklet#fiyatlar' : '/#fiyatlar'}
@@ -166,10 +181,10 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
               Fiyatlar
             </Link>
             <Link
-              href={segment === 'motosiklet' ? '/hizmetler#motosiklet' : '/hizmetler'}
+              href={segment === 'motosiklet' ? '/galeri#motosiklet' : '/galeri'}
               className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition"
             >
-              Hizmetlerimiz
+              Galeri
             </Link>
             <Link
               href="/otopark"
@@ -182,6 +197,12 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
               className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition"
             >
               Konum
+            </Link>
+            <Link
+              href="/hakkimizda"
+              className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition"
+            >
+              Hakkımızda
             </Link>
           </div>
 
@@ -221,6 +242,14 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
             }`}
           >
             <div className="flex flex-col gap-2 text-xs font-bold uppercase tracking-wider">
+              <Link
+                href="/motosiklet"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-2.5 px-3 rounded-lg hover:bg-[#1E3A8A]/10 hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition flex items-center justify-between text-[#1E3A8A] dark:text-[#60A5FA]"
+              >
+                <span>Motosiklet Atölyesi</span>
+                <span className="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-[#1E3A8A]/10">Özel Bölüm</span>
+              </Link>
               <Link
                 href="/hakkimizda"
                 onClick={() => setMobileMenuOpen(false)}

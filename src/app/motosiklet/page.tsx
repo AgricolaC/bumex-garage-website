@@ -3,7 +3,7 @@ import { LandingView } from '@/components/landing/LandingView';
 import { MotorcycleStructuredData } from '@/components/motosiklet/MotorcycleStructuredData';
 
 export const metadata: Metadata = {
-  title: 'Bumex Garage — Bahçelievler Motosiklet Detailing, Bakım & Seramik | Ankara',
+  title: 'Motosiklet Detailing & Bakım Atölyesi | Bumex Garage',
   description:
     'Ankara Bahçelievler 7. Cadde: Hassas motosiklet yıkama, grenaj mikron pasta cila, 9H nano seramik kaplama, varyatör & zincir bakımı, mekanik servis ve transfer desteği.',
   keywords: [

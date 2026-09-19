@@ -3,7 +3,7 @@ import Script from 'next/script';
 import { HakkimizdaView } from '@/components/hakkimizda/HakkimizdaView';
 
 export const metadata: Metadata = {
-  title: 'Hakkımızda — Atölye Manifestosu & Deneyim | Bumex Garage Bahçelievler',
+  title: 'Hakkımızda & Atölye Manifestosu | Bumex Garage',
   description:
     "Ankara Bahçelievler 7. Cadde'ye 350m: Verniği eritmeden mikron boya restorasyonu, 140°C kuru buhar, 9H nano seramik ve PPF kaplama ile profesyonel araç bakım felsefemiz.",
   keywords: [

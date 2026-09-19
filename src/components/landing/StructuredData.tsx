@@ -96,7 +96,7 @@ export function StructuredData() {
                     '@type': 'Service',
                     name: 'Mikron Boya Restorasyonu & Pasta Cila',
                     description:
-                      'Elektronik mikron ölçümüyle vernik kalınlığı analiz edilerek harelenme ve kılcal çiziklerin %95+ giderilmesi.',
+                      'Elektronik mikron ölçümüyle vernik kalınlığı analiz edilerek harelenme ve kılcal çiziklerin giderilmesi.',
                   },
                 },
                 {

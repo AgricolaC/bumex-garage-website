@@ -3,9 +3,9 @@ import { OtoparkView } from '@/components/otopark/OtoparkView';
 import { OtoparkStructuredData } from '@/components/otopark/OtoparkStructuredData';
 
 export const metadata: Metadata = {
-  title: '7. Cadde Güvenli Otopark & Park & Wash | Bumex Garage Bahçelievler Ankara',
+  title: '7. Cadde Güvenli Otopark & Park & Wash | Bumex Garage',
   description:
-    'Ankara Bahçelievler 7. Cadde\'ye 350m: 24/7 CCTV kamera gözetimli, geniş manevra alanlı, alçak spor araç ve SUV rampalı güvenli otopark ile Park & Wash hizmeti.',
+    'Ankara Bahçelievler 7. Cadde\'ye 350m: 24/7 CCTV kamera gözetimli, 10:00 – 22:00 açık, geniş manevra alanlı ve alçak araç rampalı güvenli otopark.',
   keywords: [
     'bahçelievler otopark',
     '7 cadde otopark',

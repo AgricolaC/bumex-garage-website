@@ -3,7 +3,7 @@ import { KonumView } from '@/components/konum/KonumView';
 import { KonumStructuredData } from '@/components/konum/KonumStructuredData';
 
 export const metadata: Metadata = {
-  title: 'Bumex Garage — Konum, Ulaşım & Yol Tarifi | Bahçelievler Ankara',
+  title: 'Konum, Ulaşım & Yol Tarifi | Bumex Garage Bahçelievler',
   description:
     'Ankara Bahçelievler 7. Cadde\'ye 350m: Prof. Muammer Aksoy Cad. No: 48 (eski Han-gar, Sonax-Würth ve Supark lokasyonu) açık adres, metro yürüme mesafesi ve yol tarifi.',
   keywords: [

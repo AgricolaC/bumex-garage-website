@@ -3,7 +3,7 @@ import Script from 'next/script';
 import { GaleriView } from '@/components/galeri/GaleriView';
 
 export const metadata: Metadata = {
-  title: 'Canlı Detailing & Restorasyon Galerisi | Bumex Garage Bahçelievler Ankara',
+  title: 'Canlı Detailing & Restorasyon Galerisi | Bumex Garage',
   description:
     'Ankara Bahçelievler 7. Cadde: PPF kaplama, 9H nano seramik, mikron boya restorasyonu ve motosiklet detailing dönüşümlerinin interaktif öncesi-sonrası karşılaştırmaları.',
   keywords: [

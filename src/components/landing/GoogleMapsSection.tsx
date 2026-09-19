@@ -352,7 +352,7 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
               </a>
 
               <a
-                href="https://maps.app.goo.gl/UGsfYD1ZUdB7L5w4A"
+                href="https://search.google.com/local/writereview?placeid=ChIJlQLz8WJP0xQR5ahmG3GTF88"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`w-full py-2.5 px-4 rounded-xl border text-xs font-bold flex items-center justify-center gap-1.5 transition ${

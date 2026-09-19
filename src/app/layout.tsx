@@ -5,7 +5,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://bumexgarage.com'),
-  title: 'Bumex Garage — Bahçelievler Premium Detailing, Motosiklet Bakım & Güvenli Otopark | Ankara',
+  title: 'Bumex Garage — Bahçelievler Detailing & Otopark | Ankara',
   description:
     'Ankara Bahçelievler 7. Cadde\'ye 350m: Mikron seviyesinde boya düzeltme, 9H nano seramik zırh, motosiklet yıkama & detailing, dielektrik kuru buharlı motor temizliği ve 24/7 CCTV izlemeli güvenli otopark.',
   keywords: [

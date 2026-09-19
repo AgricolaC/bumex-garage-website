@@ -3,7 +3,7 @@ import Script from 'next/script';
 import { HizmetlerView } from '@/components/hizmetler/HizmetlerView';
 
 export const metadata: Metadata = {
-  title: 'Otomobil & Motosiklet Bakım Hizmetleri Kartelası | Bumex Garage Bahçelievler',
+  title: 'Tüm Detailing & Bakım Hizmetleri | Bumex Garage',
   description:
     'Ankara Bahçelievler 7. Cadde: PPF kaplama, 9H nano seramik, mikron pasta cila, buharlı motor temizliği, ses izolasyonu ve motosiklet detailing hizmet kartelası.',
   keywords: [
