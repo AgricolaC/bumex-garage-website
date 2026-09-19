@@ -1,12 +1,14 @@
 'use client';
 
 import React, { useState, useRef, useCallback, useEffect, useMemo } from 'react';
-import { Sparkles, ShieldCheck, Zap, Camera } from 'lucide-react';
+import Link from 'next/link';
+import { Sparkles, ShieldCheck, Zap, Camera, ChevronRight } from 'lucide-react';
 import { LandingTheme } from '@/hooks/useLandingTheme';
 import { useWorkshopSegment } from '@/hooks/useWorkshopSegment';
 
 interface BeforeAfterSliderProps {
   theme: LandingTheme;
+  detailed?: boolean;
 }
 
 interface MethodHighlight {
@@ -297,14 +299,22 @@ const REAL_AUTOMOBILE_STUDIO_GALLERY = [
   },
 ];
 
-export function BeforeAfterSlider({ theme }: BeforeAfterSliderProps) {
+export function BeforeAfterSlider({
+  theme,
+  detailed = true,
+}: BeforeAfterSliderProps) {
   const isCream = theme === 'cream';
   const { segment } = useWorkshopSegment();
 
-  // Yalnızca aktif segmente ait Before/After uygulamalarını getir
+  // Aktif segmente ait Before/After uygulamaları (Teaser modunda yalnızca amiral gemisi dönüşüm)
   const availableItems = useMemo(() => {
+    if (!detailed) {
+      const primaryId = segment === 'otomobil' ? 'bmw-tam-donusum' : 'motosiklet-detailing';
+      const found = TRANSFORMATIONS.find((t) => t.id === primaryId);
+      return found ? [found] : TRANSFORMATIONS.filter((t) => t.vehicleType === segment);
+    }
     return TRANSFORMATIONS.filter((t) => t.vehicleType === segment);
-  }, [segment]);
+  }, [segment, detailed]);
 
   const [activeTabId, setActiveTabId] = useState<string>(availableItems[0]?.id || '');
   const [sliderPosition, setSliderPosition] = useState(50);
@@ -364,8 +374,12 @@ export function BeforeAfterSlider({ theme }: BeforeAfterSliderProps) {
             <Sparkles className="w-3.5 h-3.5" />
             <span>
               {segment === 'otomobil'
-                ? 'Gerçek Otomobil Atölye Uygulamaları'
-                : 'Gerçek Motosiklet Detailing Uygulamaları'}
+                ? detailed
+                  ? 'Gerçek Otomobil Atölye Uygulamaları'
+                  : 'Stüdyo Restorasyon Vitrini'
+                : detailed
+                  ? 'Gerçek Motosiklet Detailing Uygulamaları'
+                  : 'Motosiklet Detailing Vitrini'}
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-black tracking-tight mt-1">
@@ -377,13 +391,17 @@ export function BeforeAfterSlider({ theme }: BeforeAfterSliderProps) {
             }`}
           >
             {segment === 'otomobil'
-              ? 'Bahçelievler atölyemizde tamamlanan gerçek otomobil uygulamalarını inceleyin. İnteraktif kaydırıcı ile mikron seviyesindeki temizlik ve restorasyon farkına tanık olun.'
-              : 'Hassas motosiklet detailing ve grenaj yenileme çalışmalarımız. Tazyiksiz kuru buhar ve nano polisaj ile fabrikasyon parlaklığına tanık olun.'}
+              ? detailed
+                ? 'Bahçelievler atölyemizde tamamlanan gerçek otomobil uygulamalarını inceleyin. İnteraktif kaydırıcı ile mikron seviyesindeki temizlik ve restorasyon farkına tanık olun.'
+                : 'Bahçelievler stüdyomuzda tamamlanan gerçek restorasyon farkını interaktif kaydırıcı ile deneyimleyin.'
+              : detailed
+                ? 'Hassas motosiklet detailing ve grenaj yenileme çalışmalarımız. Tazyiksiz kuru buhar ve nano polisaj ile fabrikasyon parlaklığına tanık olun.'
+                : 'Motosikletler için tazyiksiz kuru buhar ve nano polisaj ile fabrikasyon parlaklık dönüşümü.'}
           </p>
         </div>
 
-        {/* Dönüşüm Kategori Sekmeleri (Birden fazla öğe varsa göster) */}
-        {availableItems.length > 1 && (
+        {/* Dönüşüm Kategori Sekmeleri (Yalnızca Detaylı Modda ve birden fazla öğe varsa göster) */}
+        {detailed && availableItems.length > 1 && (
           <div className="flex items-center justify-center gap-2 flex-wrap mb-8">
             {availableItems.map((item) => {
               const isActive = item.id === activeTabId;
@@ -525,8 +543,8 @@ export function BeforeAfterSlider({ theme }: BeforeAfterSliderProps) {
           </div>
         </div>
 
-        {/* Otomobil Segmentine Özel: Bahçelievler Atölyemizden Gerçek Detailing Kareleri Vitrini */}
-        {segment === 'otomobil' && (
+        {/* Otomobil Segmentine Özel: Bahçelievler Atölyemizden Gerçek Detailing Kareleri Vitrini (Yalnızca Detaylı Modda) */}
+        {detailed && segment === 'otomobil' && (
           <div
             className={`mt-14 pt-10 border-t transition-colors duration-200 ${
               isCream ? 'border-[#6C6A6B]/20' : 'border-white/10'
@@ -608,6 +626,30 @@ export function BeforeAfterSlider({ theme }: BeforeAfterSliderProps) {
                 </div>
               ))}
             </div>
+          </div>
+        )}
+
+        {/* Teaser Modunda Müşteriyi Detaylı Galeri Sayfasına Yönlendiren Belirgin Buton */}
+        {!detailed && (
+          <div className="mt-12 text-center">
+            <Link
+              href="/galeri"
+              className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-black text-sm sm:text-base text-white bg-[#1E3A8A] hover:bg-[#1D4ED8] shadow-xl shadow-[#1E3A8A]/30 transition transform hover:-translate-y-0.5 active:translate-y-0 group cursor-pointer"
+            >
+              <span>
+                {segment === 'otomobil'
+                  ? 'Tüm Canlı Atölye Uygulamalarını ve Detaylı Galeriyi İncele'
+                  : 'Tüm Motosiklet Detailing Uygulamalarını ve Detaylı Galeriyi İncele'}
+              </span>
+              <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+            </Link>
+            <p
+              className={`text-xs mt-3 max-w-lg mx-auto ${
+                isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
+              }`}
+            >
+              6+ Farklı araç karşılaştırması, jant demir tozu temizliği, far restorasyonu ve Bahçelievler canlı stüdyo fotoğraf arşivi.
+            </p>
           </div>
         )}
       </div>

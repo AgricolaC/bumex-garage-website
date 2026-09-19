@@ -50,8 +50,8 @@ export function LandingView({ initialSegment }: { initialSegment?: WorkshopSegme
           {/* 1. Commanding Studio Switcher & Hero Vitrini */}
           <HeroSection theme={theme} />
 
-          {/* 2. Boya Düzeltme & Grenaj Restorasyonu (Galeri) */}
-          <BeforeAfterSlider theme={theme} />
+          {/* 2. Boya Düzeltme & Grenaj Restorasyonu (Galeri Teaser Vitrini) */}
+          <BeforeAfterSlider theme={theme} detailed={false} />
 
           {/* 3. Şeffaf Fiyat Listesi & Detailing / Servis Paketleri */}
           <PricingSection
@@ -59,9 +59,10 @@ export function LandingView({ initialSegment }: { initialSegment?: WorkshopSegme
             onOpenModal={(type) => setActiveModal(type)}
           />
 
-          {/* 4. Segmente Özel Resmi Hizmet Kartelası & Modüler Servis Tablosu */}
+          {/* 4. Segmente Özel Resmi Hizmet Kartelası & Modüler Servis Tablosu (Teaser Vitrini) */}
           <ServicesCatalog
             theme={theme}
+            detailed={false}
             onOpenModal={(type) => setActiveModal(type)}
           />
 

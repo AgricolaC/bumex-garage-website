@@ -109,6 +109,26 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
               </li>
               <li>
                 <Link
+                  href="/galeri"
+                  className={`hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition flex items-center gap-1 font-semibold ${
+                    isCream ? 'text-[#0D0D0D]' : 'text-white'
+                  }`}
+                >
+                  Canlı Atölye Galerisi <ArrowUpRight className="w-3 h-3 text-[#1E3A8A] dark:text-[#60A5FA]" />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/hizmetler"
+                  className={`hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition flex items-center gap-1 font-semibold ${
+                    isCream ? 'text-[#0D0D0D]' : 'text-white'
+                  }`}
+                >
+                  Tüm Hizmetler Listesi <ArrowUpRight className="w-3 h-3 text-[#1E3A8A] dark:text-[#60A5FA]" />
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/hizmetler/ppf-kaplama"
                   className={`hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition flex items-center gap-1 font-medium ${
                     isCream ? 'text-[#3D3A39]' : 'text-zinc-200'
@@ -129,12 +149,12 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
               </li>
               <li>
                 <Link
-                  href="/hizmetler/boya-restorasyonu"
+                  href="/hizmetler/pasta-cila"
                   className={`hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition flex items-center gap-1 font-medium ${
                     isCream ? 'text-[#3D3A39]' : 'text-zinc-200'
                   }`}
                 >
-                  Mikron Boya Restorasyonu <ArrowUpRight className="w-3 h-3 text-[#1E3A8A] dark:text-[#60A5FA]" />
+                  Pasta Cila &amp; Boya Restorasyonu <ArrowUpRight className="w-3 h-3 text-[#1E3A8A] dark:text-[#60A5FA]" />
                 </Link>
               </li>
               <li>

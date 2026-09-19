@@ -297,7 +297,7 @@ const servicesDataCode = fs.readFileSync(servicesDataPath, 'utf8');
 const requiredSlugs = [
   'ppf-kaplama',
   'seramik-kaplama',
-  'boya-restorasyonu',
+  'pasta-cila',
   'buharli-motor-temizligi',
   'detayli-ic-hijyen',
 ];
@@ -308,6 +308,23 @@ for (const slug of requiredSlugs) {
   }
 }
 pass("All 5 dedicated Service Hubs (ppf, seramik, pasta cila, motor, kuafor) verified with SSG and Schema.org @graph");
+
+// 3e. Validate Subpages (/galeri and /hizmetler) Dedicated Routes and Schemas
+const galeriPath = path.join(ROOT, 'src/app/galeri/page.tsx');
+if (!fs.existsSync(galeriPath)) fail(`src/app/galeri/page.tsx not found`);
+const galeriCode = fs.readFileSync(galeriPath, 'utf8');
+if (!galeriCode.includes('BreadcrumbList') || !galeriCode.includes('ImageGallery')) {
+  fail("src/app/galeri/page.tsx must provide BreadcrumbList and ImageGallery schema");
+}
+pass("Galeri route and Schema.org @graph verified");
+
+const hizmetlerPath = path.join(ROOT, 'src/app/hizmetler/page.tsx');
+if (!fs.existsSync(hizmetlerPath)) fail(`src/app/hizmetler/page.tsx not found`);
+const hizmetlerCode = fs.readFileSync(hizmetlerPath, 'utf8');
+if (!hizmetlerCode.includes('BreadcrumbList') || !hizmetlerCode.includes('ItemList')) {
+  fail("src/app/hizmetler/page.tsx must provide BreadcrumbList and ItemList schema");
+}
+pass("Hizmetler route and Schema.org @graph verified");
 
 // 4. Validate True 1200x630 OpenGraph & Dedicated Route Images
 const ogImagePath = path.join(ROOT, 'public/og-image.jpg');
@@ -400,13 +417,15 @@ const robotsCode = fs.readFileSync(robotsPath, 'utf8');
 
 if (
   !sitemapCode.includes('https://bumexgarage.com') ||
+  !sitemapCode.includes('/galeri') ||
+  !sitemapCode.includes('/hizmetler') ||
   !sitemapCode.includes('/motosiklet') ||
   !sitemapCode.includes('/otopark') ||
   !sitemapCode.includes('/konum')
 ) {
-  fail("sitemap.ts does not advertise all 4 hubs (/, /motosiklet, /otopark, /konum)");
+  fail("sitemap.ts does not advertise all core hubs (/, /galeri, /hizmetler, /motosiklet, /otopark, /konum)");
 }
-pass("Dynamic sitemap.ts 4-hub routes (root, /motosiklet, /otopark, /konum) verified");
+pass("Dynamic sitemap.ts core routes (root, /galeri, /hizmetler, /motosiklet, /otopark, /konum) verified");
 
 if (!robotsCode.includes("sitemap: 'https://bumexgarage.com/sitemap.xml'")) {
   fail("robots.ts does not reference canonical sitemap URL");
@@ -422,5 +441,5 @@ if (!footerCode.includes('eski Supark Otopark') || !footerCode.includes('Prof. M
 }
 pass("Quiet entity reconciliation bridge (Han-gar, Sonax-Würth, Supark) verified in footer");
 
-console.log('\n\x1b[32m=== All 22 Rigorous SEO, OpenGraph, PWA & Schema Invariants Passed! ===\x1b[0m\n');
+console.log('\n\x1b[32m=== All 24 Rigorous SEO, OpenGraph, PWA & Schema Invariants Passed! ===\x1b[0m\n');
 process.exit(0);

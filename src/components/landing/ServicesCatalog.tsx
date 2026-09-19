@@ -29,6 +29,7 @@ import { useWorkshopSegment } from '@/hooks/useWorkshopSegment';
 interface ServicesCatalogProps {
   theme: LandingTheme;
   onOpenModal: (type: 'motor' | 'detailing') => void;
+  detailed?: boolean;
 }
 
 type ServiceCategory =
@@ -61,7 +62,7 @@ const SERVICES: ServiceItem[] = [
     icon: Gem,
     modalType: 'detailing',
     actionType: 'modal',
-    href: '/hizmetler/boya-restorasyonu',
+    href: '/hizmetler/pasta-cila',
   },
   {
     id: 'seramik-kaplama',
@@ -287,9 +288,13 @@ const SERVICES: ServiceItem[] = [
   },
 ];
 
-export function ServicesCatalog({ theme, onOpenModal }: ServicesCatalogProps) {
+export function ServicesCatalog({
+  theme,
+  onOpenModal,
+  detailed = true,
+}: ServicesCatalogProps) {
   const isCream = theme === 'cream';
-  const { segment, phone, phoneDisplay, whatsappNumber } = useWorkshopSegment();
+  const { segment, whatsappNumber } = useWorkshopSegment();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
   // Segmente göre geçerli temel hizmet listesi
@@ -299,6 +304,14 @@ export function ServicesCatalog({ theme, onOpenModal }: ServicesCatalogProps) {
         ? s.type === 'car' || s.type === 'both'
         : s.type === 'bike' || s.type === 'both'
     );
+  }, [segment]);
+
+  // Teaser modunda öne çıkarılacak amiral gemisi stüdyo hizmetleri
+  const teaserServiceIds = useMemo(() => {
+    if (segment === 'otomobil') {
+      return ['ppf-kaplama', 'seramik-kaplama', 'pasta-cila', 'buharli-motor', 'detayli-kuafor'];
+    }
+    return ['moto-ppf', 'moto-seramik', 'moto-pasta-cila', 'moto-detailing'];
   }, [segment]);
 
   // Segmente özel alt filtre sekmeleri
@@ -324,10 +337,13 @@ export function ServicesCatalog({ theme, onOpenModal }: ServicesCatalogProps) {
     setSelectedCategory('all');
   }, [segment]);
 
-  const filteredServices = useMemo(() => {
+  const displayedServices = useMemo(() => {
+    if (!detailed) {
+      return SERVICES.filter((s) => teaserServiceIds.includes(s.id));
+    }
     if (selectedCategory === 'all') return segmentServices;
     return segmentServices.filter((s) => s.category === selectedCategory);
-  }, [selectedCategory, segmentServices]);
+  }, [detailed, teaserServiceIds, selectedCategory, segmentServices]);
 
   return (
     <section
@@ -349,8 +365,12 @@ export function ServicesCatalog({ theme, onOpenModal }: ServicesCatalogProps) {
               }`}
             >
               {segment === 'otomobil'
-                ? 'Resmi Otomobil Hizmet Kartelası & Modüler Servis Tablosu'
-                : 'Resmi Motosiklet Hizmet & Servis Kartelası'}
+                ? detailed
+                  ? 'Resmi Otomobil Hizmet Kartelası & Modüler Servis Tablosu'
+                  : 'Stüdyo Amiral Gemisi Hizmetlerimiz'
+                : detailed
+                  ? 'Resmi Motosiklet Hizmet & Servis Kartelası'
+                  : 'Motosiklet Detailing & Bakım Hizmetlerimiz'}
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-black tracking-tight">
@@ -364,40 +384,46 @@ export function ServicesCatalog({ theme, onOpenModal }: ServicesCatalogProps) {
             }`}
           >
             {segment === 'otomobil'
-              ? 'Bahçelievler stüdyomuzda paket harici tekil ihtiyaçlarınız ve komple stüdyo uygulamalarımız için mikron boya restorasyonu, PPF kaplama, 9H nano seramik, detaylı oto kuaför ve 12+ kalem şeffaf atölye birim hizmetleri.'
-              : 'Hassas motosiklet detailing, 9H seramik, periyodik bakım (yağ, filtre, varyatör, zincir), mekanik arıza onarımı ve hazırlık aşamasındaki transfer desteği.'}
+              ? detailed
+                ? 'Bahçelievler stüdyomuzda paket harici tekil ihtiyaçlarınız ve komple stüdyo uygulamalarımız için mikron boya restorasyonu, PPF kaplama, 9H nano seramik, detaylı oto kuaför ve 12+ kalem şeffaf atölye birim hizmetleri.'
+                : 'Bahçelievler stüdyomuzda icra edilen en popüler ana hizmetlerimiz. Tüm modüler ve parça bazlı işlemler için detaylı kartelamızı ziyaret edebilirsiniz.'
+              : detailed
+                ? 'Hassas motosiklet detailing, 9H seramik, periyodik bakım (yağ, filtre, varyatör, zincir), mekanik arıza onarımı ve hazırlık aşamasındaki transfer desteği.'
+                : 'Hassas motosiklet detailing, 9H seramik ve grenaj koruma hizmetlerimiz. Tüm servis kalemleri için detaylı kartelayı inceleyin.'}
           </p>
         </div>
 
-        {/* Kategori Filtre Hapları */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none">
-          {filterCategories.map((cat) => {
-            const isSelected = selectedCategory === cat.id;
-            return (
-              <button
-                key={cat.id}
-                type="button"
-                onClick={() => setSelectedCategory(cat.id)}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition border cursor-pointer ${
-                  isSelected
-                    ? 'bg-[#1E3A8A] text-white border-[#1E3A8A] shadow-md shadow-[#1E3A8A]/25'
-                    : isCream
-                      ? 'bg-white/80 text-[#565352] border-[#6C6A6B]/20 hover:bg-white hover:text-[#0D0D0D]'
-                      : 'bg-[#222529] text-[#9DA3AA] border-white/10 hover:bg-[#2C3035] hover:text-white'
-                }`}
-              >
-                {segment === 'motosiklet' && cat.id !== 'all' && (
-                  <Flame className="w-3 h-3 inline mr-1 text-amber-500" />
-                )}
-                <span>{cat.label}</span>
-              </button>
-            );
-          })}
-        </div>
+        {/* Kategori Filtre Hapları (Yalnızca Detaylı Modda Gösterilir) */}
+        {detailed && (
+          <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none">
+            {filterCategories.map((cat) => {
+              const isSelected = selectedCategory === cat.id;
+              return (
+                <button
+                  key={cat.id}
+                  type="button"
+                  onClick={() => setSelectedCategory(cat.id)}
+                  className={`px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition border cursor-pointer ${
+                    isSelected
+                      ? 'bg-[#1E3A8A] text-white border-[#1E3A8A] shadow-md shadow-[#1E3A8A]/25'
+                      : isCream
+                        ? 'bg-white/80 text-[#565352] border-[#6C6A6B]/20 hover:bg-white hover:text-[#0D0D0D]'
+                        : 'bg-[#222529] text-[#9DA3AA] border-white/10 hover:bg-[#2C3035] hover:text-white'
+                  }`}
+                >
+                  {segment === 'motosiklet' && cat.id !== 'all' && (
+                    <Flame className="w-3 h-3 inline mr-1 text-amber-500" />
+                  )}
+                  <span>{cat.label}</span>
+                </button>
+              );
+            })}
+          </div>
+        )}
 
         {/* Hizmet Kartelası Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-          {filteredServices.map((item) => {
+          {displayedServices.map((item) => {
             const Icon = item.icon;
             const isBikeItem = item.type === 'bike';
 
@@ -480,6 +506,32 @@ export function ServicesCatalog({ theme, onOpenModal }: ServicesCatalogProps) {
             );
           })}
         </div>
+
+        {/* Teaser Modunda Müşteriyi Detaylı Hizmetler Sayfasına Yönlendiren Belirgin Buton */}
+        {!detailed && (
+          <div className="mt-12 text-center">
+            <Link
+              href="/hizmetler"
+              className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-black text-sm sm:text-base text-white bg-[#1E3A8A] hover:bg-[#1D4ED8] shadow-xl shadow-[#1E3A8A]/30 transition transform hover:-translate-y-0.5 active:translate-y-0 group cursor-pointer"
+            >
+              <span>
+                {segment === 'otomobil'
+                  ? 'Tüm 25+ Atölye Hizmetini ve Detaylı Servis Tablosunu İncele'
+                  : 'Tüm Motosiklet Hizmetlerini ve Servis Tablosunu İncele'}
+              </span>
+              <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+            </Link>
+            <p
+              className={`text-xs mt-3 max-w-lg mx-auto ${
+                isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
+              }`}
+            >
+              {segment === 'otomobil'
+                ? 'Ses izolasyonu, cam filmi, jant restorasyonu, boyasız göçük ve parça bazlı işlemler için tam kartelayı açın.'
+                : 'Periyodik bakım, varyatör, zincir dişli servisi, mekanik onarım ve transfer desteği için tam kartelayı açın.'}
+            </p>
+          </div>
+        )}
       </div>
     </section>
   );

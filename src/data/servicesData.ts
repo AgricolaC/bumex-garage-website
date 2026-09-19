@@ -1,7 +1,7 @@
 export type ServiceHubSlug =
   | 'ppf-kaplama'
   | 'seramik-kaplama'
-  | 'boya-restorasyonu'
+  | 'pasta-cila'
   | 'buharli-motor-temizligi'
   | 'detayli-ic-hijyen';
 
@@ -273,13 +273,13 @@ export const SERVICES_DATA: Record<ServiceHubSlug, ServiceHubData> = {
       'Merhaba Bumex Garage, aracım için 9H nano seramik kaplama hakkında detaylı bilgi ve randevu almak istiyorum.',
   },
 
-  'boya-restorasyonu': {
-    slug: 'boya-restorasyonu',
-    title: 'Mikron Boya Restorasyonu & Pasta Cila',
+  'pasta-cila': {
+    slug: 'pasta-cila',
+    title: 'Pasta Cila ve Mikron Boya Restorasyonu',
     badge: 'Dijital Vernik Ölçümü & Kılcal Çizik ve Harelerin %95+ Giderimi',
-    metaTitle: 'Ankara Mikron Pasta Cila & Boya Restorasyonu | Bumex Garage Bahçelievler',
+    metaTitle: 'Ankara Pasta Cila — Mikron Boya Restorasyonu | Bumex Garage Bahçelievler',
     metaDescription:
-      "Elektronik mikron ölçümüyle vernik katmanını eritmeden, rotary ve dual-action orbital makinelerle kılcal çiziklerin, güneş yanığı başlangıçlarının ve harelerin %95+ giderilmesi.",
+      "Ankara Bahçelievler 7. Cadde'ye 350m: Elektronik mikron ölçümüyle vernik katmanını eritmeden, döner ve orbital makinelerle kılcal çiziklerin, harelerin ve matlığın %95+ giderilmesi.",
     heroHeadline: 'VERNİĞİ ERİTMEYEN HASSAS MİKRON RESTORASYON',
     heroSubtitle:
       "Geleneksel sanayi tipi agresif pastalar verniği aşındırarak tüketir. Bumex Garage'da her panelin vernik mikron kalınlığı ölçülür; Alman menşeili kademeli aşındırıcılar ile boyanız korunarak sıfır hata parlaklık elde edilir.",

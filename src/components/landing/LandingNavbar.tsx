@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import {
   Phone,
@@ -11,6 +11,8 @@ import {
   Instagram,
   ExternalLink,
   ShieldCheck,
+  Menu,
+  X,
 } from 'lucide-react';
 import { LandingTheme } from '@/hooks/useLandingTheme';
 import { useWorkshopSegment } from '@/hooks/useWorkshopSegment';
@@ -23,6 +25,7 @@ interface LandingNavbarProps {
 
 export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
   const isCream = theme === 'cream';
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { segment, setSegment, phone, phoneDisplay, whatsappNumber, whatsappDefaultMessage } =
     useWorkshopSegment();
 
@@ -145,22 +148,22 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
           {/* Menü Linkleri: Galeri -> Fiyatlar -> Hizmet Listesi -> Otopark -> Konum */}
           <div className="hidden lg:flex items-center gap-5 text-xs font-bold uppercase tracking-wider">
             <Link
-              href={segment === 'motosiklet' ? '/motosiklet#restorasyon' : '/#restorasyon'}
+              href="/galeri"
               className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition"
             >
               Galeri
+            </Link>
+            <Link
+              href="/hizmetler"
+              className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition"
+            >
+              Hizmetlerimiz
             </Link>
             <Link
               href={segment === 'motosiklet' ? '/motosiklet#fiyatlar' : '/#fiyatlar'}
               className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition"
             >
               Fiyatlar
-            </Link>
-            <Link
-              href={segment === 'motosiklet' ? '/motosiklet#hizmetler' : '/#hizmetler'}
-              className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition"
-            >
-              Hizmet Listesi
             </Link>
             <Link
               href="/otopark"
@@ -174,17 +177,83 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
             </Link>
           </div>
 
-          {/* Sağ Aksiyon: Segmente Özel Tek Tıkla Arama Butonu (Masaüstü & Tablet; Mobilde Persistent Call Bar mevcut) */}
-          <div className="hidden sm:flex items-center gap-2.5 shrink-0">
+          {/* Sağ Aksiyon: Segmente Özel Tek Tıkla Arama Butonu & Mobil Menü Butonu */}
+          <div className="flex items-center gap-2.5 shrink-0">
             <a
               href={`tel:${phone}`}
-              className="inline-flex items-center gap-1.5 text-white text-xs font-black px-3.5 py-2 sm:px-4 sm:py-2 rounded-lg shadow-md transition active:scale-95 bg-[#1E3A8A] hover:bg-[#1D4ED8] shadow-[#1E3A8A]/25"
+              className="hidden sm:inline-flex items-center gap-1.5 text-white text-xs font-black px-3.5 py-2 sm:px-4 sm:py-2 rounded-lg shadow-md transition active:scale-95 bg-[#1E3A8A] hover:bg-[#1D4ED8] shadow-[#1E3A8A]/25"
             >
               <Phone className="w-3.5 h-3.5" />
               <span>{phoneDisplay}</span>
             </a>
+
+            {/* Mobil Menü Butonu (< lg ekranlar) */}
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className={`lg:hidden p-2 rounded-lg border transition cursor-pointer ${
+                isCream
+                  ? 'bg-black/5 border-black/10 text-[#0D0D0D] hover:bg-black/10'
+                  : 'bg-white/10 border-white/15 text-white hover:bg-white/20'
+              }`}
+              aria-label={mobileMenuOpen ? 'Menüyü Kapat' : 'Menüyü Aç'}
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
           </div>
         </div>
+
+        {/* Mobil Açılır Menü (< lg) */}
+        {mobileMenuOpen && (
+          <div
+            className={`lg:hidden border-t px-4 py-4 transition-colors duration-200 ${
+              isCream
+                ? 'bg-[#E8E3DF] border-[#6C6A6B]/20 text-[#0D0D0D]'
+                : 'bg-[#1B1D20] border-white/10 text-white'
+            }`}
+          >
+            <div className="flex flex-col gap-2 text-xs font-bold uppercase tracking-wider">
+              <Link
+                href="/galeri"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-2.5 px-3 rounded-lg hover:bg-[#1E3A8A]/10 hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition flex items-center justify-between"
+              >
+                <span>Canlı Atölye Galerisi</span>
+                <span className="text-[10px] font-normal lowercase opacity-70">öncesi / sonrası</span>
+              </Link>
+              <Link
+                href="/hizmetler"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-2.5 px-3 rounded-lg hover:bg-[#1E3A8A]/10 hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition flex items-center justify-between"
+              >
+                <span>Tüm Hizmetlerimiz</span>
+                <span className="text-[10px] font-normal lowercase opacity-70">25+ atölye işlemi</span>
+              </Link>
+              <Link
+                href={segment === 'motosiklet' ? '/motosiklet#fiyatlar' : '/#fiyatlar'}
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-2.5 px-3 rounded-lg hover:bg-[#1E3A8A]/10 hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition"
+              >
+                Fiyatlar &amp; Paketler
+              </Link>
+              <Link
+                href="/otopark"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-2.5 px-3 rounded-lg bg-[#1E3A8A]/10 text-[#1E3A8A] dark:text-[#60A5FA] border border-[#1E3A8A]/30 flex items-center gap-2"
+              >
+                <ShieldCheck className="w-4 h-4" />
+                <span>24/7 Güvenli Otopark</span>
+              </Link>
+              <Link
+                href="/konum"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-2.5 px-3 rounded-lg hover:bg-[#1E3A8A]/10 hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition"
+              >
+                Konum &amp; Ulaşım
+              </Link>
+            </div>
+          </div>
+        )}
       </nav>
     </div>
   );
