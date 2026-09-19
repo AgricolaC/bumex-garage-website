@@ -38,7 +38,7 @@ const TRANSFORMATIONS: TransformationItem[] = [
     id: 'motosiklet-detailing',
     vehicleType: 'motosiklet',
     tabLabel: 'Motosiklet Grenaj & Blok',
-    badge: "Ankara'da İlk • Hassas Motosiklet Detailing",
+    badge: 'Bahçelievler Stüdyosu • Hassas Motosiklet Detailing',
     title: 'Yamaha Supersport Grenaj, Blok & Zincir Detaylandırma',
     description:
       'Ağır yol çamuru, egzoz isi ve yanmış zincir yağı; hassas elektronik soketlere, dijital ekrana ve zincir o-ringlerine tazyikli su değdirilmeden, buhar ve pH nötr formüllerle fabrika kondisyonuna getirilir.',
