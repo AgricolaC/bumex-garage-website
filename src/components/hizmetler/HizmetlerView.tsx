@@ -2,7 +2,18 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Layers, Sparkles, Phone, MessageCircle, MapPin, ArrowLeft } from 'lucide-react';
+import {
+  Layers,
+  Sparkles,
+  Phone,
+  MessageCircle,
+  MapPin,
+  ArrowLeft,
+  ArrowRight,
+  Camera,
+  ShieldCheck,
+  CreditCard,
+} from 'lucide-react';
 import { useLandingTheme } from '@/hooks/useLandingTheme';
 import { useWorkshopSegment } from '@/hooks/useWorkshopSegment';
 import { LandingNavbar } from '@/components/landing/LandingNavbar';
@@ -128,7 +139,117 @@ export function HizmetlerView() {
           onOpenModal={(type) => setActiveModal(type)}
         />
 
-        {/* ─── 3. DANIŞMANLIK & ATÖLYE RANDEVU BANNERI ─── */}
+        {/* ─── 3. SAYFALAR ARASI YÖNLENDİRME KÖPRÜLERİ (HİZMETLERİMİZ -> FİYATLAR, GALERİ, OTOPARK) ─── */}
+        <section
+          className={`py-16 px-4 sm:px-8 border-b transition-colors duration-200 ${
+            isCream ? 'bg-white/60' : 'bg-[#181A1D]'
+          }`}
+        >
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center max-w-2xl mx-auto mb-10">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#1E3A8A] dark:text-[#60A5FA]">
+                Bir Sonraki Adım
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-black tracking-tight mt-1">
+                Fiyatları İnceleyin, Canlı Sonuçları Görün veya Tesisimizi Keşfedin
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* Köprü 1: Fiyatlar */}
+              <Link
+                href={segment === 'motosiklet' ? '/motosiklet#fiyatlar' : '/#fiyatlar'}
+                className={`p-6 rounded-2xl border flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1 hover:shadow-xl ${
+                  isCream
+                    ? 'bg-white border-[#6C6A6B]/25 hover:border-[#1E3A8A]'
+                    : 'bg-[#222529] border-white/10 hover:border-[#60A5FA]'
+                }`}
+              >
+                <div>
+                  <div className="w-12 h-12 rounded-2xl bg-[#1E3A8A]/10 dark:bg-[#1E3A8A]/20 text-[#1E3A8A] dark:text-[#60A5FA] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                    <CreditCard className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-lg font-black tracking-tight mb-2 group-hover:text-[#1E3A8A] dark:group-hover:text-[#60A5FA] transition">
+                    Şeffaf Paket Fiyatları
+                  </h3>
+                  <p
+                    className={`text-xs leading-relaxed ${
+                      isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
+                    }`}
+                  >
+                    Boya restorasyonu, seramik kaplama ve detaylı oto kuaför paketlerimizin net bütçe tablosu.
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-black/5 dark:border-white/5 flex items-center justify-between text-xs font-extrabold text-[#1E3A8A] dark:text-[#60A5FA]">
+                  <span>Fiyat Listesini Gör</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </div>
+              </Link>
+
+              {/* Köprü 2: Galeri */}
+              <Link
+                href="/galeri"
+                className={`p-6 rounded-2xl border flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1 hover:shadow-xl ${
+                  isCream
+                    ? 'bg-white border-[#6C6A6B]/25 hover:border-[#1E3A8A]'
+                    : 'bg-[#222529] border-white/10 hover:border-[#60A5FA]'
+                }`}
+              >
+                <div>
+                  <div className="w-12 h-12 rounded-2xl bg-[#1E3A8A]/10 dark:bg-[#1E3A8A]/20 text-[#1E3A8A] dark:text-[#60A5FA] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                    <Camera className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-lg font-black tracking-tight mb-2 group-hover:text-[#1E3A8A] dark:group-hover:text-[#60A5FA] transition">
+                    Canlı Uygulama Galerisi
+                  </h3>
+                  <p
+                    className={`text-xs leading-relaxed ${
+                      isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
+                    }`}
+                  >
+                    Bu hizmetlerin Bahçelievler stüdyomuzda tamamlanan gerçek araçlar üzerindeki öncesi ve sonrası sonuçları.
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-black/5 dark:border-white/5 flex items-center justify-between text-xs font-extrabold text-[#1E3A8A] dark:text-[#60A5FA]">
+                  <span>Galeriyi İncele</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </div>
+              </Link>
+
+              {/* Köprü 3: Otopark */}
+              <Link
+                href="/otopark"
+                className={`p-6 rounded-2xl border flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1 hover:shadow-xl ${
+                  isCream
+                    ? 'bg-white border-[#6C6A6B]/25 hover:border-[#1E3A8A]'
+                    : 'bg-[#222529] border-white/10 hover:border-[#60A5FA]'
+                }`}
+              >
+                <div>
+                  <div className="w-12 h-12 rounded-2xl bg-[#1E3A8A]/10 dark:bg-[#1E3A8A]/20 text-[#1E3A8A] dark:text-[#60A5FA] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                    <ShieldCheck className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-lg font-black tracking-tight mb-2 group-hover:text-[#1E3A8A] dark:group-hover:text-[#60A5FA] transition">
+                    24/7 Güvenli Otopark
+                  </h3>
+                  <p
+                    className={`text-xs leading-relaxed ${
+                      isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
+                    }`}
+                  >
+                    Aracınızı teslim ederken sokak ve vale riskinden uzak, 24/7 güvenlik kameralı kapalı tesisimiz.
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-black/5 dark:border-white/5 flex items-center justify-between text-xs font-extrabold text-[#1E3A8A] dark:text-[#60A5FA]">
+                  <span>Otoparkı Keşfet</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </div>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 4. DANIŞMANLIK & ATÖLYE RANDEVU BANNERI ─── */}
         <section
           className={`py-16 px-4 sm:px-8 border-b transition-colors duration-200 ${
             isCream ? 'bg-[#DDD7D2]/60' : 'bg-[#141517]'

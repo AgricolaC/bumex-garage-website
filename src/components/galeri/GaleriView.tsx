@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react';
 import Link from 'next/link';
-import { Camera, Sparkles, Phone, MessageCircle, MapPin, ArrowLeft } from 'lucide-react';
+import { Camera, Sparkles, Phone, MessageCircle, MapPin, ArrowLeft, ArrowRight, Layers } from 'lucide-react';
 import { useLandingTheme } from '@/hooks/useLandingTheme';
 import { useWorkshopSegment } from '@/hooks/useWorkshopSegment';
 import { LandingNavbar } from '@/components/landing/LandingNavbar';
@@ -122,7 +122,51 @@ export function GaleriView() {
         {/* ─── 2. TAM DETAYLI BEFORE / AFTER SLIDER & CANLI FOTOĞRAF VİTRİNİ ─── */}
         <BeforeAfterSlider theme={theme} detailed={true} />
 
-        {/* ─── 3. CANLI DANIŞMANLIK & ATÖLYE RANDEVU BANNERI ─── */}
+        {/* ─── 3. SAYFALAR ARASI YÖNLENDİRME KÖPRÜSÜ (GALERİ -> HİZMETLERİMİZ) ─── */}
+        <section
+          className={`py-14 px-4 sm:px-8 border-b transition-colors duration-200 ${
+            isCream ? 'bg-white/60' : 'bg-[#181A1D]'
+          }`}
+        >
+          <div className="max-w-4xl mx-auto">
+            <Link
+              href="/hizmetler"
+              className={`p-6 sm:p-8 rounded-2xl border flex flex-col sm:flex-row items-center justify-between gap-6 transition-all duration-300 group hover:-translate-y-1 hover:shadow-xl ${
+                isCream
+                  ? 'bg-white border-[#6C6A6B]/25 hover:border-[#1E3A8A]'
+                  : 'bg-[#222529] border-white/10 hover:border-[#60A5FA]'
+              }`}
+            >
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-[#1E3A8A]/10 dark:bg-[#1E3A8A]/20 text-[#1E3A8A] dark:text-[#60A5FA] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                  <Layers className="w-6 h-6" />
+                </div>
+                <div>
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#1E3A8A] dark:text-[#60A5FA]">
+                    Uygulama Detayları &amp; Kartela
+                  </span>
+                  <h3 className="text-lg sm:text-xl font-black tracking-tight mt-0.5">
+                    Aracınızda Aynı Kusursuz Parlaklığı Yakalayın
+                  </h3>
+                  <p
+                    className={`text-xs mt-1 leading-relaxed ${
+                      isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
+                    }`}
+                  >
+                    Galeride gördüğünüz tüm dönüşümlerin arkasındaki PPF, 9H nano seramik ve 25+ atölye hizmetimizin teknik detaylarını inceleyin.
+                  </p>
+                </div>
+              </div>
+
+              <div className="inline-flex items-center gap-2 text-xs font-black text-white bg-[#1E3A8A] hover:bg-[#1D4ED8] px-5 py-3 rounded-xl shrink-0 transition shadow-md shadow-[#1E3A8A]/25">
+                <span>Tüm Hizmetlerimizi İnceleyin</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </div>
+            </Link>
+          </div>
+        </section>
+
+        {/* ─── 4. CANLI DANIŞMANLIK & ATÖLYE RANDEVU BANNERI ─── */}
         <section
           className={`py-16 px-4 sm:px-8 border-b transition-colors duration-200 ${
             isCream ? 'bg-[#DDD7D2]/60' : 'bg-[#141517]'

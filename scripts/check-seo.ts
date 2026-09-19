@@ -326,6 +326,14 @@ if (!hizmetlerCode.includes('BreadcrumbList') || !hizmetlerCode.includes('ItemLi
 }
 pass("Hizmetler route and Schema.org @graph verified");
 
+const hakkimizdaPath = path.join(ROOT, 'src/app/hakkimizda/page.tsx');
+if (!fs.existsSync(hakkimizdaPath)) fail(`src/app/hakkimizda/page.tsx not found`);
+const hakkimizdaCode = fs.readFileSync(hakkimizdaPath, 'utf8');
+if (!hakkimizdaCode.includes('BreadcrumbList') || !hakkimizdaCode.includes('AboutPage')) {
+  fail("src/app/hakkimizda/page.tsx must provide BreadcrumbList and AboutPage schema");
+}
+pass("Hakkımızda route and Schema.org @graph verified");
+
 // 4. Validate True 1200x630 OpenGraph & Dedicated Route Images
 const ogImagePath = path.join(ROOT, 'public/og-image.jpg');
 const ogDims = getImageDimensions(ogImagePath);
@@ -417,15 +425,16 @@ const robotsCode = fs.readFileSync(robotsPath, 'utf8');
 
 if (
   !sitemapCode.includes('https://bumexgarage.com') ||
+  !sitemapCode.includes('/hakkimizda') ||
   !sitemapCode.includes('/galeri') ||
   !sitemapCode.includes('/hizmetler') ||
   !sitemapCode.includes('/motosiklet') ||
   !sitemapCode.includes('/otopark') ||
   !sitemapCode.includes('/konum')
 ) {
-  fail("sitemap.ts does not advertise all core hubs (/, /galeri, /hizmetler, /motosiklet, /otopark, /konum)");
+  fail("sitemap.ts does not advertise all core hubs (/, /hakkimizda, /galeri, /hizmetler, /motosiklet, /otopark, /konum)");
 }
-pass("Dynamic sitemap.ts core routes (root, /galeri, /hizmetler, /motosiklet, /otopark, /konum) verified");
+pass("Dynamic sitemap.ts core routes (root, /hakkimizda, /galeri, /hizmetler, /motosiklet, /otopark, /konum) verified");
 
 if (!robotsCode.includes("sitemap: 'https://bumexgarage.com/sitemap.xml'")) {
   fail("robots.ts does not reference canonical sitemap URL");
@@ -441,5 +450,5 @@ if (!footerCode.includes('eski Supark Otopark') || !footerCode.includes('Prof. M
 }
 pass("Quiet entity reconciliation bridge (Han-gar, Sonax-Würth, Supark) verified in footer");
 
-console.log('\n\x1b[32m=== All 24 Rigorous SEO, OpenGraph, PWA & Schema Invariants Passed! ===\x1b[0m\n');
+console.log('\n\x1b[32m=== All 25 Rigorous SEO, OpenGraph, PWA & Schema Invariants Passed! ===\x1b[0m\n');
 process.exit(0);

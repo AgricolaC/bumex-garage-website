@@ -145,19 +145,19 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
             />
           </Link>
 
-          {/* Menü Linkleri: Galeri -> Fiyatlar -> Hizmet Listesi -> Otopark -> Konum */}
-          <div className="hidden lg:flex items-center gap-5 text-xs font-bold uppercase tracking-wider">
+          {/* Menü Linkleri: Hakkımızda -> Galeri -> Fiyatlar -> Hizmetlerimiz -> Otopark -> Konum */}
+          <div className="hidden lg:flex items-center gap-4 xl:gap-5 text-xs font-bold uppercase tracking-wider">
+            <Link
+              href="/hakkimizda"
+              className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition"
+            >
+              Hakkımızda
+            </Link>
             <Link
               href="/galeri"
               className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition"
             >
               Galeri
-            </Link>
-            <Link
-              href="/hizmetler"
-              className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition"
-            >
-              Hizmetlerimiz
             </Link>
             <Link
               href={segment === 'motosiklet' ? '/motosiklet#fiyatlar' : '/#fiyatlar'}
@@ -166,14 +166,22 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
               Fiyatlar
             </Link>
             <Link
-              href="/otopark"
-              className="px-2.5 py-1 rounded bg-[#1E3A8A]/10 text-[#1E3A8A] dark:text-[#60A5FA] hover:bg-[#1E3A8A] hover:text-white transition font-black tracking-wide border border-[#1E3A8A]/30 flex items-center gap-1.5"
+              href="/hizmetler"
+              className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition"
             >
-              <ShieldCheck className="w-3.5 h-3.5" />
-              <span>Güvenli Otopark</span>
+              Hizmetlerimiz
             </Link>
-            <Link href="/konum" className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition">
-              Konum &amp; Ulaşım
+            <Link
+              href="/otopark"
+              className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition"
+            >
+              Otopark
+            </Link>
+            <Link
+              href="/konum"
+              className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition"
+            >
+              Konum
             </Link>
           </div>
 
@@ -214,42 +222,49 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
           >
             <div className="flex flex-col gap-2 text-xs font-bold uppercase tracking-wider">
               <Link
+                href="/hakkimizda"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-2.5 px-3 rounded-lg hover:bg-[#1E3A8A]/10 hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition flex items-center justify-between"
+              >
+                <span>Hakkımızda</span>
+                <span className="text-[10px] font-normal lowercase opacity-70">atölye felsefesi</span>
+              </Link>
+              <Link
                 href="/galeri"
                 onClick={() => setMobileMenuOpen(false)}
                 className="py-2.5 px-3 rounded-lg hover:bg-[#1E3A8A]/10 hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition flex items-center justify-between"
               >
-                <span>Canlı Atölye Galerisi</span>
+                <span>Galeri</span>
                 <span className="text-[10px] font-normal lowercase opacity-70">öncesi / sonrası</span>
-              </Link>
-              <Link
-                href="/hizmetler"
-                onClick={() => setMobileMenuOpen(false)}
-                className="py-2.5 px-3 rounded-lg hover:bg-[#1E3A8A]/10 hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition flex items-center justify-between"
-              >
-                <span>Tüm Hizmetlerimiz</span>
-                <span className="text-[10px] font-normal lowercase opacity-70">25+ atölye işlemi</span>
               </Link>
               <Link
                 href={segment === 'motosiklet' ? '/motosiklet#fiyatlar' : '/#fiyatlar'}
                 onClick={() => setMobileMenuOpen(false)}
                 className="py-2.5 px-3 rounded-lg hover:bg-[#1E3A8A]/10 hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition"
               >
-                Fiyatlar &amp; Paketler
+                Fiyatlar
+              </Link>
+              <Link
+                href="/hizmetler"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-2.5 px-3 rounded-lg hover:bg-[#1E3A8A]/10 hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition flex items-center justify-between"
+              >
+                <span>Hizmetlerimiz</span>
+                <span className="text-[10px] font-normal lowercase opacity-70">25+ atölye işlemi</span>
               </Link>
               <Link
                 href="/otopark"
                 onClick={() => setMobileMenuOpen(false)}
-                className="py-2.5 px-3 rounded-lg bg-[#1E3A8A]/10 text-[#1E3A8A] dark:text-[#60A5FA] border border-[#1E3A8A]/30 flex items-center gap-2"
+                className="py-2.5 px-3 rounded-lg hover:bg-[#1E3A8A]/10 hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition"
               >
-                <ShieldCheck className="w-4 h-4" />
-                <span>24/7 Güvenli Otopark</span>
+                Otopark
               </Link>
               <Link
                 href="/konum"
                 onClick={() => setMobileMenuOpen(false)}
                 className="py-2.5 px-3 rounded-lg hover:bg-[#1E3A8A]/10 hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition"
               >
-                Konum &amp; Ulaşım
+                Konum
               </Link>
             </div>
           </div>
