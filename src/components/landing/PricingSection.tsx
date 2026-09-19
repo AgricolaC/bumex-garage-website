@@ -92,8 +92,8 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
             >
               <Bike className="w-4 h-4" />
               <span>Motosiklet Atölyesi</span>
-              <span className="text-[10px] bg-amber-500 text-black px-1.5 py-0.2 rounded font-extrabold shadow-sm">
-                ANKARA&apos;DA İLK
+              <span className="text-[10px] bg-[#1E3A8A] text-white px-2 py-0.5 rounded font-extrabold shadow-sm">
+                ÖZEL ATÖLYE
               </span>
             </button>
           </div>
@@ -356,7 +356,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
               }`}
             >
               <div className="inline-flex items-center gap-2 bg-[#1E3A8A] text-white text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-wider mb-3 shadow">
-                <Flame className="w-4 h-4 text-amber-400" /> ANKARA&apos;NIN 1 NUMARALI MOTOSİKLET ATÖLYESİ
+                <Flame className="w-4 h-4 text-amber-400" /> BAHÇELİEVLER HASSAS MOTOSİKLET ATÖLYESİ
               </div>
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight">
                 Motosiklet Detailing, Mekanik Bakım &amp; Transfer Desteği

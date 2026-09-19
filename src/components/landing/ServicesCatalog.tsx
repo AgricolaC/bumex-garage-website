@@ -311,7 +311,7 @@ export function ServicesCatalog({
     if (segment === 'otomobil') {
       return ['ppf-kaplama', 'seramik-kaplama', 'pasta-cila', 'buharli-motor', 'detayli-kuafor'];
     }
-    return ['moto-ppf', 'moto-seramik', 'moto-pasta-cila', 'moto-detailing'];
+    return ['moto-ppf', 'moto-seramik', 'moto-premium-detailing', 'moto-rutin-bakim', 'moto-pro-paket'];
   }, [segment]);
 
   // Segmente özel alt filtre sekmeleri

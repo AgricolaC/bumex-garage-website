@@ -54,6 +54,18 @@ function getInitialSegment(fallback?: WorkshopSegment): WorkshopSegment {
   if (segParam === 'motosiklet' || segParam === 'moto') {
     return 'motosiklet';
   }
+  if (segParam === 'otomobil' || segParam === 'oto') {
+    return 'otomobil';
+  }
+
+  try {
+    const saved = localStorage.getItem('bumex_workshop_segment');
+    if (saved === 'motosiklet' || saved === 'otomobil') {
+      return saved;
+    }
+  } catch {
+    // localStorage erişilemezse yoksay
+  }
 
   return fallback ?? 'otomobil';
 }
@@ -67,9 +79,16 @@ export function WorkshopSegmentProvider({
 }) {
   const [segment, setSegmentState] = useState<WorkshopSegment>(() => getInitialSegment(initialSegment));
 
+  // initialSegment prop'u değişirse veya route bazlı güncelleme gerekirse
+  useEffect(() => {
+    if (initialSegment) {
+      setSegmentState(initialSegment);
+    }
+  }, [initialSegment]);
+
   // URL hash veya popstate dinlemesi
   useEffect(() => {
-    const handleHashChange = () => {
+    const handleLocationChange = () => {
       if (window.location.pathname.startsWith('/motosiklet')) {
         setSegmentState('motosiklet');
         return;
@@ -82,25 +101,36 @@ export function WorkshopSegmentProvider({
       }
     };
 
-    window.addEventListener('hashchange', handleHashChange);
-    window.addEventListener('popstate', handleHashChange);
+    window.addEventListener('hashchange', handleLocationChange);
+    window.addEventListener('popstate', handleLocationChange);
     return () => {
-      window.removeEventListener('hashchange', handleHashChange);
-      window.removeEventListener('popstate', handleHashChange);
+      window.removeEventListener('hashchange', handleLocationChange);
+      window.removeEventListener('popstate', handleLocationChange);
     };
   }, []);
 
   const setSegment = useCallback((newSegment: WorkshopSegment) => {
     setSegmentState(newSegment);
+    try {
+      localStorage.setItem('bumex_workshop_segment', newSegment);
+    } catch {
+      // localStorage erişilemezse yoksay
+    }
     if (typeof window !== 'undefined') {
-      if (newSegment === 'motosiklet' && !window.location.pathname.startsWith('/motosiklet')) {
+      const pathname = window.location.pathname;
+      if (pathname === '/' && newSegment === 'motosiklet') {
         window.history.pushState(null, '', '/motosiklet');
-      } else if (newSegment === 'otomobil' && window.location.pathname.startsWith('/motosiklet')) {
+      } else if (pathname === '/motosiklet' && newSegment === 'otomobil') {
         window.history.pushState(null, '', '/#otomobil');
+      } else if (pathname === '/' && newSegment === 'otomobil') {
+        if (window.location.hash) {
+          window.history.replaceState(null, '', '/#otomobil');
+        }
       } else {
+        // Alt sayfalarda (ör. /galeri, /hizmetler) route'u bozmadan hash güncelle
         const newHash = newSegment === 'motosiklet' ? '#motosiklet' : '#otomobil';
         if (window.location.hash !== newHash) {
-          window.history.replaceState(null, '', newHash);
+          window.history.replaceState(null, '', `${pathname}${newHash}`);
         }
       }
     }

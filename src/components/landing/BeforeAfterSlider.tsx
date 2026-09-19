@@ -299,6 +299,36 @@ const REAL_AUTOMOBILE_STUDIO_GALLERY = [
   },
 ];
 
+const REAL_MOTORCYCLE_STUDIO_GALLERY = [
+  {
+    id: 'moto-grenaj',
+    targetTabId: 'motosiklet-detailing',
+    title: 'Yamaha Grenaj & Blok',
+    badge: 'Hassas Grenaj Bakımı',
+    src: '/images/before-after/moto_detail_after.webp',
+    alt: 'Bumex Garage Bahçelievler Motosiklet Grenaj ve Blok Detailing',
+    desc: 'Tazyiksiz buhar ve pH nötr formüllerle fabrika kondisyonuna getirilen grenaj ve blok.',
+  },
+  {
+    id: 'moto-camur',
+    targetTabId: 'motosiklet-detailing',
+    title: 'Ağır Yol Kiri & Katran',
+    badge: 'Ön Durum Analizi',
+    src: '/images/before-after/moto_detail_before.webp',
+    alt: 'Bumex Garage Motosiklet Ağır Yol Çamuru ve Katran Öncesi',
+    desc: 'Elektronik soketlere su değdirilmeden önce arındırılmayı bekleyen ağır yol kiri ve katran.',
+  },
+  {
+    id: 'moto-tam-donusum',
+    targetTabId: 'motosiklet-detailing',
+    title: 'Showroom Teslimatı',
+    badge: 'Tam Dönüşüm & Koruma',
+    src: '/images/before-after/moto_detail_full.webp',
+    alt: 'Bumex Garage Yamaha Supersport Showroom Kondisyonu',
+    desc: 'Zincir bakımı, plastik yenileme ve UV zırhı ile tamamlanan tam atölye restorasyonu.',
+  },
+];
+
 export function BeforeAfterSlider({
   theme,
   detailed = true,
@@ -543,8 +573,8 @@ export function BeforeAfterSlider({
           </div>
         </div>
 
-        {/* Otomobil Segmentine Özel: Bahçelievler Atölyemizden Gerçek Detailing Kareleri Vitrini (Yalnızca Detaylı Modda) */}
-        {detailed && segment === 'otomobil' && (
+        {/* Detaylı Modda Bahçelievler Atölyemizden Gerçek Detailing Kareleri Vitrini */}
+        {detailed && (
           <div
             className={`mt-14 pt-10 border-t transition-colors duration-200 ${
               isCream ? 'border-[#6C6A6B]/20' : 'border-white/10'
@@ -561,11 +591,15 @@ export function BeforeAfterSlider({
                       isCream ? 'text-[#1E3A8A]' : 'text-[#93C5FD]'
                     }`}
                   >
-                    Bahçelievler Stüdyomuzdan Ham Detay Kareleri
+                    {segment === 'otomobil'
+                      ? 'Bahçelievler Stüdyomuzdan Ham Detay Kareleri'
+                      : 'Bahçelievler Motosiklet Atölyemizden Detay Kareleri'}
                   </span>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-black tracking-tight mt-1">
-                  Atölye İçi Canlı Uygulama & Süreç Galerisi
+                  {segment === 'otomobil'
+                    ? 'Atölye İçi Canlı Uygulama & Süreç Galerisi'
+                    : 'Motosiklet Detailing & Restorasyon Süreç Galerisi'}
                 </h3>
               </div>
               <p
@@ -573,12 +607,17 @@ export function BeforeAfterSlider({
                   isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                 }`}
               >
-                Her fotoğraf, Bahçelievler atölyemizde icra edilen gerçek araç protokollerine aittir. İlgili karta tıklayarak karşılaştırmayı doğrudan açabilirsiniz.
+                {segment === 'otomobil'
+                  ? 'Her fotoğraf, Bahçelievler atölyemizde icra edilen gerçek araç protokollerine aittir. İlgili karta tıklayarak karşılaştırmayı doğrudan açabilirsiniz.'
+                  : 'Bahçelievler atölyemizde hassas buhar ve dielektrik formüllerle tamamlanan gerçek motosiklet uygulamalarımız.'}
               </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {REAL_AUTOMOBILE_STUDIO_GALLERY.map((item) => (
+              {(segment === 'otomobil'
+                ? REAL_AUTOMOBILE_STUDIO_GALLERY
+                : REAL_MOTORCYCLE_STUDIO_GALLERY
+              ).map((item) => (
                 <div
                   key={item.id}
                   onClick={() => {

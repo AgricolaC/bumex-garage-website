@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Analytics } from '@vercel/analytics/next';
+import { WorkshopSegmentProvider } from '@/hooks/useWorkshopSegment';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -80,7 +81,9 @@ export default function RootLayout({
   return (
     <html lang="tr" className="dark" style={{ colorScheme: 'dark' }} suppressHydrationWarning>
       <body className="bg-[#1B1D20] text-[#F4F4F5]">
-        {children}
+        <WorkshopSegmentProvider>
+          {children}
+        </WorkshopSegmentProvider>
         <Analytics />
       </body>
     </html>

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useLandingTheme } from '@/hooks/useLandingTheme';
-import { WorkshopSegmentProvider, WorkshopSegment } from '@/hooks/useWorkshopSegment';
+import { useWorkshopSegment, WorkshopSegment } from '@/hooks/useWorkshopSegment';
 import { LandingNavbar } from '@/components/landing/LandingNavbar';
 import { HeroSection } from '@/components/landing/HeroSection';
 import { ServicesCatalog } from '@/components/landing/ServicesCatalog';
@@ -16,6 +16,13 @@ import { ProtocolModals, ProtocolType } from '@/components/landing/ProtocolModal
 export function LandingView({ initialSegment }: { initialSegment?: WorkshopSegment } = {}) {
   const { theme, isCream, toggleTheme } = useLandingTheme();
   const [activeModal, setActiveModal] = useState<ProtocolType>(null);
+  const { setSegment } = useWorkshopSegment();
+
+  useEffect(() => {
+    if (initialSegment) {
+      setSegment(initialSegment);
+    }
+  }, [initialSegment, setSegment]);
 
   // Klavye kısayolları: 't' ile tema değişimi
   useEffect(() => {
@@ -33,12 +40,11 @@ export function LandingView({ initialSegment }: { initialSegment?: WorkshopSegme
   }, [toggleTheme]);
 
   return (
-    <WorkshopSegmentProvider initialSegment={initialSegment}>
-      <div
-        className={`min-h-screen transition-colors duration-200 landing-theme-${theme} ${
-          isCream ? 'bg-[#E8E3DF] text-[#0D0D0D]' : 'bg-[#1B1D20] text-[#F4F4F5]'
-        }`}
-      >
+    <div
+      className={`min-h-screen transition-colors duration-200 landing-theme-${theme} ${
+        isCream ? 'bg-[#E8E3DF] text-[#0D0D0D]' : 'bg-[#1B1D20] text-[#F4F4F5]'
+      }`}
+    >
         {/* Üst Bar ve Segment-Duyarlı Navigasyon */}
         <LandingNavbar
           theme={theme}
@@ -86,6 +92,5 @@ export function LandingView({ initialSegment }: { initialSegment?: WorkshopSegme
           theme={theme}
         />
       </div>
-    </WorkshopSegmentProvider>
   );
 }

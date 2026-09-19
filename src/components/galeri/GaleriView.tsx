@@ -130,7 +130,7 @@ export function GaleriView() {
         >
           <div className="max-w-4xl mx-auto">
             <Link
-              href="/hizmetler"
+              href={segment === 'motosiklet' ? '/hizmetler#motosiklet' : '/hizmetler'}
               className={`p-6 sm:p-8 rounded-2xl border flex flex-col sm:flex-row items-center justify-between gap-6 transition-all duration-300 group hover:-translate-y-1 hover:shadow-xl ${
                 isCream
                   ? 'bg-white border-[#6C6A6B]/25 hover:border-[#1E3A8A]'

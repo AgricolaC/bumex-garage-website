@@ -154,7 +154,7 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
               Hakkımızda
             </Link>
             <Link
-              href="/galeri"
+              href={segment === 'motosiklet' ? '/galeri#motosiklet' : '/galeri'}
               className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition"
             >
               Galeri
@@ -166,7 +166,7 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
               Fiyatlar
             </Link>
             <Link
-              href="/hizmetler"
+              href={segment === 'motosiklet' ? '/hizmetler#motosiklet' : '/hizmetler'}
               className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition"
             >
               Hizmetlerimiz
@@ -230,7 +230,7 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
                 <span className="text-[10px] font-normal lowercase opacity-70">atölye felsefesi</span>
               </Link>
               <Link
-                href="/galeri"
+                href={segment === 'motosiklet' ? '/galeri#motosiklet' : '/galeri'}
                 onClick={() => setMobileMenuOpen(false)}
                 className="py-2.5 px-3 rounded-lg hover:bg-[#1E3A8A]/10 hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition flex items-center justify-between"
               >
@@ -245,7 +245,7 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
                 Fiyatlar
               </Link>
               <Link
-                href="/hizmetler"
+                href={segment === 'motosiklet' ? '/hizmetler#motosiklet' : '/hizmetler'}
                 onClick={() => setMobileMenuOpen(false)}
                 className="py-2.5 px-3 rounded-lg hover:bg-[#1E3A8A]/10 hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition flex items-center justify-between"
               >

@@ -188,7 +188,7 @@ export function HizmetlerView() {
 
               {/* Köprü 2: Galeri */}
               <Link
-                href="/galeri"
+                href={segment === 'motosiklet' ? '/galeri#motosiklet' : '/galeri'}
                 className={`p-6 rounded-2xl border flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1 hover:shadow-xl ${
                   isCream
                     ? 'bg-white border-[#6C6A6B]/25 hover:border-[#1E3A8A]'
