@@ -248,14 +248,14 @@ export function HeroSection({ theme }: HeroSectionProps) {
             className="hover:underline flex items-center gap-1.5 opacity-80 hover:opacity-100 transition"
           >
             <Sparkles className="w-3.5 h-3.5 text-[#1E3A8A] dark:text-[#60A5FA]" />
-            <span>{segment === 'otomobil' ? 'Hizmetler & İhtiyaçlar' : 'Motosiklet Servis Kataloğu'}</span>
+            <span>Hizmetler & İhtiyaçlar</span>
           </a>
           <span className="opacity-30">•</span>
           <a
             href="#restorasyon"
             className="hover:underline flex items-center gap-1.5 opacity-80 hover:opacity-100 transition"
           >
-            <span>{segment === 'otomobil' ? 'Boya Düzeltme & Koruma' : 'Grenaj & Boya Karşılaştırması'}</span>
+            <span>Boya Düzeltme & Koruma</span>
           </a>
         </div>
       </div>
