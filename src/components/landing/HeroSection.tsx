@@ -11,7 +11,6 @@ import {
   ShieldCheck,
   ArrowRight,
   ChevronDown,
-  Sparkles,
 } from 'lucide-react';
 import { LandingTheme } from '@/hooks/useLandingTheme';
 import { useWorkshopSegment, WorkshopSegment } from '@/hooks/useWorkshopSegment';
@@ -238,24 +237,6 @@ export function HeroSection({ theme }: HeroSectionProps) {
           >
             <MessageCircle className="w-4 h-4" />
             <span>WhatsApp Randevu &amp; Bilgi</span>
-          </a>
-        </div>
-
-        {/* Hızlı Kısayol Şeridi: Restorasyon ve Hizmetler */}
-        <div className="flex items-center gap-6 text-xs font-bold uppercase tracking-wider">
-          <a
-            href="#hizmetler"
-            className="hover:underline flex items-center gap-1.5 opacity-80 hover:opacity-100 transition"
-          >
-            <Sparkles className="w-3.5 h-3.5 text-[#1E3A8A] dark:text-[#60A5FA]" />
-            <span>Hizmetler & İhtiyaçlar</span>
-          </a>
-          <span className="opacity-30">•</span>
-          <a
-            href="#restorasyon"
-            className="hover:underline flex items-center gap-1.5 opacity-80 hover:opacity-100 transition"
-          >
-            <span>Boya Düzeltme & Koruma</span>
           </a>
         </div>
       </div>
