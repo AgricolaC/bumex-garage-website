@@ -1,1 +1,1 @@
-Bkz. AGENTS.md.
+@AGENTS.md
