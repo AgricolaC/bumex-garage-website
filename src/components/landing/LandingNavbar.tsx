@@ -163,16 +163,16 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
           {/* Menü Linkleri */}
           <div className="hidden lg:flex items-center gap-4 xl:gap-5 text-xs font-bold uppercase tracking-wider">
             <Link
-              href="/motosiklet"
+              href="/hakkimizda"
               className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition"
             >
-              Motosiklet
+              Hakkımızda
             </Link>
             <Link
-              href={segment === 'motosiklet' ? '/hizmetler#motosiklet' : '/hizmetler'}
+              href={segment === 'motosiklet' ? '/galeri#motosiklet' : '/galeri'}
               className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition"
             >
-              Hizmetlerimiz
+              Galeri
             </Link>
             <Link
               href={segment === 'motosiklet' ? '/motosiklet#fiyatlar' : '/#fiyatlar'}
@@ -181,10 +181,10 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
               Fiyatlar
             </Link>
             <Link
-              href={segment === 'motosiklet' ? '/galeri#motosiklet' : '/galeri'}
+              href={segment === 'motosiklet' ? '/hizmetler#motosiklet' : '/hizmetler'}
               className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition"
             >
-              Galeri
+              Hizmetlerimiz
             </Link>
             <Link
               href="/otopark"
@@ -197,12 +197,6 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
               className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition"
             >
               Konum
-            </Link>
-            <Link
-              href="/hakkimizda"
-              className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition"
-            >
-              Hakkımızda
             </Link>
           </div>
 
@@ -242,14 +236,6 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
             }`}
           >
             <div className="flex flex-col gap-2 text-xs font-bold uppercase tracking-wider">
-              <Link
-                href="/motosiklet"
-                onClick={() => setMobileMenuOpen(false)}
-                className="py-2.5 px-3 rounded-lg hover:bg-[#1E3A8A]/10 hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition flex items-center justify-between text-[#1E3A8A] dark:text-[#60A5FA]"
-              >
-                <span>Motosiklet Atölyesi</span>
-                <span className="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-[#1E3A8A]/10">Özel Bölüm</span>
-              </Link>
               <Link
                 href="/hakkimizda"
                 onClick={() => setMobileMenuOpen(false)}

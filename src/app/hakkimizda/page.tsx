@@ -3,24 +3,26 @@ import Script from 'next/script';
 import { HakkimizdaView } from '@/components/hakkimizda/HakkimizdaView';
 
 export const metadata: Metadata = {
-  title: 'Hakkımızda & Atölye Manifestosu | Bumex Garage',
+  title: 'Hakkımızda — Bahçelievler Oto & Motosiklet Atölyesi | Bumex Garage',
   description:
-    "Ankara Bahçelievler 7. Cadde'ye 350m: Verniği eritmeden mikron boya restorasyonu, 140°C kuru buhar, 9H nano seramik ve PPF kaplama ile profesyonel araç bakım felsefemiz.",
+    "Ankara Bahçelievler 7. Cadde'ye 350m: Otomobil ve motosikletler için güvenilir, şeffaf çalışan bir aile atölyesiyiz. Kim olduğumuzu ve nasıl çalıştığımızı öğrenin.",
   keywords: [
     'bumex garage hakkımızda',
+    'bumex garage kimdir',
+    'bahçelievler oto ve motosiklet atölyesi',
+    'ankara oto ve motosiklet atölyesi',
+    'bahçelievler güvenilir oto bakım atölyesi',
+    'ankara güvenilir oto bakım atölyesi',
     'bahçelievler detailing stüdyosu',
-    'mikron boya restorasyonu ankara',
-    'güvenilir pasta cila ankara',
     'eski han-gar bahçelievler',
-    'bumex garage manifestosu',
   ],
   alternates: {
     canonical: '/hakkimizda',
   },
   openGraph: {
-    title: 'Hakkımızda — Atölye Manifestosu & Deneyim | Bumex Garage Bahçelievler',
+    title: 'Hakkımızda — Bahçelievler Oto & Motosiklet Atölyesi | Bumex Garage',
     description:
-      'Bahçelievler 7. Cadde stüdyomuzda dijital mikron ölçümü, kuru buhar ve 9H nano seramik ile araçları fabrika kondisyonuna kavuşturan detailing felsefemiz.',
+      "Ankara Bahçelievler 7. Cadde'ye 350m: Otomobil ve motosikletler için güvenilir, şeffaf çalışan bir aile atölyesiyiz. Kim olduğumuzu ve nasıl çalıştığımızı öğrenin.",
     url: 'https://bumexgarage.com/hakkimizda',
     siteName: 'Bumex Garage',
     locale: 'tr_TR',
@@ -30,15 +32,15 @@ export const metadata: Metadata = {
         url: 'https://bumexgarage.com/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Bumex Garage Bahçelievler Hakkımızda ve Atölye Manifestosu',
+        alt: 'Bumex Garage Bahçelievler Oto ve Motosiklet Bakım Atölyesi',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Hakkımızda — Atölye Manifestosu & Deneyim | Bumex Garage Bahçelievler',
+    title: 'Hakkımızda — Bahçelievler Oto & Motosiklet Atölyesi | Bumex Garage',
     description:
-      'Bahçelievler 7. Cadde stüdyomuzda dijital mikron ölçümü, kuru buhar ve 9H nano seramik ile araçları fabrika kondisyonuna kavuşturan detailing felsefemiz.',
+      "Ankara Bahçelievler 7. Cadde'ye 350m: Otomobil ve motosikletler için güvenilir, şeffaf çalışan bir aile atölyesiyiz. Kim olduğumuzu ve nasıl çalıştığımızı öğrenin.",
     images: ['https://bumexgarage.com/og-image.jpg'],
   },
 };
@@ -67,9 +69,9 @@ export default function HakkimizdaPage() {
       {
         '@type': 'AboutPage',
         '@id': 'https://bumexgarage.com/hakkimizda#about',
-        name: 'Bumex Garage Hakkımızda ve Kalite Manifestosu',
+        name: 'Hakkımızda — Bahçelievler Oto & Motosiklet Atölyesi | Bumex Garage',
         description:
-          'Bumex Garage Bahçelievler stüdyosunun mikron seviyesindeki vernik koruma, kuru buhar sterilizasyonu ve bilimsel yüzey hazırlığı felsefesi.',
+          "Ankara Bahçelievler 7. Cadde'ye 350m: Otomobil ve motosikletler için güvenilir, şeffaf çalışan bir aile atölyesiyiz. Kim olduğumuzu ve nasıl çalıştığımızı öğrenin.",
         url: 'https://bumexgarage.com/hakkimizda',
         mainEntity: {
           '@type': 'AutoRepair',

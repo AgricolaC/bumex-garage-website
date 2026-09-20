@@ -77,6 +77,8 @@ export function StructuredData() {
               itemListElement: [
                 {
                   '@type': 'Offer',
+                  price: '800',
+                  priceCurrency: 'TRY',
                   itemOffered: {
                     '@type': 'Service',
                     name: 'Fırçasız İç & Dış Detaylı Yıkama',
@@ -134,6 +136,8 @@ export function StructuredData() {
               itemListElement: [
                 {
                   '@type': 'Offer',
+                  price: '800',
+                  priceCurrency: 'TRY',
                   itemOffered: {
                     '@type': 'Service',
                     name: 'Motosiklet Hassas Fırçasız Yıkama',
@@ -226,6 +230,14 @@ export function StructuredData() {
             acceptedAnswer: {
               '@type': 'Answer',
               text: 'Hayır. Geleneksel basınçlı su yerine uyguladığımız dielektrik kuru buhar teknolojisi su birikintisi bırakmaz; uygulanan dielektrik yalıtım kimyasalları soket, sensör ve ECU (beyin) ünitelerini neme karşı tam korur.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Bumex Garage\'da fiyatlar nasıl belirleniyor, sabit bir fiyat listeniz var mı?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Evet. Fırçasız yıkama ve kuaför gibi standart bakım paketlerimiz 800 ₺\'den başlayan sabit taban fiyatlıdır. PPF kaplama, seramik kaplama ve mikron boya restorasyonu gibi zanaat gerektiren işlemler ise ücretsiz mikron ekspertizi sonrası şeffaf şekilde fiyatlandırılır.',
             },
           },
         ],

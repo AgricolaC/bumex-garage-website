@@ -44,9 +44,8 @@ export function HakkimizdaView() {
 
   return (
     <div
-      className={`min-h-screen transition-colors duration-200 landing-theme-${theme} ${
-        isCream ? 'bg-[#E8E3DF] text-[#0D0D0D]' : 'bg-[#1B1D20] text-[#F4F4F5]'
-      }`}
+      className={`min-h-screen transition-colors duration-200 landing-theme-${theme} ${isCream ? 'bg-[#E8E3DF] text-[#0D0D0D]' : 'bg-[#1B1D20] text-[#F4F4F5]'
+        }`}
     >
       <LandingNavbar theme={theme} toggleTheme={toggleTheme} />
 
@@ -74,22 +73,21 @@ export function HakkimizdaView() {
 
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold border border-black/10 dark:border-white/15 bg-black/5 dark:bg-white/5 text-[#1E3A8A] dark:text-[#60A5FA] mb-4">
               <Building2 className="w-3.5 h-3.5" />
-              <span>Bumex Garage Bahçelievler • Atölye Manifestosu &amp; Deneyim</span>
+              <span>Bumex Garage Bahçelievler • Atölye Hikayemiz</span>
             </div>
 
             <h1 className="text-3xl sm:text-5xl font-black tracking-tight leading-[1.1] mb-6">
-              Verniği Eritmeyen Mikron Restorasyon &amp;{' '}
-              <span className="text-[#1E3A8A] dark:text-[#60A5FA]">Yüzey Mühendisliği</span>
+              Otomobiliniz ve Motosikletiniz İçin{' '}
+              <span className="text-[#1E3A8A] dark:text-[#60A5FA]">Yıkamadan Bakıma Atölye Hizmetleri</span>
             </h1>
 
             <p
-              className={`text-base sm:text-lg leading-relaxed max-w-3xl ${
-                isCream ? 'text-[#4A4746]' : 'text-[#B0B6BD]'
-              }`}
+              className={`text-base sm:text-lg leading-relaxed max-w-3xl ${isCream ? 'text-[#4A4746]' : 'text-[#B0B6BD]'
+                }`}
             >
               Bumex Garage, Ankara Bahçelievler 7. Cadde&apos;ye 350 metre mesafede; otomobil ve
-              motosiklet tutkunlarına sanayi tipi agresif müdahalelerden uzak, dijital mikron ölçümü ve
-              bilimsel yüzey hazırlığı ile hizmet veren bağımsız bir detailing ve bakım stüdyosudur.
+              motosikletler için basit yıkamadan detaylı iç-dış bakıma, PPF ve seramik kaplamadan
+              motosiklet tamirine kadar hizmet vermeye çalışan bağımsız bir atölyedir.
             </p>
           </div>
         </section>
@@ -99,99 +97,91 @@ export function HakkimizdaView() {
           <div className="max-w-5xl mx-auto">
             <div className="max-w-2xl mb-12">
               <span className="text-xs font-bold uppercase tracking-wider text-[#1E3A8A] dark:text-[#60A5FA]">
-                Neden Farklıyız?
+                Çalışma Prensiplerimiz
               </span>
               <h2 className="text-2xl sm:text-3xl font-black tracking-tight mt-1">
-                Geleneksel Sanayi Ezberlerini Bozan 4 Temel Kuralımız
+                İşimizi Yaparken Özen Gösterdiğimiz 4 Temel Nokta
               </h2>
             </div>
 
             <div className="grid sm:grid-cols-2 gap-6">
               <div
-                className={`p-6 rounded-2xl border ${
-                  isCream
-                    ? 'bg-white/85 border-[#6C6A6B]/20 shadow-xs'
-                    : 'bg-[#222529] border-white/10 shadow-md'
-                }`}
+                className={`p-6 rounded-2xl border ${isCream
+                  ? 'bg-white/85 border-[#6C6A6B]/20 shadow-xs'
+                  : 'bg-[#222529] border-white/10 shadow-md'
+                  }`}
               >
                 <div className="w-10 h-10 rounded-xl bg-[#1E3A8A] text-white flex items-center justify-center mb-4 shadow-sm">
                   <Gauge className="w-5 h-5" />
                 </div>
                 <h3 className="text-base font-bold mb-2">Dijital Mikron Ölçümü ve Vernik Koruması</h3>
                 <p
-                  className={`text-xs sm:text-sm leading-relaxed ${
-                    isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
-                  }`}
+                  className={`text-xs sm:text-sm leading-relaxed ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
+                    }`}
                 >
-                  Klasik pastalar verniği incelterek tüketir. Stüdyomuzda her aracın boya katman kalınlığı
-                  dijital kalibre cihazlarla ölçülür. Alman aşındırıcılar ve orbital cila teknikleriyle
-                  vernik mikronu korunarak derin parlaklık elde edilir.
+                  Her aracın boya katman kalınlığını dijital kalibre cihazlarla ölçerek çalışıyoruz.
+                  Alman aşındırıcılar ve orbital cila teknikleriyle vernik mikronunu korumaya özen
+                  gösteriyor, bu sayede daha temiz bir parlaklık hedefliyoruz.
                 </p>
               </div>
 
               <div
-                className={`p-6 rounded-2xl border ${
-                  isCream
-                    ? 'bg-white/85 border-[#6C6A6B]/20 shadow-xs'
-                    : 'bg-[#222529] border-white/10 shadow-md'
-                }`}
+                className={`p-6 rounded-2xl border ${isCream
+                  ? 'bg-white/85 border-[#6C6A6B]/20 shadow-xs'
+                  : 'bg-[#222529] border-white/10 shadow-md'
+                  }`}
               >
                 <div className="w-10 h-10 rounded-xl bg-[#1E3A8A] text-white flex items-center justify-center mb-4 shadow-sm">
                   <Zap className="w-5 h-5" />
                 </div>
                 <h3 className="text-base font-bold mb-2">140°C Kuru Buhar ile Güvenli Detay</h3>
                 <p
-                  className={`text-xs sm:text-sm leading-relaxed ${
-                    isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
-                  }`}
+                  className={`text-xs sm:text-sm leading-relaxed ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
+                    }`}
                 >
-                  Tazyikli su hassas elektronik soketleri, beyinleri ve buji yuvalarını riske atar. Motor
-                  haznesi ve motosiklet detailing işlemlerinde basınçsız 140°C kuru buhar kullanılarak
-                  sıfır oksitlenme ve sıfır elektriksel arıza riski sağlanır.
+                  Motor haznesi ve motosiklet detailing işlemlerinde elektronik soketleri ve buji
+                  yuvalarını korumak için basınçsız 140°C kuru buhar tercih ediyoruz; böylece
+                  oksitlenme ve elektriksel arıza riskini en aza indirmeye çalışıyoruz.
                 </p>
               </div>
 
               <div
-                className={`p-6 rounded-2xl border ${
-                  isCream
-                    ? 'bg-white/85 border-[#6C6A6B]/20 shadow-xs'
-                    : 'bg-[#222529] border-white/10 shadow-md'
-                }`}
+                className={`p-6 rounded-2xl border ${isCream
+                  ? 'bg-white/85 border-[#6C6A6B]/20 shadow-xs'
+                  : 'bg-[#222529] border-white/10 shadow-md'
+                  }`}
               >
                 <div className="w-10 h-10 rounded-xl bg-[#1E3A8A] text-white flex items-center justify-center mb-4 shadow-sm">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
                 <h3 className="text-base font-bold mb-2">Sıfır Silikonlu Dolgu &amp; Kalıcı Sonuç</h3>
                 <p
-                  className={`text-xs sm:text-sm leading-relaxed ${
-                    isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
-                  }`}
+                  className={`text-xs sm:text-sm leading-relaxed ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
+                    }`}
                 >
-                  Piyasadaki birçok uygulama 3-4 yıkama sonra uçup giden silikonlu yağlarla çizikleri
-                  geçici olarak maskeler. Bumex Garage&apos;da yüzey tamamen arındırılır, çizikler
-                  kalıcı olarak giderilir ve 9H nano seramik ya da PPF ile mühürlenir.
+                  Silikonlu dolgulara güvenmek yerine yüzeyi iyice arındırıp çizikleri gerçek
+                  anlamda gidermeye çalışıyoruz, ardından 9H nano seramik ya da PPF ile
+                  koruma altına alıyoruz.
                 </p>
               </div>
 
               <div
-                className={`p-6 rounded-2xl border ${
-                  isCream
-                    ? 'bg-white/85 border-[#6C6A6B]/20 shadow-xs'
-                    : 'bg-[#222529] border-white/10 shadow-md'
-                }`}
+                className={`p-6 rounded-2xl border ${isCream
+                  ? 'bg-white/85 border-[#6C6A6B]/20 shadow-xs'
+                  : 'bg-[#222529] border-white/10 shadow-md'
+                  }`}
               >
                 <div className="w-10 h-10 rounded-xl bg-[#1E3A8A] text-white flex items-center justify-center mb-4 shadow-sm">
                   <Building2 className="w-5 h-5" />
                 </div>
                 <h3 className="text-base font-bold mb-2">Bahçelievler Lokasyon &amp; Güvenli Otopark</h3>
                 <p
-                  className={`text-xs sm:text-sm leading-relaxed ${
-                    isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
-                  }`}
+                  className={`text-xs sm:text-sm leading-relaxed ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
+                    }`}
                 >
-                  Eski Han-gar, Sonax-Würth ve Supark lokasyonu olarak bilinen 48 numaralı stüdyomuz,
-                  24/7 güvenlik kameralı ve alçak spor araçlara uygun kapalı garaj imkanıyla aracınızı
-                  sokakta veya vale riskinde bırakmaz.
+                  Eski Sonax-Würth Han-gar ve Supark lokasyonu olarak bilinen 48 numaralı stüdyomuzda,
+                  24/7 güvenlik kameralı ve alçak spor araçlara uygun kapalı garajda çalışmaya
+                  özen gösteriyoruz.
                 </p>
               </div>
             </div>
@@ -200,9 +190,8 @@ export function HakkimizdaView() {
 
         {/* ─── 3. SAYFALAR ARASI YÖNLENDİRME KAPILARI (HAKKIMIZDA -> GALERİ, HİZMETLERİMİZ, KONUM) ─── */}
         <section
-          className={`py-20 px-4 sm:px-8 border-b transition-colors duration-200 ${
-            isCream ? 'bg-[#DDD7D2]/50' : 'bg-[#151719]'
-          }`}
+          className={`py-20 px-4 sm:px-8 border-b transition-colors duration-200 ${isCream ? 'bg-[#DDD7D2]/50' : 'bg-[#151719]'
+            }`}
         >
           <div className="max-w-5xl mx-auto">
             <div className="text-center max-w-2xl mx-auto mb-12">
@@ -214,9 +203,8 @@ export function HakkimizdaView() {
                 Nereden Başlamak İstersiniz?
               </h2>
               <p
-                className={`text-xs sm:text-sm mt-3 ${
-                  isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
-                }`}
+                className={`text-xs sm:text-sm mt-3 ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
+                  }`}
               >
                 İster daha önce tamamladığımız canlı dönüşümleri inceleyin, ister 25+ atölye
                 hizmetimizi keşfedin, isterseniz stüdyomuza gelerek doğrudan aracınız için mikron analizi alın.
@@ -227,11 +215,10 @@ export function HakkimizdaView() {
               {/* Kapı 1: Galeri */}
               <Link
                 href="/galeri"
-                className={`p-6 rounded-2xl border flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1 hover:shadow-xl ${
-                  isCream
-                    ? 'bg-white/90 border-[#6C6A6B]/25 hover:border-[#1E3A8A]'
-                    : 'bg-[#222529] border-white/10 hover:border-[#60A5FA]'
-                }`}
+                className={`p-6 rounded-2xl border flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1 hover:shadow-xl ${isCream
+                  ? 'bg-white/90 border-[#6C6A6B]/25 hover:border-[#1E3A8A]'
+                  : 'bg-[#222529] border-white/10 hover:border-[#60A5FA]'
+                  }`}
               >
                 <div>
                   <div className="w-12 h-12 rounded-2xl bg-[#1E3A8A]/10 dark:bg-[#1E3A8A]/20 text-[#1E3A8A] dark:text-[#60A5FA] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
@@ -241,9 +228,8 @@ export function HakkimizdaView() {
                     Canlı Uygulama Galerisi
                   </h3>
                   <p
-                    className={`text-xs leading-relaxed ${
-                      isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
-                    }`}
+                    className={`text-xs leading-relaxed ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
+                      }`}
                   >
                     Bahçelievler atölyemizde tamamlanan gerçek BMW, Porsche, motosiklet ve jant restorasyonlarının interaktif öncesi-sonrası karşılaştırmaları.
                   </p>
@@ -258,11 +244,10 @@ export function HakkimizdaView() {
               {/* Kapı 2: Hizmetlerimiz */}
               <Link
                 href="/hizmetler"
-                className={`p-6 rounded-2xl border flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1 hover:shadow-xl ${
-                  isCream
-                    ? 'bg-white/90 border-[#6C6A6B]/25 hover:border-[#1E3A8A]'
-                    : 'bg-[#222529] border-white/10 hover:border-[#60A5FA]'
-                }`}
+                className={`p-6 rounded-2xl border flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1 hover:shadow-xl ${isCream
+                  ? 'bg-white/90 border-[#6C6A6B]/25 hover:border-[#1E3A8A]'
+                  : 'bg-[#222529] border-white/10 hover:border-[#60A5FA]'
+                  }`}
               >
                 <div>
                   <div className="w-12 h-12 rounded-2xl bg-[#1E3A8A]/10 dark:bg-[#1E3A8A]/20 text-[#1E3A8A] dark:text-[#60A5FA] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
@@ -272,9 +257,8 @@ export function HakkimizdaView() {
                     Tüm Hizmetlerimiz
                   </h3>
                   <p
-                    className={`text-xs leading-relaxed ${
-                      isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
-                    }`}
+                    className={`text-xs leading-relaxed ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
+                      }`}
                   >
                     PPF kaplama, 9H nano seramik, mikron pasta cila, buharlı motor temizliği, ses izolasyonu ve 25+ modüler atölye operasyon kartelası.
                   </p>
@@ -289,11 +273,10 @@ export function HakkimizdaView() {
               {/* Kapı 3: Konum & Ulaşım */}
               <Link
                 href="/konum"
-                className={`p-6 rounded-2xl border flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1 hover:shadow-xl ${
-                  isCream
-                    ? 'bg-white/90 border-[#6C6A6B]/25 hover:border-[#1E3A8A]'
-                    : 'bg-[#222529] border-white/10 hover:border-[#60A5FA]'
-                }`}
+                className={`p-6 rounded-2xl border flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1 hover:shadow-xl ${isCream
+                  ? 'bg-white/90 border-[#6C6A6B]/25 hover:border-[#1E3A8A]'
+                  : 'bg-[#222529] border-white/10 hover:border-[#60A5FA]'
+                  }`}
               >
                 <div>
                   <div className="w-12 h-12 rounded-2xl bg-[#1E3A8A]/10 dark:bg-[#1E3A8A]/20 text-[#1E3A8A] dark:text-[#60A5FA] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
@@ -303,9 +286,8 @@ export function HakkimizdaView() {
                     Konum &amp; Yol Tarifi
                   </h3>
                   <p
-                    className={`text-xs leading-relaxed ${
-                      isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
-                    }`}
+                    className={`text-xs leading-relaxed ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
+                      }`}
                   >
                     Prof. Muammer Aksoy Cad. No: 48. Bahçelievler 7. Cadde&apos;ye 350 metre yürüme mesafesi, metro bağlantısı ve navigasyon rotası.
                   </p>
@@ -324,14 +306,13 @@ export function HakkimizdaView() {
         <section className="py-14 px-4 sm:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h3 className="text-xl sm:text-2xl font-black mb-3">
-              Aracınızı Güvenilir Ellere Teslim Edin
+              Aracınızı Bize Emanet Edin
             </h3>
             <p
-              className={`text-xs sm:text-sm max-w-lg mx-auto mb-6 ${
-                isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
-              }`}
+              className={`text-xs sm:text-sm max-w-lg mx-auto mb-6 ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
+                }`}
             >
-              Sorularınız ve randevu talepleriniz için uzman ekibimize doğrudan telefon veya WhatsApp
+              Sorularınız ve randevu talepleriniz için ekibimize doğrudan telefon veya WhatsApp
               ile 10:00 – 22:00 saatleri arasında ulaşabilirsiniz.
             </p>
 

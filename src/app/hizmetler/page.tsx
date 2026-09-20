@@ -3,15 +3,19 @@ import Script from 'next/script';
 import { HizmetlerView } from '@/components/hizmetler/HizmetlerView';
 
 export const metadata: Metadata = {
-  title: 'Tüm Detailing & Bakım Hizmetleri | Bumex Garage',
+  title: 'Tüm Detailing & Bakım Hizmetleri | Bumex Garage Bahçelievler',
   description:
     'Ankara Bahçelievler 7. Cadde: PPF kaplama, 9H nano seramik, mikron pasta cila, buharlı motor temizliği, ses izolasyonu ve motosiklet detailing hizmet kartelası.',
   keywords: [
     'bumex garage hizmetler',
+    'bahçelievler detailing hizmetleri',
     'ankara detailing hizmetleri',
     'bahçelievler pasta cila listesi',
-    'seramik kaplama ankara fiyatları',
-    'ppf kaplama bahçelievler',
+    'ankara pasta cila listesi',
+    'bahçelievler ppf kaplama',
+    'ankara ppf kaplama',
+    'bahçelievler seramik kaplama uygulaması',
+    'ankara seramik kaplama uygulaması',
     'motosiklet bakım hizmetleri ankara',
     'araç ses yalıtımı çankaya',
   ],
