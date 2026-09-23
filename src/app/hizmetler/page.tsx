@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Otomobil & Motosiklet Bakım Hizmetleri Kartelası | Bumex Garage Bahçelievler',
     description:
-      'Bahçelievler stüdyomuzda icra edilen 25+ atölye operasyonu: PPF kaplama, 9H seramik, mikron boya restorasyonu ve motosiklet mekanik bakım.',
+      'Bahçelievler işletmemizde icra edilen 25+ bakım operasyonu: PPF kaplama, 9H seramik, mikron boya restorasyonu ve motosiklet mekanik bakım.',
     url: 'https://bumexgarage.com/hizmetler',
     siteName: 'Bumex Garage',
     locale: 'tr_TR',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
         url: 'https://bumexgarage.com/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Bumex Garage Bahçelievler Tüm Atölye Hizmetleri Kartelası',
+        alt: 'Bumex Garage Bahçelievler Tüm Tamirhane Hizmetleri Kartelası',
       },
     ],
   },
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Otomobil & Motosiklet Bakım Hizmetleri Kartelası | Bumex Garage Bahçelievler',
     description:
-      'Bahçelievler stüdyomuzda icra edilen 25+ atölye operasyonu: PPF kaplama, 9H seramik, mikron boya restorasyonu ve motosiklet mekanik bakım.',
+      'Bahçelievler işletmemizde icra edilen 25+ bakım operasyonu: PPF kaplama, 9H seramik, mikron boya restorasyonu ve motosiklet mekanik bakım.',
     images: ['https://bumexgarage.com/og-image.jpg'],
   },
 };
@@ -71,9 +71,9 @@ export default function HizmetlerPage() {
       },
       {
         '@type': 'ItemList',
-        name: 'Bumex Garage Atölye Hizmet Kartelası',
+        name: 'Bumex Garage Tamirhane Hizmet Kartelası',
         description:
-          'Bumex Garage Bahçelievler stüdyosunda sunulan profesyonel araç bakım, koruma ve restorasyon hizmetleri.',
+          'Bumex Garage Bahçelievler işletmesinde sunulan profesyonel araç bakım, koruma ve restorasyon hizmetleri.',
         itemListElement: [
           {
             '@type': 'ListItem',

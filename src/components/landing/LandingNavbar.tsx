@@ -242,7 +242,7 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
                 className="py-2.5 px-3 rounded-lg hover:bg-[#1E3A8A]/10 hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition flex items-center justify-between"
               >
                 <span>Hakkımızda</span>
-                <span className="text-[10px] font-normal lowercase opacity-70">atölye felsefesi</span>
+                <span className="text-[10px] font-normal lowercase opacity-70">tamirhane felsefesi</span>
               </Link>
               <Link
                 href={segment === 'motosiklet' ? '/galeri#motosiklet' : '/galeri'}
@@ -265,7 +265,7 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
                 className="py-2.5 px-3 rounded-lg hover:bg-[#1E3A8A]/10 hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition flex items-center justify-between"
               >
                 <span>Hizmetlerimiz</span>
-                <span className="text-[10px] font-normal lowercase opacity-70">25+ atölye işlemi</span>
+                <span className="text-[10px] font-normal lowercase opacity-70">25+ tamirhane işlemi</span>
               </Link>
               <Link
                 href="/otopark"

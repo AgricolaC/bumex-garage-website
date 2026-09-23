@@ -40,7 +40,7 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
             >
               Ankara Bahçelievler&apos;in seçkin otomobil ve motosikletlerine mikron seviyesinde boya
               restorasyonu, 9H nano seramik, ses izolasyonu, mekanik periyodik bakım ve randevulu transfer desteği
-              sunan uzman bakım stüdyosu.
+              sunan uzman bakım servisi.
             </p>
             <div className="pt-2 flex flex-wrap gap-2.5">
               <a
@@ -114,7 +114,7 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
                     isCream ? 'text-[#0D0D0D]' : 'text-white'
                   }`}
                 >
-                  Hakkımızda &amp; Atölye Felsefesi <ArrowUpRight className="w-3 h-3 text-[#1E3A8A] dark:text-[#60A5FA]" />
+                  Hakkımızda &amp; Tamirhane Felsefesi <ArrowUpRight className="w-3 h-3 text-[#1E3A8A] dark:text-[#60A5FA]" />
                 </Link>
               </li>
               <li>
@@ -124,7 +124,7 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
                     isCream ? 'text-[#0D0D0D]' : 'text-white'
                   }`}
                 >
-                  Canlı Atölye Galerisi <ArrowUpRight className="w-3 h-3 text-[#1E3A8A] dark:text-[#60A5FA]" />
+                  Canlı Tamirhane Galerisi <ArrowUpRight className="w-3 h-3 text-[#1E3A8A] dark:text-[#60A5FA]" />
                 </Link>
               </li>
               <li>
@@ -193,7 +193,7 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
           {/* Sütun 3: Garaj Bilgileri & Personel (4 kolon) */}
           <div className="md:col-span-4 space-y-3">
             <h4 className="text-xs font-black uppercase tracking-widest text-[#1E3A8A] dark:text-[#60A5FA]">
-              Atölye &amp; İletişim
+              Tamirhane &amp; İletişim
             </h4>
             <div className="space-y-2.5 text-xs">
               <div className="flex items-start gap-2">
@@ -261,7 +261,7 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
             © {new Date().getFullYear()} Bumex Garage Ankara. Tüm hakları saklıdır.
           </div>
           <div className="flex items-center gap-4 text-[11px]">
-            <span>Bahçelievler Otomobil &amp; Motosiklet Bakım Stüdyosu</span>
+            <span>Bahçelievler Otomobil &amp; Motosiklet Bakım İşletmesi</span>
             <span>•</span>
             <span
               className="underline cursor-help opacity-80 hover:opacity-100 transition"

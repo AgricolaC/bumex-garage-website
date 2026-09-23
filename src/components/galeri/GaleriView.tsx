@@ -66,11 +66,11 @@ export function GaleriView() {
               <div>
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold border border-black/10 dark:border-white/15 bg-black/5 dark:bg-white/5 text-[#1E3A8A] dark:text-[#60A5FA] mb-3">
                   <Camera className="w-3.5 h-3.5" />
-                  <span>Bahçelievler Stüdyosu • Ham Detailing &amp; Restorasyon Arşivi</span>
+                  <span>Bahçelievler Servisi • Ham Detailing &amp; Restorasyon Arşivi</span>
                 </div>
 
                 <h1 className="text-3xl sm:text-5xl font-black tracking-tight leading-[1.1]">
-                  Canlı Atölye{' '}
+                  Canlı Tamirhane{' '}
                   <span className="text-[#1E3A8A] dark:text-[#60A5FA]">Uygulama &amp; Restorasyon</span>{' '}
                   Galerisi
                 </h1>
@@ -80,7 +80,7 @@ export function GaleriView() {
                     isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                   }`}
                 >
-                  Bahçelievler atölyemizde mikron boya ölçümü, 140°C kuru buhar, rotary ve orbital
+                  Bahçelievler tamirhanemizde mikron boya ölçümü, 140°C kuru buhar, rotary ve orbital
                   polisaj, 9H nano seramik ve PPF kaplama ile tamamlanan gerçek otomobil ve
                   motosiklet uygulamalarını interaktif kaydırıcı ile inceleyin.
                 </p>
@@ -153,7 +153,7 @@ export function GaleriView() {
                       isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                     }`}
                   >
-                    Galeride gördüğünüz tüm dönüşümlerin arkasındaki PPF, 9H nano seramik ve 25+ atölye hizmetimizin teknik detaylarını inceleyin.
+                    Galeride gördüğünüz tüm dönüşümlerin arkasındaki PPF, 9H nano seramik ve 25+ tamirhane hizmetimizin teknik detaylarını inceleyin.
                   </p>
                 </div>
               </div>
@@ -166,7 +166,7 @@ export function GaleriView() {
           </div>
         </section>
 
-        {/* ─── 4. CANLI DANIŞMANLIK & ATÖLYE RANDEVU BANNERI ─── */}
+        {/* ─── 4. CANLI DANIŞMANLIK & TAMİRHANE RANDEVU BANNERI ─── */}
         <section
           className={`py-16 px-4 sm:px-8 border-b transition-colors duration-200 ${
             isCream ? 'bg-[#DDD7D2]/60' : 'bg-[#141517]'
@@ -185,7 +185,7 @@ export function GaleriView() {
                 isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
               }`}
             >
-              Bahçelievler 7. Cadde&apos;ye 350m mesafedeki stüdyomuza gelerek ücretsiz mikron vernik
+              Bahçelievler 7. Cadde&apos;ye yürüme mesafesindeki işletmemize gelerek ücretsiz mikron vernik
               analizi yaptırabilir veya WhatsApp üzerinden aracınızın fotoğraflarını göndererek ön
               ekspertiz talep edebilirsiniz.
             </p>
@@ -218,7 +218,7 @@ export function GaleriView() {
                 }`}
               >
                 <MapPin className="w-4 h-4 text-[#1E3A8A] dark:text-[#60A5FA]" />
-                <span>Stüdyo Konumu &amp; Yol Tarifi</span>
+                <span>Konumumuz &amp; Yol Tarifi</span>
               </Link>
             </div>
           </div>

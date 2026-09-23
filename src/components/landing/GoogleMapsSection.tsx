@@ -126,7 +126,7 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
                   isCream ? 'text-[#6C6A6B]' : 'text-[#9DA3AA]'
                 }`}
               >
-                Google Haritalar Doğrulanmış Profil
+                Google İşletme Profilimiz
               </span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-black tracking-tight">
@@ -242,7 +242,7 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
                       <GoogleVerifiedTick className="w-3.5 h-3.5 shrink-0" />
                     </div>
                     <span className="text-[11px] text-[#1FAD4E] font-semibold flex items-center gap-1">
-                      <ShieldCheck className="w-3 h-3" /> Doğrulanmış Atölye
+                      <ShieldCheck className="w-3 h-3" /> İşletme Sahibi Onaylı
                     </span>
                   </div>
                 </div>

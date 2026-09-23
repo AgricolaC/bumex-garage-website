@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://bumexgarage.com'),
   title: 'Bumex Garage — Bahçelievler Detailing & Otopark | Ankara',
   description:
-    'Ankara Bahçelievler 7. Cadde\'ye 350m: Mikron boya düzeltme, 9H seramik kaplama, motosiklet detailing, şeffaf fiyat listesi ve 7/24 güvenli otopark.',
+    'Ankara Bahçelievler 7. Cadde\'ye yürüme mesafesinde: Mikron boya düzeltme, 9H seramik kaplama, motosiklet detailing, şeffaf fiyat listesi ve 7/24 güvenli otopark.',
   keywords: [
     'bumex garage',
     'bahçelievler oto yıkama',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Bumex Garage — Bahçelievler Premium Detailing, Motosiklet Bakım & Güvenli Otopark',
     description:
-      'Ankara Bahçelievler 7. Cadde\'ye 350m: Mikron boya restorasyonu, 9H nano seramik, motosiklet detailing, şeffaf fiyat listesi ve 7/24 CCTV izlemeli güvenli otopark.',
+      'Ankara Bahçelievler 7. Cadde\'ye yürüme mesafesinde: Mikron boya restorasyonu, 9H nano seramik, motosiklet detailing, şeffaf fiyat listesi ve 7/24 CCTV izlemeli güvenli otopark.',
     url: 'https://bumexgarage.com',
     siteName: 'Bumex Garage',
     locale: 'tr_TR',
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Bumex Garage — Bahçelievler Premium Detailing, Motosiklet Bakım & Güvenli Otopark',
     description:
-      'Ankara Bahçelievler 7. Cadde\'ye 350m: Mikron boya restorasyonu, 9H nano seramik, motosiklet detailing, şeffaf fiyat listesi ve 7/24 CCTV izlemeli güvenli otopark.',
+      'Ankara Bahçelievler 7. Cadde\'ye yürüme mesafesinde: Mikron boya restorasyonu, 9H nano seramik, motosiklet detailing, şeffaf fiyat listesi ve 7/24 CCTV izlemeli güvenli otopark.',
     images: ['https://bumexgarage.com/og-image.jpg'],
   },
   other: {

@@ -91,9 +91,9 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
               }`}
             >
               <Bike className="w-4 h-4" />
-              <span>Motosiklet Atölyesi</span>
+              <span>Motosiklet Tamirhanesi</span>
               <span className="text-[10px] bg-[#1E3A8A] text-white px-2 py-0.5 rounded font-extrabold shadow-sm">
-                ÖZEL ATÖLYE
+                ÖZEL TAMİRHANE
               </span>
             </button>
           </div>
@@ -285,7 +285,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                       isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                     }`}
                   >
-                    Sabit paket yerine araca özel çalışma: Mikron vernik analizi, panel ölçüleri ve mevcut çizik durumuna göre atölyemizde incelenerek sürprizsiz net teklif belirlenir.
+                    Sabit paket yerine araca özel çalışma: Mikron vernik analizi, panel ölçüleri ve mevcut çizik durumuna göre tamirhanemizde incelenerek sürprizsiz net teklif belirlenir.
                   </p>
 
                   <div className="w-full h-[1px] bg-black/5 dark:bg-white/10 mb-5" />
@@ -357,7 +357,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                   <span>Fiyatlandırma Politikamız (Sabit Bakım vs. Özel Proje Ayrımı)</span>
                 </div>
                 <p className={isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}>
-                  Yıkama ve kuaför gibi düzenli bakım işlemleri standart taban fiyatlıdır (Hatchback baz alınır; SUV ve büyük segmentlerde işçilik süresine göre ölçeklenir). PPF kaplama, boya restorasyonu ve seramik gibi yüksek zanaat gerektiren projeler ise aracınızın boya kalınlığı ve panel durumu incelenmeden ezbere fiyatlandırılamaz; atölyemizde ücretsiz mikron ekspertizi sonrası karşılıklı teyit edilir.
+                  Yıkama ve kuaför gibi düzenli bakım işlemleri standart taban fiyatlıdır (Hatchback baz alınır; SUV ve büyük segmentlerde işçilik süresine göre ölçeklenir). PPF kaplama, boya restorasyonu ve seramik gibi yüksek zanaat gerektiren projeler ise aracınızın boya kalınlığı ve panel durumu incelenmeden ezbere fiyatlandırılamaz; tamirhanemizde ücretsiz mikron ekspertizi sonrası karşılıklı teyit edilir.
                 </p>
               </div>
 
@@ -388,7 +388,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
               }`}
             >
               <div className="inline-flex items-center gap-2 bg-[#1E3A8A] text-white text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-wider mb-3 shadow">
-                <Flame className="w-4 h-4 text-amber-400" /> BAHÇELİEVLER HASSAS MOTOSİKLET ATÖLYESİ
+                <Flame className="w-4 h-4 text-amber-400" /> BAHÇELİEVLER HASSAS MOTOSİKLET TAMİRHANESİ
               </div>
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight">
                 Motosiklet Detailing, Mekanik Bakım &amp; Transfer Desteği
@@ -398,9 +398,9 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                   isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                 }`}
               >
-                Ankara Bahçelievler&apos;de iki teker tutkunlarına özel komple atölye: Basınçsız buharlı yıkama,
+                Ankara Bahçelievler&apos;de iki teker tutkunlarına özel komple tamirhane: Basınçsız buharlı yıkama,
                 grenaj pasta cila &amp; seramik, PPF, varyatör temizliği, yağ/mekanik tamiri, plastik grenaj kaynağı
-                ve atölye randevularında özel aparatlı transfer hazırlığı.
+                ve tamirhane randevularında özel aparatlı transfer hazırlığı.
               </p>
               <div className="mt-4 flex flex-wrap items-center justify-center gap-2.5">
                 <a
@@ -698,7 +698,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                   <div className="flex items-center gap-2 mb-1">
                     <Wrench className="w-4 h-4 text-[#1E3A8A] dark:text-[#60A5FA]" />
                     <span className="text-xs font-bold uppercase tracking-wider text-[#6C6A6B]">
-                      Motosiklet Mekanik Atölyesi
+                      Motosiklet Mekanik Tamirhanesi
                     </span>
                   </div>
                   <h4 className="text-xl sm:text-2xl font-black tracking-tight">
@@ -958,7 +958,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                     </span>
                     <span className="flex items-center gap-1.5">
                       <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                      Atölye Randevulu Transfer Desteği
+                      Tamirhane Randevulu Transfer Desteği
                     </span>
                   </div>
                 </div>
@@ -995,7 +995,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
           }`}
         >
           💡 Otomobil ve motosikletinizin anlık peron durumu, mekanik servis randevuları ve çekici transferi için Bahçelievler
-          atölyemize doğrudan{' '}
+          tamirhanemize doğrudan{' '}
           <a href={`tel:${phone}`} className="text-[#1E3A8A] dark:text-[#60A5FA] font-bold underline">
             {phoneDisplay}
           </a>{' '}

@@ -73,26 +73,26 @@ export function HakkimizdaView() {
 
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold border border-black/10 dark:border-white/15 bg-black/5 dark:bg-white/5 text-[#1E3A8A] dark:text-[#60A5FA] mb-4">
               <Building2 className="w-3.5 h-3.5" />
-              <span>Bumex Garage Bahçelievler • Atölye Hikayemiz</span>
+              <span>Bumex Garage Bahçelievler • Tamirhane Hikayemiz</span>
             </div>
 
             <h1 className="text-3xl sm:text-5xl font-black tracking-tight leading-[1.1] mb-6">
               Otomobiliniz ve Motosikletiniz İçin{' '}
-              <span className="text-[#1E3A8A] dark:text-[#60A5FA]">Yıkamadan Bakıma Atölye Hizmetleri</span>
+              <span className="text-[#1E3A8A] dark:text-[#60A5FA]">Yıkamadan Bakıma Çeşitli Hizmetler</span>
             </h1>
 
             <p
               className={`text-base sm:text-lg leading-relaxed max-w-3xl ${isCream ? 'text-[#4A4746]' : 'text-[#B0B6BD]'
                 }`}
             >
-              Bumex Garage, Ankara Bahçelievler 7. Cadde&apos;ye 350 metre mesafede; otomobil ve
+              Bumex Garage, Ankara Bahçelievler 7. Cadde&apos;ye yürüme mesafesinde; otomobil ve
               motosikletler için basit yıkamadan detaylı iç-dış bakıma, PPF ve seramik kaplamadan
-              motosiklet tamirine kadar hizmet vermeye çalışan bağımsız bir atölyedir.
+              motosiklet tamirine kadar çeşitli hizmetler sunan bağımsız bir işletmedir.
             </p>
           </div>
         </section>
 
-        {/* ─── 2. ATÖLYE FELSEFEMİZ & KALİTE STANDARTLARI ─── */}
+        {/* ─── 2. TAMİRHANE FELSEFEMİZ & KALİTE STANDARTLARI ─── */}
         <section className="py-16 px-4 sm:px-8 border-b border-black/10 dark:border-white/10">
           <div className="max-w-5xl mx-auto">
             <div className="max-w-2xl mb-12">
@@ -114,14 +114,13 @@ export function HakkimizdaView() {
                 <div className="w-10 h-10 rounded-xl bg-[#1E3A8A] text-white flex items-center justify-center mb-4 shadow-sm">
                   <Gauge className="w-5 h-5" />
                 </div>
-                <h3 className="text-base font-bold mb-2">Dijital Mikron Ölçümü ve Vernik Koruması</h3>
+                <h3 className="text-base font-bold mb-2">Özen</h3>
                 <p
                   className={`text-xs sm:text-sm leading-relaxed ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                     }`}
                 >
-                  Her aracın boya katman kalınlığını dijital kalibre cihazlarla ölçerek çalışıyoruz.
-                  Alman aşındırıcılar ve orbital cila teknikleriyle vernik mikronunu korumaya özen
-                  gösteriyor, bu sayede daha temiz bir parlaklık hedefliyoruz.
+                  Her aracı teslim aldığımız andan teslim ettiğimiz ana kadar aynı dikkati ve özeni
+                  gösteriyoruz. Aceleci değil, planlı ve kontrollü çalışmayı tercih ediyoruz.
                 </p>
               </div>
 
@@ -134,14 +133,13 @@ export function HakkimizdaView() {
                 <div className="w-10 h-10 rounded-xl bg-[#1E3A8A] text-white flex items-center justify-center mb-4 shadow-sm">
                   <Zap className="w-5 h-5" />
                 </div>
-                <h3 className="text-base font-bold mb-2">140°C Kuru Buhar ile Güvenli Detay</h3>
+                <h3 className="text-base font-bold mb-2">Şeffaflık</h3>
                 <p
                   className={`text-xs sm:text-sm leading-relaxed ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                     }`}
                 >
-                  Motor haznesi ve motosiklet detailing işlemlerinde elektronik soketleri ve buji
-                  yuvalarını korumak için basınçsız 140°C kuru buhar tercih ediyoruz; böylece
-                  oksitlenme ve elektriksel arıza riskini en aza indirmeye çalışıyoruz.
+                  Hangi işlemi yapacağımızı, neden yapacağımızı ve ne kadar süreceğini önceden
+                  paylaşıyoruz. Sürpriz fatura veya ek ücret çıkarmıyoruz.
                 </p>
               </div>
 
@@ -154,14 +152,13 @@ export function HakkimizdaView() {
                 <div className="w-10 h-10 rounded-xl bg-[#1E3A8A] text-white flex items-center justify-center mb-4 shadow-sm">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
-                <h3 className="text-base font-bold mb-2">Sıfır Silikonlu Dolgu &amp; Kalıcı Sonuç</h3>
+                <h3 className="text-base font-bold mb-2">Detay</h3>
                 <p
                   className={`text-xs sm:text-sm leading-relaxed ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                     }`}
                 >
-                  Silikonlu dolgulara güvenmek yerine yüzeyi iyice arındırıp çizikleri gerçek
-                  anlamda gidermeye çalışıyoruz, ardından 9H nano seramik ya da PPF ile
-                  koruma altına alıyoruz.
+                  Hızlı geçiştirilmiş bir iş yapmaktansa az iş ama iyi iş yapmayı tercih ediyoruz.
+                  Her adımda kaliteyi gözetiyoruz; göze çarpmayan köşeler de dahil.
                 </p>
               </div>
 
@@ -174,14 +171,13 @@ export function HakkimizdaView() {
                 <div className="w-10 h-10 rounded-xl bg-[#1E3A8A] text-white flex items-center justify-center mb-4 shadow-sm">
                   <Building2 className="w-5 h-5" />
                 </div>
-                <h3 className="text-base font-bold mb-2">Bahçelievler Lokasyon &amp; Güvenli Otopark</h3>
+                <h3 className="text-base font-bold mb-2">Güvenilirlik</h3>
                 <p
                   className={`text-xs sm:text-sm leading-relaxed ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                     }`}
                 >
-                  Eski Sonax-Würth Han-gar ve Supark lokasyonu olarak bilinen 48 numaralı stüdyomuzda,
-                  24/7 güvenlik kameralı ve alçak spor araçlara uygun kapalı garajda çalışmaya
-                  özen gösteriyoruz.
+                  Bahçelievler&apos;de yıllardır aynı adreste kesintisiz hizmet. 24/7 güvenlik kameralı
+                  kapalı garaj ve sabit ekibimizle aracınız güvende.
                 </p>
               </div>
             </div>
@@ -206,8 +202,8 @@ export function HakkimizdaView() {
                 className={`text-xs sm:text-sm mt-3 ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                   }`}
               >
-                İster daha önce tamamladığımız canlı dönüşümleri inceleyin, ister 25+ atölye
-                hizmetimizi keşfedin, isterseniz stüdyomuza gelerek doğrudan aracınız için mikron analizi alın.
+                İster daha önce tamamladığımız canlı dönüşümleri inceleyin, ister 25+ tamirhane
+                hizmetimizi keşfedin, isterseniz işletmemize gelerek doğrudan aracınız için mikron analizi alın.
               </p>
             </div>
 
@@ -231,7 +227,7 @@ export function HakkimizdaView() {
                     className={`text-xs leading-relaxed ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                       }`}
                   >
-                    Bahçelievler atölyemizde tamamlanan gerçek BMW, Porsche, motosiklet ve jant restorasyonlarının interaktif öncesi-sonrası karşılaştırmaları.
+                    Bahçelievler tamirhanemizde tamamlanan gerçek BMW, Porsche, motosiklet ve jant restorasyonlarının interaktif öncesi-sonrası karşılaştırmaları.
                   </p>
                 </div>
 
@@ -260,7 +256,7 @@ export function HakkimizdaView() {
                     className={`text-xs leading-relaxed ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                       }`}
                   >
-                    PPF kaplama, 9H nano seramik, mikron pasta cila, buharlı motor temizliği, ses izolasyonu ve 25+ modüler atölye operasyon kartelası.
+                    PPF kaplama, 9H nano seramik, mikron pasta cila, buharlı motor temizliği, ses izolasyonu ve 25+ modüler tamirhane operasyon kartelası.
                   </p>
                 </div>
 
@@ -289,7 +285,7 @@ export function HakkimizdaView() {
                     className={`text-xs leading-relaxed ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                       }`}
                   >
-                    Prof. Muammer Aksoy Cad. No: 48. Bahçelievler 7. Cadde&apos;ye 350 metre yürüme mesafesi, metro bağlantısı ve navigasyon rotası.
+                    Prof. Muammer Aksoy Cad. No: 48. Bahçelievler 7. Cadde&apos;ye yürüme mesafesi, metro bağlantısı ve navigasyon rotası.
                   </p>
                 </div>
 

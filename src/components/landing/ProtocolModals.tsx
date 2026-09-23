@@ -81,7 +81,7 @@ export function ProtocolModals({ activeModal, onClose, theme }: ProtocolModalsPr
               kimyasallar, yüksek ısı kuru buhar ve detay fırçalarıyla elektronik aksama su değdirilmeden güvenle temizlenir.
             </p>
 
-            {/* Gerçek Atölye Öncesi/Sonrası Uygulama Görseli */}
+            {/* Gerçek Tamirhane Öncesi/Sonrası Uygulama Görseli */}
             <div className="relative rounded-xl overflow-hidden border border-black/10 dark:border-white/10 mb-6 aspect-[16/9] bg-black">
               <img
                 src="/images/before-after/engine_bay_full.jpg"
@@ -90,7 +90,7 @@ export function ProtocolModals({ activeModal, onClose, theme }: ProtocolModalsPr
               />
               <div className="absolute top-2.5 left-2.5">
                 <span className="px-2.5 py-1 rounded bg-black/85 text-white text-[11px] font-bold backdrop-blur-xs">
-                  Atölye İçi Ham Sonuç: Üst (Önce) • Alt (Sonra)
+                  Tamirhane İçi Ham Sonuç: Üst (Önce) • Alt (Sonra)
                 </span>
               </div>
             </div>

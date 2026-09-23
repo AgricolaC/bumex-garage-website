@@ -79,7 +79,7 @@ export function ProcessSection({ theme }: ProcessSectionProps) {
               isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
             }`}
           >
-            Bahçelievler atölyemizde teslim aldığımız andan itibaren tüm süreç planlı, kontrollü ve şeffaftır.
+            Bahçelievler işletmemizde teslim aldığımız andan itibaren tüm süreç planlı, kontrollü ve şeffaftır.
           </p>
         </div>
 
@@ -138,7 +138,7 @@ export function ProcessSection({ theme }: ProcessSectionProps) {
                 Park &amp; Wash Kolaylığı
               </span>
               <span className="text-xs font-semibold text-[#6C6A6B]">
-                Bahçelievler 7. Cadde 350m
+                Bahçelievler 7. Cadde Yürüme Mesafesi
               </span>
             </div>
 

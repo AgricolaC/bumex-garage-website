@@ -108,7 +108,7 @@ const TRANSFORMATIONS: TransformationItem[] = [
       vehicle: 'BMW 420i Gran Coupé',
       problem: 'Girdap izleri (swirl marks), vernik oksidasyonu ve yüzey matlığı',
       application: '3 aşamalı boya düzeltme ve 9H seramik kaplama',
-      duration: '8 saat atölye işçiliği',
+      duration: '8 saat tamirhane işçiliği',
       result: 'Derin yüzey yansıması, hare ve mikro çiziklerden arındırılmış pürüzsüz boya',
       testimonial: {
         quote: 'Arabadan çıkmayacak denen lekeleri bile tek yıkamada çıkardılar. Kaliteli hizmet için çok teşekkürler.',
@@ -330,7 +330,7 @@ const REAL_AUTOMOBILE_STUDIO_GALLERY = [
     badge: 'Ön Yıkama Stüdyosu',
     src: '/images/before-after/bmw_snow_foam.webp',
     alt: 'Bumex Detailing Stüdyosu Kar Köpüğü',
-    desc: 'Atölye içi BUMEX DETAILING panosu önünde temassız statik kir çözme protokolü.',
+    desc: 'Tamirhane içi BUMEX DETAILING panosu önünde temassız statik kir çözme protokolü.',
   },
 ];
 
@@ -360,7 +360,7 @@ const REAL_MOTORCYCLE_STUDIO_GALLERY = [
     badge: 'Tam Dönüşüm & Koruma',
     src: '/images/before-after/moto_detail_full.webp',
     alt: 'Bumex Garage Yamaha Supersport Showroom Kondisyonu',
-    desc: 'Zincir bakımı, plastik yenileme ve UV zırhı ile tamamlanan tam atölye restorasyonu.',
+    desc: 'Zincir bakımı, plastik yenileme ve UV zırhı ile tamamlanan tam tamirhane restorasyonu.',
   },
 ];
 
@@ -440,8 +440,8 @@ export function BeforeAfterSlider({
             <span>
               {segment === 'otomobil'
                 ? detailed
-                  ? 'Gerçek Otomobil Atölye Uygulamaları'
-                  : 'Stüdyo Restorasyon Vitrini'
+                  ? 'Gerçek Otomobil Tamirhane Uygulamaları'
+                  : 'Restorasyon Vitrini'
                 : detailed
                   ? 'Gerçek Motosiklet Detailing Uygulamaları'
                   : 'Motosiklet Detailing Vitrini'}
@@ -457,8 +457,8 @@ export function BeforeAfterSlider({
           >
             {segment === 'otomobil'
               ? detailed
-                ? 'Bahçelievler atölyemizde tamamlanan gerçek otomobil uygulamalarını inceleyin. İnteraktif kaydırıcı ile yüzey temizliği ve boya koruma farkını canlı görün.'
-                : 'Bahçelievler stüdyomuzda tamamlanan gerçek boya koruma ve temizlik farkını interaktif kaydırıcı ile deneyimleyin.'
+                ? 'Bahçelievler tamirhanemizde tamamlanan gerçek otomobil uygulamalarını inceleyin. İnteraktif kaydırıcı ile yüzey temizliği ve boya koruma farkını canlı görün.'
+                : 'Bahçelievler işletmemizde tamamlanan gerçek boya koruma ve temizlik farkını interaktif kaydırıcı ile deneyimleyin.'
               : detailed
                 ? 'Hassas motosiklet detailing ve grenaj yenileme çalışmalarımız. Tazyiksiz kuru buhar ve özenli polisaj ile ilk günkü temizliğine tanık olun.'
                 : 'Motosikletler için tazyiksiz kuru buhar ve özenli grenaj bakımı.'}
@@ -586,7 +586,7 @@ export function BeforeAfterSlider({
               <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3.5 mb-3.5 border-b border-black/5 dark:border-white/10 gap-2">
                 <div>
                   <span className="text-[10px] font-black uppercase tracking-widest text-[#1E3A8A] dark:text-[#60A5FA]">
-                    Atölye Vaka Kaydı (Gerçek Operasyon)
+                    Tamirhane Vaka Kaydı (Gerçek Operasyon)
                   </span>
                   <h4 className="text-base font-black tracking-tight mt-0.5">
                     {activeItem.caseStudy.vehicle}
@@ -594,7 +594,7 @@ export function BeforeAfterSlider({
                 </div>
 
                 <div className="flex items-center gap-2 text-xs">
-                  <span className="font-bold text-[#6C6A6B]">Atölye Süresi:</span>
+                  <span className="font-bold text-[#6C6A6B]">Tamirhane Süresi:</span>
                   <span className="px-2.5 py-0.5 rounded-full bg-[#1E3A8A]/10 text-[#1E3A8A] dark:text-[#60A5FA] font-black text-xs">
                     {activeItem.caseStudy.duration}
                   </span>
@@ -677,7 +677,7 @@ export function BeforeAfterSlider({
           </div>
         </div>
 
-        {/* Detaylı Modda Bahçelievler Atölyemizden Gerçek Detailing Kareleri Vitrini */}
+        {/* Detaylı Modda Bahçelievler Tamirhanemizden Gerçek Detailing Kareleri Vitrini */}
         {detailed && (
           <div
             className={`mt-14 pt-10 border-t transition-colors duration-200 ${
@@ -696,13 +696,13 @@ export function BeforeAfterSlider({
                     }`}
                   >
                     {segment === 'otomobil'
-                      ? 'Bahçelievler Stüdyomuzdan Ham Detay Kareleri'
-                      : 'Bahçelievler Motosiklet Atölyemizden Detay Kareleri'}
+                      ? 'Bahçelievler İşletmemizden Ham Detay Kareleri'
+                      : 'Bahçelievler Motosiklet Tamirhanemizden Detay Kareleri'}
                   </span>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-black tracking-tight mt-1">
                   {segment === 'otomobil'
-                    ? 'Atölye İçi Canlı Uygulama & Süreç Galerisi'
+                    ? 'Tamirhane İçi Canlı Uygulama & Süreç Galerisi'
                     : 'Motosiklet Detailing & Restorasyon Süreç Galerisi'}
                 </h3>
               </div>
@@ -712,8 +712,8 @@ export function BeforeAfterSlider({
                 }`}
               >
                 {segment === 'otomobil'
-                  ? 'Her fotoğraf, Bahçelievler atölyemizde icra edilen gerçek araç protokollerine aittir. İlgili karta tıklayarak karşılaştırmayı doğrudan açabilirsiniz.'
-                  : 'Bahçelievler atölyemizde hassas buhar ve dielektrik formüllerle tamamlanan gerçek motosiklet uygulamalarımız.'}
+                  ? 'Her fotoğraf, Bahçelievler tamirhanemizde icra edilen gerçek araç protokollerine aittir. İlgili karta tıklayarak karşılaştırmayı doğrudan açabilirsiniz.'
+                  : 'Bahçelievler tamirhanemizde hassas buhar ve dielektrik formüllerle tamamlanan gerçek motosiklet uygulamalarımız.'}
               </p>
             </div>
 
@@ -781,7 +781,7 @@ export function BeforeAfterSlider({
             >
               <span>
                 {segment === 'otomobil'
-                  ? 'Tüm Canlı Atölye Uygulamalarını ve Detaylı Galeriyi İncele'
+                  ? 'Tüm Canlı Tamirhane Uygulamalarını ve Detaylı Galeriyi İncele'
                   : 'Tüm Motosiklet Detailing Uygulamalarını ve Detaylı Galeriyi İncele'}
               </span>
               <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -791,7 +791,7 @@ export function BeforeAfterSlider({
                 isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
               }`}
             >
-              6+ Farklı araç karşılaştırması, jant demir tozu temizliği, far restorasyonu ve Bahçelievler canlı stüdyo fotoğraf arşivi.
+              6+ Farklı araç karşılaştırması, jant demir tozu temizliği, far restorasyonu ve Bahçelievler canlı fotoğraf arşivi.
             </p>
           </div>
         )}

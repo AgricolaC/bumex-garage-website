@@ -5,7 +5,7 @@ import { KonumStructuredData } from '@/components/konum/KonumStructuredData';
 export const metadata: Metadata = {
   title: 'Konum, Ulaşım & Yol Tarifi | Bumex Garage Bahçelievler',
   description:
-    'Ankara Bahçelievler 7. Cadde\'ye 350m: Prof. Muammer Aksoy Cad. No: 48 (eski Han-gar, Sonax-Würth ve Supark lokasyonu) açık adres, metro yürüme mesafesi ve yol tarifi.',
+    'Ankara Bahçelievler 7. Cadde\'ye yürüme mesafesinde: Prof. Muammer Aksoy Cad. No: 48 (eski Han-gar, Sonax-Würth ve Supark lokasyonu) açık adres, metro yürüme mesafesi ve yol tarifi.',
   keywords: [
     'bumex garage konum',
     'bumex garage yol tarifi',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Bumex Garage — Konum, Ulaşım & Yol Tarifi | Bahçelievler Ankara',
     description:
-      'Ankara Bahçelievler 7. Cadde\'ye 350m: Prof. Muammer Aksoy Cad. No: 48 açık adres, navigasyon ve ulaşım rehberi.',
+      'Ankara Bahçelievler 7. Cadde\'ye yürüme mesafesinde: Prof. Muammer Aksoy Cad. No: 48 açık adres, navigasyon ve ulaşım rehberi.',
     url: 'https://bumexgarage.com/konum',
     siteName: 'Bumex Garage',
     locale: 'tr_TR',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Bumex Garage — Konum, Ulaşım & Yol Tarifi | Bahçelievler Ankara',
     description:
-      'Ankara Bahçelievler 7. Cadde\'ye 350m: Prof. Muammer Aksoy Cad. No: 48 açık adres, navigasyon ve ulaşım rehberi.',
+      'Ankara Bahçelievler 7. Cadde\'ye yürüme mesafesinde: Prof. Muammer Aksoy Cad. No: 48 açık adres, navigasyon ve ulaşım rehberi.',
     images: ['https://bumexgarage.com/og-image.jpg'],
   },
 };

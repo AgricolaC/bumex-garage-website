@@ -53,7 +53,7 @@ export const SERVICES_DATA: Record<ServiceHubSlug, ServiceHubData> = {
     badge: '190–210 Mikron Kendi Kendini İyileştiren TPU Film',
     metaTitle: 'Ankara PPF Kaplama — TPU Boya Koruma Filmi | Bumex Garage Bahçelievler',
     metaDescription:
-      "Ankara Bahçelievler 7. Cadde'ye 350m: 190–210 mikron termoplastik TPU PPF kaplama, sararmazlık garantisi, çiziklere karşı ısıyla kendini yenileyen optik netlik ve mikron vernik koruması.",
+      "Ankara Bahçelievler 7. Cadde'ye yürüme mesafesinde: 190–210 mikron termoplastik TPU PPF kaplama, sararmazlık garantisi, çiziklere karşı ısıyla kendini yenileyen optik netlik ve mikron vernik koruması.",
     heroHeadline: 'BOYANIZA ŞEFFAF KORUMA: KENDİNİ YENİLEYEN TPU PPF',
     heroSubtitle:
       'Yol mıcırlanmaları, yüksek sürat taş vurukları ve anahtar sürtmelerine karşı 200 mikronluk elastik poliüretan koruma. Sıcak su veya güneş ışığı ile kılcal çizikleri kendiliğinden onaran optik TPU teknolojisi.',
@@ -266,7 +266,7 @@ export const SERVICES_DATA: Record<ServiceHubSlug, ServiceHubData> = {
       {
         question: 'Motosikletlere de seramik kaplama yapılabilir mi?',
         answer:
-          'Kesinlikle. Motosiklet stüdyomuzda grenajlar, yakıt deposu, kask kabuğu ve vizörler için özel 9H seramik protokolü uygulanmaktadır.',
+          'Kesinlikle. İşletmemizde grenajlar, yakıt deposu, kask kabuğu ve vizörler için özel 9H seramik protokolü uygulanmaktadır.',
       },
     ],
     whatsappMessage:
@@ -279,7 +279,7 @@ export const SERVICES_DATA: Record<ServiceHubSlug, ServiceHubData> = {
     badge: 'Dijital Vernik Ölçümü & Kılcal Çizik ve Harelerin %95+ Giderimi',
     metaTitle: 'Ankara Pasta Cila — Mikron Boya Restorasyonu | Bumex Garage Bahçelievler',
     metaDescription:
-      "Ankara Bahçelievler 7. Cadde'ye 350m: Elektronik mikron ölçümüyle vernik katmanını eritmeden, döner ve orbital makinelerle kılcal çiziklerin, harelerin ve matlığın %95+ giderilmesi.",
+      "Ankara Bahçelievler 7. Cadde'ye yürüme mesafesinde: Elektronik mikron ölçümüyle vernik katmanını eritmeden, döner ve orbital makinelerle kılcal çiziklerin, harelerin ve matlığın %95+ giderilmesi.",
     heroHeadline: 'VERNİĞİ ERİTMEYEN HASSAS MİKRON RESTORASYON',
     heroSubtitle:
       "Geleneksel sanayi tipi agresif pastalar verniği aşındırarak tüketir. Bumex Garage'da her panelin vernik mikron kalınlığı ölçülür; Alman menşeili kademeli aşındırıcılar ile boyanız korunarak sıfır hata parlaklık elde edilir.",
@@ -300,7 +300,7 @@ export const SERVICES_DATA: Record<ServiceHubSlug, ServiceHubData> = {
       {
         label: 'Işık Kontrolü',
         value: 'Scangrip CRI 96+ Spektrum',
-        detail: 'Uygulama stüdyomuzdaki güneş ışığı simülatörü LED lambalarla en ufak çizik dahi gizlenemez.',
+        detail: 'İşletmemizdeki güneş ışığı simülatörü LED lambalarla en ufak çizik dahi gizlenemez.',
       },
       {
         label: 'Kullanılan Makineler',
@@ -364,7 +364,7 @@ export const SERVICES_DATA: Record<ServiceHubSlug, ServiceHubData> = {
       {
         question: 'Pasta cila işlemi aracın boyasını inceltir mi?',
         answer:
-          'Bilinçsiz sanayi uygulamalarında agresif zımpara ve keçe kullanımı verniği tehlikeli biçimde inceltebilir. Bumex Garage stüdyosunda dijital mikron ölçer ile panel panel analiz yapılır ve yalnızca 2-4 mikronluk mikro seviyede tesviye yapılarak vernik ömrü korunur.',
+          'Bilinçsiz sanayi uygulamalarında agresif zımpara ve keçe kullanımı verniği tehlikeli biçimde inceltebilir. Bumex Garage işletmemizde dijital mikron ölçer ile panel panel analiz yapılır ve yalnızca 2-4 mikronluk mikro seviyede tesviye yapılarak vernik ömrü korunur.',
       },
       {
         question: 'İşlemden sonra çizikler yıkandıkça geri çıkar mı?',
@@ -590,7 +590,7 @@ export const SERVICES_DATA: Record<ServiceHubSlug, ServiceHubData> = {
       {
         question: 'Koltuk yıkandıktan sonra araç nemli mi teslim edilir?',
         answer:
-          'Kesinlikle hayır. Yüksek emişli ekstraksiyon makinelerimiz suyun %95’ini anında geri çeker. Kalan hafif nem stüdyo içi özel araç kurutma fanları ile kurutulur; araç kuru ve kullanıma hazır teslim edilir.',
+          'Kesinlikle hayır. Yüksek emişli ekstraksiyon makinelerimiz suyun %95’ini anında geri çeker. Kalan hafif nem özel araç kurutma fanları ile kurutulur; araç kuru ve kullanıma hazır teslim edilir.',
       },
       {
         question: 'Sigara, evcil hayvan veya süt dökülmesi kokuları tamamen çıkar mı?',

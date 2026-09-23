@@ -6,6 +6,7 @@
     { "path": "./plugins/pstack/skills" },
     { "path": "./plugins/web/skills" },
     { "path": "./plugins/mobile/skills" },
+    { "path": "./plugins/seo/skills" },
     { "path": "./plugins/meta/skills" }
   ]
 }

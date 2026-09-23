@@ -69,12 +69,12 @@ export function OtoparkView() {
 
             {/* Rozet */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold border border-black/10 dark:border-white/15 bg-black/5 dark:bg-white/5 text-[#1E3A8A] dark:text-[#60A5FA] mb-4">
-              <span>7. Cadde&apos;ye 350 Metre • 24/7 CCTV Kamera • 10:00 – 22:00 Giriş-Çıkış</span>
+              <span>7. Cadde&apos;ye Yürüme Mesafesinde • 24/7 CCTV Kamera • 10:00 – 22:00 Giriş-Çıkış</span>
             </div>
 
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] mb-6">
-              Bahçelievler&apos;in Geniş Manevralı ve{' '}
-              <span className="text-[#1E3A8A] dark:text-[#60A5FA]">24/7 Kameralı Güvenli Otoparkı</span>
+              Bahçelievler&apos;in Güvenli ve{' '}
+              <span className="text-[#1E3A8A] dark:text-[#60A5FA]">24/7 Kameralı Kapalı Otoparkı</span>
             </h1>
 
             <p
@@ -83,7 +83,8 @@ export function OtoparkView() {
               }`}
             >
               Dar sokakların park krizinden ve kaldırım sürtme risklerinden uzakta. 7. Cadde&apos;ye (Aşkabat Caddesi)
-              sadece 4 dakika yürüme mesafesinde, 24 saat kesintisiz CCTV kamera gözetimli ve her gün 10:00 – 22:00 saatlerinde personelli geniş manevra alanlı güvenli park alanı.
+              yürüme mesafesinde, 24 saat kesintisiz CCTV kamera gözetimli ve her gün 10:00 – 22:00 saatlerinde
+              personelli güvenli park alanı.
             </p>
 
             {/* Aksiyon Butonları */}
@@ -183,7 +184,7 @@ export function OtoparkView() {
                 </p>
               </div>
 
-              {/* Kart 3: Alçak Şasili Spor Araç & SUV Rampaları */}
+              {/* Kart 3: Park & Wash Kolaylığı */}
               <div
                 className={`p-6 rounded-xl border transition ${
                   isCream
@@ -194,15 +195,15 @@ export function OtoparkView() {
                 <div className="w-12 h-12 rounded-lg bg-[#1E3A8A]/10 dark:bg-[#1E3A8A]/30 text-[#1E3A8A] dark:text-[#60A5FA] flex items-center justify-center mb-4">
                   <Car className="w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-bold mb-2">Alçak Spor Araç & Geniş SUV Rampası</h3>
+                <h3 className="text-lg font-bold mb-2">Park & Wash: Zamanınızı Geri Kazanın</h3>
                 <p
                   className={`text-sm leading-relaxed ${
                     isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                   }`}
                 >
-                  Giriş ve iniş rampamız, modifiyeli ve alçak şaseli spor otomobillerin altını veya
-                  ön lipini sürtmeyecek hassas eğim açısıyla tasarlanmıştır. Geniş aks aralığına sahip
-                  büyük SUV&apos;lar için de ferah manevra ve kapı açma mesafesi sunar.
+                  7. Cadde&apos;deki randevunuza giderken aracınızı kapalı otoparkımıza bırakın.
+                  Siz işlerinizi hallederken biz aracınızı fırçasız yıkayalım, iç temizliğini
+                  tamamlayalım veya seramik bakımını yapalım.
                 </p>
               </div>
 
@@ -283,7 +284,7 @@ export function OtoparkView() {
                     <div className="text-xl font-black text-[#1E3A8A] dark:text-[#60A5FA] mb-1">02</div>
                     <div className="font-bold text-sm mb-1">7. Cadde&apos;yi Gezin</div>
                     <div className="text-xs opacity-70">
-                      350 metre (4 dk) yürüyüşle Bahçelievler merkezinde işlerinizi tamamlayın.
+                      Kısa bir yürüyüşle Bahçelievler merkezinde işlerinizi tamamlayın.
                     </div>
                   </div>
 
@@ -332,9 +333,9 @@ export function OtoparkView() {
                   isCream ? 'bg-[#F2ECE8] border-black/10' : 'bg-[#22252A] border-white/10'
                 }`}
               >
-                <div className="text-2xl sm:text-3xl font-black text-[#1E3A8A] dark:text-[#60A5FA] mb-1">350 m</div>
+                <div className="text-2xl sm:text-3xl font-black text-[#1E3A8A] dark:text-[#60A5FA] mb-1">500 m</div>
                 <div className="font-bold text-xs sm:text-sm">7. Cadde (Aşkabat)</div>
-                <div className="text-[11px] opacity-70 mt-1">4 dk yürüme</div>
+                <div className="text-[11px] opacity-70 mt-1">~6 dk yürüme</div>
               </div>
 
               <div
@@ -344,7 +345,7 @@ export function OtoparkView() {
               >
                 <div className="text-2xl sm:text-3xl font-black text-[#1E3A8A] dark:text-[#60A5FA] mb-1">0 m</div>
                 <div className="font-bold text-xs sm:text-sm">Prof. Muammer Aksoy Cd.</div>
-                <div className="text-[11px] opacity-70 mt-1">Kapıda (2. Cadde)</div>
+                <div className="text-[11px] opacity-70 mt-1">Kapıda (Eski 2. Cadde)</div>
               </div>
 
               <div
@@ -352,9 +353,9 @@ export function OtoparkView() {
                   isCream ? 'bg-[#F2ECE8] border-black/10' : 'bg-[#22252A] border-white/10'
                 }`}
               >
-                <div className="text-2xl sm:text-3xl font-black text-[#1E3A8A] dark:text-[#60A5FA] mb-1">750 m</div>
-                <div className="font-bold text-xs sm:text-sm">Bahçelievler / Emek Metro</div>
-                <div className="text-[11px] opacity-70 mt-1">8 dk yürüme</div>
+                <div className="text-2xl sm:text-3xl font-black text-[#1E3A8A] dark:text-[#60A5FA] mb-1">700 m</div>
+                <div className="font-bold text-xs sm:text-sm">Beşevler Metro</div>
+                <div className="text-[11px] opacity-70 mt-1">~9 dk yürüme</div>
               </div>
 
               <div
@@ -362,9 +363,49 @@ export function OtoparkView() {
                   isCream ? 'bg-[#F2ECE8] border-black/10' : 'bg-[#22252A] border-white/10'
                 }`}
               >
-                <div className="text-2xl sm:text-3xl font-black text-[#1E3A8A] dark:text-[#60A5FA] mb-1">3-5 dk</div>
-                <div className="font-bold text-xs sm:text-sm">Gazi & Hastaneler Bölgesi</div>
-                <div className="text-[11px] opacity-70 mt-1">Araç mesafesi</div>
+                <div className="text-2xl sm:text-3xl font-black text-[#1E3A8A] dark:text-[#60A5FA] mb-1">1.0 km</div>
+                <div className="font-bold text-xs sm:text-sm">Bahçelievler Metro</div>
+                <div className="text-[11px] opacity-70 mt-1">~12 dk yürüme</div>
+              </div>
+
+              <div
+                className={`p-5 rounded-xl border text-center ${
+                  isCream ? 'bg-[#F2ECE8] border-black/10' : 'bg-[#22252A] border-white/10'
+                }`}
+              >
+                <div className="text-2xl sm:text-3xl font-black text-[#1E3A8A] dark:text-[#60A5FA] mb-1">1.1 km</div>
+                <div className="font-bold text-xs sm:text-sm">Anıtkabir</div>
+                <div className="text-[11px] opacity-70 mt-1">Yakın mesafe</div>
+              </div>
+
+              <div
+                className={`p-5 rounded-xl border text-center ${
+                  isCream ? 'bg-[#F2ECE8] border-black/10' : 'bg-[#22252A] border-white/10'
+                }`}
+              >
+                <div className="text-2xl sm:text-3xl font-black text-[#1E3A8A] dark:text-[#60A5FA] mb-1">700 m</div>
+                <div className="font-bold text-xs sm:text-sm">Başkent Üni. Hastanesi</div>
+                <div className="text-[11px] opacity-70 mt-1">Yakın mesafe</div>
+              </div>
+
+              <div
+                className={`p-5 rounded-xl border text-center ${
+                  isCream ? 'bg-[#F2ECE8] border-black/10' : 'bg-[#22252A] border-white/10'
+                }`}
+              >
+                <div className="text-2xl sm:text-3xl font-black text-[#1E3A8A] dark:text-[#60A5FA] mb-1">900 m</div>
+                <div className="font-bold text-xs sm:text-sm">Gazi Üni. Hastanesi</div>
+                <div className="text-[11px] opacity-70 mt-1">Yakın mesafe</div>
+              </div>
+
+              <div
+                className={`p-5 rounded-xl border text-center ${
+                  isCream ? 'bg-[#F2ECE8] border-black/10' : 'bg-[#22252A] border-white/10'
+                }`}
+              >
+                <div className="text-2xl sm:text-3xl font-black text-[#1E3A8A] dark:text-[#60A5FA] mb-1">1.5 km</div>
+                <div className="font-bold text-xs sm:text-sm">Bestepe Hastanesi</div>
+                <div className="text-[11px] opacity-70 mt-1">Yakın mesafe</div>
               </div>
             </div>
           </div>
@@ -465,9 +506,11 @@ export function OtoparkView() {
                     isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                   }`}
                 >
-                  Evet. Yıllardır Bahçelievler sakinlerine Supark Otopark ve Yıkama olarak hizmet veren
-                  tesisimiz, güncellenen premium ekipmanları ve Bumex Garage güvencesiyle aynı adreste
-                  (Prof. Muammer Aksoy Cad. No: 48) hizmetine devam etmektedir.
+                  Evet. Bumex Garage, daha önce <strong>SONAX WÜRTH BAHÇELİEVLER ÇANKAYA OTOPARK (2., 3. VE 7. CADDE YAKINI) OTO YIKAMA – KOLTUK YIKAMA – PASTA CİLA</strong> adıyla,{' '}
+                  <strong>Prof. Muammer Aksoy Cd. No: 48/A, 06490 Bahçelievler / Ankara</strong>{' '}
+                  adresinde faaliyet gösteren işletmeyle aynı fiziksel lokasyonda yer almaktadır.
+                  Supark Otopark ve Yıkama olarak da tanınan bu adres; yenilenmiş ekipmanları, kapalı kameralı garajı
+                  ve Bumex Garage hizmet güvencesiyle faaliyetini sürdürmektedir.
                 </p>
               </div>
             </div>
@@ -505,7 +548,7 @@ export function OtoparkView() {
                       isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                     }`}
                   >
-                    Giriş rampası standartları, Prof. Muammer Aksoy Caddesi No: 48 açık adres tarifi ve metro yürüme rotası için konum sayfamızı ziyaret edin.
+                    Prof. Muammer Aksoy Caddesi No: 48 açık adres tarifi, metro yürüme rotaları ve çevre noktalara olan mesafeler için konum sayfamızı ziyaret edin.
                   </p>
                 </div>
               </div>

@@ -74,7 +74,7 @@ const INTENT_ITEMS: IntentItem[] = [
     subtext: 'Yıkama · zincir · mekanik bakım',
     href: '/motosiklet',
     icon: Bike,
-    badge: 'Özel Atölye',
+    badge: 'Özel Tamirhane',
   },
   {
     id: 'otopark',
@@ -84,7 +84,7 @@ const INTENT_ITEMS: IntentItem[] = [
     subtext: '24/7 kamera · Park & Wash',
     href: '/otopark',
     icon: ShieldCheck,
-    badge: '7. Cadde 350m',
+    badge: '7. Cadde Yürüme Mesafesi',
   },
 ];
 
@@ -114,14 +114,14 @@ export function IntentCards({ theme }: IntentCardsProps) {
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-black tracking-tight">
-            Altı Temel İhtiyaç, Tek Atölye Standardı.
+            Altı Temel İhtiyaç, Tek Tamirhane Standardı.
           </h2>
           <p
             className={`text-sm sm:text-base mt-2 leading-relaxed ${
               isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
             }`}
           >
-            Bahçelievler stüdyomuzda aracınız veya motosikletiniz için doğru çözüme doğrudan ulaşın.
+            Bahçelievler işletmemizde aracınız veya motosikletiniz için doğru çözüme doğrudan ulaşın.
           </p>
         </div>
 

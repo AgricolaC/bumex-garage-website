@@ -20,10 +20,10 @@ export const AUTOMOBILE_STUDIO_SHOTS = [
   {
     id: 'temiz-arac',
     label: 'Boya Koruma & Parlaklık',
-    badge: 'BMW 4 • Bumex Atölye',
+    badge: 'BMW 4 • Bumex Tamirhane',
     src: '/images/hero/hero_bmw_clean.jpg',
     alt: 'Bumex Garage Bahçelievler BMW 4 Serisi Detailing ve Boya Koruma',
-    caption: 'Bahçelievler Atölyemizde Detailing ve Boya Koruma Sonucu',
+    caption: 'Bahçelievler Tamirhanemizde Detailing ve Boya Koruma Sonucu',
   },
   {
     id: 'buhar-yikama',
@@ -142,7 +142,7 @@ export function HeroSection({ theme }: HeroSectionProps) {
         <div className="max-w-xl mb-8">
           <div
             role="tablist"
-            aria-label="Atölye Uzmanlık Segmenti"
+            aria-label="Tamirhane Uzmanlık Segmenti"
             className={`p-1.5 rounded-2xl inline-flex flex-wrap items-center gap-1.5 border shadow-xl backdrop-blur-md transition-colors duration-200 ${
               isCream
                 ? 'bg-white/85 border-black/10 text-[#0D0D0D]'
@@ -164,7 +164,7 @@ export function HeroSection({ theme }: HeroSectionProps) {
               }`}
             >
               <Car className="w-4 h-4 shrink-0" />
-              <span>01 Otomobil Stüdyosu</span>
+              <span>01 Otomobil Servisi</span>
             </button>
 
             {/* 02 MOTOSİKLET BUTONU (Kırmızı yerine tam mavi palet) */}
@@ -182,7 +182,7 @@ export function HeroSection({ theme }: HeroSectionProps) {
               }`}
             >
               <Bike className="w-4 h-4 shrink-0" />
-              <span>02 Motosiklet Stüdyosu</span>
+              <span>02 Motosiklet Servisi</span>
             </button>
           </div>
         </div>
@@ -219,7 +219,7 @@ export function HeroSection({ theme }: HeroSectionProps) {
             </span>
           </a>
 
-          {/* Hızlı Atölye Fiyatları ve Paketler (Mobilde Birincil Keşif Butonu) */}
+          {/* Hızlı Tamirhane Fiyatları ve Paketler (Mobilde Birincil Keşif Butonu) */}
           <a
             href="#fiyatlar"
             className="inline-flex items-center justify-center gap-2 font-black text-xs sm:text-sm px-6 py-4 rounded-xl border border-white/30 bg-black/70 hover:bg-black/90 text-white transition backdrop-blur-md shadow-lg"

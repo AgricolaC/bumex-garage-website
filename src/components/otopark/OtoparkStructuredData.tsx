@@ -14,7 +14,7 @@ export function OtoparkStructuredData() {
         priceRange: '₺₺',
         image: 'https://bumexgarage.com/og-otopark.jpg',
         description:
-          "Bahçelievler 7. Cadde'ye 350m yürüme mesafesinde 24/7 CCTV gözetimli, geniş manevra alanlı ve spor araç rampalı güvenli otopark tesisi.",
+          "Bahçelievler 7. Cadde'ye yürüme mesafesinde 24/7 CCTV gözetimli, geniş manevra alanlı ve spor araç rampalı güvenli otopark tesisi.",
         address: {
           '@type': 'PostalAddress',
           streetAddress: 'Prof. Muammer Aksoy Cad. (2. Cd.) No: 48',

@@ -252,22 +252,18 @@ const konumViewPath = path.join(ROOT, 'src/components/konum/KonumView.tsx');
 if (!fs.existsSync(konumViewPath)) fail(`KonumView.tsx not found at ${konumViewPath}`);
 const konumViewCode = fs.readFileSync(konumViewPath, 'utf8');
 
-const requiredKonumQuestions = [
-  'Bumex Garage nerede ve 7. Cadde\'ye nasıl gidilir?',
-  'Burası eski Han-gar, Sonax-Würth veya Supark lokasyonu mu?',
-  'Metro veya toplu taşıma ile nasıl ulaşabilirim?',
-  'Alçak spor otomobiller veya büyük SUV\'lar için giriş rampası uygun mu?',
-];
+// Verify the konum page schema does NOT require a FAQPage (SSS section intentionally removed per design)
+// The entity bridge (Supark/Han-gar/Sonax-Würth) is maintained in KonumView's address section instead.
+const konumHasEntityBridge =
+  konumViewCode.includes('SONAX WÜRTH') ||
+  konumViewCode.includes('Supark') ||
+  konumViewCode.includes('Han-gar') ||
+  konumViewCode.includes('Prof. Muammer Aksoy');
 
-for (const q of requiredKonumQuestions) {
-  if (!konumStructuredDataCode.includes(q)) {
-    fail(`/konum schema missing question: "${q}"`);
-  }
-  if (!konumViewCode.includes(q)) {
-    fail(`Visible KonumView missing on-page question matching schema: "${q}"`);
-  }
+if (!konumHasEntityBridge) {
+  fail('/konum page missing entity bridge for historical Place ID continuity (Supark / Han-gar / Sonax-Würth / Prof. Muammer Aksoy)');
 }
-pass("All 4 konum FAQ questions strictly synchronized between visible UI and Schema.org JSON-LD");
+pass('Konum entity bridge (Supark, Han-gar, Sonax-Würth, address) verified in KonumView');
 
 // 3d. Validate Dedicated Service Hubs (/hizmetler/[slug]) and Unified Schema
 const servicePagePath = path.join(ROOT, 'src/app/hizmetler/[slug]/page.tsx');

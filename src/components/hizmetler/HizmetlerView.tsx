@@ -79,11 +79,11 @@ export function HizmetlerView() {
               <div>
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold border border-black/10 dark:border-white/15 bg-black/5 dark:bg-white/5 text-[#1E3A8A] dark:text-[#60A5FA] mb-3">
                   <Layers className="w-3.5 h-3.5" />
-                  <span>Bahçelievler Stüdyosu • Şeffaf ve Modüler Hizmet Listesi</span>
+                  <span>Bahçelievler Servisi • Şeffaf ve Modüler Hizmet Listesi</span>
                 </div>
 
                 <h1 className="text-3xl sm:text-5xl font-black tracking-tight leading-[1.1]">
-                  Atölye Hizmet{' '}
+                  Tamirhane Hizmet{' '}
                   <span className="text-[#1E3A8A] dark:text-[#60A5FA]">Kartelası &amp; Modüler Servis</span>{' '}
                   Tablosu
                 </h1>
@@ -93,7 +93,7 @@ export function HizmetlerView() {
                     isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                   }`}
                 >
-                  Bahçelievler 7. Cadde lokasyonumuzda icra edilen 25+ atölye operasyonu: Mikron boya
+                  Bahçelievler 7. Cadde lokasyonumuzda icra edilen 25+ tamirhane operasyonu: Mikron boya
                   restorasyonu, PPF kaplama, 9H nano seramik, ses izolasyonu, buharlı motor temizliği ve
                   motosiklet mekanik servisleri.
                 </p>
@@ -207,7 +207,7 @@ export function HizmetlerView() {
                       isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
                     }`}
                   >
-                    Bu hizmetlerin Bahçelievler stüdyomuzda tamamlanan gerçek araçlar üzerindeki öncesi ve sonrası sonuçları.
+                    Bu hizmetlerin Bahçelievler işletmemizde tamamlanan gerçek araçlar üzerindeki öncesi ve sonrası sonuçları.
                   </p>
                 </div>
                 <div className="mt-6 pt-4 border-t border-black/5 dark:border-white/5 flex items-center justify-between text-xs font-extrabold text-[#1E3A8A] dark:text-[#60A5FA]">
@@ -249,7 +249,7 @@ export function HizmetlerView() {
           </div>
         </section>
 
-        {/* ─── 4. DANIŞMANLIK & ATÖLYE RANDEVU BANNERI ─── */}
+        {/* ─── 4. DANIŞMANLIK & TAMİRHANE RANDEVU BANNERI ─── */}
         <section
           className={`py-16 px-4 sm:px-8 border-b transition-colors duration-200 ${
             isCream ? 'bg-[#DDD7D2]/60' : 'bg-[#141517]'
@@ -300,7 +300,7 @@ export function HizmetlerView() {
                 }`}
               >
                 <MapPin className="w-4 h-4 text-[#1E3A8A] dark:text-[#60A5FA]" />
-                <span>Stüdyo Konumu &amp; Yol Tarifi</span>
+                <span>Konumumuz &amp; Yol Tarifi</span>
               </Link>
             </div>
           </div>

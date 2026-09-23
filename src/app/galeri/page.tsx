@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Canlı Detailing & Restorasyon Galerisi | Bumex Garage Bahçelievler Ankara',
     description:
-      'Bahçelievler stüdyomuzda icra edilen gerçek araç dönüşümleri: mikron vernik düzeltme, seramik kaplama ve motosiklet detailing karşılaştırmaları.',
+      'Bahçelievler işletmemizde icra edilen gerçek araç dönüşümleri: mikron vernik düzeltme, seramik kaplama ve motosiklet detailing karşılaştırmaları.',
     url: 'https://bumexgarage.com/galeri',
     siteName: 'Bumex Garage',
     locale: 'tr_TR',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Canlı Detailing & Restorasyon Galerisi | Bumex Garage Bahçelievler Ankara',
     description:
-      'Bahçelievler stüdyomuzda icra edilen gerçek araç dönüşümleri: mikron vernik düzeltme, seramik kaplama ve motosiklet detailing karşılaştırmaları.',
+      'Bahçelievler işletmemizde icra edilen gerçek araç dönüşümleri: mikron vernik düzeltme, seramik kaplama ve motosiklet detailing karşılaştırmaları.',
     images: ['https://bumexgarage.com/og-image.jpg'],
   },
 };
@@ -71,7 +71,7 @@ export default function GaleriPage() {
         '@id': 'https://bumexgarage.com/galeri#gallery',
         name: 'Bumex Garage Canlı Detailing & Restorasyon Galerisi',
         description:
-          'Bumex Garage Bahçelievler atölyesinde uygulanan mikron boya düzeltme, seramik kaplama, PPF ve motosiklet restorasyonlarının karşılaştırma görselleri.',
+          'Bumex Garage Bahçelievler tamirhanesinde uygulanan mikron boya düzeltme, seramik kaplama, PPF ve motosiklet restorasyonlarının karşılaştırma görselleri.',
         url: 'https://bumexgarage.com/galeri',
       },
     ],

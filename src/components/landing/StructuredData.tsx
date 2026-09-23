@@ -23,7 +23,7 @@ export function StructuredData() {
         paymentAccepted: 'Nakit, Kredi Kartı, Havale/EFT',
         image: 'https://bumexgarage.com/og-image.jpg',
         description:
-          'Ankara Bahçelievler\'de 7. Cadde\'ye 350m mesafede fırçasız oto yıkama, detaylı araç içi kuaför, mikron boya restorasyonu ve pasta cila, 9H nano seramik kaplama, dielektrik kuru buharlı motor koruma, motosiklet detailing ve 24/7 CCTV izlemeli güvenli otopark tesisi.',
+          'Ankara Bahçelievler\'de 7. Cadde\'ye yürüme mesafesinde fırçasız oto yıkama, detaylı araç içi kuaför, mikron boya restorasyonu ve pasta cila, 9H nano seramik kaplama, dielektrik kuru buharlı motor koruma, motosiklet detailing ve 24/7 CCTV izlemeli güvenli otopark tesisi.',
         address: {
           '@type': 'PostalAddress',
           streetAddress: 'Prof. Muammer Aksoy Cad. (2. Cd.) No: 48',
@@ -172,7 +172,7 @@ export function StructuredData() {
                     '@type': 'Service',
                     name: 'Bahçelievler 7. Cadde Güvenli Otopark & Park & Wash',
                     description:
-                      '7. Cadde\'ye 350 metre yürüme mesafesinde, 24/7 CCTV kamera gözetimli, geniş manevra alanlı ve spor araç rampalı güvenli otopark.',
+                      '7. Cadde\'ye yürüme mesafesinde, 24/7 CCTV kamera gözetimli, geniş manevra alanlı ve spor araç rampalı güvenli otopark.',
                   },
                 },
               ],
@@ -189,7 +189,7 @@ export function StructuredData() {
             name: 'Bumex Garage nerede ve 7. Cadde\'ye ne kadar mesafede?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'Bumex Garage, Ankara Bahçelievler Prof. Muammer Aksoy Caddesi (eski 2. Cadde) No: 48 adresindedir. 7. Cadde\'ye (Aşkabat Caddesi) sadece 350 metre yürüme mesafesinde yer almaktadır.',
+              text: 'Bumex Garage, Ankara Bahçelievler Prof. Muammer Aksoy Caddesi (eski 2. Cadde) No: 48 adresindedir. 7. Cadde\'ye (Aşkabat Caddesi) yürüme mesafesinde yer almaktadır.',
             },
           },
           {
@@ -221,7 +221,7 @@ export function StructuredData() {
             name: 'Bumex Garage eski Supark Otopark ve Yıkama lokasyonunda mı?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'Evet. Bumex Garage, daha önce Han-gar, Sonax Würth ve Supark Otopark ve Yıkama olarak hizmet vermiş olan Prof. Muammer Aksoy Cad. No: 48 adresinde tamamen yenilenmiş premium stüdyo altyapısıyla hizmet vermektedir.',
+              text: 'Evet. Bumex Garage, daha önce SONAX WÜRTH BAHÇELİEVLER ÇANKAYA OTOPARK (2., 3. VE 7. CADDE YAKINI) OTO YIKAMA – KOLTUK YIKAMA – PASTA CİLA adıyla Prof. Muammer Aksoy Cd. No: 48/A, 06490 Bahçelievler / Ankara adresinde faaliyet gösteren, Supark Otopark ve Yıkama ile Han-gar olarak da tanınan işletmeyle aynı fiziksel lokasyonda yer almaktadır. Yenilenmiş ekipmanları ve Bumex Garage güvencesiyle hizmet vermektedir.',
             },
           },
           {

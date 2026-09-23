@@ -280,7 +280,7 @@ const SERVICES: ServiceItem[] = [
   {
     id: 'moto-cekici-hizmeti',
     title: 'Motosiklet Çekici & Özel Taşıma (Çok Yakında)',
-    subtitle: 'Özel ön teker sabitleme beşiği ve 4 noktalı askı aparatlarıyla atölye randevulu bakım ve transfer durumları için hazırlanan taşıma altyapısı.',
+    subtitle: 'Özel ön teker sabitleme beşiği ve 4 noktalı askı aparatlarıyla tamirhane randevulu bakım ve transfer durumları için hazırlanan taşıma altyapısı.',
     category: 'Motosiklet Mekanik & Çekici',
     type: 'bike',
     icon: Truck,
@@ -366,10 +366,10 @@ export function ServicesCatalog({
             >
               {segment === 'otomobil'
                 ? detailed
-                  ? 'Resmi Otomobil Hizmet Kartelası & Modüler Servis Tablosu'
-                  : 'Stüdyo Amiral Gemisi Hizmetlerimiz'
+                  ? 'Öne Çıkan Hizmetlerimiz'
+                  : 'Öne Çıkan Hizmetlerimiz'
                 : detailed
-                  ? 'Resmi Motosiklet Hizmet & Servis Kartelası'
+                  ? 'Motosiklet Detailing & Bakım Hizmetlerimiz'
                   : 'Motosiklet Detailing & Bakım Hizmetlerimiz'}
             </span>
           </div>
@@ -385,8 +385,8 @@ export function ServicesCatalog({
           >
             {segment === 'otomobil'
               ? detailed
-                ? 'Bahçelievler stüdyomuzda paket harici tekil ihtiyaçlarınız ve komple stüdyo uygulamalarımız için mikron boya restorasyonu, PPF kaplama, 9H nano seramik, detaylı oto kuaför ve 12+ kalem şeffaf atölye birim hizmetleri.'
-                : 'Bahçelievler stüdyomuzda icra edilen en popüler ana hizmetlerimiz. Tüm modüler ve parça bazlı işlemler için detaylı kartelamızı ziyaret edebilirsiniz.'
+                ? 'Bahçelievler işletmemizde tekil ihtiyaçlarınız için mikron boya restorasyonu, PPF kaplama, 9H nano seramik, detaylı oto kuaför ve 12+ kalem şeffaf birim hizmetleri.'
+                : 'Bahçelievler işletmemizde icra edilen en popüler ana hizmetlerimiz. Tüm modüler ve parça bazlı işlemler için detaylı kartelamızı ziyaret edebilirsiniz.'
               : detailed
                 ? 'Hassas motosiklet detailing, 9H seramik, periyodik bakım (yağ, filtre, varyatör, zincir), mekanik arıza onarımı ve hazırlık aşamasındaki transfer desteği.'
                 : 'Hassas motosiklet detailing, 9H seramik ve grenaj koruma hizmetlerimiz. Tüm servis kalemleri için detaylı kartelayı inceleyin.'}
@@ -529,7 +529,7 @@ export function ServicesCatalog({
             >
               <span>
                 {segment === 'otomobil'
-                  ? 'Tüm 25+ Atölye Hizmetini ve Detaylı Servis Tablosunu İncele'
+                  ? 'Tüm 25+ Tamirhane Hizmetini ve Detaylı Servis Tablosunu İncele'
                   : 'Tüm Motosiklet Hizmetlerini ve Servis Tablosunu İncele'}
               </span>
               <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />

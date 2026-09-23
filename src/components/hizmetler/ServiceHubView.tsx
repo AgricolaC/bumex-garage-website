@@ -194,7 +194,7 @@ export function ServiceHubView({ service }: ServiceHubViewProps) {
               Teknik Ölçüm ve Malzeme Kriterleri
             </h2>
             <p className={`text-xs sm:text-sm mt-2 ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}`}>
-              Bumex Garage Bahçelievler atölyemizde uygulanan tüm materyaller mikron düzeyinde test
+              Bumex Garage Bahçelievler tamirhanemizde uygulanan tüm materyaller mikron düzeyinde test
               edilerek uygulanır.
             </p>
           </div>
@@ -233,10 +233,10 @@ export function ServiceHubView({ service }: ServiceHubViewProps) {
               <span>Standart Çalışma Prosedürü</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-black tracking-tight mt-1">
-              4 Aşamalı Atölye Protokolü
+              4 Aşamalı Tamirhane Protokolü
             </h2>
             <p className={`text-xs sm:text-sm mt-3 ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}`}>
-              Her araç stüdyomuza kabul edildiğinde standart kontrol listesi eşliğinde adım adım
+              Her araç işletmemize teslim alındığında standart kontrol listesi eşliğinde adım adım
               işleme alınır.
             </p>
           </div>
@@ -387,10 +387,10 @@ export function ServiceHubView({ service }: ServiceHubViewProps) {
         >
           <div className="max-w-2xl mx-auto">
             <span className="text-xs font-black uppercase tracking-widest text-[#1E3A8A] dark:text-[#60A5FA] mb-2 block">
-              Bahçelievler 7. Cadde&apos;ye 350 Metre
+              Bahçelievler 7. Cadde&apos;ye Yürüme Mesafesinde
             </span>
             <h2 className="text-2xl sm:text-4xl font-black tracking-tight">
-              Aracınızı Stüdyomuza Getirin, Mikron Analiziyle İnceleyelim
+              Aracınızı İşletmemize Getirin, Mikron Analiziyle İnceleyelim
             </h2>
             <p className={`mt-3 text-xs sm:text-sm leading-relaxed ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}`}>
               İşlem öncesinde vernik kalınlığı dijital cihazlarla ölçülür, size en uygun koruma
