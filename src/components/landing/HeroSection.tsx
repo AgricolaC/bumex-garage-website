@@ -138,15 +138,22 @@ export function HeroSection({ theme }: HeroSectionProps) {
 
       {/* ─── 2. ANA HERO İÇERİĞİ VE KONTROL MASASI ─── */}
       <div className="relative z-10 max-w-6xl mx-auto w-full px-4 sm:px-8 py-12 sm:py-16 lg:py-20">
-        {/* Üst Segment Seçici Deck (Commanding Studio Switcher) */}
-        <div className="max-w-xl mb-8">
+        {/* Üst Segment Seçici Deck (Mechanical Gear-Shift Switcher) */}
+        <div className="max-w-xl mb-6">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#1E3A8A] animate-pulse" />
+            <span className="text-[11px] font-mono tracking-widest uppercase text-zinc-400">
+              06 // BUMEX · BAHÇELİEVLER ATÖLYE
+            </span>
+          </div>
+
           <div
             role="tablist"
             aria-label="Tamirhane Uzmanlık Segmenti"
-            className={`p-1.5 rounded-2xl inline-flex flex-wrap items-center gap-1.5 border shadow-xl backdrop-blur-md transition-colors duration-200 ${
+            className={`p-1 rounded-xl inline-flex flex-wrap items-center gap-1 border shadow-xl backdrop-blur-md transition-colors duration-200 ${
               isCream
-                ? 'bg-white/85 border-black/10 text-[#0D0D0D]'
-                : 'bg-black/60 border-white/15 text-white'
+                ? 'bg-white/90 border-black/10 text-[#111215]'
+                : 'bg-black/75 border-white/15 text-white'
             }`}
           >
             {/* 01 OTOMOBİL BUTONU */}
@@ -155,41 +162,41 @@ export function HeroSection({ theme }: HeroSectionProps) {
               role="tab"
               aria-selected={segment === 'otomobil'}
               onClick={() => handleSelectSegment('otomobil')}
-              className={`flex items-center gap-2.5 px-5 py-3 rounded-xl font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#1E3A8A] cursor-pointer ${
+              className={`btn-mechanical flex items-center gap-2 px-4 py-2.5 rounded-lg font-bold text-xs uppercase tracking-wider transition-all duration-150 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#1E3A8A] cursor-pointer ${
                 segment === 'otomobil'
-                  ? 'bg-[#1E3A8A] text-white shadow-lg shadow-[#1E3A8A]/40 scale-[1.02]'
+                  ? 'bg-[#1E3A8A] text-white shadow-md shadow-[#1E3A8A]/40'
                   : isCream
-                    ? 'text-[#4A4746] hover:bg-black/5 hover:text-black'
-                    : 'text-[#B0B6BD] hover:bg-white/10 hover:text-white'
+                    ? 'text-[#5A5D66] hover:bg-black/5 hover:text-black'
+                    : 'text-[#8E94A0] hover:bg-white/10 hover:text-white'
               }`}
             >
-              <Car className="w-4 h-4 shrink-0" />
+              <Car className="w-3.5 h-3.5 shrink-0" />
               <span>01 Otomobil Servisi</span>
             </button>
 
-            {/* 02 MOTOSİKLET BUTONU (Kırmızı yerine tam mavi palet) */}
+            {/* 02 MOTOSİKLET BUTONU */}
             <button
               type="button"
               role="tab"
               aria-selected={segment === 'motosiklet'}
               onClick={() => handleSelectSegment('motosiklet')}
-              className={`flex items-center gap-2.5 px-5 py-3 rounded-xl font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#1E3A8A] cursor-pointer ${
+              className={`btn-mechanical flex items-center gap-2 px-4 py-2.5 rounded-lg font-bold text-xs uppercase tracking-wider transition-all duration-150 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#1E3A8A] cursor-pointer ${
                 segment === 'motosiklet'
-                  ? 'bg-[#1E3A8A] text-white shadow-lg shadow-[#1E3A8A]/40 scale-[1.02]'
+                  ? 'bg-[#1E3A8A] text-white shadow-md shadow-[#1E3A8A]/40'
                   : isCream
-                    ? 'text-[#4A4746] hover:bg-black/5 hover:text-black'
-                    : 'text-[#B0B6BD] hover:bg-white/10 hover:text-white'
+                    ? 'text-[#5A5D66] hover:bg-black/5 hover:text-black'
+                    : 'text-[#8E94A0] hover:bg-white/10 hover:text-white'
               }`}
             >
-              <Bike className="w-4 h-4 shrink-0" />
+              <Bike className="w-3.5 h-3.5 shrink-0" />
               <span>02 Motosiklet Servisi</span>
             </button>
           </div>
         </div>
 
-        {/* Tipografi ve Manşet (Split Hero Yüksek Kontrastı & Drop Shadow) */}
+        {/* Tipografi ve Manşet (Calibrated Posture & High Contrast) */}
         <div className="max-w-3xl mb-8">
-          <h1 className="text-3xl sm:text-4xl lg:text-[46px] font-black tracking-tight uppercase leading-[1.12]">
+          <h1 className="text-3xl sm:text-4xl lg:text-[46px] font-semibold tracking-tight uppercase leading-[1.12]">
             <span
               key={`title-${segment}`}
               className="block transition-all duration-300 text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]"
@@ -200,18 +207,18 @@ export function HeroSection({ theme }: HeroSectionProps) {
 
           <p
             key={`sub-${segment}`}
-            className="mt-4 text-sm sm:text-base lg:text-lg font-medium leading-relaxed max-w-2xl transition-opacity duration-300 text-zinc-200 drop-shadow-[0_1px_4px_rgba(0,0,0,0.85)]"
+            className="mt-4 text-sm sm:text-base lg:text-lg font-normal leading-relaxed max-w-2xl transition-opacity duration-300 text-zinc-300 drop-shadow-[0_1px_4px_rgba(0,0,0,0.85)]"
           >
             {currentPillar.subtitle}
           </p>
         </div>
 
-        {/* Eylem Butonları: Masaüstünde Hat Arama, Mobilde Keşif & WhatsApp Odaklı */}
+        {/* Eylem Butonları: Tactile Socket-Wrench Buttons with .btn-mechanical */}
         <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-8">
-          {/* Birincil Hat Arama Butonu (Masaüstü & Tablet; Mobilde Persistent Bottom Call Bar mevcut) */}
+          {/* Birincil Hat Arama Butonu (Masaüstü & Tablet) */}
           <a
             href={`tel:${phone}`}
-            className="hidden sm:inline-flex items-center justify-center gap-2.5 text-white font-black text-xs sm:text-sm px-6 py-4 rounded-xl shadow-xl transition transform hover:-translate-y-0.5 active:translate-y-0 bg-[#1E3A8A] hover:bg-[#1D4ED8] shadow-[#1E3A8A]/35"
+            className="btn-mechanical hidden sm:inline-flex items-center justify-center gap-2.5 text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl shadow-xl bg-[#1E3A8A] hover:bg-[#1D4ED8] shadow-[#1E3A8A]/35"
           >
             <Phone className="w-4 h-4" />
             <span>
@@ -219,10 +226,10 @@ export function HeroSection({ theme }: HeroSectionProps) {
             </span>
           </a>
 
-          {/* Hızlı Tamirhane Fiyatları ve Paketler (Mobilde Birincil Keşif Butonu) */}
+          {/* Hızlı Tamirhane Fiyatları ve Paketler */}
           <a
             href="#fiyatlar"
-            className="inline-flex items-center justify-center gap-2 font-black text-xs sm:text-sm px-6 py-4 rounded-xl border border-white/30 bg-black/70 hover:bg-black/90 text-white transition backdrop-blur-md shadow-lg"
+            className="btn-mechanical inline-flex items-center justify-center gap-2 font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl border border-white/25 bg-black/75 hover:bg-black/90 text-white backdrop-blur-md shadow-lg"
           >
             <span>Fiyatları &amp; Paketleri İncele</span>
             <ChevronDown className="w-4 h-4 text-[#60A5FA]" />
@@ -233,7 +240,7 @@ export function HeroSection({ theme }: HeroSectionProps) {
             href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappDefaultMessage)}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 bg-[#1FAD4E] hover:bg-[#25C058] text-white font-bold text-xs sm:text-sm px-6 py-4 rounded-xl shadow-md transition transform hover:-translate-y-0.5 active:translate-y-0"
+            className="btn-mechanical inline-flex items-center justify-center gap-2 bg-[#1FAD4E] hover:bg-[#25C058] text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl shadow-md"
           >
             <MessageCircle className="w-4 h-4" />
             <span>WhatsApp Randevu &amp; Bilgi</span>

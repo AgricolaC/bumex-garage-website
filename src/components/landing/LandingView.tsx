@@ -43,7 +43,7 @@ export function LandingView({ initialSegment }: { initialSegment?: WorkshopSegme
   return (
     <div
       className={`min-h-screen transition-colors duration-200 landing-theme-${theme} ${
-        isCream ? 'bg-[#E8E3DF] text-[#0D0D0D]' : 'bg-[#1B1D20] text-[#F4F4F5]'
+        isCream ? 'bg-[#EFECE6] text-[#111215]' : 'bg-[#0C0D10] text-[#F4F3EF]'
       }`}
     >
         {/* Üst Bar ve Segment-Duyarlı Navigasyon */}

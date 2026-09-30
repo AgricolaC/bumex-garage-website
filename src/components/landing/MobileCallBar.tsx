@@ -18,8 +18,8 @@ export function MobileCallBar({ theme }: MobileCallBarProps) {
     <div
       className={`fixed bottom-0 left-0 right-0 z-40 md:hidden px-3 pt-2.5 pb-[max(0.75rem,env(safe-area-inset-bottom))] border-t backdrop-blur-lg shadow-2xl transition-colors duration-200 ${
         isCream
-          ? 'bg-[#E8E3DF]/95 border-[#6C6A6B]/20'
-          : 'bg-[#181A1D]/95 border-white/10'
+          ? 'bg-[#EFECE6]/95 border-[#686D7A]/15'
+          : 'bg-[#0C0D10]/95 border-white/10'
       }`}
     >
       <div className="grid grid-cols-2 gap-2.5">
@@ -28,16 +28,16 @@ export function MobileCallBar({ theme }: MobileCallBarProps) {
           href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappDefaultMessage)}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-1.5 bg-[#1FAD4E] hover:bg-[#25C058] text-white font-bold text-xs py-3 px-2 rounded-xl shadow-sm transition active:scale-95"
+          className="btn-mechanical flex items-center justify-center gap-1.5 bg-[#1FAD4E] hover:bg-[#25C058] text-white font-bold text-xs py-3 px-2 rounded-xl shadow-sm transition active:scale-95"
         >
           <MessageCircle className="w-4 h-4 shrink-0" />
           <span>WhatsApp</span>
         </a>
 
-        {/* Segmente Özel Doğrudan Arama Butonu (Daima Royal Blue) */}
+        {/* Segmente Özel Doğrudan Arama Butonu (Royal Blue) */}
         <a
           href={`tel:${phone}`}
-          className="flex items-center justify-center gap-1.5 text-white font-bold text-xs py-3 px-2 rounded-xl shadow-md transition active:scale-95 bg-[#1E3A8A] hover:bg-[#1D4ED8] shadow-[#1E3A8A]/30"
+          className="btn-mechanical flex items-center justify-center gap-1.5 text-white font-bold text-xs py-3 px-2 rounded-xl shadow-md transition active:scale-95 bg-[#1E3A8A] hover:bg-[#1D4ED8] shadow-[#1E3A8A]/30"
         >
           <Phone className="w-4 h-4 shrink-0" />
           <span>{phoneDisplay}</span>

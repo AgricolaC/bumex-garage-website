@@ -25,7 +25,7 @@ export function useLandingTheme() {
       root.classList.remove('cream-mode');
       root.style.colorScheme = 'dark';
       if (body) {
-        body.style.backgroundColor = '#1B1D20';
+        body.style.backgroundColor = '#0C0D10';
         body.style.color = '#F4F4F5';
       }
     } else {
@@ -33,7 +33,7 @@ export function useLandingTheme() {
       root.classList.add('cream-mode');
       root.style.colorScheme = 'light';
       if (body) {
-        body.style.backgroundColor = '#E8E3DF';
+        body.style.backgroundColor = '#EFECE6';
         body.style.color = '#0D0D0D';
       }
     }

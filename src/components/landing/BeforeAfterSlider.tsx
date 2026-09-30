@@ -428,44 +428,28 @@ export function BeforeAfterSlider({
       id="restorasyon"
       className={`py-20 px-4 sm:px-8 border-b transition-colors duration-200 ${
         isCream
-          ? 'bg-[#E3DED9] border-[#6C6A6B]/20 text-[#0D0D0D]'
-          : 'bg-[#181A1D] border-white/10 text-white'
+          ? 'bg-[#EFECE6] border-[#686D7A]/15 text-[#111215]'
+          : 'bg-[#0C0D10] border-white/10 text-white'
       }`}
     >
       <div className="max-w-6xl mx-auto">
-        {/* Başlık Alanı */}
+        {/* Başlık Alanı - Anti-Cliché (No Eyebrow Kickers, Calibrated Posture) */}
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2 bg-[#1E3A8A]/10 text-[#1E3A8A] dark:text-[#60A5FA]">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>
-              {segment === 'otomobil'
-                ? detailed
-                  ? 'Gerçek Otomobil Tamirhane Uygulamaları'
-                  : 'Restorasyon Vitrini'
-                : detailed
-                  ? 'Gerçek Motosiklet Detailing Uygulamaları'
-                  : 'Motosiklet Detailing Vitrini'}
-            </span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-black tracking-tight mt-1">
-            Gözle Görülür Dönüşüm: Öncesi ve Sonrası
+          <h2 className="text-3xl sm:text-4xl font-medium tracking-tight">
+            Metal yorulur. Biz dinlendiririz.
           </h2>
           <p
             className={`text-sm sm:text-base mt-3 ${
-              isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
+              isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'
             }`}
           >
             {segment === 'otomobil'
-              ? detailed
-                ? 'Bahçelievler tamirhanemizde tamamlanan gerçek otomobil uygulamalarını inceleyin. İnteraktif kaydırıcı ile yüzey temizliği ve boya koruma farkını canlı görün.'
-                : 'Bahçelievler işletmemizde tamamlanan gerçek boya koruma ve temizlik farkını interaktif kaydırıcı ile deneyimleyin.'
-              : detailed
-                ? 'Hassas motosiklet detailing ve grenaj yenileme çalışmalarımız. Tazyiksiz kuru buhar ve özenli polisaj ile ilk günkü temizliğine tanık olun.'
-                : 'Motosikletler için tazyiksiz kuru buhar ve özenli grenaj bakımı.'}
+              ? 'Bahçelievler atölyemizde tamamlanan yüzey temizliği ve boya yenileme sonuçları. İnteraktif kaydırıcı ile farkı görün.'
+              : 'Motosikletler için tazyiksiz kuru buhar ve hassas grenaj yenileme sonuçları.'}
           </p>
         </div>
 
-        {/* Dönüşüm Kategori Sekmeleri (Yalnızca Detaylı Modda ve birden fazla öğe varsa göster) */}
+        {/* Dönüşüm Kategori Sekmeleri (Tactile Mechanical Buttons) */}
         {detailed && availableItems.length > 1 && (
           <div className="flex items-center justify-center gap-2 flex-wrap mb-8">
             {availableItems.map((item) => {
@@ -477,12 +461,12 @@ export function BeforeAfterSlider({
                     setActiveTabId(item.id);
                     setSliderPosition(50);
                   }}
-                  className={`px-3.5 py-2 rounded-xl text-xs font-extrabold transition cursor-pointer active:scale-95 border ${
+                  className={`btn-mechanical px-3.5 py-2 rounded-xl text-xs font-bold transition-all duration-150 cursor-pointer border ${
                     isActive
                       ? 'bg-[#1E3A8A] text-white border-[#1E3A8A] shadow-md shadow-[#1E3A8A]/25'
                       : isCream
-                        ? 'bg-white/80 border-[#6C6A6B]/20 text-[#0D0D0D] hover:bg-white'
-                        : 'bg-[#222529] border-white/10 text-[#C4C9D0] hover:text-white hover:bg-white/5'
+                        ? 'bg-white/80 border-[#686D7A]/15 text-[#111215] hover:bg-white'
+                        : 'bg-[#141519] border-white/10 text-[#C4C9D0] hover:text-white hover:bg-white/5'
                   }`}
                 >
                   {item.tabLabel}
@@ -777,7 +761,7 @@ export function BeforeAfterSlider({
           <div className="mt-12 text-center">
             <Link
               href="/galeri"
-              className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-black text-sm sm:text-base text-white bg-[#1E3A8A] hover:bg-[#1D4ED8] shadow-xl shadow-[#1E3A8A]/30 transition transform hover:-translate-y-0.5 active:translate-y-0 group cursor-pointer"
+              className="btn-mechanical inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-bold text-sm sm:text-base text-white bg-[#1E3A8A] hover:bg-[#1D4ED8] shadow-xl shadow-[#1E3A8A]/30 group cursor-pointer"
             >
               <span>
                 {segment === 'otomobil'

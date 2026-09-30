@@ -111,34 +111,23 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
       id="konum"
       className={`py-20 px-4 sm:px-8 border-b transition-colors duration-200 ${
         isCream
-          ? 'bg-[#F2EDE9] border-[#6C6A6B]/20 text-[#0D0D0D]'
-          : 'bg-[#151618] border-white/10 text-white'
+          ? 'bg-[#EFECE6] border-[#686D7A]/15 text-[#111215]'
+          : 'bg-[#0C0D10] border-white/10 text-white'
       }`}
     >
       <div className="max-w-6xl mx-auto">
-        {/* Başlık Alanı */}
+        {/* Başlık Alanı - Anti-Cliché (No Eyebrow Kickers, Calibrated Posture) */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
-            <div className="flex items-center gap-2 mb-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#1E3A8A]" />
-              <span
-                className={`text-xs font-bold uppercase tracking-wider ${
-                  isCream ? 'text-[#6C6A6B]' : 'text-[#9DA3AA]'
-                }`}
-              >
-                Google İşletme Profilimiz
-              </span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-black tracking-tight">
-              Bumex Garage Bahçelievler
+            <h2 className="text-3xl sm:text-4xl font-medium tracking-tight">
+              Kapı her zaman açık.
             </h2>
             <p
               className={`text-sm sm:text-base mt-2 max-w-xl ${
-                isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
+                isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'
               }`}
             >
-              Prof. Muammer Aksoy Caddesi (2. Cadde) No: 48 adresinde hizmetinizdeyiz. Canlı Google
-              Haritalar puanımızı inceleyin veya tek tıkla yol tarifi alın.
+              Bahçelievler Prof. Muammer Aksoy Caddesi (2. Cadde) No: 48. Doğrulanmış Google yorumlarımız ve canlı yol tarifi.
             </p>
           </div>
 
@@ -147,7 +136,7 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
             href="https://maps.app.goo.gl/UGsfYD1ZUdB7L5w4A"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white font-bold text-xs sm:text-sm px-5 py-3 rounded-xl shadow-md transition shrink-0 active:scale-95"
+            className="btn-mechanical inline-flex items-center gap-2 bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white font-bold text-xs sm:text-sm px-5 py-3 rounded-xl shadow-md shrink-0"
           >
             <span>Google Haritalar&apos;da Aç</span>
             <ExternalLink className="w-4 h-4" />
@@ -179,7 +168,7 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
             {/* Konum Bilgi Şeridi */}
             <div
               className={`p-4 sm:p-5 rounded-2xl border grid sm:grid-cols-3 gap-4 text-xs ${
-                isCream ? 'bg-white border-[#6C6A6B]/20' : 'bg-[#222529] border-white/10'
+                isCream ? 'bg-white border-[#686D7A]/15' : 'bg-[#141519] border-white/10'
               }`}
             >
               <div className="flex items-start gap-2.5">
@@ -191,7 +180,7 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition underline decoration-dotted ${
-                      isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
+                      isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'
                     }`}
                   >
                     Prof. Muammer Aksoy Cad. No: 48, Bahçelievler
@@ -203,7 +192,7 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
                 <Clock className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
                 <div>
                   <span className="font-bold block">Çalışma Saatleri</span>
-                  <span className={isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}>
+                  <span className={isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'}>
                     10:00 – 22:00 (Her Gün Açık)
                   </span>
                 </div>
@@ -214,7 +203,7 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
                   href="https://www.google.com/maps/dir/?api=1&destination=BUMEX+GARAGE+BAH%C3%87EL%C4%B0EVLER&destination_place_id=ChIJlQLz8WJP0xQR5ahmG3GTF88"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-1.5 bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white font-bold py-2 px-3 rounded-xl transition shadow-sm active:scale-95 text-center"
+                  className="btn-mechanical inline-flex items-center justify-center gap-1.5 bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white font-bold py-2 px-3 rounded-xl shadow-sm text-center"
                 >
                   <Navigation className="w-3.5 h-3.5" />
                   <span>Yol Tarifi Al</span>
@@ -226,7 +215,7 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
           {/* Sağ Kolon: Doğrulanmış Google Değerlendirmeleri ve Müşteri Deneyimleri (5 Kolon) */}
           <div
             className={`lg:col-span-5 p-6 sm:p-7 rounded-2xl border shadow-lg flex flex-col justify-between ${
-              isCream ? 'bg-white border-[#6C6A6B]/20 text-[#0D0D0D]' : 'bg-[#222529] border-white/10 text-white'
+              isCream ? 'bg-white border-[#686D7A]/15 text-[#111215]' : 'bg-[#141519] border-white/10 text-white'
             }`}
           >
             <div>
@@ -289,14 +278,14 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
                   className={`pointer-events-none absolute inset-x-0 top-0 h-8 z-10 bg-gradient-to-b ${
                     isCream
                       ? 'from-white via-white/80 to-transparent'
-                      : 'from-[#222529] via-[#222529]/80 to-transparent'
+                      : 'from-[#141519] via-[#141519]/80 to-transparent'
                   }`}
                 />
                 <div
                   className={`pointer-events-none absolute inset-x-0 bottom-0 h-8 z-10 bg-gradient-to-t ${
                     isCream
                       ? 'from-white via-white/80 to-transparent'
-                      : 'from-[#222529] via-[#222529]/80 to-transparent'
+                      : 'from-[#141519] via-[#141519]/80 to-transparent'
                   }`}
                 />
 
@@ -307,15 +296,15 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
                       key={`${rev.id}-${idx}`}
                       className={`p-3.5 rounded-xl border text-xs transition-colors ${
                         isCream
-                          ? 'bg-[#F9F7F5] hover:bg-[#EFEBE6] border-[#6C6A6B]/15'
-                          : 'bg-[#1A1C1F] hover:bg-[#202328] border-white/5'
+                          ? 'bg-[#F9F7F5] hover:bg-[#EFEBE6] border-[#686D7A]/15'
+                          : 'bg-[#181A20] hover:bg-[#1E2026] border-white/5'
                       }`}
                     >
                       <div className="flex items-center justify-between mb-1.5">
                         <div className="flex items-center gap-1.5">
                           <span className="font-bold">{rev.name}</span>
                           <GoogleVerifiedTick className="w-3.5 h-3.5 shrink-0" />
-                          <span className="text-[10px] text-[#6C6A6B]">
+                          <span className="text-[10px] text-[#686D7A]">
                             · {isMounted ? formatRelativeTime(rev.date) : rev.defaultTimeAgo}
                           </span>
                         </div>
@@ -327,7 +316,7 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
                       </div>
                       <p
                         className={`text-[11px] leading-relaxed italic ${
-                          isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
+                          isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'
                         }`}
                       >
                         &ldquo;{rev.text}&rdquo;
@@ -344,7 +333,7 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
                 href="https://maps.app.goo.gl/UGsfYD1ZUdB7L5w4A"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3 px-4 rounded-xl bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md shadow-[#1E3A8A]/25 transition active:scale-95"
+                className="btn-mechanical w-full py-3 px-4 rounded-xl bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md shadow-[#1E3A8A]/25"
               >
                 <MessageSquareQuote className="w-4 h-4" />
                 <span>Google&apos;daki Tüm Değerlendirmeleri Oku (60+)</span>
@@ -355,9 +344,9 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
                 href="https://search.google.com/local/writereview?placeid=ChIJlQLz8WJP0xQR5ahmG3GTF88"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`w-full py-2.5 px-4 rounded-xl border text-xs font-bold flex items-center justify-center gap-1.5 transition ${
+                className={`btn-mechanical w-full py-2.5 px-4 rounded-xl border text-xs font-bold flex items-center justify-center gap-1.5 ${
                   isCream
-                    ? 'border-[#6C6A6B]/30 hover:bg-black/5 text-[#0D0D0D]'
+                    ? 'border-[#686D7A]/30 hover:bg-black/5 text-[#111215]'
                     : 'border-white/15 hover:bg-white/10 text-white'
                 }`}
               >

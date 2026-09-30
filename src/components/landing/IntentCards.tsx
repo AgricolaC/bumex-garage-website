@@ -101,31 +101,21 @@ export function IntentCards({ theme }: IntentCardsProps) {
       }`}
     >
       <div className="max-w-6xl mx-auto">
-        {/* Başlık Alanı */}
+        {/* Başlık Alanı - Anti-Cliché (No Eyebrow Kickers, Calibrated Posture) */}
         <div className="max-w-2xl mb-10 sm:mb-12">
-          <div className="flex items-center gap-2 mb-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#1E3A8A]" />
-            <span
-              className={`text-xs font-bold uppercase tracking-wider ${
-                isCream ? 'text-[#6C6A6B]' : 'text-[#9DA3AA]'
-              }`}
-            >
-              Aracınızın İhtiyacı Ne?
-            </span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-black tracking-tight">
-            Altı Temel İhtiyaç, Tek Tamirhane Standardı.
+          <h2 className="text-3xl sm:text-4xl font-medium tracking-tight">
+            Neye ihtiyacın olduğunu en iyi araban bilir.
           </h2>
           <p
-            className={`text-sm sm:text-base mt-2 leading-relaxed ${
-              isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
+            className={`text-sm sm:text-base mt-3 leading-relaxed ${
+              isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'
             }`}
           >
-            Bahçelievler işletmemizde aracınız veya motosikletiniz için doğru çözüme doğrudan ulaşın.
+            Gereksiz işlemler ve şişirilmiş maliyetler yok. Bahçelievler atölyemizde doğrudan ihtiyaca yönelik net çözümler.
           </p>
         </div>
 
-        {/* 6 Niyet Kartı Izgarası */}
+        {/* 6 Niyet Kartı Izgarası (Tactile Machine Cards) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {INTENT_ITEMS.map((item) => {
             const Icon = item.icon;
@@ -134,37 +124,37 @@ export function IntentCards({ theme }: IntentCardsProps) {
               <Link
                 key={item.id}
                 href={item.href}
-                className={`group p-6 rounded-2xl border transition-all duration-200 flex flex-col justify-between hover:-translate-y-1 ${
+                className={`btn-mechanical group p-6 rounded-2xl border flex flex-col justify-between transition-all duration-150 ${
                   isCream
-                    ? 'bg-white/90 border-[#6C6A6B]/20 hover:border-[#1E3A8A] hover:shadow-lg'
-                    : 'bg-[#222529] border-white/10 hover:border-[#2563EB] hover:shadow-xl hover:shadow-[#1E3A8A]/10'
+                    ? 'bg-white border-[#686D7A]/15 hover:border-[#1E3A8A] hover:shadow-lg'
+                    : 'bg-[#141519] border-white/10 hover:border-[#2563EB] hover:shadow-xl hover:shadow-[#1E3A8A]/10'
                 }`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-extrabold tracking-widest text-[#1E3A8A] dark:text-[#60A5FA]">
+                    <span className="text-xs font-mono font-bold tracking-widest text-[#1E3A8A] dark:text-[#60A5FA]">
                       {item.step} // {item.title}
                     </span>
 
                     <div className="flex items-center gap-2">
                       {item.badge && (
-                        <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded bg-[#1E3A8A]/10 text-[#1E3A8A] dark:text-[#60A5FA] border border-[#1E3A8A]/20">
+                        <span className="text-[10px] font-mono font-bold uppercase px-2 py-0.5 rounded bg-[#1E3A8A]/10 text-[#1E3A8A] dark:text-[#60A5FA] border border-[#1E3A8A]/20">
                           {item.badge}
                         </span>
                       )}
-                      <div className="w-9 h-9 rounded-xl flex items-center justify-center bg-[#1E3A8A]/10 text-[#1E3A8A] dark:text-[#60A5FA] group-hover:bg-[#1E3A8A] group-hover:text-white transition-colors duration-200">
+                      <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-[#1E3A8A]/10 text-[#1E3A8A] dark:text-[#60A5FA] group-hover:bg-[#1E3A8A] group-hover:text-white transition-colors duration-150">
                         <Icon className="w-4 h-4" />
                       </div>
                     </div>
                   </div>
 
-                  <h3 className="text-lg font-bold tracking-tight mb-1 group-hover:text-[#1E3A8A] dark:group-hover:text-[#60A5FA] transition-colors">
+                  <h3 className="text-base font-semibold tracking-tight mb-1 group-hover:text-[#1E3A8A] dark:group-hover:text-[#60A5FA] transition-colors">
                     {item.desc}
                   </h3>
 
                   <p
                     className={`text-xs ${
-                      isCream ? 'text-[#6C6A6B]' : 'text-[#9DA3AA]'
+                      isCream ? 'text-[#686D7A]' : 'text-[#8E94A0]'
                     }`}
                   >
                     {item.subtext}

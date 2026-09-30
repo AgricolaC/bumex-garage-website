@@ -33,45 +33,34 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
     <section
       id="fiyatlar"
       className={`py-20 px-4 sm:px-8 border-b transition-colors duration-200 ${
-        isCream ? 'bg-[#E8E3DF] border-[#6C6A6B]/20 text-[#0D0D0D]' : 'bg-[#1B1D20] border-white/10 text-white'
+        isCream ? 'bg-[#EFECE6] border-[#686D7A]/15 text-[#111215]' : 'bg-[#0C0D10] border-white/10 text-white'
       }`}
     >
       <div className="max-w-6xl mx-auto">
-        {/* Başlık Alanı */}
+        {/* Başlık Alanı - Anti-Cliché (No Eyebrow Kickers, Calibrated Posture) */}
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 mb-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#1E3A8A]" />
-            <span
-              className={`text-xs font-bold uppercase tracking-wider ${
-                isCream ? 'text-[#6C6A6B]' : 'text-[#9DA3AA]'
-              }`}
-            >
-              Paketler &amp; Fiyat Listesi
-            </span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-black tracking-tight">
-            Şeffaf Taban Fiyat Politikası
+          <h2 className="text-3xl sm:text-4xl font-medium tracking-tight">
+            Akıl almaz detay, akılcı fiyatlar.
           </h2>
           <p
             className={`text-sm sm:text-base mt-2 ${
-              isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
+              isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'
             }`}
           >
-            Sürpriz ek maliyetler yok. Otomobil ve motosikletiniz için ihtiyacınıza uygun bakım ve onarım
-            paketini seçebilir, tek tıkla peron ve servis randevusu alabilirsiniz.
+            Sürpriz ek maliyetler ve gereksiz kalemler yok. Otomobil ve motosikletiniz için net taban fiyatlar, şeffaf atölye işçiliği.
           </p>
 
-          {/* Sekme Değiştirici (Otomobil / Motosiklet - Daima Royal Blue) */}
+          {/* Sekme Değiştirici (Otomobil / Motosiklet - Gear-Shift Style) */}
           <div className="mt-8 inline-flex p-1.5 rounded-2xl bg-black/5 dark:bg-white/10 border border-black/10 dark:border-white/15 gap-1.5 shadow-inner">
             <button
               type="button"
               onClick={() => setSegment('otomobil')}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition duration-200 cursor-pointer ${
+              className={`btn-mechanical flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all duration-150 cursor-pointer ${
                 activeTab === 'car'
                   ? 'bg-[#1E3A8A] text-white shadow-md shadow-[#1E3A8A]/30'
                   : isCream
-                  ? 'text-[#565352] hover:text-[#0D0D0D]'
-                  : 'text-[#9DA3AA] hover:text-white'
+                  ? 'text-[#5A5D66] hover:text-[#111215]'
+                  : 'text-[#8E94A0] hover:text-white'
               }`}
             >
               <Car className="w-4 h-4" />
@@ -82,18 +71,18 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
               type="button"
               id="motosiklet"
               onClick={() => setSegment('motosiklet')}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition duration-200 relative cursor-pointer ${
+              className={`btn-mechanical flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all duration-150 relative cursor-pointer ${
                 activeTab === 'bike'
                   ? 'bg-[#1E3A8A] text-white shadow-md shadow-[#1E3A8A]/30'
                   : isCream
-                  ? 'text-[#565352] hover:text-[#0D0D0D]'
-                  : 'text-[#9DA3AA] hover:text-white'
+                  ? 'text-[#5A5D66] hover:text-[#111215]'
+                  : 'text-[#8E94A0] hover:text-white'
               }`}
             >
               <Bike className="w-4 h-4" />
               <span>Motosiklet Tamirhanesi</span>
-              <span className="text-[10px] bg-[#1E3A8A] text-white px-2 py-0.5 rounded font-extrabold shadow-sm">
-                ÖZEL TAMİRHANE
+              <span className="text-[10px] font-mono bg-[#1E3A8A] text-white px-2 py-0.5 rounded font-bold shadow-sm">
+                ÖZEL ATÖLYE
               </span>
             </button>
           </div>
@@ -102,30 +91,30 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
         {/* ─── TAB 1: OTOMOBİL PAKETLERİ ─── */}
         {activeTab === 'car' && (
           <div className="space-y-12 animate-in fade-in duration-200">
-            {/* 3 Ana Otomobil Paketi */}
+            {/* 3 Ana Otomobil Paketi (Workshop Work-Order Manifests) */}
             <div className="grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
               {/* Paket 1: Standart Yıkama & Cila */}
               <div
-                className={`p-6 sm:p-7 rounded-2xl flex flex-col justify-between border shadow-md transition duration-200 hover:-translate-y-1 ${
-                  isCream ? 'bg-white border-[#6C6A6B]/20' : 'bg-[#222529] border-white/10'
+                className={`btn-mechanical p-6 sm:p-7 rounded-2xl flex flex-col justify-between border shadow-md transition-all duration-150 ${
+                  isCream ? 'bg-white border-[#686D7A]/15' : 'bg-[#141519] border-white/10'
                 }`}
               >
                 <div>
-                  <div className="flex items-center gap-2 mb-2 text-xs font-extrabold uppercase tracking-wider text-[#6C6A6B]">
+                  <div className="flex items-center gap-2 mb-2 text-xs font-mono font-bold uppercase tracking-wider text-[#686D7A] dark:text-[#8E94A0]">
                     <Droplets className={`w-4 h-4 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                    Start Temel Temizlik
+                    01 // TEMEL BAKIM
                   </div>
 
-                  <h3 className="text-xl font-black tracking-tight">Start Paket Yıkama</h3>
+                  <h3 className="text-xl font-bold tracking-tight">Start Paket Yıkama</h3>
 
                   <div className="my-4">
-                    <span className="text-3xl sm:text-4xl font-black tracking-tight">800 ₺</span>
-                    <span className="text-xs text-[#6C6A6B] block mt-1">/ başlayan taban fiyat</span>
+                    <span className="text-3xl sm:text-4xl font-mono font-bold tracking-tight">800 ₺</span>
+                    <span className="text-xs font-mono text-[#686D7A] dark:text-[#8E94A0] block mt-1">/ net taban fiyat</span>
                   </div>
 
                   <p
                     className={`text-xs sm:text-sm leading-relaxed mb-6 ${
-                      isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
+                      isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'
                     }`}
                   >
                     pH nötr aktif kar köpüğü, çift kova grit-guard silimi ve hidrofobik polimer cila ile boyayı
@@ -165,7 +154,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-3 px-4 rounded-xl bg-[#1FAD4E] hover:bg-[#25C058] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm transition active:scale-95"
+                    className="btn-mechanical w-full py-3 px-4 rounded-xl bg-[#1FAD4E] hover:bg-[#25C058] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm transition active:scale-95"
                   >
                     <MessageCircle className="w-4 h-4" />
                     <span>WhatsApp ile Randevu Al</span>
@@ -173,32 +162,32 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                 </div>
               </div>
 
-              {/* Paket 2: VIP Kuaför, Buhar & Motor (Featured) */}
+              {/* Paket 2: VIP Kuaför, Buhar & Motor (Featured Manifest) */}
               <div
-                className={`p-6 sm:p-7 rounded-2xl flex flex-col justify-between relative shadow-xl border-2 transition duration-200 hover:-translate-y-1 ${
-                  isCream ? 'bg-white border-[#1E3A8A]' : 'bg-[#222529] border-[#2563EB]'
+                className={`btn-mechanical p-6 sm:p-7 rounded-2xl flex flex-col justify-between relative shadow-xl border-2 transition-all duration-150 ${
+                  isCream ? 'bg-white border-[#1E3A8A]' : 'bg-[#141519] border-[#1E3A8A] ring-1 ring-[#1E3A8A]/30'
                 }`}
               >
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#1E3A8A] text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full shadow-md">
-                  ★ En Çok Tercih Edilen
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#1E3A8A] text-white text-[10px] font-mono font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-md">
+                  ★ EN ÇOK TERCİH EDİLEN
                 </div>
 
                 <div>
-                  <div className={`flex items-center gap-2 mb-2 text-xs font-extrabold uppercase tracking-wider ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`}>
+                  <div className={`flex items-center gap-2 mb-2 text-xs font-mono font-bold uppercase tracking-wider ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`}>
                     <Sparkles className="w-4 h-4" />
-                    Kapsamlı Restorasyon & Hijyen
+                    02 // KAPSAMLI RESTORASYON & HİJYEN
                   </div>
 
-                  <h3 className="text-xl font-black tracking-tight">VIP Kuaför, Buhar & Motor</h3>
+                  <h3 className="text-xl font-bold tracking-tight">VIP Kuaför, Buhar & Motor</h3>
 
                   <div className="my-4">
-                    <span className={`text-3xl sm:text-4xl font-black tracking-tight ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`}>3.000 ₺</span>
-                    <span className="text-xs text-[#6C6A6B] block mt-1">/ başlayan taban fiyat</span>
+                    <span className={`text-3xl sm:text-4xl font-mono font-bold tracking-tight ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`}>3.000 ₺</span>
+                    <span className="text-xs font-mono text-[#686D7A] dark:text-[#8E94A0] block mt-1">/ net taban fiyat</span>
                   </div>
 
                   <p
                     className={`text-xs sm:text-sm leading-relaxed mb-6 ${
-                      isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
+                      isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'
                     }`}
                   >
                     Koltuklar, taban-tavan halıları, buharlı menfez temizliği, ozonla koku giderme ve dielektrik
@@ -235,7 +224,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                   <button
                     type="button"
                     onClick={() => onOpenModal('motor')}
-                    className={`w-full py-2.5 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 border transition ${
+                    className={`btn-mechanical w-full py-2.5 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 border transition ${
                       isCream
                         ? 'border-[#1E3A8A]/30 text-[#1E3A8A] hover:bg-[#1E3A8A]/5'
                         : 'border-white/20 text-white hover:bg-white/10'
@@ -251,7 +240,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-3 px-4 rounded-xl bg-[#1FAD4E] hover:bg-[#25C058] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition active:scale-95"
+                    className="btn-mechanical w-full py-3 px-4 rounded-xl bg-[#1FAD4E] hover:bg-[#25C058] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition active:scale-95"
                   >
                     <MessageCircle className="w-4 h-4" />
                     <span>WhatsApp ile Randevu Al</span>
@@ -261,31 +250,31 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
 
               {/* Paket 3: Detailing, PPF & Seramik */}
               <div
-                className={`p-6 sm:p-7 rounded-2xl flex flex-col justify-between border shadow-md transition duration-200 hover:-translate-y-1 ${
-                  isCream ? 'bg-white border-[#6C6A6B]/20' : 'bg-[#222529] border-white/10'
+                className={`btn-mechanical p-6 sm:p-7 rounded-2xl flex flex-col justify-between border shadow-md transition-all duration-150 ${
+                  isCream ? 'bg-white border-[#686D7A]/15' : 'bg-[#141519] border-white/10'
                 }`}
               >
                 <div>
-                  <div className="flex items-center gap-2 mb-2 text-xs font-extrabold uppercase tracking-wider text-[#6C6A6B]">
+                  <div className="flex items-center gap-2 mb-2 text-xs font-mono font-bold uppercase tracking-wider text-[#686D7A] dark:text-[#8E94A0]">
                     <Shield className={`w-4 h-4 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                    İncelemeye Dayalı Özel Proje
+                    03 // ÖZEL PROJE
                   </div>
 
-                  <h3 className="text-xl font-black tracking-tight">Boya Restorasyonu, PPF & 9H Seramik</h3>
+                  <h3 className="text-xl font-bold tracking-tight">Boya Restorasyonu, PPF & 9H Seramik</h3>
 
                   <div className="my-4">
-                    <span className="text-2xl sm:text-3xl font-black tracking-tight text-[#1E3A8A] dark:text-[#60A5FA]">
+                    <span className="text-2xl sm:text-3xl font-mono font-bold tracking-tight text-[#1E3A8A] dark:text-[#60A5FA]">
                       Ücretsiz Ekspertiz
                     </span>
-                    <span className="text-xs text-[#6C6A6B] block mt-1">/ Araç Durumu & İhtiyaca Göre Özel Teklif</span>
+                    <span className="text-xs font-mono text-[#686D7A] dark:text-[#8E94A0] block mt-1">/ Duruma Göre Şeffaf Teklif</span>
                   </div>
 
                   <p
                     className={`text-xs sm:text-sm leading-relaxed mb-6 ${
-                      isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
+                      isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'
                     }`}
                   >
-                    Sabit paket yerine araca özel çalışma: Mikron vernik analizi, panel ölçüleri ve mevcut çizik durumuna göre tamirhanemizde incelenerek sürprizsiz net teklif belirlenir.
+                    Sabit paket yerine araca özel çalışma: Mikron vernik analizi, panel ölçüleri ve mevcut çizik durumuna göre atölyemizde incelenerek sürprizsiz net teklif belirlenir.
                   </p>
 
                   <div className="w-full h-[1px] bg-black/5 dark:bg-white/10 mb-5" />
@@ -318,7 +307,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                   <button
                     type="button"
                     onClick={() => onOpenModal('detailing')}
-                    className={`w-full py-2.5 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 border transition ${
+                    className={`btn-mechanical w-full py-2.5 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 border transition ${
                       isCream
                         ? 'border-[#1E3A8A]/30 text-[#1E3A8A] hover:bg-[#1E3A8A]/5'
                         : 'border-white/20 text-white hover:bg-white/10'
@@ -334,7 +323,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-3 px-4 rounded-xl bg-[#1FAD4E] hover:bg-[#25C058] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition active:scale-95"
+                    className="btn-mechanical w-full py-3 px-4 rounded-xl bg-[#1FAD4E] hover:bg-[#25C058] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition active:scale-95"
                   >
                     <MessageCircle className="w-4 h-4" />
                     <span>WhatsApp ile Ekspertiz İste</span>
@@ -343,12 +332,12 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
               </div>
             </div>
 
-            {/* Şeffaf Fiyatlandırma ve Self-Qualification Bilgilendirme Kutusu (Strateji C) */}
+            {/* Şeffaf Fiyatlandırma Bilgilendirme Kutusu */}
             <div
               className={`mt-8 p-5 sm:p-6 rounded-2xl border text-xs sm:text-sm leading-relaxed flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 ${
                 isCream
-                  ? 'bg-white/90 border-[#1E3A8A]/20 text-[#0D0D0D]'
-                  : 'bg-[#222529]/80 border-white/10 text-zinc-300'
+                  ? 'bg-white border-[#1E3A8A]/20 text-[#111215]'
+                  : 'bg-[#141519] border-white/10 text-zinc-300'
               }`}
             >
               <div className="space-y-1 max-w-3xl">
@@ -356,8 +345,8 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                   <span>💡</span>
                   <span>Fiyatlandırma Politikamız (Sabit Bakım vs. Özel Proje Ayrımı)</span>
                 </div>
-                <p className={isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}>
-                  Yıkama ve kuaför gibi düzenli bakım işlemleri standart taban fiyatlıdır (Hatchback baz alınır; SUV ve büyük segmentlerde işçilik süresine göre ölçeklenir). PPF kaplama, boya restorasyonu ve seramik gibi yüksek zanaat gerektiren projeler ise aracınızın boya kalınlığı ve panel durumu incelenmeden ezbere fiyatlandırılamaz; tamirhanemizde ücretsiz mikron ekspertizi sonrası karşılıklı teyit edilir.
+                <p className={isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'}>
+                  Yıkama ve kuaför gibi düzenli bakım işlemleri standart taban fiyatlıdır (Hatchback baz alınır; SUV ve büyük segmentlerde işçilik süresine göre ölçeklenir). PPF kaplama, boya restorasyonu ve seramik gibi yüksek zanaat gerektiren projeler ise aracınızın boya kalınlığı ve panel durumu incelenmeden ezbere fiyatlandırılamaz; atölyemizde ücretsiz mikron ekspertizi sonrası karşılıklı teyit edilir.
                 </p>
               </div>
 
@@ -367,7 +356,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="shrink-0 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white font-bold text-xs shadow-md transition active:scale-95"
+                className="btn-mechanical shrink-0 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white font-bold text-xs shadow-md transition active:scale-95"
               >
                 <MessageCircle className="w-3.5 h-3.5" />
                 <span>Modeliniz İçin Fiyat Sorun</span>
@@ -423,8 +412,8 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
             {/* BÖLÜM 1: 3 Resmi Motosiklet Yıkama, Detailing & Koruma Paketi */}
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#1E3A8A]" />
-                <h4 className="text-lg font-black tracking-tight uppercase">
+                <span className="w-2 h-2 rounded-full bg-[#1E3A8A]" />
+                <h4 className="text-base font-bold tracking-tight uppercase text-zinc-300">
                   1. Motosiklet Yıkama &amp; Detailing Paketleri
                 </h4>
               </div>
@@ -432,28 +421,28 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
               <div className="grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
                 {/* 1. START PAKET - Temel Bakım */}
                 <div
-                  className={`p-6 sm:p-7 rounded-2xl flex flex-col justify-between border shadow-md transition duration-200 hover:-translate-y-1 ${
-                    isCream ? 'bg-white border-[#6C6A6B]/20' : 'bg-[#222529] border-white/10'
+                  className={`btn-mechanical p-6 sm:p-7 rounded-2xl flex flex-col justify-between border shadow-md transition-all duration-150 ${
+                    isCream ? 'bg-white border-[#686D7A]/15' : 'bg-[#141519] border-white/10'
                   }`}
                 >
                   <div>
                     <div className="flex items-center justify-between mb-2">
-                      <span className="w-7 h-7 rounded-full bg-[#1E3A8A] text-white flex items-center justify-center font-black text-xs">
+                      <span className="w-6 h-6 rounded-md bg-[#1E3A8A] text-white flex items-center justify-center font-mono font-bold text-xs">
                         1
                       </span>
-                      <span className="text-[11px] font-bold text-[#6C6A6B] uppercase tracking-wider">
-                        Temel Bakım
+                      <span className="text-[11px] font-mono font-bold text-[#686D7A] dark:text-[#8E94A0] uppercase tracking-wider">
+                        TEMEL BAKIM
                       </span>
                     </div>
 
-                    <h4 className="text-xl font-black tracking-tight">START PAKET</h4>
-                    <p className={`text-xs font-bold mt-1 mb-2 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`}>
+                    <h4 className="text-lg font-bold tracking-tight">START PAKET</h4>
+                    <p className={`text-xs font-semibold mt-1 mb-2 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`}>
                       Hızlı ve Uygun Fiyatlı Temizlik
                     </p>
 
                     <div className="my-3">
-                      <span className="text-2xl sm:text-3xl font-black tracking-tight">800 ₺</span>
-                      <span className="text-xs text-[#6C6A6B] block mt-0.5">/ başlayan taban fiyat</span>
+                      <span className="text-2xl sm:text-3xl font-mono font-bold tracking-tight">800 ₺</span>
+                      <span className="text-xs font-mono text-[#686D7A] dark:text-[#8E94A0] block mt-0.5">/ net taban fiyat</span>
                     </div>
 
                     <div className="w-full h-[1px] bg-black/5 dark:bg-white/10 mb-4" />
@@ -500,7 +489,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-3 px-4 rounded-xl bg-[#1FAD4E] hover:bg-[#25C058] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm transition active:scale-95"
+                    className="btn-mechanical w-full py-3 px-4 rounded-xl bg-[#1FAD4E] hover:bg-[#25C058] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm transition active:scale-95"
                   >
                     <MessageCircle className="w-4 h-4" />
                     <span>WhatsApp ile Randevu Al</span>
@@ -509,36 +498,36 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
 
                 {/* 2. PRO PAKET - Detaylı Temizlik ve Yenileme */}
                 <div
-                  className={`p-6 sm:p-7 rounded-2xl flex flex-col justify-between border shadow-md transition duration-200 hover:-translate-y-1 relative overflow-hidden ${
+                  className={`btn-mechanical p-6 sm:p-7 rounded-2xl flex flex-col justify-between border shadow-md transition-all duration-150 relative overflow-hidden ${
                     isCream
                       ? 'bg-white border-[#1E3A8A]/30 ring-2 ring-[#1E3A8A]/20'
-                      : 'bg-[#222529] border-[#2563EB]/40 ring-2 ring-[#2563EB]/20'
+                      : 'bg-[#141519] border-[#1E3A8A] ring-1 ring-[#1E3A8A]/30'
                   }`}
                 >
-                  <div className="absolute top-0 right-0 bg-[#1E3A8A] text-white text-[10px] font-black uppercase px-3 py-1 rounded-bl-xl tracking-wider">
+                  <div className="absolute top-0 right-0 bg-[#1E3A8A] text-white text-[10px] font-mono font-bold uppercase px-3 py-1 rounded-bl-xl tracking-wider">
                     EN ÇOK TERCİH EDİLEN
                   </div>
 
                   <div>
                     <div className="mb-4">
-                      <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded bg-amber-500/20 text-amber-600 dark:text-amber-400">
+                      <span className="text-[10px] font-mono font-bold uppercase px-2 py-0.5 rounded bg-amber-500/20 text-amber-600 dark:text-amber-400">
                         ORTA SEVİYE
                       </span>
-                      <h5 className="text-xl font-black tracking-tight mt-2">Motosiklet Pro Paket</h5>
-                      <p className={`text-xs mt-1 ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}`}>
+                      <h5 className="text-xl font-bold tracking-tight mt-2">Motosiklet Pro Paket</h5>
+                      <p className={`text-xs mt-1 ${isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'}`}>
                         Derinlemesine temizlik, zincir bakımı ve mekanik yenileme.
                       </p>
                     </div>
 
                     <div className="my-5 p-4 rounded-xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5">
                       <div className="flex items-baseline gap-1">
-                        <span className="text-3xl font-black tracking-tight text-[#1E3A8A] dark:text-[#60A5FA]">
+                        <span className="text-3xl font-mono font-bold tracking-tight text-[#1E3A8A] dark:text-[#60A5FA]">
                           2.500
                         </span>
                         <span className="text-sm font-bold">₺</span>
-                        <span className="text-xs text-[#6C6A6B] ml-1">&apos;den başlayan</span>
+                        <span className="text-xs font-mono text-[#686D7A] dark:text-[#8E94A0] ml-1">&apos;den başlayan</span>
                       </div>
-                      <span className="text-[11px] text-[#6C6A6B] block mt-1">
+                      <span className="text-[11px] text-[#686D7A] dark:text-[#8E94A0] block mt-1">
                         Scooter, Naked, Enduro, Racing segmentlerine göre değişir
                       </span>
                     </div>
@@ -593,7 +582,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-3 px-4 rounded-xl bg-[#1FAD4E] hover:bg-[#25C058] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition active:scale-95"
+                    className="btn-mechanical w-full py-3 px-4 rounded-xl bg-[#1FAD4E] hover:bg-[#25C058] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition active:scale-95"
                   >
                     <MessageCircle className="w-4 h-4" />
                     <span>WhatsApp ile Randevu Al</span>
@@ -602,30 +591,30 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
 
                 {/* 3. PREMIUM DETAILING */}
                 <div
-                  className={`p-6 sm:p-7 rounded-2xl flex flex-col justify-between border shadow-md transition duration-200 hover:-translate-y-1 ${
-                    isCream ? 'bg-white border-[#6C6A6B]/20' : 'bg-[#222529] border-white/10'
+                  className={`btn-mechanical p-6 sm:p-7 rounded-2xl flex flex-col justify-between border shadow-md transition-all duration-150 ${
+                    isCream ? 'bg-white border-[#686D7A]/15' : 'bg-[#141519] border-white/10'
                   }`}
                 >
                   <div>
                     <div className="mb-4">
-                      <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded bg-purple-500/20 text-purple-600 dark:text-purple-400">
+                      <span className="text-[10px] font-mono font-bold uppercase px-2 py-0.5 rounded bg-purple-500/20 text-purple-600 dark:text-purple-400">
                         SHOWROOM KALİTESİ
                       </span>
-                      <h5 className="text-xl font-black tracking-tight mt-2">Motosiklet Premium Detailing</h5>
-                      <p className={`text-xs mt-1 ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}`}>
+                      <h5 className="text-xl font-bold tracking-tight mt-2">Motosiklet Premium Detailing</h5>
+                      <p className={`text-xs mt-1 ${isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'}`}>
                         Sıfır kilometre kondisyonu: Hare giderme, polisaj ve koruma.
                       </p>
                     </div>
 
                     <div className="my-5 p-4 rounded-xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5">
                       <div className="flex items-baseline gap-1">
-                        <span className="text-3xl font-black tracking-tight text-[#1E3A8A] dark:text-[#60A5FA]">
+                        <span className="text-3xl font-mono font-bold tracking-tight text-[#1E3A8A] dark:text-[#60A5FA]">
                           5.000
                         </span>
                         <span className="text-sm font-bold">₺</span>
-                        <span className="text-xs text-[#6C6A6B] ml-1">&apos;den başlayan</span>
+                        <span className="text-xs font-mono text-[#686D7A] dark:text-[#8E94A0] ml-1">&apos;den başlayan</span>
                       </div>
-                      <span className="text-[11px] text-[#6C6A6B] block mt-1">
+                      <span className="text-[11px] text-[#686D7A] dark:text-[#8E94A0] block mt-1">
                         Boya durumu, grenaj sayısı ve seramik opsiyonuna göre belirlenir
                       </span>
                     </div>

@@ -18,8 +18,8 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
     <footer
       className={`pt-16 pb-24 md:pb-16 px-4 sm:px-8 border-t transition-colors duration-200 ${
         isCream
-          ? 'bg-[#DDD7D2] border-[#6C6A6B]/20 text-[#0D0D0D]'
-          : 'bg-[#121315] border-white/10 text-white'
+          ? 'bg-[#E4E0D7] border-[#686D7A]/15 text-[#111215]'
+          : 'bg-[#0A0B0D] border-white/10 text-white'
       }`}
     >
       <div className="max-w-6xl mx-auto">
@@ -35,7 +35,7 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
             </Link>
             <p
               className={`text-xs sm:text-sm leading-relaxed max-w-sm ${
-                isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
+                isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'
               }`}
             >
               Ankara Bahçelievler&apos;in seçkin otomobil ve motosikletlerine mikron seviyesinde boya
@@ -45,7 +45,7 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
             <div className="pt-2 flex flex-wrap gap-2.5">
               <a
                 href="tel:05524703610"
-                className="inline-flex items-center gap-1.5 bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white text-xs font-bold px-4 py-2 rounded shadow transition active:scale-95"
+                className="btn-mechanical inline-flex items-center gap-1.5 bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white text-xs font-bold px-4 py-2 rounded-lg shadow transition active:scale-95"
               >
                 <Phone className="w-3.5 h-3.5" />
                 <span>0552 470 36 10</span>
@@ -54,7 +54,7 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
                 href="https://wa.me/905524703610?text=Merhaba%20Bumex%20Garage,%20bilgi%20almak%20istiyorum"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 bg-[#1FAD4E] hover:bg-[#25C058] text-white text-xs font-bold px-4 py-2 rounded transition active:scale-95"
+                className="btn-mechanical inline-flex items-center gap-1.5 bg-[#1FAD4E] hover:bg-[#25C058] text-white text-xs font-bold px-4 py-2 rounded-lg transition active:scale-95"
               >
                 <MessageCircle className="w-3.5 h-3.5" />
                 <span>WhatsApp Destek</span>

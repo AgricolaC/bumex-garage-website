@@ -43,8 +43,8 @@ export function ProtocolModals({ activeModal, onClose, theme }: ProtocolModalsPr
       <div
         className={`w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl p-6 sm:p-8 shadow-2xl border relative transition-colors duration-200 ${
           isCream
-            ? 'bg-white border-[#6C6A6B]/30 text-[#0D0D0D]'
-            : 'bg-[#222529] border-white/15 text-white'
+            ? 'bg-white border-[#686D7A]/15 text-[#111215]'
+            : 'bg-[#141519] border-white/15 text-white'
         }`}
         onClick={(e) => e.stopPropagation()}
       >

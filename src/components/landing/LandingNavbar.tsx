@@ -45,8 +45,8 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
       <div
         className={`py-2 px-4 sm:px-8 text-xs transition-colors duration-200 border-b ${
           isCream
-            ? 'bg-[#DDD7D2] text-[#3D3A39] border-[#6C6A6B]/20'
-            : 'bg-[#141517] text-[#9EA4AB] border-white/10'
+            ? 'bg-[#E4E0D7] text-[#111215] border-[#686D7A]/15'
+            : 'bg-[#0A0B0D] text-[#8E94A0] border-white/10'
         }`}
       >
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-2.5">
@@ -143,8 +143,8 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
       <nav
         className={`sticky top-0 z-40 backdrop-blur-md border-b transition-colors duration-200 ${
           isCream
-            ? 'bg-[#E8E3DF]/95 border-[#6C6A6B]/20 text-[#0D0D0D]'
-            : 'bg-[#1B1D20]/95 border-white/10 text-white'
+            ? 'bg-[#EFECE6]/95 border-[#686D7A]/15 text-[#111215]'
+            : 'bg-[#0C0D10]/95 border-white/10 text-white'
         }`}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-8 py-3 flex items-center justify-between gap-4">
@@ -204,7 +204,7 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
           <div className="flex items-center gap-2.5 shrink-0">
             <a
               href={`tel:${phone}`}
-              className="hidden sm:inline-flex items-center gap-1.5 text-white text-xs font-black px-3.5 py-2 sm:px-4 sm:py-2 rounded-lg shadow-md transition active:scale-95 bg-[#1E3A8A] hover:bg-[#1D4ED8] shadow-[#1E3A8A]/25"
+              className="btn-mechanical hidden sm:inline-flex items-center gap-1.5 text-white text-xs font-bold px-3.5 py-2 sm:px-4 sm:py-2 rounded-lg shadow-md bg-[#1E3A8A] hover:bg-[#1D4ED8] shadow-[#1E3A8A]/25"
             >
               <Phone className="w-3.5 h-3.5" />
               <span>{phoneDisplay}</span>
@@ -214,9 +214,9 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`lg:hidden p-2 rounded-lg border transition cursor-pointer ${
+              className={`btn-mechanical lg:hidden p-2 rounded-lg border transition cursor-pointer ${
                 isCream
-                  ? 'bg-black/5 border-black/10 text-[#0D0D0D] hover:bg-black/10'
+                  ? 'bg-black/5 border-black/10 text-[#111215] hover:bg-black/10'
                   : 'bg-white/10 border-white/15 text-white hover:bg-white/20'
               }`}
               aria-label={mobileMenuOpen ? 'Menüyü Kapat' : 'Menüyü Aç'}
@@ -231,8 +231,8 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
           <div
             className={`lg:hidden border-t px-4 py-4 transition-colors duration-200 ${
               isCream
-                ? 'bg-[#E8E3DF] border-[#6C6A6B]/20 text-[#0D0D0D]'
-                : 'bg-[#1B1D20] border-white/10 text-white'
+                ? 'bg-[#EFECE6] border-[#686D7A]/15 text-[#111215]'
+                : 'bg-[#0C0D10] border-white/10 text-white'
             }`}
           >
             <div className="flex flex-col gap-2 text-xs font-bold uppercase tracking-wider">

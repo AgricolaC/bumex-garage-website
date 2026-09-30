@@ -59,31 +59,21 @@ export function ProcessSection({ theme }: ProcessSectionProps) {
       }`}
     >
       <div className="max-w-6xl mx-auto">
-        {/* Bölüm Başlığı */}
+        {/* Bölüm Başlığı - Anti-Cliché (No Eyebrow Kickers, Calibrated Posture) */}
         <div className="max-w-2xl mb-12">
-          <div className="flex items-center gap-2 mb-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#1E3A8A]" />
-            <span
-              className={`text-xs font-bold uppercase tracking-wider ${
-                isCream ? 'text-[#6C6A6B]' : 'text-[#9DA3AA]'
-              }`}
-            >
-              Şeffaf ve Güvenilir İş Akışı
-            </span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-black tracking-tight">
-            Aracınızı Bize Bırakın.
+          <h2 className="text-3xl sm:text-4xl font-medium tracking-tight">
+            Anahtarı bırak, gerisini unut.
           </h2>
           <p
-            className={`text-sm sm:text-base mt-2 leading-relaxed ${
-              isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
+            className={`text-sm sm:text-base mt-3 leading-relaxed ${
+              isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'
             }`}
           >
-            Bahçelievler işletmemizde teslim aldığımız andan itibaren tüm süreç planlı, kontrollü ve şeffaftır.
+            Bahçelievler atölyemize adım attığınız andan itibaren her adım planlı, sakin ve şeffaf.
           </p>
         </div>
 
-        {/* 4 İnsani Adım Izgarası */}
+        {/* 4 İnsani Adım Izgarası (Machine Step Cards) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12">
           {PROCESS_STEPS.map((item) => {
             const Icon = item.icon;
@@ -91,15 +81,15 @@ export function ProcessSection({ theme }: ProcessSectionProps) {
             return (
               <div
                 key={item.step}
-                className={`p-6 rounded-2xl border flex flex-col justify-between transition duration-200 ${
+                className={`p-6 rounded-2xl border flex flex-col justify-between transition-all duration-150 ${
                   isCream
-                    ? 'bg-white/95 border-[#6C6A6B]/20'
-                    : 'bg-[#1F2226] border-white/10'
+                    ? 'bg-white border-[#686D7A]/15 text-[#111215]'
+                    : 'bg-[#141519] border-white/10 text-white'
                 }`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-2xl font-black text-[#1E3A8A] dark:text-[#60A5FA]">
+                    <span className="text-xl font-mono font-semibold text-[#1E3A8A] dark:text-[#60A5FA]">
                       {item.step}
                     </span>
                     <div className="w-8 h-8 rounded-lg bg-[#1E3A8A]/10 text-[#1E3A8A] dark:text-[#60A5FA] flex items-center justify-center">
@@ -107,13 +97,13 @@ export function ProcessSection({ theme }: ProcessSectionProps) {
                     </div>
                   </div>
 
-                  <h3 className="text-base font-bold tracking-tight mb-2">
+                  <h3 className="text-sm font-bold tracking-tight mb-2 uppercase">
                     {item.title}
                   </h3>
 
                   <p
                     className={`text-xs leading-relaxed ${
-                      isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
+                      isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'
                     }`}
                   >
                     {item.desc}

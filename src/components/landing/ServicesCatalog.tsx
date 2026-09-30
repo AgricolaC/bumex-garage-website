@@ -350,8 +350,8 @@ export function ServicesCatalog({
       id="hizmetler"
       className={`py-20 px-4 sm:px-8 border-b transition-colors duration-200 ${
         isCream
-          ? 'bg-[#E8E3DF] border-[#6C6A6B]/20 text-[#0D0D0D]'
-          : 'bg-[#1B1D20] border-white/10 text-white'
+          ? 'bg-[#EFECE6] border-[#686D7A]/15 text-[#111215]'
+          : 'bg-[#0C0D10] border-white/10 text-white'
       }`}
     >
       <div className="max-w-6xl mx-auto">
@@ -361,7 +361,7 @@ export function ServicesCatalog({
             <span className="w-2.5 h-2.5 rounded-full bg-[#1E3A8A]" />
             <span
               className={`text-xs font-bold uppercase tracking-wider ${
-                isCream ? 'text-[#6C6A6B]' : 'text-[#9DA3AA]'
+                isCream ? 'text-[#686D7A]' : 'text-[#8E94A0]'
               }`}
             >
               {segment === 'otomobil'
@@ -373,14 +373,14 @@ export function ServicesCatalog({
                   : 'Motosiklet Detailing & Bakım Hizmetlerimiz'}
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-medium tracking-tight">
             {segment === 'otomobil'
               ? 'Otomobil Detailing, PPF, Boya Koruma & Modüler Servis'
               : 'Motosiklet Detailing, Bakım & Mekanik Servis'}
           </h2>
           <p
             className={`text-sm sm:text-base mt-2 leading-relaxed ${
-              isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
+              isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'
             }`}
           >
             {segment === 'otomobil'
@@ -403,12 +403,12 @@ export function ServicesCatalog({
                   key={cat.id}
                   type="button"
                   onClick={() => setSelectedCategory(cat.id)}
-                  className={`px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition border cursor-pointer ${
+                  className={`btn-mechanical px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap border cursor-pointer ${
                     isSelected
                       ? 'bg-[#1E3A8A] text-white border-[#1E3A8A] shadow-md shadow-[#1E3A8A]/25'
                       : isCream
-                        ? 'bg-white/80 text-[#565352] border-[#6C6A6B]/20 hover:bg-white hover:text-[#0D0D0D]'
-                        : 'bg-[#222529] text-[#9DA3AA] border-white/10 hover:bg-[#2C3035] hover:text-white'
+                        ? 'bg-white/80 text-[#5A5D66] border-[#686D7A]/20 hover:bg-white hover:text-[#111215]'
+                        : 'bg-[#141519] text-[#8E94A0] border-white/10 hover:bg-[#1E2026] hover:text-white'
                   }`}
                 >
                   {segment === 'motosiklet' && cat.id !== 'all' && (
@@ -432,8 +432,8 @@ export function ServicesCatalog({
                 key={item.id}
                 className={`p-5 rounded-2xl border flex flex-col justify-between transition duration-200 group ${
                   isCream
-                    ? 'bg-white/85 border-[#6C6A6B]/20 hover:border-[#1E3A8A] hover:shadow-md'
-                    : 'bg-[#222529] border-white/10 hover:border-[#2563EB] hover:shadow-lg'
+                    ? 'bg-white/85 border-[#686D7A]/20 hover:border-[#1E3A8A] hover:shadow-md'
+                    : 'bg-[#141519] border-white/10 hover:border-[#2563EB] hover:shadow-lg'
                 }`}
               >
                 <div>

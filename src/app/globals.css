@@ -10,47 +10,67 @@ body {
   color: #F4F4F5;
 }
 
-/* ─── Bumex Garage Landing Page Tema Sistemi (Krem & Titanyum Grisi) ─── */
+/* ─── Bumex Garage Landing Page Tema Sistemi (Asfalt & Ham Tebeşir) ─── */
+:root {
+  --ease-mechanical: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+::selection {
+  background-color: #1E3A8A;
+  color: #FFFFFF;
+}
+
 .landing-theme-cream {
-  --l-bg-body: #E8E3DF;
-  --l-bg-surface: #F2EDE9;
+  --l-bg-body: #EFECE6;
+  --l-bg-surface: #F6F4F0;
   --l-bg-card: #FFFFFF;
-  --l-bg-elevated: #EFE9E4;
-  --l-text-main: #0D0D0D;
-  --l-text-muted: #565352;
-  --l-slate-grey: #6C6A6B;
-  --l-slate-border: rgba(108, 106, 107, 0.22);
+  --l-bg-elevated: #E8E4DC;
+  --l-text-main: #111215;
+  --l-text-muted: #5A5D66;
+  --l-slate-grey: #686D7A;
+  --l-slate-border: rgba(0, 0, 0, 0.09);
   --l-royal-blue: #1E3A8A;
   --l-royal-blue-hover: #1D4ED8;
   --l-royal-blue-badge-bg: rgba(30, 58, 138, 0.08);
   --l-bordo: #1E3A8A;
   --l-bordo-hover: #1D4ED8;
   --l-bordo-badge-bg: rgba(30, 58, 138, 0.08);
-  --l-topbar-bg: #DDD7D2;
-  --l-nav-bg: rgba(232, 227, 223, 0.94);
-  --l-shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.06);
-  --l-shadow-strong: 0 20px 45px rgba(0, 0, 0, 0.12);
+  --l-topbar-bg: #E4E0D7;
+  --l-nav-bg: rgba(239, 236, 230, 0.92);
+  --l-shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --l-shadow-strong: 0 20px 45px rgba(0, 0, 0, 0.1);
 }
 
 .landing-theme-titanium {
-  --l-bg-body: #1B1D20;
-  --l-bg-surface: #222529;
-  --l-bg-card: #26292E;
-  --l-bg-elevated: #2F3339;
-  --l-text-main: #F4F4F5;
-  --l-text-muted: #9DA3AA;
-  --l-slate-grey: #80868E;
-  --l-slate-border: rgba(255, 255, 255, 0.1);
+  --l-bg-body: #0C0D10;
+  --l-bg-surface: #141519;
+  --l-bg-card: #18191E;
+  --l-bg-elevated: #1F2128;
+  --l-text-main: #F4F3EF;
+  --l-text-muted: #8E94A0;
+  --l-slate-grey: #727885;
+  --l-slate-border: rgba(255, 255, 255, 0.08);
   --l-royal-blue: #1E3A8A;
   --l-royal-blue-hover: #2563EB;
   --l-royal-blue-badge-bg: rgba(30, 58, 138, 0.25);
   --l-bordo: #1E3A8A;
   --l-bordo-hover: #2563EB;
   --l-bordo-badge-bg: rgba(30, 58, 138, 0.25);
-  --l-topbar-bg: #151618;
-  --l-nav-bg: rgba(27, 29, 32, 0.94);
-  --l-shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.35);
-  --l-shadow-strong: 0 20px 50px rgba(0, 0, 0, 0.55);
+  --l-topbar-bg: #0A0B0D;
+  --l-nav-bg: rgba(12, 13, 16, 0.92);
+  --l-shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.45);
+  --l-shadow-strong: 0 20px 50px rgba(0, 0, 0, 0.65);
+}
+
+/* ─── Mechanical Tactile Feedback (Emil Kowalski Design Engineering) ─── */
+.btn-mechanical {
+  transition: transform 120ms cubic-bezier(0.2, 0.8, 0.2, 1), background-color 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
+  will-change: transform;
+}
+
+.btn-mechanical:active {
+  transform: scale(0.965);
 }
 
 /* ─── Floating Rolling Window (Müşteri Yorumları Kayan Pencere) ─── */
@@ -69,4 +89,17 @@ body {
 
 .animate-floating-reviews:hover {
   animation-play-state: paused;
+}
+
+/* ─── Motion Accessibility (prefers-reduced-motion) ─── */
+@media (prefers-reduced-motion: reduce) {
+  .animate-floating-reviews {
+    animation: none !important;
+  }
+  .btn-mechanical {
+    transition: none !important;
+  }
+  .btn-mechanical:active {
+    transform: none !important;
+  }
 }
