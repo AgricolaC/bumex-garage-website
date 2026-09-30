@@ -1,6 +1,6 @@
 # Bumex Garage — Resmi Web Sitesi
 
-Bumex Garage Ankara Bahçelievler premium araç bakım, mikron boya restorasyonu ve 9H seramik stüdyosunun kamuya açık vitrin web sitesidir.
+Bumex Garage Ankara Bahçelievler premium araç bakım, mikron boya restorasyonu ve 9H seramik atölyesinin kamuya açık vitrin web sitesidir.
 
 ## Özellikler
 - **Segmented Studio Router:** Otomobil (`#otomobil`) ve Motosiklet (`#motosiklet`) odaklı bağımsız vitrin, şeffaf fiyatlar ve doğrudan segmentasyon; Otopark için `/otopark` müstakil sayfası.

@@ -34,7 +34,7 @@ export const AUTOMOBILE_STUDIO_SHOTS = [
     label: 'Aktif Kar Köpüğü',
     badge: 'Ön Yıkama',
     src: '/images/hero/hero_bmw_snow_foam.jpg',
-    alt: 'Bumex Garage Detailing Stüdyosu Aktif Kar Köpüğü Ön Yıkama',
+    alt: 'Bumex Garage Detailing Atölyesi Aktif Kar Köpüğü Ön Yıkama',
     caption: 'pH Nötr Kar Köpüğü ile Fırçasız ve Çiziksiz Ön Yıkama',
   },
   {
@@ -59,7 +59,7 @@ export function HeroSection({ theme }: HeroSectionProps) {
   const { segment, setSegment, phone, phoneDisplay, whatsappNumber, whatsappDefaultMessage } =
     useWorkshopSegment();
 
-  // Otomobil stüdyo görselleri için 3 saniyelik otomatik zamanlı galeri döngüsü
+  // Otomobil atölye görselleri için 3 saniyelik otomatik zamanlı galeri döngüsü
   useEffect(() => {
     if (segment !== 'otomobil') return;
     const interval = setInterval(() => {
@@ -84,11 +84,11 @@ export function HeroSection({ theme }: HeroSectionProps) {
   return (
     <section
       className="relative min-h-[82svh] sm:min-h-[86vh] lg:min-h-[92vh] flex flex-col justify-between overflow-hidden border-b transition-colors duration-300"
-      aria-label="Bumex Garage Giriş ve Stüdyo Seçici"
+      aria-label="Bumex Garage Giriş ve Atölye Seçici"
     >
       {/* ─── 1. SİNEMATİK ARKA PLAN MEDYA GEÇİŞİ (Cross-Fade) ─── */}
       <div className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden select-none">
-        {/* Otomobil Görsel Katmanı: Gerçek Bumex Bahçelievler Detailing Stüdyosu */}
+        {/* Otomobil Görsel Katmanı: Gerçek Bumex Bahçelievler Detailing Atölyesi */}
         {AUTOMOBILE_STUDIO_SHOTS.map((shot, idx) => (
           <div
             key={shot.id}

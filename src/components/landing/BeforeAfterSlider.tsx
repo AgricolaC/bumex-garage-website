@@ -47,10 +47,53 @@ interface TransformationItem {
 
 const TRANSFORMATIONS: TransformationItem[] = [
   {
+    id: 'yamaha-mt09-camur-arindirma',
+    vehicleType: 'motosiklet',
+    tabLabel: 'Yamaha MT-09 Detailing',
+    badge: 'Bahçelievler Atölyesi • Ham Karşılaştırma',
+    title: 'Yamaha MT-09: Ağır Yol Çamuru & Detaylı Blok Arındırma',
+    description:
+      'Ağır arazi ve yol çamuru; hassas elektronik soketlere, dijital TFT ekrana ve zincir o-ringlerine zarar vermeden, tazyiksiz kuru buhar ve pH nötr aktif köpük protokolüyle tamamen arındırılır.',
+    beforeImage: '/images/before-after/moto_mt09_before.webp',
+    afterImage: '/images/before-after/moto_mt09_after.webp',
+    fullComparisonImage: '/images/before-after/moto_mt09_after.webp',
+    beforeLabel: 'Önce • Ağır Yol Çamuru & Zift',
+    afterLabel: 'Sonra • Fabrika Kondisyonu & Koruma',
+    aspectClass: 'aspect-[796/1024] max-w-md mx-auto',
+    caseStudy: {
+      vehicle: 'Yamaha MT-09 (890cc CP3)',
+      problem: 'Yoğun balçık çamur, zincir yağı kalıntıları ve grenaj matlığı',
+      application: 'Tazyiksiz kuru buhar, dielektrik soket koruma, grenaj finiş cilası ve nano koruma',
+      duration: '3 saat atölye işçiliği',
+      result: 'Elektronik aksama su basmadan sıfır kondisyona kavuşturulan CP3 blok ve parlak Icon Blue grenaj',
+      testimonial: {
+        quote: 'Motosikleti teslim aldığımda bayiden yeni çıkmış gibi parlıyordu, ellerinize sağlık.',
+        author: 'Emre K. • Yamaha MT-09',
+      },
+    },
+    highlights: [
+      {
+        icon: ShieldCheck,
+        title: 'Tazyiksiz Kuru Buhar',
+        desc: 'TFT gösterge, buji yuvaları ve sensörlere tazyikli su değdirilmeden 160°C kuru buharla arındırma.',
+      },
+      {
+        icon: Sparkles,
+        title: 'CP3 Blok & Zincir Temizliği',
+        desc: 'Üç silindirli bloğa ve salıncağa yapışan çamur ve katran asitsiz çözücülerle temizlenir.',
+      },
+      {
+        icon: Zap,
+        title: 'Grenaj Parlaklığı & Nano Kalkan',
+        desc: 'Icon Blue grenajlar çiziksiz kurulama ve nano koruyucu katmanla derin parlaklığına kavuşturulur.',
+      },
+    ],
+  },
+  {
     id: 'motosiklet-detailing',
     vehicleType: 'motosiklet',
-    tabLabel: 'Motosiklet Grenaj & Blok',
-    badge: 'Bahçelievler Stüdyosu • Hassas Motosiklet Detailing',
+    tabLabel: 'Yamaha MT-07 Detailing',
+    badge: 'Bahçelievler Atölyesi • Hassas Motosiklet Detailing',
     title: 'Yamaha MT-07: Grenaj, Blok & Zincir Restorasyonu',
     description:
       'Ağır yol çamuru, egzoz isi ve yanmış zincir yağı; hassas elektronik soketlere, dijital ekrana ve zincir o-ringlerine tazyikli su değdirilmeden, buhar ve pH nötr formüllerle fabrika kondisyonuna getirilir.',
@@ -93,7 +136,7 @@ const TRANSFORMATIONS: TransformationItem[] = [
     id: 'bmw-tam-donusum',
     vehicleType: 'otomobil',
     tabLabel: 'BMW 4 Restorasyon',
-    badge: 'Bahçelievler Stüdyosu • Ham Karşılaştırma',
+    badge: 'Bahçelievler Atölyesi • Ham Karşılaştırma',
     title: 'BMW 4 Gran Coupé: Ağır Çamur & Yüzey Temizliği',
     description:
       'Ağır yol çamuru, zift ve statik kir tabakası; boya verniğine sürtme yapılmadan aktif kar köpüğü, buharlı detay ve pH nötr yıkama protokolü ile temizlenir.',

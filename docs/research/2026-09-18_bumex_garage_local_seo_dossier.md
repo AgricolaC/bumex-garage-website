@@ -130,7 +130,7 @@ We stress-tested the interaction between the user and an external AI assistant. 
 1. **Remove "Self-Service" from GBP**: Reclassify immediately to full-service auto repair / detailing and parking.
 2. **Preserve the Listing & Place ID**: Maintain `ChIJlQLz8WJP0xQR5ahmG3GTF88` to inherit the combined prominence, review age, and click-through history.
 3. **Website Entity Bridge**: Insert a natural, machine-readable reconciliation statement in the footer/about section:
-   > *"Bumex Garage, Bahçelievler Prof. Muammer Aksoy Caddesi No: 48 adresinde (önceki Supark Otopark & Yıkama lokasyonunda) modern kapalı otopark, fırçasız oto yıkama ve 9H seramik detailing stüdyosu olarak hizmet vermektedir."*
+   > *"Bumex Garage, Bahçelievler Prof. Muammer Aksoy Caddesi No: 48 adresinde (önceki Supark Otopark & Yıkama lokasyonunda) modern kapalı otopark, fırçasız oto yıkama ve 9H seramik detailing atölyesi olarak hizmet vermektedir."*
 4. **Feed the AI Ingestion Pipes**: ChatGPT and Copilot do NOT crawl GBP directly; they crawl the **Bing Web Index and Bing Places**. Siri pulls from **Apple Business Connect**. We must register Bumex on Bing and Apple.
 
 #### CONSIDER (Phased Improvements)
@@ -343,7 +343,7 @@ Injected into the Next.js App Router root layout:
 |---|---|---|---|
 | **Otopark** | Bahçelievler kapalı otopark | Bahçelievler 2 cadde otopark, 7 caddeye yakın otopark, Beşevler otopark, Emek otopark abonelik, Ankara Bahçelievler güvenli otopark | Commercial / Navigational |
 | **Yıkama** | Bahçelievler oto yıkama | Bahçelievler fırçasız oto yıkama, Çankaya profesyonel oto yıkama, Beşevler oto kuaför, Bahçelievler detaylı iç temizlik | Transactional / Local |
-| **Detailing & Seramik** | Ankara seramik kaplama | Bahçelievler seramik kaplama, Ankara mikron boya düzeltme, Çankaya pasta cila, Bahçelievler PPF kaplama, Ankara oto detailing stüdyosu | High-Ticket Commercial |
+| **Detailing & Seramik** | Ankara seramik kaplama | Bahçelievler seramik kaplama, Ankara mikron boya düzeltme, Çankaya pasta cila, Bahçelievler PPF kaplama, Ankara oto detailing atölyesi | High-Ticket Commercial |
 | **Özel Hizmetler** | Kuru buharlı motor temizliği Ankara | Motosiklet detailing Ankara, Bahçelievler motosiklet yıkama, Lastik oteli Çankaya, Dielektrik motor koruma Ankara | High-Intent Niche |
 
 ---

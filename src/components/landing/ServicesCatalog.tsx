@@ -306,7 +306,7 @@ export function ServicesCatalog({
     );
   }, [segment]);
 
-  // Teaser modunda öne çıkarılacak amiral gemisi stüdyo hizmetleri
+  // Teaser modunda öne çıkarılacak amiral gemisi atölye hizmetleri
   const teaserServiceIds = useMemo(() => {
     if (segment === 'otomobil') {
       return ['ppf-kaplama', 'seramik-kaplama', 'pasta-cila', 'buharli-motor', 'detayli-kuafor'];

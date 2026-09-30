@@ -70,4 +70,4 @@ Following the adversarial local SEO and product review (grilling session), five 
 - `scripts/check-seo.ts` must be extended to validate all four routes.
 
 ### Neutral
-- The stüdyo switcher (`01 OTOMOBİL` / `02 MOTOSİKLET`) will seamlessly perform shallow router navigation between `/` and `/motosiklet`.
+- The atölye switcher (`01 OTOMOBİL` / `02 MOTOSİKLET`) will seamlessly perform shallow router navigation between `/` and `/motosiklet`.
