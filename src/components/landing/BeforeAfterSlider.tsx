@@ -491,6 +491,20 @@ export function BeforeAfterSlider({
               />
             </div>
 
+            {/* Sol Köşe Rozeti (Sonra) */}
+            <div className="absolute top-3 left-3 pointer-events-none z-10">
+              <span className="px-2.5 py-1 rounded-md bg-black/75 text-white font-mono text-[10px] uppercase tracking-wider backdrop-blur-md border border-white/15 shadow-sm">
+                Sonra // Temiz
+              </span>
+            </div>
+
+            {/* Sağ Köşe Rozeti (Önce) */}
+            <div className="absolute top-3 right-3 pointer-events-none z-10">
+              <span className="px-2.5 py-1 rounded-md bg-black/75 text-white font-mono text-[10px] uppercase tracking-wider backdrop-blur-md border border-white/15 shadow-sm">
+                Önce // Ham
+              </span>
+            </div>
+
             {/* Bölücü Çizgi (Royal Blue Işık) */}
             <div
               className="absolute top-0 bottom-0 w-[3px] pointer-events-none bg-[#1E3A8A] shadow-[0_0_14px_rgba(30,58,138,0.9)]"
@@ -515,6 +529,49 @@ export function BeforeAfterSlider({
               aria-label={`${activeItem.title} öncesi ve sonrası karşılaştırma kaydırıcısı`}
               className="absolute inset-0 opacity-0 cursor-ew-resize w-full h-full"
             />
+          </div>
+
+          {/* Hızlı Karşılaştırma Modu Butonları (Pürüzsüz İnceleme) */}
+          <div className="flex flex-wrap items-center justify-center gap-2 mt-3.5">
+            <button
+              type="button"
+              onClick={() => setSliderPosition(0)}
+              className={`btn-mechanical px-3 py-1.5 rounded-lg text-[11px] font-medium border transition cursor-pointer ${
+                sliderPosition === 0
+                  ? 'bg-[#1E3A8A] text-white border-[#1E3A8A] shadow-xs'
+                  : isCream
+                    ? 'bg-white/80 border-black/10 text-zinc-700 hover:text-black'
+                    : 'bg-black/40 border-white/10 text-zinc-400 hover:text-white'
+              }`}
+            >
+              Ham Hali (Önce)
+            </button>
+            <button
+              type="button"
+              onClick={() => setSliderPosition(50)}
+              className={`btn-mechanical px-3 py-1.5 rounded-lg text-[11px] font-medium border transition cursor-pointer ${
+                sliderPosition === 50
+                  ? 'bg-[#1E3A8A] text-white border-[#1E3A8A] shadow-xs'
+                  : isCream
+                    ? 'bg-white/80 border-black/10 text-zinc-700 hover:text-black'
+                    : 'bg-black/40 border-white/10 text-zinc-400 hover:text-white'
+              }`}
+            >
+              ⟺ 50/50 Bölünmüş Kaydırıcı
+            </button>
+            <button
+              type="button"
+              onClick={() => setSliderPosition(100)}
+              className={`btn-mechanical px-3 py-1.5 rounded-lg text-[11px] font-medium border transition cursor-pointer ${
+                sliderPosition === 100
+                  ? 'bg-[#1E3A8A] text-white border-[#1E3A8A] shadow-xs'
+                  : isCream
+                    ? 'bg-white/80 border-black/10 text-zinc-700 hover:text-black'
+                    : 'bg-black/40 border-white/10 text-zinc-400 hover:text-white'
+              }`}
+            >
+              Atölye Çıkışı (Sonra)
+            </button>
           </div>
 
           {/* Açıklama Metni */}
