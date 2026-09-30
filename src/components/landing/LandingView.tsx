@@ -6,7 +6,6 @@ import { useWorkshopSegment, WorkshopSegment } from '@/hooks/useWorkshopSegment'
 import { LandingNavbar } from '@/components/landing/LandingNavbar';
 import { HeroSection } from '@/components/landing/HeroSection';
 import { IntentCards } from '@/components/landing/IntentCards';
-import { BeforeAfterSlider } from '@/components/landing/BeforeAfterSlider';
 import { ProcessSection } from '@/components/landing/ProcessSection';
 import { PricingSection } from '@/components/landing/PricingSection';
 import { GoogleMapsSection } from '@/components/landing/GoogleMapsSection';
@@ -46,51 +45,48 @@ export function LandingView({ initialSegment }: { initialSegment?: WorkshopSegme
         isCream ? 'bg-[#EFECE6] text-[#111215]' : 'bg-[#0C0D10] text-[#F4F3EF]'
       }`}
     >
-        {/* Üst Bar ve Segment-Duyarlı Navigasyon */}
-        <LandingNavbar
-          theme={theme}
-          toggleTheme={toggleTheme}
-        />
+      {/* Üst Bar ve Segment-Duyarlı Navigasyon */}
+      <LandingNavbar
+        theme={theme}
+        toggleTheme={toggleTheme}
+      />
 
-        {/* Ana Gövde: 10/10 Anlatı Mimarisi (Need → Proof → Trust → Action) */}
-        <main>
-          {/* 1. Hero Vitrini & Segment Seçici: Ben doğru yerde miyim? */}
-          <HeroSection theme={theme} />
+      {/* Ana Gövde: 10/10 Anlatı Mimarisi (Need → Proof → Trust → Action) */}
+      <main>
+        {/* 1. Hero Vitrini & Segment Seçici: Ben doğru yerde miyim? */}
+        <HeroSection theme={theme} />
 
-          {/* 2. Niyet Seçici (6 İhtiyaç Kartı): Ne yaptırabilirim? */}
-          <IntentCards theme={theme} />
+        {/* 2. Niyet Seçici (6 İhtiyaç Kartı): Ne yaptırabilirim? */}
+        <IntentCards theme={theme} />
 
-          {/* 3. Öncesi & Sonrası Vaka Kanıtı: Gerçekten iyi iş çıkarıyorlar mı? */}
-          <BeforeAfterSlider theme={theme} detailed={false} />
+        {/* 3. Dört Aşamalı İnsani Süreç & Park & Wash Kolaylığı: Arabamı bunlara bırakabilir miyim? */}
+        <ProcessSection theme={theme} />
 
-          {/* 4. Dört Aşamalı İnsani Süreç & Park & Wash Kolaylığı: Arabamı bunlara bırakabilir miyim? */}
-          <ProcessSection theme={theme} />
-
-          {/* 5. Şeffaf Fiyat Listesi & Detailing / Servis Paketleri (Strateji C) */}
-          <PricingSection
-            theme={theme}
-            onOpenModal={(type) => setActiveModal(type)}
-          />
-
-          {/* 6. Google Haritalar Doğrulanmış Profil, Yorumlar & Yol Tarifi: Nasıl ulaşacağım? */}
-          <GoogleMapsSection theme={theme} />
-        </main>
-
-        {/* Altbilgi (Footer) */}
-        <LandingFooter
+        {/* 4. Şeffaf Fiyat Listesi & Detailing / Servis Paketleri (Strateji C) */}
+        <PricingSection
           theme={theme}
           onOpenModal={(type) => setActiveModal(type)}
         />
 
-        {/* Mobilde Sabit Segmente Özel Arama ve WhatsApp Barı */}
-        <MobileCallBar theme={theme} />
+        {/* 5. Google Haritalar Doğrulanmış Profil, Yorumlar & Yol Tarifi: Nasıl ulaşacağım? */}
+        <GoogleMapsSection theme={theme} />
+      </main>
 
-        {/* Bilgilendirme Protokol Modalları */}
-        <ProtocolModals
-          activeModal={activeModal}
-          onClose={() => setActiveModal(null)}
-          theme={theme}
-        />
-      </div>
+      {/* Altbilgi (Footer) */}
+      <LandingFooter
+        theme={theme}
+        onOpenModal={(type) => setActiveModal(type)}
+      />
+
+      {/* Mobilde Sabit Segmente Özel Arama ve WhatsApp Barı */}
+      <MobileCallBar theme={theme} />
+
+      {/* Bilgilendirme Protokol Modalları */}
+      <ProtocolModals
+        activeModal={activeModal}
+        onClose={() => setActiveModal(null)}
+        theme={theme}
+      />
+    </div>
   );
 }
