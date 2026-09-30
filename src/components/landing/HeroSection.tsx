@@ -1,7 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
-import Image from 'next/image';
+import React, { useEffect, useRef } from 'react';
 import {
   Phone,
   MessageCircle,
@@ -53,25 +52,20 @@ interface HeroSectionProps {
 
 export function HeroSection({ theme }: HeroSectionProps) {
   const isCream = theme === 'cream';
-  const [activeShotIndex, setActiveShotIndex] = useState(0);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const carVideoRef = useRef<HTMLVideoElement>(null);
+  const motoVideoRef = useRef<HTMLVideoElement>(null);
 
   const { segment, setSegment, phone, phoneDisplay, whatsappNumber, whatsappDefaultMessage } =
     useWorkshopSegment();
 
-  // Otomobil atölye görselleri için 3 saniyelik otomatik zamanlı galeri döngüsü
+  // Segment değişiminde otonom video oynatımı kontrolü
   useEffect(() => {
-    if (segment !== 'otomobil') return;
-    const interval = setInterval(() => {
-      setActiveShotIndex((prev) => (prev + 1) % AUTOMOBILE_STUDIO_SHOTS.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [segment]);
-
-  // Motosiklet segmentine geçildiğinde otonom video oynatımı
-  useEffect(() => {
-    if (segment === 'motosiklet' && videoRef.current) {
-      videoRef.current.play().catch(() => {
+    if (segment === 'otomobil' && carVideoRef.current) {
+      carVideoRef.current.play().catch(() => {
+        // Tarayıcı otonom oynatma politikası koruması
+      });
+    } else if (segment === 'motosiklet' && motoVideoRef.current) {
+      motoVideoRef.current.play().catch(() => {
         // Tarayıcı otonom oynatma politikası koruması
       });
     }
@@ -88,26 +82,25 @@ export function HeroSection({ theme }: HeroSectionProps) {
     >
       {/* ─── 1. SİNEMATİK ARKA PLAN MEDYA GEÇİŞİ (Cross-Fade) ─── */}
       <div className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden select-none">
-        {/* Otomobil Görsel Katmanı: Gerçek Bumex Bahçelievler Detailing Atölyesi */}
-        {AUTOMOBILE_STUDIO_SHOTS.map((shot, idx) => (
-          <div
-            key={shot.id}
-            className={`absolute inset-0 transition-opacity duration-700 ease-out ${
-              segment === 'otomobil' && activeShotIndex === idx
-                ? 'opacity-100 scale-100'
-                : 'opacity-0 scale-105'
-            } transform transition-transform duration-1000`}
+        {/* Otomobil Otonom Video Katmanı: Bumex Atölye Detailing & Restorasyon Akışı */}
+        <div
+          className={`absolute inset-0 transition-opacity duration-700 ease-out ${
+            segment === 'otomobil' ? 'opacity-100 scale-100' : 'opacity-0 scale-105 pointer-events-none'
+          } transform transition-transform duration-1000`}
+        >
+          <video
+            ref={carVideoRef}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            poster="/images/hero/hero_bmw_clean.jpg"
+            className="w-full h-full object-cover object-center"
           >
-            <Image
-              src={shot.src}
-              alt={shot.alt}
-              fill
-              priority={idx === 0}
-              sizes="100vw"
-              className="object-cover object-center"
-            />
-          </div>
-        ))}
+            <source src="/videos/car_detail_reel.mp4" type="video/mp4" />
+          </video>
+        </div>
 
         {/* Motosiklet Otonom Video Katmanı: Bumex Atölye Detailing Akışı */}
         <div
@@ -116,7 +109,7 @@ export function HeroSection({ theme }: HeroSectionProps) {
           } transform transition-transform duration-1000`}
         >
           <video
-            ref={videoRef}
+            ref={motoVideoRef}
             autoPlay
             loop
             muted
