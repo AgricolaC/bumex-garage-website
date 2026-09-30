@@ -150,17 +150,13 @@ export function HeroSection({ theme }: HeroSectionProps) {
           </video>
         </div>
 
-        {/* Sinematik Arka Plan Gradyanı: Videoyu öne çıkarmak için motosiklette kalibre edilmiş hafif tonlama */}
+        {/* Sinematik Arka Plan Gradyanı: Görseli ve videoyu öne çıkarmak için hafifletilmiş alt taban gradyanı */}
         <div
-          className={`absolute inset-0 transition-opacity duration-500 pointer-events-none ${
-            segment === 'motosiklet'
-              ? 'bg-gradient-to-t from-black/85 via-black/25 to-black/10'
-              : 'bg-gradient-to-t from-black/95 via-black/65 to-black/30 md:bg-gradient-to-r md:from-black/95 md:via-black/60 md:to-black/30'
-          }`}
+          className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/10 transition-opacity duration-500 pointer-events-none"
         />
         <div
           className={`absolute inset-0 bg-[#1E3A8A]/10 mix-blend-overlay pointer-events-none transition-opacity duration-500 ${
-            segment === 'motosiklet' ? 'opacity-30' : 'opacity-100'
+            segment === 'motosiklet' ? 'opacity-30' : 'opacity-40'
           }`}
         />
 
@@ -176,7 +172,7 @@ export function HeroSection({ theme }: HeroSectionProps) {
 
       {/* ─── 2. ANA HERO İÇERİĞİ VE KONTROL MASASI ─── */}
       <div className="relative z-10 max-w-6xl mx-auto w-full px-4 sm:px-8 py-8 sm:py-10 lg:py-12 flex flex-col justify-between flex-1">
-        {/* ÜST BAR: Segment Seçici Deck & Canlı Video Durum Rozeti */}
+        {/* ÜST BAR: Segment Seçici Deck & Telemetri Durum Rozeti */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-auto">
           <div className="max-w-xl">
             <div className="flex items-center gap-2 mb-2.5">
@@ -246,9 +242,9 @@ export function HeroSection({ theme }: HeroSectionProps) {
             </div>
           </div>
 
-          {/* Motosiklet Modunda Canlı Video Durum Hapı & Oynatma Kontrolü */}
-          {segment === 'motosiklet' && (
-            <div className="flex items-center gap-2 self-start sm:self-auto">
+          {/* Telemetri Durum Rozeti & Kontrol */}
+          <div className="flex items-center gap-2 self-start sm:self-auto">
+            {segment === 'motosiklet' ? (
               <button
                 type="button"
                 onClick={toggleVideoPlayback}
@@ -268,11 +264,16 @@ export function HeroSection({ theme }: HeroSectionProps) {
                   </>
                 )}
               </button>
-            </div>
-          )}
+            ) : (
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/40 border border-white/15 text-zinc-300 text-[11px] font-mono backdrop-blur-md shadow-sm">
+                <span className="w-2 h-2 rounded-full bg-[#1E3A8A] animate-pulse" />
+                <span>STÜDYO VAKASI // BMW 4 RESTORASYON</span>
+              </div>
+            )}
+          </div>
         </div>
 
-        {/* ALT PANEL: Motosiklet modunda videoyu örtmeyen, rafine & yarı-saydam dock tasarımı */}
+        {/* ALT PANEL: Hem Otomobil Hem Motosiklet İçin Rafine & Yarı-Saydam Dock Mimarisi */}
         {segment === 'motosiklet' ? (
           <div className="max-w-xl mt-auto pt-16 animate-in fade-in duration-300">
             <div className="inline-flex items-center gap-2 mb-2 px-2.5 py-0.5 rounded-full bg-black/40 border border-white/10 backdrop-blur-md text-[11px] font-mono text-zinc-300">
@@ -318,41 +319,47 @@ export function HeroSection({ theme }: HeroSectionProps) {
             </div>
           </div>
         ) : (
-          /* Otomobil Segmenti Standart Başlık & Aksiyonları */
-          <div className="max-w-3xl mt-auto pt-12 animate-in fade-in duration-300">
-            <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-semibold tracking-tight uppercase leading-[1.12] text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
-              {currentPillar.displayTitle}
+          /* Otomobil Segmenti: Motosiklet ile Özdeş Rafine Lower-Third Dock */
+          <div className="max-w-xl mt-auto pt-16 animate-in fade-in duration-300">
+            <div className="inline-flex items-center gap-2 mb-2 px-2.5 py-0.5 rounded-full bg-black/40 border border-white/10 backdrop-blur-md text-[11px] font-mono text-zinc-300">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#1E3A8A]" />
+              <span>ÖZEL OTOMOBİL ATÖLYESİ</span>
+            </div>
+
+            <h1 className="text-2xl sm:text-3xl font-medium tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+              Otomobil Detailing, PPF &amp; Mikron Boya Restorasyonu
             </h1>
 
-            <p className="mt-4 text-sm sm:text-base lg:text-lg font-normal leading-relaxed max-w-2xl text-zinc-300 drop-shadow-[0_1px_4px_rgba(0,0,0,0.85)]">
-              {currentPillar.subtitle}
+            <p className="mt-2 text-xs sm:text-sm font-normal text-zinc-300/90 leading-relaxed max-w-lg drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
+              Mikron hassasiyetinde boya düzeltme, 9H nano seramik ve TPU şeffaf koruma filmi. Bahçelievler atölyesinde şeffaf süreç, tavizsiz işçilik.
             </p>
 
-            <div className="flex flex-wrap items-center gap-3 sm:gap-4 mt-6">
+            {/* Rafine Şeffaf Eylem Dock'u */}
+            <div className="flex flex-wrap items-center gap-2.5 mt-5">
               <a
                 href={`tel:${phone}`}
-                className="btn-mechanical hidden sm:inline-flex items-center justify-center gap-2.5 text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl shadow-xl bg-[#1E3A8A] hover:bg-[#1D4ED8] shadow-[#1E3A8A]/35"
+                className="btn-mechanical inline-flex items-center gap-2 text-white font-medium text-xs px-4 py-2.5 rounded-xl border border-[#1E3A8A]/50 bg-[#1E3A8A]/75 hover:bg-[#1E3A8A] backdrop-blur-md shadow-lg shadow-[#1E3A8A]/25 transition"
               >
-                <Phone className="w-4 h-4" />
-                <span>Otomobil Randevu: {phoneDisplay}</span>
-              </a>
-
-              <a
-                href="#fiyatlar"
-                className="btn-mechanical inline-flex items-center justify-center gap-2 font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl border border-white/25 bg-black/75 hover:bg-black/90 text-white backdrop-blur-md shadow-lg"
-              >
-                <span>Fiyatları &amp; Paketleri İncele</span>
-                <ChevronDown className="w-4 h-4 text-[#60A5FA]" />
+                <Phone className="w-3.5 h-3.5" />
+                <span>Randevu Al: {phoneDisplay}</span>
               </a>
 
               <a
                 href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappDefaultMessage)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-mechanical inline-flex items-center justify-center gap-2 bg-[#1FAD4E] hover:bg-[#25C058] text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl shadow-md"
+                className="btn-mechanical inline-flex items-center gap-2 text-white font-medium text-xs px-4 py-2.5 rounded-xl border border-white/15 bg-black/40 hover:bg-black/60 backdrop-blur-md shadow transition"
               >
-                <MessageCircle className="w-4 h-4" />
-                <span>WhatsApp Randevu</span>
+                <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
+                <span>WhatsApp</span>
+              </a>
+
+              <a
+                href="#fiyatlar"
+                className="btn-mechanical inline-flex items-center gap-1.5 text-zinc-300 hover:text-white font-medium text-xs px-3.5 py-2.5 rounded-xl border border-white/10 bg-black/30 hover:bg-black/50 backdrop-blur-md transition"
+              >
+                <span>Paketleri Gör</span>
+                <ChevronDown className="w-3.5 h-3.5" />
               </a>
             </div>
           </div>
