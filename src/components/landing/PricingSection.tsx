@@ -50,14 +50,27 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
             Sürpriz ek maliyetler ve gereksiz kalemler yok. Otomobil ve motosikletiniz için net taban fiyatlar, şeffaf atölye işçiliği.
           </p>
 
-          {/* Sekme Değiştirici (Otomobil / Motosiklet - Gear-Shift Style) */}
-          <div className="mt-8 inline-flex p-1.5 rounded-2xl bg-black/5 dark:bg-white/10 border border-black/10 dark:border-white/15 gap-1.5 shadow-inner">
+          {/* Sekme Değiştirici (Otomobil / Motosiklet - Short-Throw Gear-Shift Style) */}
+          <div className="mt-8 relative inline-grid grid-cols-2 p-1.5 rounded-2xl bg-black/5 dark:bg-white/10 border border-black/10 dark:border-white/15 gap-1.5 shadow-inner">
+            {/* Short-Throw Gear Lever Indicator Pill (Physical Overshoot & Settle) */}
+            <div
+              aria-hidden="true"
+              className="absolute top-1.5 bottom-1.5 left-1.5 w-[calc(50%-0.5625rem)] rounded-xl bg-[#1E3A8A] shadow-md shadow-[#1E3A8A]/30 pointer-events-none transition-transform duration-300 motion-reduce:transition-none"
+              style={{
+                transform:
+                  activeTab === 'car'
+                    ? 'translateX(0)'
+                    : 'translateX(calc(100% + 0.375rem))',
+                transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
+              }}
+            />
+
             <button
               type="button"
               onClick={() => setSegment('otomobil')}
-              className={`btn-mechanical flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all duration-150 cursor-pointer ${
+              className={`btn-mechanical relative z-10 flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-colors duration-150 cursor-pointer ${
                 activeTab === 'car'
-                  ? 'bg-[#1E3A8A] text-white shadow-md shadow-[#1E3A8A]/30'
+                  ? 'text-white'
                   : isCream
                   ? 'text-[#5A5D66] hover:text-[#111215]'
                   : 'text-[#8E94A0] hover:text-white'
@@ -71,9 +84,9 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
               type="button"
               id="motosiklet"
               onClick={() => setSegment('motosiklet')}
-              className={`btn-mechanical flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all duration-150 relative cursor-pointer ${
+              className={`btn-mechanical relative z-10 flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-colors duration-150 cursor-pointer ${
                 activeTab === 'bike'
-                  ? 'bg-[#1E3A8A] text-white shadow-md shadow-[#1E3A8A]/30'
+                  ? 'text-white'
                   : isCream
                   ? 'text-[#5A5D66] hover:text-[#111215]'
                   : 'text-[#8E94A0] hover:text-white'
@@ -81,7 +94,9 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
             >
               <Bike className="w-4 h-4" />
               <span>Motosiklet Tamirhanesi</span>
-              <span className="text-[10px] font-mono bg-[#1E3A8A] text-white px-2 py-0.5 rounded font-bold shadow-sm">
+              <span className={`text-[10px] font-mono px-2 py-0.5 rounded font-bold transition-colors ${
+                activeTab === 'bike' ? 'bg-white/20 text-white' : 'bg-[#1E3A8A] text-white'
+              }`}>
                 ÖZEL ATÖLYE
               </span>
             </button>

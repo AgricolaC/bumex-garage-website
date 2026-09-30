@@ -38,14 +38,12 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
                 isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'
               }`}
             >
-              Ankara Bahçelievler&apos;in seçkin otomobil ve motosikletlerine mikron seviyesinde boya
-              restorasyonu, 9H nano seramik, ses izolasyonu, mekanik periyodik bakım ve randevulu transfer desteği
-              sunan uzman bakım servisi.
+              Bahçelievler&apos;de otomobil ve motosikletler için dürüst fiyatlar, mikron seviyesinde restorasyon ve saf garaj kültürü. Gösteriş yok, kusursuz işçilik.
             </p>
             <div className="pt-2 flex flex-wrap gap-2.5">
               <a
                 href="tel:05524703610"
-                className="btn-mechanical inline-flex items-center gap-1.5 bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white text-xs font-bold px-4 py-2 rounded-lg shadow transition active:scale-95"
+                className="btn-mechanical inline-flex items-center gap-1.5 bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white text-xs font-bold px-4 py-2 rounded-lg shadow"
               >
                 <Phone className="w-3.5 h-3.5" />
                 <span>0552 470 36 10</span>
@@ -54,7 +52,7 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
                 href="https://wa.me/905524703610?text=Merhaba%20Bumex%20Garage,%20bilgi%20almak%20istiyorum"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-mechanical inline-flex items-center gap-1.5 bg-[#1FAD4E] hover:bg-[#25C058] text-white text-xs font-bold px-4 py-2 rounded-lg transition active:scale-95"
+                className="btn-mechanical inline-flex items-center gap-1.5 bg-[#1FAD4E] hover:bg-[#25C058] text-white text-xs font-bold px-4 py-2 rounded-lg"
               >
                 <MessageCircle className="w-3.5 h-3.5" />
                 <span>WhatsApp Destek</span>

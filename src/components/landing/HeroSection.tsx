@@ -150,24 +150,37 @@ export function HeroSection({ theme }: HeroSectionProps) {
           <div
             role="tablist"
             aria-label="Tamirhane Uzmanlık Segmenti"
-            className={`p-1 rounded-xl inline-flex flex-wrap items-center gap-1 border shadow-xl backdrop-blur-md transition-colors duration-200 ${
+            className={`relative p-1 rounded-xl inline-grid grid-cols-2 gap-1 border shadow-xl backdrop-blur-md transition-colors duration-200 ${
               isCream
                 ? 'bg-white/90 border-black/10 text-[#111215]'
                 : 'bg-black/75 border-white/15 text-white'
             }`}
           >
+            {/* Short-Throw Gear Lever Indicator Pill (Physical Overshoot & Settle) */}
+            <div
+              aria-hidden="true"
+              className="absolute top-1 bottom-1 left-1 w-[calc(50%-0.375rem)] rounded-lg bg-[#1E3A8A] shadow-md shadow-[#1E3A8A]/40 pointer-events-none transition-transform duration-300 motion-reduce:transition-none"
+              style={{
+                transform:
+                  segment === 'otomobil'
+                    ? 'translateX(0)'
+                    : 'translateX(calc(100% + 0.25rem))',
+                transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
+              }}
+            />
+
             {/* 01 OTOMOBİL BUTONU */}
             <button
               type="button"
               role="tab"
               aria-selected={segment === 'otomobil'}
               onClick={() => handleSelectSegment('otomobil')}
-              className={`btn-mechanical flex items-center gap-2 px-4 py-2.5 rounded-lg font-bold text-xs uppercase tracking-wider transition-all duration-150 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#1E3A8A] cursor-pointer ${
+              className={`btn-mechanical relative z-10 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg font-bold text-xs uppercase tracking-wider transition-colors duration-150 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#1E3A8A] cursor-pointer ${
                 segment === 'otomobil'
-                  ? 'bg-[#1E3A8A] text-white shadow-md shadow-[#1E3A8A]/40'
+                  ? 'text-white'
                   : isCream
-                    ? 'text-[#5A5D66] hover:bg-black/5 hover:text-black'
-                    : 'text-[#8E94A0] hover:bg-white/10 hover:text-white'
+                    ? 'text-[#5A5D66] hover:text-black'
+                    : 'text-[#8E94A0] hover:text-white'
               }`}
             >
               <Car className="w-3.5 h-3.5 shrink-0" />
@@ -180,12 +193,12 @@ export function HeroSection({ theme }: HeroSectionProps) {
               role="tab"
               aria-selected={segment === 'motosiklet'}
               onClick={() => handleSelectSegment('motosiklet')}
-              className={`btn-mechanical flex items-center gap-2 px-4 py-2.5 rounded-lg font-bold text-xs uppercase tracking-wider transition-all duration-150 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#1E3A8A] cursor-pointer ${
+              className={`btn-mechanical relative z-10 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg font-bold text-xs uppercase tracking-wider transition-colors duration-150 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#1E3A8A] cursor-pointer ${
                 segment === 'motosiklet'
-                  ? 'bg-[#1E3A8A] text-white shadow-md shadow-[#1E3A8A]/40'
+                  ? 'text-white'
                   : isCream
-                    ? 'text-[#5A5D66] hover:bg-black/5 hover:text-black'
-                    : 'text-[#8E94A0] hover:bg-white/10 hover:text-white'
+                    ? 'text-[#5A5D66] hover:text-black'
+                    : 'text-[#8E94A0] hover:text-white'
               }`}
             >
               <Bike className="w-3.5 h-3.5 shrink-0" />
