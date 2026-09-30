@@ -117,16 +117,6 @@ export function LandingFooter({ theme, onOpenModal }: LandingFooterProps) {
               </li>
               <li>
                 <Link
-                  href="/galeri"
-                  className={`hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition flex items-center gap-1 font-semibold ${
-                    isCream ? 'text-[#0D0D0D]' : 'text-white'
-                  }`}
-                >
-                  Canlı Tamirhane Galerisi <ArrowUpRight className="w-3 h-3 text-[#1E3A8A] dark:text-[#60A5FA]" />
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/hizmetler"
                   className={`hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition flex items-center gap-1 font-semibold ${
                     isCream ? 'text-[#0D0D0D]' : 'text-white'

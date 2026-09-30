@@ -282,11 +282,11 @@ export function HeroSection({ theme }: HeroSectionProps) {
             </div>
 
             <h1 className="text-2xl sm:text-3xl font-medium tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-              Motosiklet Detailing &amp; 9H Seramik Stüdyosu
+              Motosikletinizi Temizleyin, Koruyun, Yenileyin.
             </h1>
 
             <p className="mt-2 text-xs sm:text-sm font-normal text-zinc-300/90 leading-relaxed max-w-lg drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
-              Hassas köpük arındırma, mikron grenaj restorasyonu ve katmanlı seramik koruma. Bahçelievler atölyesinde tek seans, kalıcı sonuç.
+              Hassas köpük arındırma, mikron grenaj restorasyonu ve 9H seramik zırh. İki tekerin dilinden anlayan tavizsiz atölye işçiliği.
             </p>
 
             {/* Rafine Şeffaf Eylem Dock'u */}
@@ -327,11 +327,11 @@ export function HeroSection({ theme }: HeroSectionProps) {
             </div>
 
             <h1 className="text-2xl sm:text-3xl font-medium tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-              Otomobil Detailing, PPF &amp; Mikron Boya Restorasyonu
+              Aracınızı Temizleyin, Koruyun, Yenileyin.
             </h1>
 
             <p className="mt-2 text-xs sm:text-sm font-normal text-zinc-300/90 leading-relaxed max-w-lg drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
-              Mikron hassasiyetinde boya düzeltme, 9H nano seramik ve TPU şeffaf koruma filmi. Bahçelievler atölyesinde şeffaf süreç, tavizsiz işçilik.
+              Bahçelievler&apos;de profesyonel oto yıkama, detailing, PPF kaplama, boya restorasyonu ve güvenli otopark. Aracınızı güvenle teslim edin; ilk günkü özeniyle teslim alın.
             </p>
 
             {/* Rafine Şeffaf Eylem Dock'u */}

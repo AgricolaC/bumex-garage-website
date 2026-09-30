@@ -169,12 +169,6 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
               Hakkımızda
             </Link>
             <Link
-              href={segment === 'motosiklet' ? '/galeri#motosiklet' : '/galeri'}
-              className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition"
-            >
-              Galeri
-            </Link>
-            <Link
               href={segment === 'motosiklet' ? '/motosiklet#fiyatlar' : '/#fiyatlar'}
               className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition"
             >
@@ -243,14 +237,6 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
               >
                 <span>Hakkımızda</span>
                 <span className="text-[10px] font-normal lowercase opacity-70">tamirhane felsefesi</span>
-              </Link>
-              <Link
-                href={segment === 'motosiklet' ? '/galeri#motosiklet' : '/galeri'}
-                onClick={() => setMobileMenuOpen(false)}
-                className="py-2.5 px-3 rounded-lg hover:bg-[#1E3A8A]/10 hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition flex items-center justify-between"
-              >
-                <span>Galeri</span>
-                <span className="text-[10px] font-normal lowercase opacity-70">öncesi / sonrası</span>
               </Link>
               <Link
                 href={segment === 'motosiklet' ? '/motosiklet#fiyatlar' : '/#fiyatlar'}

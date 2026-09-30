@@ -755,30 +755,6 @@ export function BeforeAfterSlider({
             </div>
           </div>
         )}
-
-        {/* Teaser Modunda Müşteriyi Detaylı Galeri Sayfasına Yönlendiren Belirgin Buton */}
-        {!detailed && (
-          <div className="mt-12 text-center">
-            <Link
-              href="/galeri"
-              className="btn-mechanical inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-bold text-sm sm:text-base text-white bg-[#1E3A8A] hover:bg-[#1D4ED8] shadow-xl shadow-[#1E3A8A]/30 group cursor-pointer"
-            >
-              <span>
-                {segment === 'otomobil'
-                  ? 'Tüm Canlı Tamirhane Uygulamalarını ve Detaylı Galeriyi İncele'
-                  : 'Tüm Motosiklet Detailing Uygulamalarını ve Detaylı Galeriyi İncele'}
-              </span>
-              <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </Link>
-            <p
-              className={`text-xs mt-3 max-w-lg mx-auto ${
-                isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
-              }`}
-            >
-              6+ Farklı araç karşılaştırması, jant demir tozu temizliği, far restorasyonu ve Bahçelievler canlı fotoğraf arşivi.
-            </p>
-          </div>
-        )}
       </div>
     </section>
   );

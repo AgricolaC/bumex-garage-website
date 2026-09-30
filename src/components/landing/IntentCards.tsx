@@ -104,14 +104,14 @@ export function IntentCards({ theme }: IntentCardsProps) {
         {/* Başlık Alanı - Anti-Cliché (No Eyebrow Kickers, Calibrated Posture) */}
         <div className="max-w-2xl mb-10 sm:mb-12">
           <h2 className="text-3xl sm:text-4xl font-medium tracking-tight">
-            Neye ihtiyacın olduğunu en iyi araban bilir.
+            Neye ihtiyacın olduğunu en iyi aracın bilir.
           </h2>
           <p
             className={`text-sm sm:text-base mt-3 leading-relaxed ${
               isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'
             }`}
           >
-            Gereksiz işlemler ve şişirilmiş maliyetler yok. Bahçelievler atölyemizde doğrudan ihtiyaca yönelik net çözümler.
+            Gereksiz işlemler ve şişirilmiş maliyetler yok. Bahçelievler atölyemizde otomobil ve motosikletiniz için doğrudan ihtiyaca yönelik net çözümler.
           </p>
         </div>
 

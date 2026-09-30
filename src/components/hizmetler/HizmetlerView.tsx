@@ -10,7 +10,6 @@ import {
   MapPin,
   ArrowLeft,
   ArrowRight,
-  Camera,
   ShieldCheck,
   CreditCard,
 } from 'lucide-react';
@@ -151,11 +150,11 @@ export function HizmetlerView() {
                 Bir Sonraki Adım
               </span>
               <h2 className="text-2xl sm:text-3xl font-black tracking-tight mt-1">
-                Fiyatları İnceleyin, Canlı Sonuçları Görün veya Tesisimizi Keşfedin
+                Fiyatları İnceleyin veya Tesisimizi Keşfedin
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 gap-6">
               {/* Köprü 1: Fiyatlar */}
               <Link
                 href={segment === 'motosiklet' ? '/motosiklet#fiyatlar' : '/#fiyatlar'}
@@ -186,37 +185,7 @@ export function HizmetlerView() {
                 </div>
               </Link>
 
-              {/* Köprü 2: Galeri */}
-              <Link
-                href={segment === 'motosiklet' ? '/galeri#motosiklet' : '/galeri'}
-                className={`p-6 rounded-2xl border flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1 hover:shadow-xl ${
-                  isCream
-                    ? 'bg-white border-[#6C6A6B]/25 hover:border-[#1E3A8A]'
-                    : 'bg-[#222529] border-white/10 hover:border-[#60A5FA]'
-                }`}
-              >
-                <div>
-                  <div className="w-12 h-12 rounded-2xl bg-[#1E3A8A]/10 dark:bg-[#1E3A8A]/20 text-[#1E3A8A] dark:text-[#60A5FA] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                    <Camera className="w-6 h-6" />
-                  </div>
-                  <h3 className="text-lg font-black tracking-tight mb-2 group-hover:text-[#1E3A8A] dark:group-hover:text-[#60A5FA] transition">
-                    Canlı Uygulama Galerisi
-                  </h3>
-                  <p
-                    className={`text-xs leading-relaxed ${
-                      isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
-                    }`}
-                  >
-                    Bu hizmetlerin Bahçelievler işletmemizde tamamlanan gerçek araçlar üzerindeki öncesi ve sonrası sonuçları.
-                  </p>
-                </div>
-                <div className="mt-6 pt-4 border-t border-black/5 dark:border-white/5 flex items-center justify-between text-xs font-extrabold text-[#1E3A8A] dark:text-[#60A5FA]">
-                  <span>Galeriyi İncele</span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </div>
-              </Link>
-
-              {/* Köprü 3: Otopark */}
+              {/* Köprü 2: Otopark */}
               <Link
                 href="/otopark"
                 className={`p-6 rounded-2xl border flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1 hover:shadow-xl ${

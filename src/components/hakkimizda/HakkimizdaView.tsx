@@ -7,7 +7,6 @@ import {
   Sparkles,
   Zap,
   Gauge,
-  Camera,
   Layers,
   MapPin,
   ArrowRight,
@@ -207,37 +206,8 @@ export function HakkimizdaView() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
-              {/* Kapı 1: Galeri */}
-              <Link
-                href="/galeri"
-                className={`p-6 rounded-2xl border flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1 hover:shadow-xl ${isCream
-                  ? 'bg-white/90 border-[#6C6A6B]/25 hover:border-[#1E3A8A]'
-                  : 'bg-[#222529] border-white/10 hover:border-[#60A5FA]'
-                  }`}
-              >
-                <div>
-                  <div className="w-12 h-12 rounded-2xl bg-[#1E3A8A]/10 dark:bg-[#1E3A8A]/20 text-[#1E3A8A] dark:text-[#60A5FA] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                    <Camera className="w-6 h-6" />
-                  </div>
-                  <h3 className="text-lg font-black tracking-tight mb-2 group-hover:text-[#1E3A8A] dark:group-hover:text-[#60A5FA] transition">
-                    Canlı Uygulama Galerisi
-                  </h3>
-                  <p
-                    className={`text-xs leading-relaxed ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
-                      }`}
-                  >
-                    Bahçelievler tamirhanemizde tamamlanan gerçek BMW, Porsche, motosiklet ve jant restorasyonlarının interaktif öncesi-sonrası karşılaştırmaları.
-                  </p>
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-black/5 dark:border-white/5 flex items-center justify-between text-xs font-extrabold text-[#1E3A8A] dark:text-[#60A5FA]">
-                  <span>Uygulamaları İncele</span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </div>
-              </Link>
-
-              {/* Kapı 2: Hizmetlerimiz */}
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* Kapı 1: Hizmetlerimiz */}
               <Link
                 href="/hizmetler"
                 className={`p-6 rounded-2xl border flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1 hover:shadow-xl ${isCream
