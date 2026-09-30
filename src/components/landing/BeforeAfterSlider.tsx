@@ -1,8 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useCallback, useEffect, useMemo } from 'react';
-import Link from 'next/link';
-import { Sparkles, ShieldCheck, Zap, ChevronRight } from 'lucide-react';
+import { Sparkles, ShieldCheck, Zap } from 'lucide-react';
 import { LandingTheme } from '@/hooks/useLandingTheme';
 import { useWorkshopSegment } from '@/hooks/useWorkshopSegment';
 
@@ -295,75 +294,6 @@ const TRANSFORMATIONS: TransformationItem[] = [
   },
 ];
 
-const REAL_AUTOMOBILE_STUDIO_GALLERY = [
-  {
-    id: 'bmw-restorasyon',
-    targetTabId: 'bmw-tam-donusum',
-    title: 'BMW 4 Restorasyon',
-    badge: 'Çamur & Kusursuz Yüzey',
-    src: '/images/before-after/bmw_clean_car.webp',
-    alt: 'Bumex Garage BMW 4 Serisi Çamur ve Boya Restorasyonu',
-    desc: 'Ağır yol çamurundan arındırılmış, derin yüzey yansımasına sahip temizlik sonucu.',
-  },
-  {
-    id: 'bmw-jant',
-    targetTabId: 'bmw-jant-demir-tozu',
-    title: 'M-Sport Jant Demir Tozu',
-    badge: 'pH Nötr Morarma',
-    src: '/images/before-after/bmw_wheel_clean.webp',
-    alt: 'Bumex Garage BMW M-Sport Jant Demir Tozu Kimyasal Reaksiyonu',
-    desc: 'M fren kaliperine ve elmas kesim alaşıma zarar vermeden derinlemesine balata tozu arındırması.',
-  },
-  {
-    id: 'bmw-buhar',
-    targetTabId: 'bmw-tam-donusum',
-    title: 'Detaylı Buharlı Temizlik',
-    badge: 'Buharlı Arındırma',
-    src: '/images/before-after/bmw_steam_wash.webp',
-    alt: 'Bumex Garage BMW 4 Serisi Buharlı Detay Yıkama',
-    desc: 'Böbrek ızgara petekleri, lazer far dipleri ve amblem yuvalarında derin buharlı arındırma.',
-  },
-  {
-    id: 'bmw-kopuk',
-    targetTabId: 'bmw-tam-donusum',
-    title: 'Aktif Kar Köpüğü',
-    badge: 'Ön Yıkama Stüdyosu',
-    src: '/images/before-after/bmw_snow_foam.webp',
-    alt: 'Bumex Detailing Stüdyosu Kar Köpüğü',
-    desc: 'Tamirhane içi BUMEX DETAILING panosu önünde temassız statik kir çözme protokolü.',
-  },
-];
-
-const REAL_MOTORCYCLE_STUDIO_GALLERY = [
-  {
-    id: 'moto-grenaj',
-    targetTabId: 'motosiklet-detailing',
-    title: 'Yamaha Grenaj & Blok',
-    badge: 'Hassas Grenaj Bakımı',
-    src: '/images/before-after/moto_detail_after.webp',
-    alt: 'Bumex Garage Bahçelievler Motosiklet Grenaj ve Blok Detailing',
-    desc: 'Tazyiksiz buhar ve pH nötr formüllerle fabrika kondisyonuna getirilen grenaj ve blok.',
-  },
-  {
-    id: 'moto-camur',
-    targetTabId: 'motosiklet-detailing',
-    title: 'Ağır Yol Kiri & Katran',
-    badge: 'Ön Durum Analizi',
-    src: '/images/before-after/moto_detail_before.webp',
-    alt: 'Bumex Garage Motosiklet Ağır Yol Çamuru ve Katran Öncesi',
-    desc: 'Elektronik soketlere su değdirilmeden önce arındırılmayı bekleyen ağır yol kiri ve katran.',
-  },
-  {
-    id: 'moto-tam-donusum',
-    targetTabId: 'motosiklet-detailing',
-    title: 'Showroom Teslimatı',
-    badge: 'Tam Dönüşüm & Koruma',
-    src: '/images/before-after/moto_detail_full.webp',
-    alt: 'Bumex Garage Yamaha Supersport Showroom Kondisyonu',
-    desc: 'Zincir bakımı, plastik yenileme ve UV zırhı ile tamamlanan tam tamirhane restorasyonu.',
-  },
-];
-
 export function BeforeAfterSlider({
   theme,
   detailed = true,
@@ -371,15 +301,10 @@ export function BeforeAfterSlider({
   const isCream = theme === 'cream';
   const { segment } = useWorkshopSegment();
 
-  // Aktif segmente ait Before/After uygulamaları (Teaser modunda yalnızca amiral gemisi dönüşüm)
+  // Aktif segmente ait Before/After uygulamaları (üst filtreden geçiş yapılabilir)
   const availableItems = useMemo(() => {
-    if (!detailed) {
-      const primaryId = segment === 'otomobil' ? 'bmw-tam-donusum' : 'motosiklet-detailing';
-      const found = TRANSFORMATIONS.find((t) => t.id === primaryId);
-      return found ? [found] : TRANSFORMATIONS.filter((t) => t.vehicleType === segment);
-    }
     return TRANSFORMATIONS.filter((t) => t.vehicleType === segment);
-  }, [segment, detailed]);
+  }, [segment]);
 
   const [activeTabId, setActiveTabId] = useState<string>(availableItems[0]?.id || '');
   const [sliderPosition, setSliderPosition] = useState(50);
@@ -450,7 +375,7 @@ export function BeforeAfterSlider({
         </div>
 
         {/* Dönüşüm Kategori Sekmeleri (Tactile Mechanical Buttons) */}
-        {detailed && availableItems.length > 1 && (
+        {availableItems.length > 1 && (
           <div className="flex items-center justify-center gap-2 flex-wrap mb-8">
             {availableItems.map((item) => {
               const isActive = item.id === activeTabId;
@@ -660,68 +585,6 @@ export function BeforeAfterSlider({
             })}
           </div>
         </div>
-
-        {/* Detaylı Modda Bahçelievler Tamirhanemizden Gerçek Detailing Kareleri Vitrini */}
-        {detailed && (
-          <div
-            className={`mt-14 pt-10 border-t transition-colors duration-200 ${
-              isCream ? 'border-[#6C6A6B]/20' : 'border-white/10'
-            }`}
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {(segment === 'otomobil'
-                ? REAL_AUTOMOBILE_STUDIO_GALLERY
-                : REAL_MOTORCYCLE_STUDIO_GALLERY
-              ).map((item) => (
-                <div
-                  key={item.id}
-                  onClick={() => {
-                    setActiveTabId(item.targetTabId);
-                    setSliderPosition(50);
-                    // Yumuşak kaydırma ile slider başlığına odaklan
-                    containerRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                  }}
-                  className={`group relative rounded-2xl overflow-hidden border transition-all duration-300 cursor-pointer flex flex-col hover:-translate-y-1 hover:shadow-xl ${
-                    isCream
-                      ? 'bg-white/90 border-[#6C6A6B]/25 hover:border-[#1E3A8A] shadow-xs'
-                      : 'bg-[#222529]/90 border-white/10 hover:border-[#60A5FA]/60 shadow-lg'
-                  }`}
-                >
-                  <div className="relative aspect-[16/10] overflow-hidden bg-black">
-                    <img
-                      src={item.src}
-                      alt={item.alt}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute top-2.5 left-2.5">
-                      <span className="px-2 py-1 rounded-md bg-black/85 text-white text-[10px] font-bold backdrop-blur-xs border border-white/15">
-                        {item.badge}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="p-3.5 flex flex-col justify-between flex-1">
-                    <div>
-                      <h4 className="text-xs font-bold uppercase tracking-wider group-hover:text-[#1E3A8A] dark:group-hover:text-[#60A5FA] transition">
-                        {item.title}
-                      </h4>
-                      <p
-                        className={`text-[11px] mt-1 line-clamp-2 leading-relaxed ${
-                          isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
-                        }`}
-                      >
-                        {item.desc}
-                      </p>
-                    </div>
-                    <div className="mt-3 pt-2.5 border-t border-black/5 dark:border-white/10 flex items-center justify-between text-[11px] font-bold text-[#1E3A8A] dark:text-[#60A5FA]">
-                      <span>İnteraktif İncele</span>
-                      <span className="transition-transform group-hover:translate-x-1">→</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
       </div>
     </section>
   );
