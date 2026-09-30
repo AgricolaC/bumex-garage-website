@@ -2,19 +2,15 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import {
   Phone,
   MessageCircle,
   Car,
   Bike,
   ChevronDown,
-  Play,
-  Pause,
 } from 'lucide-react';
 import { LandingTheme } from '@/hooks/useLandingTheme';
 import { useWorkshopSegment, WorkshopSegment } from '@/hooks/useWorkshopSegment';
-import { WORKSHOP_PILLARS } from './heroPillars';
 
 export const AUTOMOBILE_STUDIO_SHOTS = [
   {
@@ -58,7 +54,6 @@ interface HeroSectionProps {
 export function HeroSection({ theme }: HeroSectionProps) {
   const isCream = theme === 'cream';
   const [activeShotIndex, setActiveShotIndex] = useState(0);
-  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const { segment, setSegment, phone, phoneDisplay, whatsappNumber, whatsappDefaultMessage } =
@@ -76,27 +71,11 @@ export function HeroSection({ theme }: HeroSectionProps) {
   // Motosiklet segmentine geçildiğinde otonom video oynatımı
   useEffect(() => {
     if (segment === 'motosiklet' && videoRef.current) {
-      videoRef.current.play().then(() => {
-        setIsVideoPlaying(true);
-      }).catch(() => {
-        // Tarayıcı otonom oynatma politikası
+      videoRef.current.play().catch(() => {
+        // Tarayıcı otonom oynatma politikası koruması
       });
     }
   }, [segment]);
-
-  const toggleVideoPlayback = () => {
-    if (!videoRef.current) return;
-    if (videoRef.current.paused) {
-      videoRef.current.play();
-      setIsVideoPlaying(true);
-    } else {
-      videoRef.current.pause();
-      setIsVideoPlaying(false);
-    }
-  };
-
-  const currentPillar =
-    WORKSHOP_PILLARS.find((p) => p.id === segment) ?? WORKSHOP_PILLARS[0];
 
   const handleSelectSegment = (newSeg: WorkshopSegment) => {
     setSegment(newSeg);
@@ -104,7 +83,7 @@ export function HeroSection({ theme }: HeroSectionProps) {
 
   return (
     <section
-      className="relative min-h-[86vh] lg:min-h-[92vh] flex flex-col justify-between overflow-hidden border-b transition-colors duration-300"
+      className="relative min-h-[82svh] sm:min-h-[86vh] lg:min-h-[92vh] flex flex-col justify-between overflow-hidden border-b transition-colors duration-300"
       aria-label="Bumex Garage Giriş ve Stüdyo Seçici"
     >
       {/* ─── 1. SİNEMATİK ARKA PLAN MEDYA GEÇİŞİ (Cross-Fade) ─── */}
@@ -171,13 +150,13 @@ export function HeroSection({ theme }: HeroSectionProps) {
       </div>
 
       {/* ─── 2. ANA HERO İÇERİĞİ VE KONTROL MASASI ─── */}
-      <div className="relative z-10 max-w-6xl mx-auto w-full px-4 sm:px-8 py-8 sm:py-10 lg:py-12 flex flex-col justify-between flex-1">
-        {/* ÜST BAR: Segment Seçici Deck & Telemetri Durum Rozeti */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-auto">
+      <div className="relative z-10 max-w-6xl mx-auto w-full px-4 sm:px-8 py-5 sm:py-8 lg:py-12 flex flex-col justify-between flex-1">
+        {/* ÜST BAR: Segment Seçici Deck */}
+        <div className="flex items-center justify-between gap-4 mb-auto">
           <div className="max-w-xl">
-            <div className="flex items-center gap-2 mb-2.5">
+            <div className="flex items-center gap-2 mb-2 sm:mb-2.5">
               <span className="w-1.5 h-1.5 rounded-full bg-[#1E3A8A] animate-pulse" />
-              <span className="text-[11px] font-mono tracking-widest uppercase text-zinc-400">
+              <span className="text-[10px] sm:text-[11px] font-mono tracking-widest uppercase text-zinc-400">
                 06 // BUMEX · BAHÇELİEVLER ATÖLYE
               </span>
             </div>
@@ -210,7 +189,7 @@ export function HeroSection({ theme }: HeroSectionProps) {
                 role="tab"
                 aria-selected={segment === 'otomobil'}
                 onClick={() => handleSelectSegment('otomobil')}
-                className={`btn-mechanical relative z-10 flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-bold text-xs uppercase tracking-wider transition-colors duration-150 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#1E3A8A] cursor-pointer ${
+                className={`btn-mechanical relative z-10 flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 rounded-lg font-bold text-xs uppercase tracking-wider transition-colors duration-150 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#1E3A8A] cursor-pointer ${
                   segment === 'otomobil'
                     ? 'text-white'
                     : isCream
@@ -219,7 +198,7 @@ export function HeroSection({ theme }: HeroSectionProps) {
                 }`}
               >
                 <Car className="w-3.5 h-3.5 shrink-0" />
-                <span>01 Otomobil Servisi</span>
+                <span><span className="hidden sm:inline">01 </span>Otomobil<span className="hidden sm:inline"> Servisi</span></span>
               </button>
 
               {/* 02 MOTOSİKLET BUTONU */}
@@ -228,7 +207,7 @@ export function HeroSection({ theme }: HeroSectionProps) {
                 role="tab"
                 aria-selected={segment === 'motosiklet'}
                 onClick={() => handleSelectSegment('motosiklet')}
-                className={`btn-mechanical relative z-10 flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-bold text-xs uppercase tracking-wider transition-colors duration-150 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#1E3A8A] cursor-pointer ${
+                className={`btn-mechanical relative z-10 flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 rounded-lg font-bold text-xs uppercase tracking-wider transition-colors duration-150 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#1E3A8A] cursor-pointer ${
                   segment === 'motosiklet'
                     ? 'text-white'
                     : isCream
@@ -237,133 +216,56 @@ export function HeroSection({ theme }: HeroSectionProps) {
                 }`}
               >
                 <Bike className="w-3.5 h-3.5 shrink-0" />
-                <span>02 Motosiklet Servisi</span>
+                <span><span className="hidden sm:inline">02 </span>Motosiklet<span className="hidden sm:inline"> Servisi</span></span>
               </button>
             </div>
-          </div>
-
-          {/* Telemetri Durum Rozeti & Kontrol */}
-          <div className="flex items-center gap-2 self-start sm:self-auto">
-            {segment === 'motosiklet' ? (
-              <button
-                type="button"
-                onClick={toggleVideoPlayback}
-                className="btn-mechanical inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/40 hover:bg-black/60 border border-white/15 text-zinc-300 hover:text-white text-[11px] font-mono backdrop-blur-md cursor-pointer transition shadow-sm"
-                title={isVideoPlaying ? 'Videoyu Duraklat' : 'Videoyu Oynat'}
-              >
-                {isVideoPlaying ? (
-                  <>
-                    <span className="w-2 h-2 rounded-full bg-[#1FAD4E] animate-pulse" />
-                    <span>CANLI ATÖLYE AKIŞI</span>
-                    <Pause className="w-3 h-3 text-zinc-400 ml-1" />
-                  </>
-                ) : (
-                  <>
-                    <Play className="w-3 h-3 text-[#60A5FA]" />
-                    <span>OYNAT</span>
-                  </>
-                )}
-              </button>
-            ) : (
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/40 border border-white/15 text-zinc-300 text-[11px] font-mono backdrop-blur-md shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-[#1E3A8A] animate-pulse" />
-                <span>STÜDYO VAKASI // BMW 4 RESTORASYON</span>
-              </div>
-            )}
           </div>
         </div>
 
-        {/* ALT PANEL: Hem Otomobil Hem Motosiklet İçin Rafine & Yarı-Saydam Dock Mimarisi */}
-        {segment === 'motosiklet' ? (
-          <div className="max-w-xl mt-auto pt-16 animate-in fade-in duration-300">
-            <div className="inline-flex items-center gap-2 mb-2 px-2.5 py-0.5 rounded-full bg-black/40 border border-white/10 backdrop-blur-md text-[11px] font-mono text-zinc-300">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#1E3A8A]" />
-              <span>ÖZEL MOTOSİKLET ATÖLYESİ</span>
-            </div>
+        {/* ALT PANEL: Rafine & Yarı-Saydam Dock Mimarisi */}
+        <div className="max-w-xl mt-auto pt-6 sm:pt-12 lg:pt-16 animate-in fade-in duration-300">
+          <h1 className="text-xl sm:text-2xl lg:text-3xl font-medium tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+            {segment === 'motosiklet'
+              ? 'Motosikletinizi Temizleyin, Koruyun, Yenileyin.'
+              : 'Aracınızı Temizleyin, Koruyun, Yenileyin.'}
+          </h1>
 
-            <h1 className="text-2xl sm:text-3xl font-medium tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-              Motosikletinizi Temizleyin, Koruyun, Yenileyin.
-            </h1>
+          <p className="mt-2 text-xs sm:text-sm font-normal text-zinc-300/90 leading-relaxed max-w-lg drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
+            {segment === 'motosiklet'
+              ? 'Hassas köpük arındırma, mikron grenaj restorasyonu ve 9H seramik zırh. İki tekerin dilinden anlayan tavizsiz atölye işçiliği.'
+              : "Bahçelievler'de profesyonel oto yıkama, detailing, PPF kaplama, boya restorasyonu ve güvenli otopark. Aracınızı güvenle teslim edin; ilk günkü özeniyle teslim alın."}
+          </p>
 
-            <p className="mt-2 text-xs sm:text-sm font-normal text-zinc-300/90 leading-relaxed max-w-lg drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
-              Hassas köpük arındırma, mikron grenaj restorasyonu ve 9H seramik zırh. İki tekerin dilinden anlayan tavizsiz atölye işçiliği.
-            </p>
+          {/* Rafine Şeffaf Eylem Dock'u */}
+          <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 mt-4 sm:mt-5">
+            <a
+              href={`tel:${phone}`}
+              className="btn-mechanical inline-flex items-center gap-1.5 sm:gap-2 text-white font-medium text-[11px] sm:text-xs px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg sm:rounded-xl border border-[#1E3A8A]/50 bg-[#1E3A8A]/80 hover:bg-[#1E3A8A] backdrop-blur-md shadow-md shadow-[#1E3A8A]/25 transition"
+            >
+              <Phone className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+              <span className="sm:hidden">Ara</span>
+              <span className="hidden sm:inline">Randevu: {phoneDisplay}</span>
+            </a>
 
-            {/* Rafine Şeffaf Eylem Dock'u */}
-            <div className="flex flex-wrap items-center gap-2.5 mt-5">
-              <a
-                href={`tel:${phone}`}
-                className="btn-mechanical inline-flex items-center gap-2 text-white font-medium text-xs px-4 py-2.5 rounded-xl border border-[#1E3A8A]/50 bg-[#1E3A8A]/75 hover:bg-[#1E3A8A] backdrop-blur-md shadow-lg shadow-[#1E3A8A]/25 transition"
-              >
-                <Phone className="w-3.5 h-3.5" />
-                <span>Randevu Al: {phoneDisplay}</span>
-              </a>
+            <a
+              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappDefaultMessage)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-mechanical inline-flex items-center gap-1.5 sm:gap-2 text-white font-medium text-[11px] sm:text-xs px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg sm:rounded-xl border border-white/15 bg-black/40 hover:bg-black/60 backdrop-blur-md shadow transition"
+            >
+              <MessageCircle className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#25D366]" />
+              <span>WhatsApp</span>
+            </a>
 
-              <a
-                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappDefaultMessage)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-mechanical inline-flex items-center gap-2 text-white font-medium text-xs px-4 py-2.5 rounded-xl border border-white/15 bg-black/40 hover:bg-black/60 backdrop-blur-md shadow transition"
-              >
-                <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
-                <span>WhatsApp</span>
-              </a>
-
-              <a
-                href="#fiyatlar"
-                className="btn-mechanical inline-flex items-center gap-1.5 text-zinc-300 hover:text-white font-medium text-xs px-3.5 py-2.5 rounded-xl border border-white/10 bg-black/30 hover:bg-black/50 backdrop-blur-md transition"
-              >
-                <span>Paketleri Gör</span>
-                <ChevronDown className="w-3.5 h-3.5" />
-              </a>
-            </div>
+            <a
+              href="#fiyatlar"
+              className="btn-mechanical inline-flex items-center gap-1 sm:gap-1.5 text-zinc-300 hover:text-white font-medium text-[11px] sm:text-xs px-2.5 sm:px-3.5 py-2 sm:py-2.5 rounded-lg sm:rounded-xl border border-white/10 bg-black/30 hover:bg-black/50 backdrop-blur-md transition"
+            >
+              <span>Paketler</span>
+              <ChevronDown className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+            </a>
           </div>
-        ) : (
-          /* Otomobil Segmenti: Motosiklet ile Özdeş Rafine Lower-Third Dock */
-          <div className="max-w-xl mt-auto pt-16 animate-in fade-in duration-300">
-            <div className="inline-flex items-center gap-2 mb-2 px-2.5 py-0.5 rounded-full bg-black/40 border border-white/10 backdrop-blur-md text-[11px] font-mono text-zinc-300">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#1E3A8A]" />
-              <span>ÖZEL OTOMOBİL ATÖLYESİ</span>
-            </div>
-
-            <h1 className="text-2xl sm:text-3xl font-medium tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-              Aracınızı Temizleyin, Koruyun, Yenileyin.
-            </h1>
-
-            <p className="mt-2 text-xs sm:text-sm font-normal text-zinc-300/90 leading-relaxed max-w-lg drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
-              Bahçelievler&apos;de profesyonel oto yıkama, detailing, PPF kaplama, boya restorasyonu ve güvenli otopark. Aracınızı güvenle teslim edin; ilk günkü özeniyle teslim alın.
-            </p>
-
-            {/* Rafine Şeffaf Eylem Dock'u */}
-            <div className="flex flex-wrap items-center gap-2.5 mt-5">
-              <a
-                href={`tel:${phone}`}
-                className="btn-mechanical inline-flex items-center gap-2 text-white font-medium text-xs px-4 py-2.5 rounded-xl border border-[#1E3A8A]/50 bg-[#1E3A8A]/75 hover:bg-[#1E3A8A] backdrop-blur-md shadow-lg shadow-[#1E3A8A]/25 transition"
-              >
-                <Phone className="w-3.5 h-3.5" />
-                <span>Randevu Al: {phoneDisplay}</span>
-              </a>
-
-              <a
-                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappDefaultMessage)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-mechanical inline-flex items-center gap-2 text-white font-medium text-xs px-4 py-2.5 rounded-xl border border-white/15 bg-black/40 hover:bg-black/60 backdrop-blur-md shadow transition"
-              >
-                <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
-                <span>WhatsApp</span>
-              </a>
-
-              <a
-                href="#fiyatlar"
-                className="btn-mechanical inline-flex items-center gap-1.5 text-zinc-300 hover:text-white font-medium text-xs px-3.5 py-2.5 rounded-xl border border-white/10 bg-black/30 hover:bg-black/50 backdrop-blur-md transition"
-              >
-                <span>Paketleri Gör</span>
-                <ChevronDown className="w-3.5 h-3.5" />
-              </a>
-            </div>
-          </div>
-        )}
+        </div>
       </div>
     </section>
   );
