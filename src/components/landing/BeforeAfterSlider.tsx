@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useCallback, useEffect, useMemo } from 'react';
 import Link from 'next/link';
-import { Sparkles, ShieldCheck, Zap, Camera, ChevronRight } from 'lucide-react';
+import { Sparkles, ShieldCheck, Zap, ChevronRight } from 'lucide-react';
 import { LandingTheme } from '@/hooks/useLandingTheme';
 import { useWorkshopSegment } from '@/hooks/useWorkshopSegment';
 
@@ -668,39 +668,6 @@ export function BeforeAfterSlider({
               isCream ? 'border-[#6C6A6B]/20' : 'border-white/10'
             }`}
           >
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
-              <div>
-                <div className="flex items-center gap-2">
-                  <Camera
-                    className={`w-4 h-4 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`}
-                  />
-                  <span
-                    className={`text-xs font-black uppercase tracking-wider ${
-                      isCream ? 'text-[#1E3A8A]' : 'text-[#93C5FD]'
-                    }`}
-                  >
-                    {segment === 'otomobil'
-                      ? 'Bahçelievler İşletmemizden Ham Detay Kareleri'
-                      : 'Bahçelievler Motosiklet Tamirhanemizden Detay Kareleri'}
-                  </span>
-                </div>
-                <h3 className="text-xl sm:text-2xl font-black tracking-tight mt-1">
-                  {segment === 'otomobil'
-                    ? 'Tamirhane İçi Canlı Uygulama & Süreç Galerisi'
-                    : 'Motosiklet Detailing & Restorasyon Süreç Galerisi'}
-                </h3>
-              </div>
-              <p
-                className={`text-xs sm:text-sm max-w-md ${
-                  isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
-                }`}
-              >
-                {segment === 'otomobil'
-                  ? 'Her fotoğraf, Bahçelievler tamirhanemizde icra edilen gerçek araç protokollerine aittir. İlgili karta tıklayarak karşılaştırmayı doğrudan açabilirsiniz.'
-                  : 'Bahçelievler tamirhanemizde hassas buhar ve dielektrik formüllerle tamamlanan gerçek motosiklet uygulamalarımız.'}
-              </p>
-            </div>
-
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {(segment === 'otomobil'
                 ? REAL_AUTOMOBILE_STUDIO_GALLERY

@@ -408,6 +408,13 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
               </p>
               <div className="mt-4 flex flex-wrap items-center justify-center gap-2.5">
                 <a
+                  href="#restorasyon"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold transition border border-[#1E3A8A]/25 text-[#1E3A8A] dark:text-[#60A5FA] bg-[#1E3A8A]/5 hover:bg-[#1E3A8A]/10"
+                >
+                  <span>📸 Motosiklet Öncesi &amp; Sonrası Vitrinini Gör</span>
+                  <span className="text-[10px]">↗</span>
+                </a>
+                <a
                   href="tel:05465332844"
                   className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#1E3A8A] text-white hover:bg-[#1D4ED8] transition shadow-md shadow-[#1E3A8A]/30"
                 >

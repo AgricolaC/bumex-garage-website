@@ -6,6 +6,7 @@ import { useWorkshopSegment, WorkshopSegment } from '@/hooks/useWorkshopSegment'
 import { LandingNavbar } from '@/components/landing/LandingNavbar';
 import { HeroSection } from '@/components/landing/HeroSection';
 import { IntentCards } from '@/components/landing/IntentCards';
+import { BeforeAfterSlider } from '@/components/landing/BeforeAfterSlider';
 import { ProcessSection } from '@/components/landing/ProcessSection';
 import { PricingSection } from '@/components/landing/PricingSection';
 import { GoogleMapsSection } from '@/components/landing/GoogleMapsSection';
@@ -59,16 +60,19 @@ export function LandingView({ initialSegment }: { initialSegment?: WorkshopSegme
         {/* 2. Niyet Seçici (6 İhtiyaç Kartı): Ne yaptırabilirim? */}
         <IntentCards theme={theme} />
 
-        {/* 3. Dört Aşamalı İnsani Süreç & Park & Wash Kolaylığı: Arabamı bunlara bırakabilir miyim? */}
+        {/* 3. Öncesi & Sonrası Vaka Kanıtı ve İnteraktif Vitrin: Gerçekten iyi iş çıkarıyorlar mı? */}
+        <BeforeAfterSlider theme={theme} detailed={true} />
+
+        {/* 4. Dört Aşamalı İnsani Süreç & Park & Wash Kolaylığı: Arabamı bunlara bırakabilir miyim? */}
         <ProcessSection theme={theme} />
 
-        {/* 4. Şeffaf Fiyat Listesi & Detailing / Servis Paketleri (Strateji C) */}
+        {/* 5. Şeffaf Fiyat Listesi & Detailing / Servis Paketleri (Strateji C) */}
         <PricingSection
           theme={theme}
           onOpenModal={(type) => setActiveModal(type)}
         />
 
-        {/* 5. Google Haritalar Doğrulanmış Profil, Yorumlar & Yol Tarifi: Nasıl ulaşacağım? */}
+        {/* 6. Google Haritalar Doğrulanmış Profil, Yorumlar & Yol Tarifi: Nasıl ulaşacağım? */}
         <GoogleMapsSection theme={theme} />
       </main>
 
