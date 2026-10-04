@@ -26,6 +26,151 @@ import {
 import { LandingTheme } from '@/hooks/useLandingTheme';
 import { useWorkshopSegment } from '@/hooks/useWorkshopSegment';
 
+interface PricingInnerCardProps {
+  id?: string;
+  isOpen: boolean;
+  onToggle: () => void;
+  title: string;
+  badge?: string;
+  badgeColor?: 'blue' | 'green' | 'amber' | 'purple';
+  subtitle?: string;
+  icon: React.ComponentType<{ className?: string }>;
+  isCream: boolean;
+  children: React.ReactNode;
+}
+
+function PricingInnerCard({
+  id,
+  isOpen,
+  onToggle,
+  title,
+  badge,
+  badgeColor = 'blue',
+  subtitle,
+  icon: Icon,
+  isCream,
+  children,
+}: PricingInnerCardProps) {
+  const getBadgeClass = () => {
+    switch (badgeColor) {
+      case 'green':
+        return isCream
+          ? 'bg-[#1FAD4E]/10 text-[#1FAD4E] border-[#1FAD4E]/25'
+          : 'bg-[#1FAD4E]/20 text-[#1FAD4E] border-[#1FAD4E]/40';
+      case 'amber':
+        return isCream
+          ? 'bg-amber-500/10 text-amber-700 border-amber-500/25'
+          : 'bg-amber-500/20 text-amber-400 border-amber-500/40';
+      case 'purple':
+        return isCream
+          ? 'bg-purple-500/10 text-purple-700 border-purple-500/25'
+          : 'bg-purple-500/20 text-purple-400 border-purple-500/40';
+      case 'blue':
+      default:
+        return isCream
+          ? 'bg-[#1E3A8A]/10 text-[#1E3A8A] border-[#1E3A8A]/25'
+          : 'bg-[#2563EB]/20 text-[#60A5FA] border-[#2563EB]/40';
+    }
+  };
+
+  return (
+    <div
+      id={id}
+      className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
+        isCream
+          ? 'bg-gradient-to-r from-white via-[#FAF7F2] to-[#F2EDE4] border-[#686D7A]/25 text-[#111215] shadow-[0_2px_10px_-2px_rgba(0,0,0,0.06),inset_0_1px_0_0_rgba(255,255,255,0.9)]'
+          : 'bg-gradient-to-r from-[#17191E] via-[#1C1F26] to-[#14161A] border-white/12 text-white shadow-[0_4px_20px_-4px_rgba(0,0,0,0.6),inset_0_1px_0_0_rgba(255,255,255,0.08)]'
+      }`}
+    >
+      <button
+        type="button"
+        onClick={onToggle}
+        aria-expanded={isOpen}
+        className={`w-full p-4 sm:p-5 text-left flex items-center justify-between transition-colors duration-150 cursor-pointer active:scale-[0.99] ${
+          isCream ? 'hover:bg-black/[0.02]' : 'hover:bg-white/[0.02]'
+        }`}
+      >
+        <div className="flex items-center gap-3 flex-1 pr-2 min-w-0">
+          <div
+            className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center shrink-0 border transition-colors ${
+              isOpen
+                ? isCream
+                  ? 'bg-[#1E3A8A] text-white border-[#1E3A8A] shadow-sm'
+                  : 'bg-[#2563EB] text-white border-[#2563EB] shadow-sm shadow-[#2563EB]/40'
+                : isCream
+                  ? 'bg-black/5 text-[#1E3A8A] border-black/10'
+                  : 'bg-white/5 text-[#60A5FA] border-white/10'
+            }`}
+          >
+            <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
+          </div>
+
+          <div className="min-w-0 flex-1">
+            <div className="flex items-center gap-2 flex-wrap">
+              <span
+                className={`w-1.5 h-1.5 rounded-full shrink-0 transition-colors ${
+                  isOpen
+                    ? 'bg-[#2563EB] shadow-[0_0_8px_rgba(37,99,235,0.8)]'
+                    : isCream
+                      ? 'bg-black/30'
+                      : 'bg-white/30'
+                }`}
+              />
+              <h3 className="text-sm sm:text-base font-bold tracking-tight truncate">
+                {title}
+              </h3>
+              {badge && (
+                <span
+                  className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-full border tracking-wider uppercase ${getBadgeClass()}`}
+                >
+                  {badge}
+                </span>
+              )}
+            </div>
+            {isOpen && subtitle && (
+              <p
+                className={`text-xs mt-1 leading-relaxed animate-in fade-in duration-150 ${
+                  isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'
+                }`}
+              >
+                {subtitle}
+              </p>
+            )}
+          </div>
+        </div>
+
+        <div
+          className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center border transition-all duration-200 ml-2 ${
+            isOpen
+              ? isCream
+                ? 'bg-[#1E3A8A] border-[#1E3A8A] text-white shadow-sm'
+                : 'bg-[#2563EB] border-[#2563EB] text-white shadow-sm shadow-[#2563EB]/30'
+              : isCream
+                ? 'bg-black/5 border-black/10 text-[#1E3A8A]'
+                : 'bg-white/5 border-white/10 text-[#60A5FA]'
+          }`}
+        >
+          <ChevronDown
+            className={`w-4 h-4 transition-transform duration-200 ${
+              isOpen ? 'rotate-180' : ''
+            }`}
+          />
+        </div>
+      </button>
+
+      {isOpen && (
+        <div
+          className={`px-4 pb-5 sm:px-6 sm:pb-6 pt-3 border-t animate-in fade-in duration-200 ${
+            isCream ? 'border-black/5' : 'border-white/5'
+          }`}
+        >
+          {children}
+        </div>
+      )}
+    </div>
+  );
+}
+
 interface PricingSectionProps {
   theme: LandingTheme;
   onOpenModal: (type: 'motor' | 'detailing') => void;
@@ -34,33 +179,50 @@ interface PricingSectionProps {
 export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
   const isCream = theme === 'cream';
   const { segment, setSegment, phone, phoneDisplay, whatsappNumber } = useWorkshopSegment();
-  const [isComparisonOpen, setIsComparisonOpen] = useState(false);
   const [isSectionOpen, setIsSectionOpen] = useState(false);
+
+  // Otomobil alt kart durumları (Öne çıkan paketler varsayılan açık)
+  const [isCarPackagesOpen, setIsCarPackagesOpen] = useState(true);
+  const [isCarCampaignOpen, setIsCarCampaignOpen] = useState(false);
+  const [isCarMatrixOpen, setIsCarMatrixOpen] = useState(false);
+
+  // Motosiklet alt kart durumları (Detailing paketleri varsayılan açık)
+  const [isBikePackagesOpen, setIsBikePackagesOpen] = useState(true);
+  const [isBikeMechanicsOpen, setIsBikeMechanicsOpen] = useState(false);
+  const [isBikeTransferOpen, setIsBikeTransferOpen] = useState(false);
+
   const activeTab = segment === 'otomobil' ? 'car' : 'bike';
 
-  // "Paketler" butonu veya #fiyatlar tıklandığında fiyat kartını otomatik aç
+  // "Paketler" butonu veya #fiyatlar tıklandığında fiyat kartını ve öne çıkan paketleri otomatik aç
   useEffect(() => {
     const handleOpenPriceCard = () => {
       setIsSectionOpen(true);
+      setIsCarPackagesOpen(true);
+      setIsBikePackagesOpen(true);
     };
     const handleHashCheck = () => {
-      if (typeof window !== 'undefined' && window.location.hash === '#fiyatlar') {
-        setIsSectionOpen(true);
+      if (typeof window !== 'undefined') {
+        if (window.location.hash === '#fiyatlar') {
+          setIsSectionOpen(true);
+          setIsCarPackagesOpen(true);
+        } else if (window.location.hash === '#motosiklet') {
+          setIsSectionOpen(true);
+          setSegment('motosiklet');
+          setIsBikePackagesOpen(true);
+        }
       }
     };
 
     window.addEventListener('open-price-card', handleOpenPriceCard);
     window.addEventListener('hashchange', handleHashCheck);
 
-    if (typeof window !== 'undefined' && window.location.hash === '#fiyatlar') {
-      setIsSectionOpen(true);
-    }
+    handleHashCheck();
 
     return () => {
       window.removeEventListener('open-price-card', handleOpenPriceCard);
       window.removeEventListener('hashchange', handleHashCheck);
     };
-  }, []);
+  }, [setSegment]);
 
   return (
     <section
@@ -197,108 +359,23 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
           </div>
         </div>
 
-        {/* ─── AÇILIŞA ÖZEL KAMPANYA & KURUMSAL İŞ BİRLİĞİ (PDF REFERANSI) ─── */}
-        <div className="mt-10 mb-10 grid md:grid-cols-2 gap-5 text-left">
-          {/* Açılışa Özel Kampanya */}
-          <div
-            className={`p-5 sm:p-6 rounded-2xl border transition-all ${
-              isCream
-                ? 'bg-gradient-to-br from-[#1E3A8A]/10 via-white to-white border-[#1E3A8A]/30 text-[#111215]'
-                : 'bg-gradient-to-br from-[#1E3A8A]/20 via-[#141519] to-[#141519] border-[#1E3A8A]/50 text-white'
-            }`}
-          >
-            <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-              <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-[#1E3A8A] text-white uppercase tracking-wider">
-                Açılışa Özel İndirim Kampanyası
-              </span>
-              <span className="text-xs font-bold text-[#1FAD4E] flex items-center gap-1">
-                <Clock className="w-3.5 h-3.5" /> 27 Eylül – 1 Kasım
-              </span>
-            </div>
-            <h3 className="text-lg font-bold tracking-tight">İç-Dış Yıkamada Açılış İndirimi</h3>
-            <p className={`text-xs mt-1 mb-4 leading-relaxed ${isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'}`}>
-              Bumex Garage Bahçelievler merkezimizin açılışı şerefine, 27 Eylül–1 Kasım tarihleri arasında avantajlı fiyatlarla yararlanabilirsiniz:
-            </p>
-            <div className="grid grid-cols-3 gap-2.5 text-center text-xs">
-              <div className={`p-3 rounded-xl border ${isCream ? 'bg-white/90 border-black/5' : 'bg-black/40 border-white/5'}`}>
-                <span className="text-[10px] block opacity-70 font-semibold">Binek Araç</span>
-                <span className="text-lg font-mono font-black text-[#1E3A8A] dark:text-[#60A5FA]">600 ₺</span>
-                <span className="text-[10px] line-through opacity-50 block font-mono">800 ₺</span>
-              </div>
-              <div className={`p-3 rounded-xl border ${isCream ? 'bg-white/90 border-black/5' : 'bg-black/40 border-white/5'}`}>
-                <span className="text-[10px] block opacity-70 font-semibold">Hafif Ticari</span>
-                <span className="text-lg font-mono font-black text-[#1E3A8A] dark:text-[#60A5FA]">700 ₺</span>
-                <span className="text-[10px] line-through opacity-50 block font-mono">900 ₺</span>
-              </div>
-              <div className={`p-3 rounded-xl border ${isCream ? 'bg-white/90 border-black/5' : 'bg-black/40 border-white/5'}`}>
-                <span className="text-[10px] block opacity-70 font-semibold">SUV Tipi</span>
-                <span className="text-lg font-mono font-black text-[#1E3A8A] dark:text-[#60A5FA]">800 ₺</span>
-                <span className="text-[10px] line-through opacity-50 block font-mono">1.000 ₺</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Kurumsal İş Birliği & Filo Protokolü (Şirketler & Kurumlar İçin Genel Çerçeve) */}
-          <div
-            className={`p-5 sm:p-6 rounded-2xl border transition-all flex flex-col justify-between ${
-              isCream
-                ? 'bg-white border-[#686D7A]/20 text-[#111215]'
-                : 'bg-[#141519] border-white/10 text-white'
-            }`}
-          >
-            <div>
-              <div className="flex items-center gap-2 mb-2">
-                <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-[#1FAD4E]/15 text-[#1FAD4E] border border-[#1FAD4E]/30 uppercase tracking-wider">
-                  Kurumsal Çözümler
-                </span>
-                <span className={`text-xs font-semibold ${isCream ? 'text-[#686D7A]' : 'text-[#8E94A0]'}`}>
-                  Şirketler, Eğitim &amp; Sağlık Kurumları
-                </span>
-              </div>
-              <h3 className="text-lg font-bold tracking-tight">Kurumunuz &amp; Şirket Filonuz İçin Hizmet Protokolü</h3>
-              <p className={`text-xs mt-1 mb-3 leading-relaxed ${isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'}`}>
-                Bumex Garage; çevremizdeki üniversitelere, hastanelere, okullara ve metro aksına yaklaşık 1 km mesafede; resmi faturalı, randevu öncelikli ve kurumsal indirimli araç bakım &amp; temizlik protokolleri sunmaktadır:
-              </p>
-              <div className="space-y-2 text-xs">
-                <div className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#1FAD4E] shrink-0 mt-0.5" />
-                  <span><strong>Faturalı &amp; Resmi Altyapı:</strong> Kurumsal filo ve resmi hizmet araçlarına tam faturalandırma ve sözleşmeli iş birliği imkanı.</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#1FAD4E] shrink-0 mt-0.5" />
-                  <span><strong>Personel &amp; Çalışan Avantajı:</strong> Kurum çalışanlarına ve 1. derece yakınlarına bireysel işlemlerde tanımlanan kurumsal indirim protokolü.</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#1FAD4E] shrink-0 mt-0.5" />
-                  <span><strong>Öğretmenler, Sağlık &amp; İdari Personel:</strong> Çevremizdeki okul, hastane ve kamu kurumlarında görev yapan öğretmenlerimize, sağlık çalışanlarımıza, idari personele ve hasta yakınlarına kimlik/kart ibrazıyla anında <strong>%10 indirim</strong>.</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-4 pt-3 border-t border-black/5 dark:border-white/5 flex flex-wrap items-center justify-between gap-2">
-              <span className="text-[11px] opacity-75 font-mono">
-                Kurumsal Teklif Kodu: BX-2026-089
-              </span>
-              <a
-                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-                  'Merhaba Bumex Garage, kurumumuz / şirket filomuz için kurumsal iş birliği ve teklif protokolü hakkında görüşmek istiyoruz.'
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1FAD4E] hover:underline"
-              >
-                <span>Kurumsal Teklif İsteyin</span>
-                <ChevronRight className="w-3.5 h-3.5" />
-              </a>
-            </div>
-          </div>
-        </div>
-
         {/* ─── TAB 1: OTOMOBİL PAKETLERİ ─── */}
         {activeTab === 'car' && (
-          <div className="space-y-12 animate-in fade-in duration-200">
-            {/* 3 Ana Otomobil Paketi */}
-            <div className="flex md:grid md:grid-cols-3 gap-4 sm:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 scrollbar-none items-stretch text-left">
+          <div className="space-y-4 sm:space-y-6 animate-in fade-in duration-200 text-left">
+            {/* Alt Kart 1: Öne Çıkan Paketler */}
+            <PricingInnerCard
+              id="oto-paketler"
+              isOpen={isCarPackagesOpen}
+              onToggle={() => setIsCarPackagesOpen((prev) => !prev)}
+              title="Öne Çıkan Detailing & Yıkama Paketleri"
+              badge="3 SEVİYE PAKET"
+              badgeColor="blue"
+              subtitle="01 Oto Yıkama (800₺), 02 Pasta Cila & Hare Giderme (4.500₺), 03 9H Seramik Kaplama (12.000₺)"
+              icon={Droplets}
+              isCream={isCream}
+            >
+              <div className="pt-2">
+                <div className="flex md:grid md:grid-cols-3 gap-4 sm:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 md:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-none items-stretch text-left">
               {/* Paket 1: Oto Yıkama & Start Paket */}
               <div
                 className={`btn-mechanical snap-start shrink-0 w-[85vw] max-w-[340px] md:w-auto p-6 sm:p-7 rounded-2xl flex flex-col justify-between border shadow-md transition-all duration-150 ${
@@ -630,30 +707,133 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                   </a>
                 </div>
               </div>
-            </div>
+                </div>
+              </div>
+            </PricingInnerCard>
 
-            {/* ─── RESMİ GÜNCEL HİZMET VE FİYAT LİSTESİ (PDF TABLOSU MATRİSİ) ─── */}
-            <div className="mt-8 md:mt-12">
-              <button
-                type="button"
-                onClick={() => setIsComparisonOpen(!isComparisonOpen)}
-                className={`w-full md:hidden py-3 px-4 rounded-xl border text-xs font-bold flex items-center justify-between transition cursor-pointer ${
-                  isCream
-                    ? 'bg-white border-[#1E3A8A]/30 text-[#111215]'
-                    : 'bg-[#141519] border-white/15 text-white'
-                }`}
-              >
-                <span>Tüm Paket Özelliklerini Karşılaştır</span>
-                <span>{isComparisonOpen ? 'Kapat ▲' : 'Genişlet ▼'}</span>
-              </button>
-
-              <div className={`${isComparisonOpen ? 'block' : 'hidden'} md:block mt-3 md:mt-0`}>
+            {/* Alt Kart 2: Açılışa Özel Kampanya & Kurumsal Protokol */}
+            <PricingInnerCard
+              id="oto-kampanya"
+              isOpen={isCarCampaignOpen}
+              onToggle={() => setIsCarCampaignOpen((prev) => !prev)}
+              title="Açılışa Özel Kampanya & Kurumsal Protokol"
+              badge="KAMPANYA & FİLO"
+              badgeColor="green"
+              subtitle="Binek 600₺ açılış indirimi, sözleşmeli kurumsal filo altyapısı ve kamu çalışanlarına %10 indirim"
+              icon={Tag}
+              isCream={isCream}
+            >
+              <div className="pt-2 grid md:grid-cols-2 gap-5 text-left">
+                {/* Açılışa Özel Kampanya */}
                 <div
-                  className={`p-6 sm:p-8 rounded-2xl border text-left shadow-lg ${
-                    isCream ? 'bg-white border-[#686D7A]/20' : 'bg-[#141519] border-white/10'
+                  className={`p-5 sm:p-6 rounded-2xl border transition-all ${
+                    isCream
+                      ? 'bg-gradient-to-br from-[#1E3A8A]/10 via-white to-white border-[#1E3A8A]/30 text-[#111215]'
+                      : 'bg-gradient-to-br from-[#1E3A8A]/20 via-[#141519] to-[#141519] border-[#1E3A8A]/50 text-white'
                   }`}
                 >
-              <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6 pb-6 border-b border-black/5 dark:border-white/10">
+                  <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                    <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-[#1E3A8A] text-white uppercase tracking-wider">
+                      Açılışa Özel İndirim Kampanyası
+                    </span>
+                    <span className="text-xs font-bold text-[#1FAD4E] flex items-center gap-1">
+                      <Clock className="w-3.5 h-3.5" /> 27 Eylül – 1 Kasım
+                    </span>
+                  </div>
+                  <h4 className="text-base sm:text-lg font-bold tracking-tight">İç-Dış Yıkamada Açılış İndirimi</h4>
+                  <p className={`text-xs mt-1 mb-4 leading-relaxed ${isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'}`}>
+                    Bumex Garage Bahçelievler merkezimizin açılışı şerefine, 27 Eylül–1 Kasım tarihleri arasında avantajlı fiyatlarla yararlanabilirsiniz:
+                  </p>
+                  <div className="grid grid-cols-3 gap-2.5 text-center text-xs">
+                    <div className={`p-3 rounded-xl border ${isCream ? 'bg-white/90 border-black/5' : 'bg-black/40 border-white/5'}`}>
+                      <span className="text-[10px] block opacity-70 font-semibold">Binek Araç</span>
+                      <span className="text-lg font-mono font-black text-[#1E3A8A] dark:text-[#60A5FA]">600 ₺</span>
+                      <span className="text-[10px] line-through opacity-50 block font-mono">800 ₺</span>
+                    </div>
+                    <div className={`p-3 rounded-xl border ${isCream ? 'bg-white/90 border-black/5' : 'bg-black/40 border-white/5'}`}>
+                      <span className="text-[10px] block opacity-70 font-semibold">Hafif Ticari</span>
+                      <span className="text-lg font-mono font-black text-[#1E3A8A] dark:text-[#60A5FA]">700 ₺</span>
+                      <span className="text-[10px] line-through opacity-50 block font-mono">900 ₺</span>
+                    </div>
+                    <div className={`p-3 rounded-xl border ${isCream ? 'bg-white/90 border-black/5' : 'bg-black/40 border-white/5'}`}>
+                      <span className="text-[10px] block opacity-70 font-semibold">SUV Tipi</span>
+                      <span className="text-lg font-mono font-black text-[#1E3A8A] dark:text-[#60A5FA]">800 ₺</span>
+                      <span className="text-[10px] line-through opacity-50 block font-mono">1.000 ₺</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Kurumsal İş Birliği & Filo Protokolü */}
+                <div
+                  className={`p-5 sm:p-6 rounded-2xl border transition-all flex flex-col justify-between ${
+                    isCream
+                      ? 'bg-white border-[#686D7A]/20 text-[#111215]'
+                      : 'bg-[#141519] border-white/10 text-white'
+                  }`}
+                >
+                  <div>
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-[#1FAD4E]/15 text-[#1FAD4E] border border-[#1FAD4E]/30 uppercase tracking-wider">
+                        Kurumsal Çözümler
+                      </span>
+                      <span className={`text-xs font-semibold ${isCream ? 'text-[#686D7A]' : 'text-[#8E94A0]'}`}>
+                        Şirketler, Eğitim &amp; Sağlık Kurumları
+                      </span>
+                    </div>
+                    <h4 className="text-base sm:text-lg font-bold tracking-tight">Kurumunuz &amp; Şirket Filonuz İçin Hizmet Protokolü</h4>
+                    <p className={`text-xs mt-1 mb-3 leading-relaxed ${isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'}`}>
+                      Bumex Garage; çevremizdeki üniversitelere, hastanelere, okullara ve metro aksına yaklaşık 1 km mesafede; resmi faturalı, randevu öncelikli ve kurumsal indirimli araç bakım &amp; temizlik protokolleri sunmaktadır:
+                    </p>
+                    <div className="space-y-2 text-xs">
+                      <div className="flex items-start gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-[#1FAD4E] shrink-0 mt-0.5" />
+                        <span><strong>Faturalı &amp; Resmi Altyapı:</strong> Kurumsal filo ve resmi hizmet araçlarına tam faturalandırma ve sözleşmeli iş birliği imkanı.</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-[#1FAD4E] shrink-0 mt-0.5" />
+                        <span><strong>Personel &amp; Çalışan Avantajı:</strong> Kurum çalışanlarına ve 1. derece yakınlarına bireysel işlemlerde tanımlanan kurumsal indirim protokolü.</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-[#1FAD4E] shrink-0 mt-0.5" />
+                        <span><strong>Öğretmenler, Sağlık &amp; İdari Personel:</strong> Çevremizdeki okul, hastane ve kamu kurumlarında görev yapan öğretmenlerimize, sağlık çalışanlarımıza, idari personele ve hasta yakınlarına kimlik/kart ibrazıyla anında <strong>%10 indirim</strong>.</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-4 pt-3 border-t border-black/5 dark:border-white/5 flex flex-wrap items-center justify-between gap-2">
+                    <span className="text-[11px] opacity-75 font-mono">
+                      Kurumsal Teklif Kodu: BX-2026-089
+                    </span>
+                    <a
+                      href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+                        'Merhaba Bumex Garage, kurumumuz / şirket filomuz için kurumsal iş birliği ve teklif protokolü hakkında görüşmek istiyoruz.'
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1FAD4E] hover:underline"
+                    >
+                      <span>Kurumsal Teklif İsteyin</span>
+                      <ChevronRight className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </PricingInnerCard>
+
+            {/* Alt Kart 3: Resmi Güncel Hizmet ve Fiyat Listesi */}
+            <PricingInnerCard
+              id="oto-matris"
+              isOpen={isCarMatrixOpen}
+              onToggle={() => setIsCarMatrixOpen((prev) => !prev)}
+              title="Resmi Güncel Hizmet ve Fiyat Listesi"
+              badge="25+ HİZMET KALEMİ"
+              badgeColor="purple"
+              subtitle="Oto yıkama, detaylı temizlik & kuaför, detailing başlangıç ve motor mekanik matrisi"
+              icon={Layers}
+              isCream={isCream}
+            >
+              <div className="pt-2 text-left">
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6 pb-6 border-b border-black/5 dark:border-white/10">
                 <div>
                   <div className="flex items-center gap-2 mb-1.5">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#1E3A8A]" />
@@ -827,14 +1007,13 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                 </p>
               </div>
             </div>
-          </div>
+          </PricingInnerCard>
         </div>
-      </div>
-    )}
+      )}
 
         {/* ─── TAB 2: MOTOSİKLET DETAYLI BAKIM, TAMİR & ÇEKİCİ (ANKARA'DA BİR İLK) ─── */}
         {activeTab === 'bike' && (
-          <div className="space-y-10 animate-in fade-in duration-200">
+          <div className="space-y-4 sm:space-y-6 animate-in fade-in duration-200 text-left">
             {/* Özel Motosiklet Başlık Kartı */}
             <div
               className={`p-6 sm:p-8 rounded-2xl border text-center relative overflow-hidden ${
@@ -876,16 +1055,20 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
               </div>
             </div>
 
-            {/* BÖLÜM 1: 3 Resmi Motosiklet Yıkama, Detailing & Koruma Paketi */}
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <span className="w-2 h-2 rounded-full bg-[#1E3A8A]" />
-                <h4 className="text-base font-bold tracking-tight uppercase text-zinc-300">
-                  1. Motosiklet Yıkama &amp; Detailing Paketleri
-                </h4>
-              </div>
-
-              <div className="flex md:grid md:grid-cols-3 gap-4 sm:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 scrollbar-none items-stretch">
+            {/* Alt Kart 1: Motosiklet Yıkama & Detailing Paketleri */}
+            <PricingInnerCard
+              id="moto-paketler"
+              isOpen={isBikePackagesOpen}
+              onToggle={() => setIsBikePackagesOpen((prev) => !prev)}
+              title="Motosiklet Yıkama & Detailing Paketleri"
+              badge="3 SEVİYE PAKET"
+              badgeColor="blue"
+              subtitle="Basınçsız buharlı yıkama, grenaj pasta-cila ve showroom kalitesinde seramik koruma"
+              icon={Bike}
+              isCream={isCream}
+            >
+              <div className="pt-2">
+                <div className="flex md:grid md:grid-cols-3 gap-4 sm:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 md:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-none items-stretch text-left">
                 {/* 1. START PAKET - Temel Bakım */}
                 <div
                   className={`btn-mechanical snap-start shrink-0 w-[85vw] max-w-[340px] md:w-auto p-6 sm:p-7 rounded-2xl flex flex-col justify-between border shadow-md transition-all duration-150 ${
@@ -1142,13 +1325,21 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                 </div>
               </div>
             </div>
+        </PricingInnerCard>
 
-            {/* BÖLÜM 2: Motosiklet Mekanik Servisi (Bakım - Arıza - Tamir) */}
-            <div
-              className={`p-6 sm:p-8 rounded-2xl border ${
-                isCream ? 'bg-white/85 border-[#6C6A6B]/20' : 'bg-[#222529] border-white/10'
-              }`}
-            >
+        {/* Alt Kart 2: Motosiklet Mekanik Servisi */}
+        <PricingInnerCard
+          id="moto-mekanik"
+          isOpen={isBikeMechanicsOpen}
+          onToggle={() => setIsBikeMechanicsOpen((prev) => !prev)}
+          title="Motosiklet Mekanik Servisi: Bakım • Arıza • Tamir"
+          badge="MEKANİK ATÖLYE"
+          badgeColor="amber"
+          subtitle="Rutin periyodik bakım, mekanik/elektriksel arıza tespiti ve kaza sonrası plastik grenaj kaynağı"
+          icon={Wrench}
+          isCream={isCream}
+        >
+          <div className="pt-2 text-left">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
@@ -1390,15 +1581,28 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                 </span>
               </div>
             </div>
+          </PricingInnerCard>
 
-            {/* BÖLÜM 3: Motosiklet Çekici Hizmeti (Özel VIP Kurtarma Bandı) */}
-            <div
-              className={`p-6 sm:p-8 rounded-2xl border relative overflow-hidden shadow-lg ${
-                isCream
-                  ? 'bg-gradient-to-br from-[#1E3A8A] to-[#152C5B] text-white border-[#1E3A8A]'
-                  : 'bg-gradient-to-br from-[#1A2E56] to-[#0F1A30] text-white border-[#2563EB]/40'
-              }`}
-            >
+          {/* Alt Kart 3: Motosiklet Transfer & Taşıma */}
+          <PricingInnerCard
+            id="moto-transfer"
+            isOpen={isBikeTransferOpen}
+            onToggle={() => setIsBikeTransferOpen((prev) => !prev)}
+            title="Motosiklet Transfer & Taşıma Desteği"
+            badge="ÇOK YAKINDA"
+            badgeColor="green"
+            subtitle="Özel tekerlek sabitleme beşiği ve askı aparatlı randevulu kapalı transfer desteği"
+            icon={Truck}
+            isCream={isCream}
+          >
+            <div className="pt-2">
+              <div
+                className={`p-6 sm:p-8 rounded-2xl border relative overflow-hidden shadow-lg ${
+                  isCream
+                    ? 'bg-gradient-to-br from-[#1E3A8A] to-[#152C5B] text-white border-[#1E3A8A]'
+                    : 'bg-gradient-to-br from-[#1A2E56] to-[#0F1A30] text-white border-[#2563EB]/40'
+                }`}
+              >
               <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 relative z-10">
                 <div className="space-y-2.5 max-w-2xl">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 text-xs font-extrabold uppercase tracking-wider backdrop-blur-sm border border-amber-400/30">
@@ -1449,7 +1653,9 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
               </div>
             </div>
           </div>
-        )}
+        </PricingInnerCard>
+      </div>
+    )}
 
         {/* Bilgilendirme Notu */}
         <div

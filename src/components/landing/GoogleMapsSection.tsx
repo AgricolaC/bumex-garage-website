@@ -171,7 +171,7 @@ const VERIFIED_GOOGLE_REVIEWS: VerifiedReview[] = [
 export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
   const isCream = theme === 'cream';
   const [isMounted, setIsMounted] = useState(false);
-  const [isSectionOpen, setIsSectionOpen] = useState(false);
+  const [isSectionOpen, setIsSectionOpen] = useState(true);
 
   useEffect(() => {
     setIsMounted(true);
