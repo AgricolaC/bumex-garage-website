@@ -1091,10 +1091,10 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
               </div>
 
               {/* 3 Ana Uzmanlık Sütunu: Bakım - Arıza - Tamir */}
-              <div className="grid md:grid-cols-3 gap-6">
+              <div className="flex md:grid md:grid-cols-3 gap-4 sm:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 scrollbar-none items-stretch text-left">
                 {/* 1. SÜTUN: BAKIM (Rutin & Periyodik Bakım) */}
                 <div
-                  className={`p-6 rounded-2xl border flex flex-col justify-between transition hover:-translate-y-1 ${
+                  className={`snap-start shrink-0 w-[85vw] max-w-[340px] md:w-auto p-6 rounded-2xl border flex flex-col justify-between transition hover:-translate-y-1 ${
                     isCream ? 'bg-[#F2ECE8]/80 border-black/5' : 'bg-[#191B1F] border-white/5'
                   }`}
                 >
@@ -1161,7 +1161,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
 
                 {/* 2. SÜTUN: ARIZA (Mekanik & Elektriksel Arıza Onarımı) */}
                 <div
-                  className={`p-6 rounded-2xl border flex flex-col justify-between transition hover:-translate-y-1 ${
+                  className={`snap-start shrink-0 w-[85vw] max-w-[340px] md:w-auto p-6 rounded-2xl border flex flex-col justify-between transition hover:-translate-y-1 ${
                     isCream ? 'bg-[#F2ECE8]/80 border-black/5' : 'bg-[#191B1F] border-white/5'
                   }`}
                 >
@@ -1228,7 +1228,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
 
                 {/* 3. SÜTUN: TAMİR (Kaza Sonrası Tamirat & Hasar Onarımı) */}
                 <div
-                  className={`p-6 rounded-2xl border flex flex-col justify-between transition hover:-translate-y-1 ${
+                  className={`snap-start shrink-0 w-[85vw] max-w-[340px] md:w-auto p-6 rounded-2xl border flex flex-col justify-between transition hover:-translate-y-1 ${
                     isCream ? 'bg-[#F2ECE8]/80 border-black/5' : 'bg-[#191B1F] border-white/5'
                   }`}
                 >

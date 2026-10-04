@@ -16,7 +16,7 @@ export function MobileCallBar({ theme }: MobileCallBarProps) {
 
   return (
     <div
-      className={`fixed bottom-3 inset-x-4 z-40 md:hidden max-w-sm mx-auto p-1.5 rounded-full border shadow-2xl backdrop-blur-xl transition-colors duration-200 pb-[max(0.375rem,env(safe-area-inset-bottom))] ${
+      className={`fixed bottom-[max(0.75rem,env(safe-area-inset-bottom))] inset-x-4 z-40 md:hidden max-w-sm mx-auto p-1.5 rounded-full border shadow-2xl backdrop-blur-xl transition-colors duration-200 ${
         isCream
           ? 'bg-[#EFECE6]/90 border-[#686D7A]/25'
           : 'bg-[#0C0D10]/90 border-white/15'

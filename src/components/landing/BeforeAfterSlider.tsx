@@ -538,7 +538,7 @@ export function BeforeAfterSlider({
             <button
               type="button"
               onClick={() => setSliderPosition(0)}
-              className={`btn-mechanical px-3.5 py-2.5 min-h-[44px] rounded-lg text-xs font-semibold border transition cursor-pointer ${
+              className={`btn-mechanical px-3.5 py-2.5 min-h-[44px] rounded-lg text-xs font-semibold border transition cursor-pointer active:scale-95 touch-manipulation select-none ${
                 sliderPosition === 0
                   ? 'bg-[#1E3A8A] text-white border-[#1E3A8A] shadow-xs'
                   : isCream
@@ -551,7 +551,7 @@ export function BeforeAfterSlider({
             <button
               type="button"
               onClick={() => setSliderPosition(50)}
-              className={`btn-mechanical px-3.5 py-2.5 min-h-[44px] rounded-lg text-xs font-semibold border transition cursor-pointer ${
+              className={`btn-mechanical px-3.5 py-2.5 min-h-[44px] rounded-lg text-xs font-semibold border transition cursor-pointer active:scale-95 touch-manipulation select-none ${
                 sliderPosition === 50
                   ? 'bg-[#1E3A8A] text-white border-[#1E3A8A] shadow-xs'
                   : isCream
@@ -564,7 +564,7 @@ export function BeforeAfterSlider({
             <button
               type="button"
               onClick={() => setSliderPosition(100)}
-              className={`btn-mechanical px-3.5 py-2.5 min-h-[44px] rounded-lg text-xs font-semibold border transition cursor-pointer ${
+              className={`btn-mechanical px-3.5 py-2.5 min-h-[44px] rounded-lg text-xs font-semibold border transition cursor-pointer active:scale-95 touch-manipulation select-none ${
                 sliderPosition === 100
                   ? 'bg-[#1E3A8A] text-white border-[#1E3A8A] shadow-xs'
                   : isCream
