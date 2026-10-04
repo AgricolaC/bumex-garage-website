@@ -69,28 +69,98 @@ interface VerifiedReview {
 
 const VERIFIED_GOOGLE_REVIEWS: VerifiedReview[] = [
   {
-    id: 'rev-1',
-    name: 'İsmet Ö.',
-    date: '2026-09-17',
+    id: 'rev-mehmet-kara',
+    name: 'Mehmet Kara',
+    date: '2026-10-04',
+    defaultTimeAgo: 'Bugün',
+    text: 'Güler yüzlü çalışanlarıyla yıkamayı beğendik.',
+  },
+  {
+    id: 'rev-shm',
+    name: 'shm',
+    date: '2026-10-04',
+    defaultTimeAgo: 'Bugün',
+    text: 'Ellerine sağlık çok çok güzel yıkadılar teşekkür ederim.',
+  },
+  {
+    id: 'rev-fatih-kurtkara',
+    name: 'Fatih Kurtkara',
+    date: '2026-10-03',
+    defaultTimeAgo: 'Dün',
+    text: 'Tavsiye ediyorum. Çalışanlar gayet ilgili ve güler yüzlü. Aracın temizliği de özenli ve detaylı bir şekilde kısa sürede yapıldı.',
+  },
+  {
+    id: 'rev-irem-sertkaya',
+    name: 'İrem Sertkaya',
+    date: '2026-10-03',
+    defaultTimeAgo: 'Dün',
+    text: 'Pulsar RS200 kullanıcısıyım her arızamda gittiğim güvendiğim bir yer tüm arkadaşlarıma önerip memnun kaldıkları bi yer.',
+  },
+  {
+    id: 'rev-tolga-temiz',
+    name: 'Tolga Temiz',
+    date: '2026-10-03',
+    defaultTimeAgo: 'Dün',
+    text: 'Arabamı güvenle teslim edebildiğim bir oto yıkama sürecin başında sonuna kadar çok güzel ilgilendiler ve arabamı tertemiz yaptıkları için teşekkür ederim.',
+  },
+  {
+    id: 'rev-bora-gokbayir',
+    name: 'Bora Gökbayır',
+    date: '2026-10-02',
     defaultTimeAgo: '2 gün önce',
-    text: 'Çok memnun kaldım çok temiz iş yaptılar özenle çalışıyorlar.',
+    text: 'Mekanı yeni devralmış güleryüzlü arkadaşlar. Kirli aracımı iç dış hızlıca çok güzel yıkadılar. Bol kazançlarınız olsun.',
   },
   {
-    id: 'rev-2',
-    name: 'Tuğba Y.',
-    date: '2026-09-13',
+    id: 'rev-ayhan-uzun',
+    name: 'Ayhan Uzun',
+    date: '2026-10-02',
+    defaultTimeAgo: '2 gün önce',
+    text: 'Arkadaşlar tavsiye ediyorum. Eşim arabayı yıkamaya bırakmış kafede vakit geçirirken tertemiz yıkanmış ve 2 saatten fazla da otoparkta muhafaza etmişler. İlgi ve alaka için Bumex Garage teşekkürler.',
+  },
+  {
+    id: 'rev-ufuk-sevim',
+    name: 'Ufuk Sevim',
+    date: '2026-09-28',
     defaultTimeAgo: '6 gün önce',
-    text: 'Aracımı hep burda yıkatıyorum tertemiz yapıyorlar ve güleryüzlü personelleri var ilgileri için teşekkür ederim 🙏🏻',
+    text: 'Aracımı yıkamaya vermiştim inanılmaz titiz bir şekilde temizlediler. Normalde aracımı kolay kolay yıkamada bırakmam ama burasının samimi ortamı, karşılamaları, detaylı ve hızlı temizlemeleri çok hoşuma gitti. Dinlenme alanında da kendimi çok rahat hissettim, ikramları ile mest oldum. Kesinlikle tavsiye ederim.',
   },
   {
-    id: 'rev-3',
+    id: 'rev-avciturk',
+    name: 'AVCITÜRK',
+    date: '2026-09-28',
+    defaultTimeAgo: '6 gün önce',
+    text: 'Kurye arkadaşlar, motosiklet kullanıcıları, titiz ve hijyen severler; on numara mekan. Güler yüz ve temizliği benimseyen bir işletme olarak Bahçeli\'de motorumu bırakıp keyfimize baktıktan sonra tertemiz bir araçla karşılaştıran bir işletme, dost tavsiyesidir.',
+  },
+  {
+    id: 'rev-ercan-avci',
+    name: 'Ercan Avcı',
+    date: '2026-09-28',
+    defaultTimeAgo: '6 gün önce',
+    text: 'İşini severek yapan samimi güler yüzlü bir işletme. Araç yıkamaya ek aynı zamanda motor tamir mekanik işleri ve yıkama da yapılıyor. Aracımız tertemiz yıkanmış, diğer yıkamacılar gibi suyu tut bezle kurula değil, özenle tertemiz yapılıyor. Kesinlikle tavsiye ederim.',
+  },
+  {
+    id: 'rev-onur-sevim',
+    name: 'Onur Sevim',
+    date: '2026-09-28',
+    defaultTimeAgo: '6 gün önce',
+    text: 'Ankara için yapılması gereken bir şeyi yaptılar; motosiklet ve araç yıkama, motosiklet tamir bakım her şeyiyle mükemmel. Aracım ve motosikletimle şaşmayacağım bir nokta. Kaliteli hizmet, güler yüz, güzel işçilik için Buğra ustama teşekkürler.',
+  },
+  {
+    id: 'rev-mehmet-ali-coban',
     name: 'Mehmet Ali Ç.',
     date: '2026-09-05',
-    defaultTimeAgo: '2 hafta önce',
+    defaultTimeAgo: '1 ay önce',
     text: 'Arabadan çıkmayacak denen lekeleri bile tek yıkamada çıkardılar. Kaliteli hizmet için çok teşekkürler.',
   },
   {
-    id: 'rev-4',
+    id: 'rev-tugba-yuceer',
+    name: 'Tuğba Y.',
+    date: '2026-09-13',
+    defaultTimeAgo: '3 hafta önce',
+    text: 'Aracımı hep burda yıkatıyorum tertemiz yapıyorlar ve güleryüzlü personelleri var ilgileri için teşekkür ederim 🙏🏻',
+  },
+  {
+    id: 'rev-hayati-kupeli',
     name: 'Hayati K.',
     date: '2026-07-19',
     defaultTimeAgo: '2 ay önce',
@@ -262,7 +332,7 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
                     ))}
                   </div>
                   <span className="text-xs font-extrabold text-[#1E3A8A] dark:text-[#60A5FA]">
-                    60+ Değerlendirme
+                    80+ Doğrulanmış Değerlendirme (83 Yorum)
                   </span>
                 </div>
 
@@ -336,7 +406,7 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
                 className="btn-mechanical w-full py-3 px-4 rounded-xl bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md shadow-[#1E3A8A]/25"
               >
                 <MessageSquareQuote className="w-4 h-4" />
-                <span>Google&apos;daki Tüm Değerlendirmeleri Oku (60+)</span>
+                <span>Google&apos;daki Tüm Değerlendirmeleri Oku (83 Değerlendirme · 4.9 ★)</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
 

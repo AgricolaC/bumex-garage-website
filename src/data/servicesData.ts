@@ -57,7 +57,7 @@ export const SERVICES_DATA: Record<ServiceHubSlug, ServiceHubData> = {
     heroHeadline: 'BOYANIZA ŞEFFAF KORUMA: KENDİNİ YENİLEYEN TPU PPF',
     heroSubtitle:
       'Yol mıcırlanmaları, yüksek sürat taş vurukları ve anahtar sürtmelerine karşı 200 mikronluk elastik poliüretan koruma. Sıcak su veya güneş ışığı ile kılcal çizikleri kendiliğinden onaran optik TPU teknolojisi.',
-    pricingHint: 'Garajımızda Ücretsiz Panel Ekspertizi ile Belirlenir',
+    pricingHint: "40.000 ₺'den Başlayan Fiyatlarla (Ücretsiz Panel Ekspertizi)",
     estimatedDuration: '2 – 3 İş Günü',
     warrantyPeriod: '5 – 10 Yıl Sararmazlık & Ayrılmama Garantisi',
     technicalSpecs: [
@@ -170,7 +170,7 @@ export const SERVICES_DATA: Record<ServiceHubSlug, ServiceHubData> = {
     heroHeadline: 'DERİN PARLAKLIK & 9H NANO SERAMİK KORUMA',
     heroSubtitle:
       'Boya verniğinin mikron hassasiyetinde pürüzsüzleştirilmesinin ardından uygulanan 9H inorganik silika (SiO₂) katman; asit yağmurları, kuş pisliği ve güneşin UV ışınlarına karşı kalıcı koruma sağlar.',
-    pricingHint: 'Boya Durumu & Araç Segmentine Göre Belirlenir',
+    pricingHint: "20.000 ₺'den Başlayan Fiyatlarla (Segment ve Boya Durumuna Göre)",
     estimatedDuration: '1.5 – 2 İş Günü',
     warrantyPeriod: '2 Yıl Hidrofobik & Kimyasal Direnç Garantisi',
     technicalSpecs: [
@@ -283,7 +283,7 @@ export const SERVICES_DATA: Record<ServiceHubSlug, ServiceHubData> = {
     heroHeadline: 'VERNİĞİ ERİTMEYEN HASSAS MİKRON RESTORASYON',
     heroSubtitle:
       "Geleneksel sanayi tipi agresif pastalar verniği aşındırarak tüketir. Bumex Garage'da her panelin vernik mikron kalınlığı ölçülür; Alman menşeili kademeli aşındırıcılar ile boyanız korunarak sıfır hata parlaklık elde edilir.",
-    pricingHint: 'Çizik Derinliği ve Panel Sayısına Göre Belirlenir',
+    pricingHint: "10.000 ₺'den Başlayan Fiyatlarla (Mikron Analizi Sonrası)",
     estimatedDuration: '1 – 1.5 İş Günü',
     warrantyPeriod: 'Haresiz & Çiziksiz Teslimat Garantisi',
     technicalSpecs: [
@@ -396,7 +396,7 @@ export const SERVICES_DATA: Record<ServiceHubSlug, ServiceHubData> = {
     heroHeadline: 'ELEKTRONİK SENSÖRLERE BASINÇLI SU DEĞDİRMEDEN: DİELEKTRİK KURU BUHAR',
     heroSubtitle:
       'Geleneksel basınçlı suyla motor yıkamak alternatör, buji yuvaları ve beyin soketlerine telafisiz hasarlar verir. Yüksek ısı kuru buhar teknolojimiz yağ ve zifti su birikintisi yapmadan çözer; iletken olmayan dielektrik koruyucu soketleri neme karşı mühürler.',
-    pricingHint: 'VIP Paket İçerisinde veya Münferit Olarak Sunulur',
+    pricingHint: '1.500 ₺ Standart Tarife / VIP Paketlerde Dahil',
     estimatedDuration: '2 – 3 Saat',
     warrantyPeriod: 'Elektronik Güvenlik Protokolü',
     technicalSpecs: [
@@ -509,7 +509,7 @@ export const SERVICES_DATA: Record<ServiceHubSlug, ServiceHubData> = {
     heroHeadline: 'DERİN TEMİZLİK VE HİJYEN: İÇ RESTORASYON',
     heroSubtitle:
       'Kumaş ve deri koltuklardaki inatçı lekeler sıcak su ekstraksiyonuyla liften çekilir. Havalandırma kanalları yüksek ısı buharla arındırılır; aktif ozon jeneratörü ile sigara ve nem kokuları kaynağında giderilir.',
-    pricingHint: '3.000 ₺ Taban Fiyattan Başlayan Paketlerle',
+    pricingHint: "3.000 ₺ Taban Fiyattan Başlayan Paketlerle (Koltuk 3.500 ₺ / Kuaför 8.000 ₺)",
     estimatedDuration: '1 İş Günü',
     warrantyPeriod: 'Kusursuz Leke Çıkarma & Kokusuz Teslimat',
     technicalSpecs: [

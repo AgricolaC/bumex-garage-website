@@ -46,12 +46,12 @@ const ARRIVAL_STEPS = [
 ];
 
 const NEARBY_POINTS = [
-  { distance: '700 m', label: 'Beşevler Metro', note: '~9 dk yürüme' },
-  { distance: '1.0 km', label: 'Bahçelievler Metro', note: '~12 dk yürüme' },
-  { distance: '700 m', label: 'Başkent Üni. Hastanesi', note: 'araçla yakın' },
-  { distance: '900 m', label: 'Gazi Üni. Hastanesi', note: 'araçla yakın' },
-  { distance: '1.1 km', label: 'Anıtkabir', note: 'araçla yakın' },
-  { distance: '1.5 km', label: 'Bestepe Hastanesi', note: 'araçla yakın' },
+  { distance: '700 m', label: 'Beşevler Metro' },
+  { distance: '1.0 km', label: 'Bahçelievler Metro' },
+  { distance: '700 m', label: 'Başkent Üni. Hastanesi' },
+  { distance: '900 m / 1.5 km', label: 'Gazi Üni. Hastanesi (Yürüme / Araç)' },
+  { distance: '1.1 km', label: 'Anıtkabir' },
+  { distance: '1.5 km', label: 'Bestepe Hastanesi' },
 ];
 
 export function KonumView() {
@@ -241,12 +241,11 @@ export function KonumView() {
 
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               {NEARBY_POINTS.map((point) => (
-                <div key={point.label} className={`p-4 rounded-xl border text-center ${cardClass}`}>
+                <div key={point.label} className={`p-4 rounded-xl border text-center flex flex-col items-center justify-center ${cardClass}`}>
                   <div className="text-lg sm:text-xl font-black text-[#1E3A8A] dark:text-[#60A5FA] mb-0.5">
                     {point.distance}
                   </div>
                   <div className="font-bold text-xs sm:text-sm">{point.label}</div>
-                  <div className="text-[11px] opacity-70 mt-0.5">{point.note}</div>
                 </div>
               ))}
             </div>

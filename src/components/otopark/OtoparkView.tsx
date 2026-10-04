@@ -69,7 +69,7 @@ export function OtoparkView() {
 
             {/* Rozet */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold border border-black/10 dark:border-white/15 bg-black/5 dark:bg-white/5 text-[#1E3A8A] dark:text-[#60A5FA] mb-4">
-              <span>7. Cadde&apos;ye Yürüme Mesafesinde • 24/7 CCTV Kamera • 10:00 – 22:00 Giriş-Çıkış</span>
+              <span>7. Cadde&apos;ye Yürüme Mesafesinde • 24/7 CCTV Kamera • Standart Park 300 ₺ • 10:00 – 22:00 Giriş-Çıkış</span>
             </div>
 
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] mb-6">
@@ -329,83 +329,75 @@ export function OtoparkView() {
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               <div
-                className={`p-5 rounded-xl border text-center ${
+                className={`p-5 rounded-xl border text-center flex flex-col items-center justify-center ${
                   isCream ? 'bg-[#F2ECE8] border-black/10' : 'bg-[#22252A] border-white/10'
                 }`}
               >
                 <div className="text-2xl sm:text-3xl font-black text-[#1E3A8A] dark:text-[#60A5FA] mb-1">500 m</div>
                 <div className="font-bold text-xs sm:text-sm">7. Cadde (Aşkabat)</div>
-                <div className="text-[11px] opacity-70 mt-1">~6 dk yürüme</div>
               </div>
 
               <div
-                className={`p-5 rounded-xl border text-center ${
+                className={`p-5 rounded-xl border text-center flex flex-col items-center justify-center ${
                   isCream ? 'bg-[#F2ECE8] border-black/10' : 'bg-[#22252A] border-white/10'
                 }`}
               >
                 <div className="text-2xl sm:text-3xl font-black text-[#1E3A8A] dark:text-[#60A5FA] mb-1">0 m</div>
                 <div className="font-bold text-xs sm:text-sm">Prof. Muammer Aksoy Cd.</div>
-                <div className="text-[11px] opacity-70 mt-1">Kapıda (Eski 2. Cadde)</div>
               </div>
 
               <div
-                className={`p-5 rounded-xl border text-center ${
+                className={`p-5 rounded-xl border text-center flex flex-col items-center justify-center ${
                   isCream ? 'bg-[#F2ECE8] border-black/10' : 'bg-[#22252A] border-white/10'
                 }`}
               >
                 <div className="text-2xl sm:text-3xl font-black text-[#1E3A8A] dark:text-[#60A5FA] mb-1">700 m</div>
                 <div className="font-bold text-xs sm:text-sm">Beşevler Metro</div>
-                <div className="text-[11px] opacity-70 mt-1">~9 dk yürüme</div>
               </div>
 
               <div
-                className={`p-5 rounded-xl border text-center ${
+                className={`p-5 rounded-xl border text-center flex flex-col items-center justify-center ${
                   isCream ? 'bg-[#F2ECE8] border-black/10' : 'bg-[#22252A] border-white/10'
                 }`}
               >
                 <div className="text-2xl sm:text-3xl font-black text-[#1E3A8A] dark:text-[#60A5FA] mb-1">1.0 km</div>
                 <div className="font-bold text-xs sm:text-sm">Bahçelievler Metro</div>
-                <div className="text-[11px] opacity-70 mt-1">~12 dk yürüme</div>
               </div>
 
               <div
-                className={`p-5 rounded-xl border text-center ${
+                className={`p-5 rounded-xl border text-center flex flex-col items-center justify-center ${
                   isCream ? 'bg-[#F2ECE8] border-black/10' : 'bg-[#22252A] border-white/10'
                 }`}
               >
                 <div className="text-2xl sm:text-3xl font-black text-[#1E3A8A] dark:text-[#60A5FA] mb-1">1.1 km</div>
                 <div className="font-bold text-xs sm:text-sm">Anıtkabir</div>
-                <div className="text-[11px] opacity-70 mt-1">Yakın mesafe</div>
               </div>
 
               <div
-                className={`p-5 rounded-xl border text-center ${
+                className={`p-5 rounded-xl border text-center flex flex-col items-center justify-center ${
                   isCream ? 'bg-[#F2ECE8] border-black/10' : 'bg-[#22252A] border-white/10'
                 }`}
               >
                 <div className="text-2xl sm:text-3xl font-black text-[#1E3A8A] dark:text-[#60A5FA] mb-1">700 m</div>
                 <div className="font-bold text-xs sm:text-sm">Başkent Üni. Hastanesi</div>
-                <div className="text-[11px] opacity-70 mt-1">Yakın mesafe</div>
               </div>
 
               <div
-                className={`p-5 rounded-xl border text-center ${
+                className={`p-5 rounded-xl border text-center flex flex-col items-center justify-center ${
                   isCream ? 'bg-[#F2ECE8] border-black/10' : 'bg-[#22252A] border-white/10'
                 }`}
               >
-                <div className="text-2xl sm:text-3xl font-black text-[#1E3A8A] dark:text-[#60A5FA] mb-1">900 m</div>
-                <div className="font-bold text-xs sm:text-sm">Gazi Üni. Hastanesi</div>
-                <div className="text-[11px] opacity-70 mt-1">Yakın mesafe</div>
+                <div className="text-2xl sm:text-3xl font-black text-[#1E3A8A] dark:text-[#60A5FA] mb-1">900 m / 1.5 km</div>
+                <div className="font-bold text-xs sm:text-sm">Gazi Üni. Hastanesi (Yürüme / Araç)</div>
               </div>
 
               <div
-                className={`p-5 rounded-xl border text-center ${
+                className={`p-5 rounded-xl border text-center flex flex-col items-center justify-center ${
                   isCream ? 'bg-[#F2ECE8] border-black/10' : 'bg-[#22252A] border-white/10'
                 }`}
               >
                 <div className="text-2xl sm:text-3xl font-black text-[#1E3A8A] dark:text-[#60A5FA] mb-1">1.5 km</div>
                 <div className="font-bold text-xs sm:text-sm">Bestepe Hastanesi</div>
-                <div className="text-[11px] opacity-70 mt-1">Yakın mesafe</div>
               </div>
             </div>
           </div>
@@ -439,7 +431,7 @@ export function OtoparkView() {
                   }`}
                 >
                   Otoparkımız günlük, saatlik ve dönemsel kapasite durumuna göre hizmet vermektedir.
-                  Güncel peron müsaitliği ve park seçenekleri için lütfen doğrudan{' '}
+                  Standart günlük otopark hizmetimiz 300 ₺ olarak fiyatlandırılmaktadır. Güncel peron müsaitliği ve abonelik seçenekleri için lütfen doğrudan{' '}
                   <a
                     href="https://wa.me/905524703610?text=Merhaba%20Bumex%20Garage,%20otopark%20fiyatlar%C4%B1%20ve%20m%C3%BCsaitlik%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum"
                     className="text-[#1E3A8A] dark:text-[#60A5FA] font-bold underline"

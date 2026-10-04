@@ -49,6 +49,7 @@ interface ServiceItem {
   modalType?: 'motor' | 'detailing';
   actionType: 'modal' | 'call';
   href?: string;
+  price?: string;
 }
 
 const SERVICES: ServiceItem[] = [
@@ -60,6 +61,7 @@ const SERVICES: ServiceItem[] = [
     category: 'Boya & Koruma',
     type: 'both',
     icon: Gem,
+    price: "10.000 ₺'den",
     modalType: 'detailing',
     actionType: 'modal',
     href: '/hizmetler/boya-restorasyonu',
@@ -71,6 +73,7 @@ const SERVICES: ServiceItem[] = [
     category: 'Boya & Koruma',
     type: 'both',
     icon: ShieldCheck,
+    price: "20.000 ₺'den",
     modalType: 'detailing',
     actionType: 'modal',
     href: '/hizmetler/seramik-kaplama',
@@ -82,6 +85,7 @@ const SERVICES: ServiceItem[] = [
     category: 'Boya & Koruma',
     type: 'both',
     icon: Shield,
+    price: "40.000 ₺'den",
     actionType: 'call',
     href: '/hizmetler/ppf-kaplama',
   },
@@ -92,6 +96,7 @@ const SERVICES: ServiceItem[] = [
     category: 'Boya & Koruma',
     type: 'both',
     icon: Droplets,
+    price: '2.500 ₺',
     actionType: 'call',
   },
 
@@ -103,6 +108,7 @@ const SERVICES: ServiceItem[] = [
     category: 'İç Hijyen & İzolasyon',
     type: 'car',
     icon: Volume2,
+    price: "10.000 ₺'den",
     actionType: 'call',
   },
   {
@@ -112,6 +118,7 @@ const SERVICES: ServiceItem[] = [
     category: 'İç Hijyen & İzolasyon',
     type: 'car',
     icon: Armchair,
+    price: "8.000 ₺'den",
     actionType: 'call',
     href: '/hizmetler/detayli-ic-hijyen',
   },
@@ -122,6 +129,7 @@ const SERVICES: ServiceItem[] = [
     category: 'İç Hijyen & İzolasyon',
     type: 'both',
     icon: Wind,
+    price: '3.000 ₺',
     actionType: 'call',
   },
   {
@@ -142,6 +150,7 @@ const SERVICES: ServiceItem[] = [
     category: 'Teknik Detay & Cam',
     type: 'car',
     icon: Wrench,
+    price: '1.500 ₺',
     modalType: 'motor',
     actionType: 'modal',
     href: '/hizmetler/buharli-motor-temizligi',
@@ -153,6 +162,7 @@ const SERVICES: ServiceItem[] = [
     category: 'Teknik Detay & Cam',
     type: 'both',
     icon: Sun,
+    price: '1.500 ₺',
     actionType: 'call',
   },
   {
@@ -162,6 +172,7 @@ const SERVICES: ServiceItem[] = [
     category: 'Teknik Detay & Cam',
     type: 'car',
     icon: Car,
+    price: '800 ₺ (Kampanya 600 ₺)',
     actionType: 'call',
   },
   {
@@ -182,6 +193,17 @@ const SERVICES: ServiceItem[] = [
     icon: Maximize2,
     actionType: 'call',
   },
+  {
+    id: 'otopark-hizmeti',
+    title: 'Güvenli Otopark Hizmeti',
+    subtitle: '7/24 CCTV kamera ve personel gözetiminde güvenli park imkanı (7. Cadde ve hastanelere yürüme mesafesinde).',
+    category: 'Teknik Detay & Cam',
+    type: 'both',
+    icon: Car,
+    price: '300 ₺',
+    actionType: 'call',
+    href: '/otopark',
+  },
 
   // ─── MOTOSİKLET DETAILING & YIKAMA İŞLEMLERİ ───
   {
@@ -191,6 +213,7 @@ const SERVICES: ServiceItem[] = [
     category: 'Motosiklet Detailing',
     type: 'bike',
     icon: Bike,
+    price: '800 ₺',
     actionType: 'call',
   },
   {
@@ -200,6 +223,7 @@ const SERVICES: ServiceItem[] = [
     category: 'Motosiklet Detailing',
     type: 'bike',
     icon: Wind,
+    price: "2.500 ₺'den",
     actionType: 'call',
   },
   {
@@ -209,6 +233,7 @@ const SERVICES: ServiceItem[] = [
     category: 'Motosiklet Detailing',
     type: 'bike',
     icon: Gem,
+    price: "5.000 ₺'den",
     modalType: 'detailing',
     actionType: 'modal',
   },
@@ -248,6 +273,7 @@ const SERVICES: ServiceItem[] = [
     category: 'Motosiklet Mekanik & Çekici',
     type: 'bike',
     icon: Settings,
+    price: 'İşleme Göre',
     actionType: 'call',
   },
   {
@@ -257,6 +283,7 @@ const SERVICES: ServiceItem[] = [
     category: 'Motosiklet Mekanik & Çekici',
     type: 'bike',
     icon: Wrench,
+    price: 'İşleme Göre',
     actionType: 'call',
   },
   {
@@ -266,6 +293,7 @@ const SERVICES: ServiceItem[] = [
     category: 'Motosiklet Mekanik & Çekici',
     type: 'bike',
     icon: Shield,
+    price: 'İnceleme Sonrası',
     actionType: 'call',
   },
   {
@@ -442,7 +470,12 @@ export function ServicesCatalog({
                     <div className="w-10 h-10 rounded-full text-white flex items-center justify-center shrink-0 shadow-sm bg-[#1E3A8A] shadow-[#1E3A8A]/30">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <div className="flex items-center gap-1.5">
+                    <div className="flex items-center gap-1.5 flex-wrap justify-end">
+                      {item.price && (
+                        <span className="text-[11px] font-extrabold px-2 py-0.5 rounded bg-[#1E3A8A]/10 text-[#1E3A8A] dark:bg-[#1E3A8A]/30 dark:text-[#60A5FA] border border-[#1E3A8A]/20">
+                          {item.price}
+                        </span>
+                      )}
                       {isBikeItem && (
                         <span className="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-amber-500/15 text-amber-700 dark:text-amber-400 border border-amber-500/30 flex items-center gap-1">
                           <Bike className="w-3 h-3" /> Moto

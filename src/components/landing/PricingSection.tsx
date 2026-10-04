@@ -15,6 +15,12 @@ import {
   Settings,
   Truck,
   MessageCircle,
+  Clock,
+  Building2,
+  ShieldCheck,
+  Tag,
+  Layers,
+  Award,
 } from 'lucide-react';
 import { LandingTheme } from '@/hooks/useLandingTheme';
 import { useWorkshopSegment } from '@/hooks/useWorkshopSegment';
@@ -103,12 +109,109 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
           </div>
         </div>
 
+        {/* ─── AÇILIŞA ÖZEL KAMPANYA & KURUMSAL İŞ BİRLİĞİ (PDF REFERANSI) ─── */}
+        <div className="mt-10 mb-10 grid md:grid-cols-2 gap-5 text-left">
+          {/* Açılışa Özel Kampanya */}
+          <div
+            className={`p-5 sm:p-6 rounded-2xl border transition-all ${
+              isCream
+                ? 'bg-gradient-to-br from-[#1E3A8A]/10 via-white to-white border-[#1E3A8A]/30 text-[#111215]'
+                : 'bg-gradient-to-br from-[#1E3A8A]/20 via-[#141519] to-[#141519] border-[#1E3A8A]/50 text-white'
+            }`}
+          >
+            <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+              <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-[#1E3A8A] text-white uppercase tracking-wider">
+                Açılışa Özel İndirim Kampanyası
+              </span>
+              <span className="text-xs font-bold text-[#1FAD4E] flex items-center gap-1">
+                <Clock className="w-3.5 h-3.5" /> 27 Eylül – 1 Kasım
+              </span>
+            </div>
+            <h3 className="text-lg font-bold tracking-tight">İç-Dış Yıkamada Açılış İndirimi</h3>
+            <p className={`text-xs mt-1 mb-4 leading-relaxed ${isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'}`}>
+              Bumex Garage Bahçelievler merkezimizin açılışı şerefine, 27 Eylül–1 Kasım tarihleri arasında avantajlı fiyatlarla yararlanabilirsiniz:
+            </p>
+            <div className="grid grid-cols-3 gap-2.5 text-center text-xs">
+              <div className={`p-3 rounded-xl border ${isCream ? 'bg-white/90 border-black/5' : 'bg-black/40 border-white/5'}`}>
+                <span className="text-[10px] block opacity-70 font-semibold">Binek Araç</span>
+                <span className="text-lg font-mono font-black text-[#1E3A8A] dark:text-[#60A5FA]">600 ₺</span>
+                <span className="text-[10px] line-through opacity-50 block font-mono">800 ₺</span>
+              </div>
+              <div className={`p-3 rounded-xl border ${isCream ? 'bg-white/90 border-black/5' : 'bg-black/40 border-white/5'}`}>
+                <span className="text-[10px] block opacity-70 font-semibold">Hafif Ticari</span>
+                <span className="text-lg font-mono font-black text-[#1E3A8A] dark:text-[#60A5FA]">700 ₺</span>
+                <span className="text-[10px] line-through opacity-50 block font-mono">900 ₺</span>
+              </div>
+              <div className={`p-3 rounded-xl border ${isCream ? 'bg-white/90 border-black/5' : 'bg-black/40 border-white/5'}`}>
+                <span className="text-[10px] block opacity-70 font-semibold">SUV Tipi</span>
+                <span className="text-lg font-mono font-black text-[#1E3A8A] dark:text-[#60A5FA]">800 ₺</span>
+                <span className="text-[10px] line-through opacity-50 block font-mono">1.000 ₺</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Kurumsal İş Birliği & Filo Protokolü (Şirketler & Kurumlar İçin Genel Çerçeve) */}
+          <div
+            className={`p-5 sm:p-6 rounded-2xl border transition-all flex flex-col justify-between ${
+              isCream
+                ? 'bg-white border-[#686D7A]/20 text-[#111215]'
+                : 'bg-[#141519] border-white/10 text-white'
+            }`}
+          >
+            <div>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-[#1FAD4E]/15 text-[#1FAD4E] border border-[#1FAD4E]/30 uppercase tracking-wider">
+                  Kurumsal Çözümler
+                </span>
+                <span className={`text-xs font-semibold ${isCream ? 'text-[#686D7A]' : 'text-[#8E94A0]'}`}>
+                  Şirketler, Hastaneler &amp; Üniversiteler
+                </span>
+              </div>
+              <h3 className="text-lg font-bold tracking-tight">Kurumunuz &amp; Şirket Filonuz İçin Hizmet Protokolü</h3>
+              <p className={`text-xs mt-1 mb-3 leading-relaxed ${isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'}`}>
+                Bumex Garage; bölgedeki üniversiteler, sağlık kuruluşları ve şirket filoları için resmi faturalı, randevu öncelikli ve özel indirimli kurumsal bakım protokolleri sunmaktadır:
+              </p>
+              <div className="space-y-2 text-xs">
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#1FAD4E] shrink-0 mt-0.5" />
+                  <span><strong>Faturalı &amp; Resmi Altyapı:</strong> Kurumsal filo ve resmi hizmet araçlarına tam faturalandırma ve sözleşmeli iş birliği imkanı.</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#1FAD4E] shrink-0 mt-0.5" />
+                  <span><strong>Personel &amp; Çalışan Avantajı:</strong> Kurum çalışanlarına ve 1. derece yakınlarına bireysel işlemlerde tanımlanan kurumsal indirim protokolü.</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#1FAD4E] shrink-0 mt-0.5" />
+                  <span><strong>Sağlık Çalışanları &amp; Hasta Yakınları:</strong> Hastanelere 900 m mesafedeki garajımızda sağlık personeli ve refakatçilere kimlik/kart ibrazıyla anında %10 nezaket indirimi.</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-4 pt-3 border-t border-black/5 dark:border-white/5 flex flex-wrap items-center justify-between gap-2">
+              <span className="text-[11px] opacity-75 font-mono">
+                Kurumsal Teklif Kodu: BX-2026-089
+              </span>
+              <a
+                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+                  'Merhaba Bumex Garage, kurumumuz / şirket filomuz için kurumsal iş birliği ve teklif protokolü hakkında görüşmek istiyoruz.'
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1FAD4E] hover:underline"
+              >
+                <span>Kurumsal Teklif İsteyin</span>
+                <ChevronRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </div>
+        </div>
+
         {/* ─── TAB 1: OTOMOBİL PAKETLERİ ─── */}
         {activeTab === 'car' && (
           <div className="space-y-12 animate-in fade-in duration-200">
-            {/* 3 Ana Otomobil Paketi (Workshop Work-Order Manifests) */}
-            <div className="grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-              {/* Paket 1: Standart Yıkama & Cila */}
+            {/* 3 Ana Otomobil Paketi */}
+            <div className="grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch text-left">
+              {/* Paket 1: Oto Yıkama & Start Paket */}
               <div
                 className={`btn-mechanical p-6 sm:p-7 rounded-2xl flex flex-col justify-between border shadow-md transition-all duration-150 ${
                   isCream ? 'bg-white border-[#686D7A]/15' : 'bg-[#141519] border-white/10'
@@ -117,18 +220,43 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                 <div>
                   <div className="flex items-center gap-2 mb-2 text-xs font-mono font-bold uppercase tracking-wider text-[#686D7A] dark:text-[#8E94A0]">
                     <Droplets className={`w-4 h-4 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                    01 // TEMEL BAKIM
+                    01 // OTO YIKAMA
                   </div>
 
-                  <h3 className="text-xl font-bold tracking-tight">Start Paket Yıkama</h3>
+                  <h3 className="text-xl font-bold tracking-tight">İç-Dış Yıkama (Start Paket)</h3>
 
                   <div className="my-4">
-                    <span className="text-3xl sm:text-4xl font-mono font-bold tracking-tight">800 ₺</span>
-                    <span className="text-xs font-mono text-[#686D7A] dark:text-[#8E94A0] block mt-1">/ net taban fiyat</span>
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-3xl sm:text-4xl font-mono font-bold tracking-tight">800 ₺</span>
+                      <span className="text-xs font-mono text-[#686D7A] dark:text-[#8E94A0]">/ başlangıç fiyatı</span>
+                    </div>
+                    <span className="text-[11px] text-[#1FAD4E] font-bold block mt-1">
+                      Açılışa Özel: Binek 600 ₺ · Hafif Ticari 700 ₺ · SUV 800 ₺
+                    </span>
+                  </div>
+
+                  {/* Kasa Tipleri Fiyat Tablosu */}
+                  <div className={`p-3 rounded-xl border mb-5 text-xs space-y-1.5 ${isCream ? 'bg-[#F9F7F5] border-black/5' : 'bg-[#181A20] border-white/5'}`}>
+                    <div className="flex justify-between">
+                      <span className="text-[#686D7A] dark:text-[#8E94A0]">Sedan / Hatchback:</span>
+                      <span className="font-mono font-bold">800 ₺</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-[#686D7A] dark:text-[#8E94A0]">Doblo / Hafif Ticari:</span>
+                      <span className="font-mono font-bold">900 ₺</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-[#686D7A] dark:text-[#8E94A0]">SUV Tipi Araçlar:</span>
+                      <span className="font-mono font-bold">1.000 ₺</span>
+                    </div>
+                    <div className="flex justify-between pt-1 border-t border-black/5 dark:border-white/5 font-semibold text-[#1E3A8A] dark:text-[#60A5FA]">
+                      <span>Otopark Hizmeti:</span>
+                      <span className="font-mono">300 ₺</span>
+                    </div>
                   </div>
 
                   <p
-                    className={`text-xs sm:text-sm leading-relaxed mb-6 ${
+                    className={`text-xs sm:text-sm leading-relaxed mb-5 ${
                       isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'
                     }`}
                   >
@@ -136,12 +264,12 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                     çizmeden parlatan güvenli periyodik bakım.
                   </p>
 
-                  <div className="w-full h-[1px] bg-black/5 dark:bg-white/10 mb-5" />
+                  <div className="w-full h-[1px] bg-black/5 dark:bg-white/10 mb-4" />
 
-                  <ul className="text-xs sm:text-sm space-y-3 mb-8">
+                  <ul className="text-xs sm:text-sm space-y-2.5 mb-8">
                     <li className="flex items-start gap-2.5">
                       <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                      <span>İç & Dış Detaylı Çiziksiz Yıkama</span>
+                      <span>İç &amp; Dış Detaylı Çiziksiz Yıkama</span>
                     </li>
                     <li className="flex items-start gap-2.5">
                       <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
@@ -149,11 +277,11 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                     </li>
                     <li className="flex items-start gap-2.5">
                       <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                      <span>Jant Balata Tozu Temizliği & Lastik Besleme</span>
+                      <span>Jant Balata Tozu Temizliği &amp; Lastik Besleme</span>
                     </li>
                     <li className="flex items-start gap-2.5">
                       <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                      <span>İç Detaylı Vakumlu Süpürge & Paspas Hijyeni</span>
+                      <span>İç Detaylı Vakumlu Süpürge &amp; Paspas Hijyeni</span>
                     </li>
                     <li className="flex items-start gap-2.5">
                       <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
@@ -165,7 +293,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                 <div>
                   <a
                     href={`https://wa.me/905524703610?text=${encodeURIComponent(
-                      'Merhaba Bumex Garage, Hızlı Bakım & Yıkama paketi için müsaitlik ve randevu almak istiyorum.'
+                      'Merhaba Bumex Garage, Oto Yıkama (Start Paket) için müsaitlik ve randevu almak istiyorum.'
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -177,7 +305,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                 </div>
               </div>
 
-              {/* Paket 2: VIP Kuaför, Buhar & Motor (Featured Manifest) */}
+              {/* Paket 2: Temizlik Hizmetleri & İç Kuaför */}
               <div
                 className={`btn-mechanical p-6 sm:p-7 rounded-2xl flex flex-col justify-between relative shadow-xl border-2 transition-all duration-150 ${
                   isCream ? 'bg-white border-[#1E3A8A]' : 'bg-[#141519] border-[#1E3A8A] ring-1 ring-[#1E3A8A]/30'
@@ -190,47 +318,82 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                 <div>
                   <div className={`flex items-center gap-2 mb-2 text-xs font-mono font-bold uppercase tracking-wider ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`}>
                     <Sparkles className="w-4 h-4" />
-                    02 // KAPSAMLI RESTORASYON & HİJYEN
+                    02 // TEMİZLİK HİZMETLERİ
                   </div>
 
-                  <h3 className="text-xl font-bold tracking-tight">VIP Kuaför, Buhar & Motor</h3>
+                  <h3 className="text-xl font-bold tracking-tight">Temizlik, Buhar &amp; Kuaför</h3>
 
                   <div className="my-4">
-                    <span className={`text-3xl sm:text-4xl font-mono font-bold tracking-tight ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`}>3.000 ₺</span>
-                    <span className="text-xs font-mono text-[#686D7A] dark:text-[#8E94A0] block mt-1">/ net taban fiyat</span>
+                    <div className="flex items-baseline gap-2">
+                      <span className={`text-3xl sm:text-4xl font-mono font-bold tracking-tight ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`}>
+                        3.000 ₺
+                      </span>
+                      <span className="text-xs font-mono text-[#686D7A] dark:text-[#8E94A0]">&apos;den başlayan fiyatlar</span>
+                    </div>
+                    <span className="text-[11px] text-[#686D7A] dark:text-[#8E94A0] block mt-1">
+                      Buharlı temizlik, koltuk arındırma ve VIP iç kuaför seçenekleri
+                    </span>
+                  </div>
+
+                  {/* PDF Temizlik Fiyatları Dağılımı */}
+                  <div className={`p-3 rounded-xl border mb-5 text-xs space-y-1.5 ${isCream ? 'bg-[#F9F7F5] border-black/5' : 'bg-[#181A20] border-white/5'}`}>
+                    <div className="flex justify-between">
+                      <span className="text-[#686D7A] dark:text-[#8E94A0]">Motor Temizliği (Kuru Buhar):</span>
+                      <span className="font-mono font-bold">1.500 ₺</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-[#686D7A] dark:text-[#8E94A0]">Buharlı İç Temizlik:</span>
+                      <span className="font-mono font-bold">3.000 ₺</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-[#686D7A] dark:text-[#8E94A0]">Sadece Koltuk Temizleme:</span>
+                      <span className="font-mono font-bold">3.500 ₺</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-[#686D7A] dark:text-[#8E94A0]">İç-Dış Detaylı Temizlik:</span>
+                      <span className="font-mono font-bold">4.000 ₺</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-[#686D7A] dark:text-[#8E94A0]">İlaçlı ve Buharlı Temizlik:</span>
+                      <span className="font-mono font-bold">5.000 ₺</span>
+                    </div>
+                    <div className="flex justify-between pt-1 border-t border-black/5 dark:border-white/5 font-bold text-[#1E3A8A] dark:text-[#60A5FA]">
+                      <span>Detaylı İç Kuaför:</span>
+                      <span className="font-mono">8.000 ₺</span>
+                    </div>
                   </div>
 
                   <p
-                    className={`text-xs sm:text-sm leading-relaxed mb-6 ${
+                    className={`text-xs sm:text-sm leading-relaxed mb-5 ${
                       isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'
                     }`}
                   >
-                    Koltuklar, taban-tavan halıları, buharlı menfez temizliği, ozonla koku giderme ve dielektrik
-                    korumalı güvenli motor temizliğini içeren tam kondisyon paketi.
+                    Koltuklar, taban-tavan halıları, buharlı menfez dezenfeksiyonu, ozonla koku giderme ve dielektrik
+                    korumalı güvenli motor temizliğini kapsayan profesyonel hijyen.
                   </p>
 
-                  <div className="w-full h-[1px] bg-black/5 dark:bg-white/10 mb-5" />
+                  <div className="w-full h-[1px] bg-black/5 dark:bg-white/10 mb-4" />
 
-                  <ul className="text-xs sm:text-sm space-y-3 mb-6">
+                  <ul className="text-xs sm:text-sm space-y-2.5 mb-6">
                     <li className="flex items-start gap-2.5">
                       <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                      <span>Detaylı Araç İçi Kuaför & Sıcak Ekstraksiyon</span>
+                      <span>Detaylı Araç İçi Kuaför &amp; Sıcak Ekstraksiyon</span>
                     </li>
                     <li className="flex items-start gap-2.5">
                       <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                      <span>Buharlı Araç Temizliği (Klima & Havalandırma Kanalları)</span>
+                      <span>Buharlı Araç Temizliği (Klima Menfez &amp; Kanallar)</span>
                     </li>
                     <li className="flex items-start gap-2.5">
                       <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                      <span>Motor Temizliği (Dielektrik Yalıtkan & Kuru Buhar)</span>
+                      <span>Motor Temizliği (Dielektrik Yalıtkan &amp; Kuru Buhar)</span>
                     </li>
                     <li className="flex items-start gap-2.5">
                       <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                      <span>Ozonlama ile İnatçı Koku & Bakteri Arındırma</span>
+                      <span>Ozonlama ile İnatçı Koku &amp; Bakteri Arındırma</span>
                     </li>
                     <li className="flex items-start gap-2.5">
                       <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                      <span>Torpido Mat UV Koruma & Far Yüzey Temizliği</span>
+                      <span>Torpido Mat UV Koruma &amp; Far Yüzey Temizliği</span>
                     </li>
                   </ul>
                 </div>
@@ -239,7 +402,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                   <button
                     type="button"
                     onClick={() => onOpenModal('motor')}
-                    className={`btn-mechanical w-full py-2.5 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 border transition ${
+                    className={`btn-mechanical w-full py-2.5 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 border transition cursor-pointer ${
                       isCream
                         ? 'border-[#1E3A8A]/30 text-[#1E3A8A] hover:bg-[#1E3A8A]/5'
                         : 'border-white/20 text-white hover:bg-white/10'
@@ -251,7 +414,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
 
                   <a
                     href={`https://wa.me/905524703610?text=${encodeURIComponent(
-                      'Merhaba Bumex Garage, VIP Kuaför, Buhar & Motor paketi için randevu ve peron müsaitliği almak istiyorum.'
+                      'Merhaba Bumex Garage, Temizlik & Kuaför hizmetleriniz için randevu ve peron müsaitliği almak istiyorum.'
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -263,7 +426,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                 </div>
               </div>
 
-              {/* Paket 3: Detailing, PPF & Seramik */}
+              {/* Paket 3: Detailing, PPF & Seramik Kaplama */}
               <div
                 className={`btn-mechanical p-6 sm:p-7 rounded-2xl flex flex-col justify-between border shadow-md transition-all duration-150 ${
                   isCream ? 'bg-white border-[#686D7A]/15' : 'bg-[#141519] border-white/10'
@@ -272,36 +435,70 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                 <div>
                   <div className="flex items-center gap-2 mb-2 text-xs font-mono font-bold uppercase tracking-wider text-[#686D7A] dark:text-[#8E94A0]">
                     <Shield className={`w-4 h-4 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                    03 // ÖZEL PROJE
+                    03 // DETAILING &amp; BOYA KORUMA
                   </div>
 
-                  <h3 className="text-xl font-bold tracking-tight">Boya Restorasyonu, PPF & 9H Seramik</h3>
+                  <h3 className="text-xl font-bold tracking-tight">Detailing, PPF &amp; Seramik</h3>
 
                   <div className="my-4">
-                    <span className="text-2xl sm:text-3xl font-mono font-bold tracking-tight text-[#1E3A8A] dark:text-[#60A5FA]">
-                      Ücretsiz Ekspertiz
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-3xl sm:text-4xl font-mono font-bold tracking-tight text-[#1E3A8A] dark:text-[#60A5FA]">
+                        10.000 ₺
+                      </span>
+                      <span className="text-xs font-mono text-[#686D7A] dark:text-[#8E94A0]">&apos;den başlayan fiyatlar</span>
+                    </div>
+                    <span className="text-[11px] text-[#686D7A] dark:text-[#8E94A0] block mt-1">
+                      Ücretsiz mikron boya ekspertizi ile net şeffaf teklif
                     </span>
-                    <span className="text-xs font-mono text-[#686D7A] dark:text-[#8E94A0] block mt-1">/ Duruma Göre Şeffaf Teklif</span>
+                  </div>
+
+                  {/* PDF Detailing Başlangıç Fiyatları */}
+                  <div className={`p-3 rounded-xl border mb-5 text-xs space-y-1.5 ${isCream ? 'bg-[#F9F7F5] border-black/5' : 'bg-[#181A20] border-white/5'}`}>
+                    <div className="flex justify-between">
+                      <span className="text-[#686D7A] dark:text-[#8E94A0]">Far Temizliği:</span>
+                      <span className="font-mono font-bold">1.500 ₺</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-[#686D7A] dark:text-[#8E94A0]">Wax Uygulaması:</span>
+                      <span className="font-mono font-bold">2.500 ₺</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-[#686D7A] dark:text-[#8E94A0]">Pasta ve Boya Koruma:</span>
+                      <span className="font-mono font-bold">10.000 ₺</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-[#686D7A] dark:text-[#8E94A0]">Araç İçi Ses İzolasyonu:</span>
+                      <span className="font-mono font-bold">10.000 ₺&apos;den</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-[#686D7A] dark:text-[#8E94A0]">9H Seramik Kaplama:</span>
+                      <span className="font-mono font-bold">20.000 ₺</span>
+                    </div>
+                    <div className="flex justify-between pt-1 border-t border-black/5 dark:border-white/5 font-bold text-[#1E3A8A] dark:text-[#60A5FA]">
+                      <span>TPU PPF Kaplama:</span>
+                      <span className="font-mono">40.000 ₺&apos;den</span>
+                    </div>
                   </div>
 
                   <p
-                    className={`text-xs sm:text-sm leading-relaxed mb-6 ${
+                    className={`text-xs sm:text-sm leading-relaxed mb-5 ${
                       isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'
                     }`}
                   >
-                    Sabit paket yerine araca özel çalışma: Mikron vernik analizi, panel ölçüleri ve mevcut çizik durumuna göre atölyemizde incelenerek sürprizsiz net teklif belirlenir.
+                    Sabit paket yerine araca özel çalışma: Mikron vernik analizi, panel ölçüleri ve çizik durumuna göre
+                    atölyemizde incelenerek sürprizsiz net teklif belirlenir.
                   </p>
 
-                  <div className="w-full h-[1px] bg-black/5 dark:bg-white/10 mb-5" />
+                  <div className="w-full h-[1px] bg-black/5 dark:bg-white/10 mb-4" />
 
-                  <ul className="text-xs sm:text-sm space-y-3 mb-6">
+                  <ul className="text-xs sm:text-sm space-y-2.5 mb-6">
                     <li className="flex items-start gap-2.5">
                       <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                      <span>Pasta Cila & Boya Restorasyonu (Harez ve Çizik Giderme)</span>
+                      <span>Pasta Cila &amp; Boya Koruma (Harez ve Çizik Giderme)</span>
                     </li>
                     <li className="flex items-start gap-2.5">
                       <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                      <span>9H Seramik Kaplama (Su İticilik & Kimyasal Direnç)</span>
+                      <span>9H Seramik Kaplama (Su İticilik &amp; Kimyasal Direnç)</span>
                     </li>
                     <li className="flex items-start gap-2.5">
                       <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
@@ -313,7 +510,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                     </li>
                     <li className="flex items-start gap-2.5">
                       <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isCream ? 'text-[#1E3A8A]' : 'text-[#60A5FA]'}`} />
-                      <span>Araç İçi Ses İzolasyonu Danışmanlığı & Uygulaması</span>
+                      <span>Araç İçi Ses İzolasyonu Danışmanlığı &amp; Uygulaması</span>
                     </li>
                   </ul>
                 </div>
@@ -322,7 +519,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                   <button
                     type="button"
                     onClick={() => onOpenModal('detailing')}
-                    className={`btn-mechanical w-full py-2.5 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 border transition ${
+                    className={`btn-mechanical w-full py-2.5 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 border transition cursor-pointer ${
                       isCream
                         ? 'border-[#1E3A8A]/30 text-[#1E3A8A] hover:bg-[#1E3A8A]/5'
                         : 'border-white/20 text-white hover:bg-white/10'
@@ -334,7 +531,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
 
                   <a
                     href={`https://wa.me/905524703610?text=${encodeURIComponent(
-                      'Merhaba Bumex Garage, Detailing, PPF ve Seramik paketi için ücretsiz boya mikron ekspertizi randevusu almak istiyorum.'
+                      'Merhaba Bumex Garage, Detailing, PPF ve Seramik hizmetleri için ücretsiz boya mikron ekspertizi randevusu almak istiyorum.'
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -347,35 +544,185 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
               </div>
             </div>
 
-            {/* Şeffaf Fiyatlandırma Bilgilendirme Kutusu */}
+            {/* ─── RESMİ GÜNCEL HİZMET VE FİYAT LİSTESİ (PDF TABLOSU MATRİSİ) ─── */}
             <div
-              className={`mt-8 p-5 sm:p-6 rounded-2xl border text-xs sm:text-sm leading-relaxed flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 ${
-                isCream
-                  ? 'bg-white border-[#1E3A8A]/20 text-[#111215]'
-                  : 'bg-[#141519] border-white/10 text-zinc-300'
+              className={`p-6 sm:p-8 rounded-2xl border text-left shadow-lg ${
+                isCream ? 'bg-white border-[#686D7A]/20' : 'bg-[#141519] border-white/10'
               }`}
             >
-              <div className="space-y-1 max-w-3xl">
-                <div className="flex items-center gap-2 font-bold text-sm text-[#1E3A8A] dark:text-[#60A5FA]">
-                  <span>💡</span>
-                  <span>Fiyatlandırma Politikamız (Sabit Bakım vs. Özel Proje Ayrımı)</span>
+              <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6 pb-6 border-b border-black/5 dark:border-white/10">
+                <div>
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#1E3A8A]" />
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#1E3A8A] dark:text-[#60A5FA]">
+                      Bumex Garage Bahçelievler
+                    </span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-black tracking-tight">
+                    Güncel Hizmet ve Fiyat Listesi
+                  </h3>
+                  <p className={`text-xs sm:text-sm mt-1 ${isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'}`}>
+                    Fiyatlar başlangıç fiyatlarıdır. Aracın boyutu, kirlilik durumu, uygulanacak ürün, yüzey ve işçilik ihtiyacına göre değişebilir.
+                  </p>
                 </div>
-                <p className={isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'}>
-                  Yıkama ve kuaför gibi düzenli bakım işlemleri standart taban fiyatlıdır (Hatchback baz alınır; SUV ve büyük segmentlerde işçilik süresine göre ölçeklenir). PPF kaplama, boya restorasyonu ve seramik gibi yüksek zanaat gerektiren projeler ise aracınızın boya kalınlığı ve panel durumu incelenmeden ezbere fiyatlandırılamaz; atölyemizde ücretsiz mikron ekspertizi sonrası karşılıklı teyit edilir.
-                </p>
+
+                <a
+                  href={`https://wa.me/905524703610?text=${encodeURIComponent(
+                    'Merhaba Bumex Garage, güncel fiyat listesi üzerinden randevu almak istiyorum. Araç modelim: '
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-mechanical inline-flex items-center gap-2 bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-xl shadow transition shrink-0"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Teklif Al &amp; Randevu</span>
+                </a>
               </div>
 
-              <a
-                href={`https://wa.me/905524703610?text=${encodeURIComponent(
-                  'Merhaba Bumex Garage, aracım için güncel fiyat bilgisi ve randevu almak istiyorum. Araç modelim: '
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-mechanical shrink-0 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#1E3A8A] hover:bg-[#1D4ED8] text-white font-bold text-xs shadow-md transition active:scale-95"
-              >
-                <MessageCircle className="w-3.5 h-3.5" />
-                <span>Modeliniz İçin Fiyat Sorun</span>
-              </a>
+              {/* 4 Ana Kategori Grid */}
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {/* 1. OTO YIKAMA */}
+                <div className={`p-4 rounded-xl border flex flex-col justify-between ${isCream ? 'bg-[#F9F7F5] border-black/5' : 'bg-[#181A20] border-white/5'}`}>
+                  <div>
+                    <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#1E3A8A] dark:text-[#60A5FA] mb-3 pb-2 border-b border-black/5 dark:border-white/10">
+                      OTO YIKAMA
+                    </h4>
+                    <div className="space-y-2.5 text-xs">
+                      <div>
+                        <div className="flex justify-between items-baseline">
+                          <span className="font-medium">Sedan / Hatchback</span>
+                          <span className="font-mono font-bold text-sm">800 TL</span>
+                        </div>
+                        <span className="text-[10px] text-[#1FAD4E] block">Açılışa özel: 600 TL</span>
+                      </div>
+                      <div>
+                        <div className="flex justify-between items-baseline">
+                          <span className="font-medium">Doblo / Hafif Ticari</span>
+                          <span className="font-mono font-bold text-sm">900 TL</span>
+                        </div>
+                        <span className="text-[10px] text-[#1FAD4E] block">Açılışa özel: 700 TL</span>
+                      </div>
+                      <div>
+                        <div className="flex justify-between items-baseline">
+                          <span className="font-medium">SUV İç-Dış Yıkama</span>
+                          <span className="font-mono font-bold text-sm">1.000 TL</span>
+                        </div>
+                        <span className="text-[10px] text-[#1FAD4E] block">Açılışa özel: 800 TL</span>
+                      </div>
+                      <div className="pt-2 border-t border-black/5 dark:border-white/5">
+                        <div className="flex justify-between items-baseline font-bold text-[#1E3A8A] dark:text-[#60A5FA]">
+                          <span>Otopark Hizmeti</span>
+                          <span className="font-mono text-sm">300 TL</span>
+                        </div>
+                        <span className="text-[10px] opacity-70 block">Günlük / standart park</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 2. TEMİZLİK HİZMETLERİ */}
+                <div className={`p-4 rounded-xl border flex flex-col justify-between ${isCream ? 'bg-[#F9F7F5] border-black/5' : 'bg-[#181A20] border-white/5'}`}>
+                  <div>
+                    <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#1E3A8A] dark:text-[#60A5FA] mb-3 pb-2 border-b border-black/5 dark:border-white/10">
+                      TEMİZLİK HİZMETLERİ
+                    </h4>
+                    <div className="space-y-2 text-xs">
+                      <div className="flex justify-between items-baseline">
+                        <span className="font-medium">Motor Temizliği</span>
+                        <span className="font-mono font-bold text-sm">1.500 TL</span>
+                      </div>
+                      <div className="flex justify-between items-baseline">
+                        <span className="font-medium">Buharlı İç Temizlik</span>
+                        <span className="font-mono font-bold text-sm">3.000 TL</span>
+                      </div>
+                      <div className="flex justify-between items-baseline">
+                        <span className="font-medium">Sadece Koltuk Temizleme</span>
+                        <span className="font-mono font-bold text-sm">3.500 TL</span>
+                      </div>
+                      <div className="flex justify-between items-baseline">
+                        <span className="font-medium">İç-Dış Detaylı Temizlik</span>
+                        <span className="font-mono font-bold text-sm">4.000 TL</span>
+                      </div>
+                      <div className="flex justify-between items-baseline">
+                        <span className="font-medium">İlaçlı ve Buharlı Temizlik</span>
+                        <span className="font-mono font-bold text-sm">5.000 TL</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 3. DETAILING - BAŞLANGIÇ */}
+                <div className={`p-4 rounded-xl border flex flex-col justify-between ${isCream ? 'bg-[#F9F7F5] border-black/5' : 'bg-[#181A20] border-white/5'}`}>
+                  <div>
+                    <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#1E3A8A] dark:text-[#60A5FA] mb-3 pb-2 border-b border-black/5 dark:border-white/10">
+                      DETAILING - BAŞLANGIÇ
+                    </h4>
+                    <div className="space-y-2 text-xs">
+                      <div className="flex justify-between items-baseline">
+                        <span className="font-medium">Far Temizliği</span>
+                        <span className="font-mono font-bold text-sm">1.500 TL</span>
+                      </div>
+                      <div className="flex justify-between items-baseline">
+                        <span className="font-medium">Wax Uygulaması</span>
+                        <span className="font-mono font-bold text-sm">2.500 TL</span>
+                      </div>
+                      <div className="flex justify-between items-baseline">
+                        <span className="font-medium">İç Kuaför</span>
+                        <span className="font-mono font-bold text-sm">8.000 TL</span>
+                      </div>
+                      <div className="flex justify-between items-baseline">
+                        <span className="font-medium">Pasta ve Boya Koruma</span>
+                        <span className="font-mono font-bold text-sm">10.000 TL</span>
+                      </div>
+                      <div className="flex justify-between items-baseline">
+                        <span className="font-medium">Araç İçi Ses İzolasyonu</span>
+                        <span className="font-mono font-bold text-sm">10.000 TL*</span>
+                      </div>
+                      <div className="flex justify-between items-baseline">
+                        <span className="font-medium">Seramik Kaplama</span>
+                        <span className="font-mono font-bold text-sm">20.000 TL</span>
+                      </div>
+                      <div className="flex justify-between items-baseline pt-1 border-t border-black/5 dark:border-white/5">
+                        <span className="font-medium">PPF Kaplama</span>
+                        <span className="font-mono font-bold text-sm">40.000 TL*</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 4. MOTOR HİZMETLERİ */}
+                <div className={`p-4 rounded-xl border flex flex-col justify-between ${isCream ? 'bg-[#F9F7F5] border-black/5' : 'bg-[#181A20] border-white/5'}`}>
+                  <div>
+                    <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#1E3A8A] dark:text-[#60A5FA] mb-3 pb-2 border-b border-black/5 dark:border-white/10">
+                      MOTOR HİZMETLERİ
+                    </h4>
+                    <div className="space-y-3 text-xs">
+                      <div>
+                        <span className="font-bold block">Rutin Bakım</span>
+                        <span className="text-[11px] opacity-75">Araç ve işlem durumuna göre fiyatlandırılır</span>
+                      </div>
+                      <div>
+                        <span className="font-bold block">Arıza ve Onarım</span>
+                        <span className="text-[11px] opacity-75">Araç ve işlem durumuna göre fiyatlandırılır</span>
+                      </div>
+                      <div>
+                        <span className="font-bold block">Hasarlı Motor İşlemleri</span>
+                        <span className="text-[11px] opacity-75">İnceleme sonrasında fiyatlandırılır</span>
+                      </div>
+                      <div className="pt-2 border-t border-black/5 dark:border-white/5 text-[11px] text-[#686D7A] dark:text-[#8E94A0] leading-relaxed">
+                        *Parça ve işçilik bedeli inceleme sonrasında bildirilir.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Dipnot Bilgilendirme */}
+              <div className="mt-6 pt-4 border-t border-black/5 dark:border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs opacity-75">
+                <p>
+                  *Başlangıç fiyatlarıdır. Motor işlemlerinde parça ve işçilik bedeli inceleme sonrasında bildirilir. Kampanya ve indirimler birlikte kullanılamaz.
+                </p>
+              </div>
             </div>
           </div>
         )}
@@ -928,6 +1275,15 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                   </div>
                 </div>
               </div>
+
+              <div className="mt-4 pt-3 border-t border-black/5 dark:border-white/5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs opacity-75">
+                <p>
+                  *Motor işlemlerinde parça ve işçilik bedeli inceleme sonrasında bildirilir. Kampanya ve indirimler birlikte kullanılamaz.
+                </p>
+                <span className="shrink-0 font-mono text-[11px] font-bold">
+                  Teklif No: BX-2026-089
+                </span>
+              </div>
             </div>
 
             {/* BÖLÜM 3: Motosiklet Çekici Hizmeti (Özel VIP Kurtarma Bandı) */}
@@ -989,6 +1345,64 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
             </div>
           </div>
         )}
+
+        {/* ─── NEDEN BUMEX GARAGE? (PDF SAYFA 2 İLKELERİ) ─── */}
+        <div
+          className={`mt-12 p-6 sm:p-8 rounded-2xl border text-left shadow-sm ${
+            isCream ? 'bg-[#F9F7F5] border-[#686D7A]/15' : 'bg-[#141519] border-white/10'
+          }`}
+        >
+          <div className="max-w-2xl mb-6">
+            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#1E3A8A] dark:text-[#60A5FA] block mb-1">
+              Kurumsal Güvence
+            </span>
+            <h3 className="text-xl sm:text-2xl font-bold tracking-tight">
+              Neden BUMEX Garage?
+            </h3>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className={`p-4 rounded-xl border ${isCream ? 'bg-white border-black/5' : 'bg-[#181A20] border-white/5'}`}>
+              <div className="w-8 h-8 rounded-lg bg-[#1E3A8A] text-white flex items-center justify-center mb-3 shadow-sm">
+                <Award className="w-4 h-4" />
+              </div>
+              <h4 className="font-bold text-sm mb-1">Orijinal Ürün Kalitesi</h4>
+              <p className={`text-xs leading-relaxed ${isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'}`}>
+                Uygulamalarımızın tamamında global standartlara sahip %100 orijinal ürün grupları tercih edilmektedir.
+              </p>
+            </div>
+
+            <div className={`p-4 rounded-xl border ${isCream ? 'bg-white border-black/5' : 'bg-[#181A20] border-white/5'}`}>
+              <div className="w-8 h-8 rounded-lg bg-[#1E3A8A] text-white flex items-center justify-center mb-3 shadow-sm">
+                <Clock className="w-4 h-4" />
+              </div>
+              <h4 className="font-bold text-sm mb-1">Zamanında &amp; Hızlı Teslimat</h4>
+              <p className={`text-xs leading-relaxed ${isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'}`}>
+                Yoğun çalışma temponuza uyum sağlamak adına randevulu sistemle tam zamanında teslimat garantisi sunulur.
+              </p>
+            </div>
+
+            <div className={`p-4 rounded-xl border ${isCream ? 'bg-white border-black/5' : 'bg-[#181A20] border-white/5'}`}>
+              <div className="w-8 h-8 rounded-lg bg-[#1E3A8A] text-white flex items-center justify-center mb-3 shadow-sm">
+                <Building2 className="w-4 h-4" />
+              </div>
+              <h4 className="font-bold text-sm mb-1">Kurumsal Altyapı &amp; Fatura</h4>
+              <p className={`text-xs leading-relaxed ${isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'}`}>
+                Kurumsal iş birliklerine uygun şeffaf, faturalı ve denetlenebilir muhasebe / raporlama altyapımız mevcuttur.
+              </p>
+            </div>
+
+            <div className={`p-4 rounded-xl border ${isCream ? 'bg-white border-black/5' : 'bg-[#181A20] border-white/5'}`}>
+              <div className="w-8 h-8 rounded-lg bg-[#1E3A8A] text-white flex items-center justify-center mb-3 shadow-sm">
+                <ShieldCheck className="w-4 h-4" />
+              </div>
+              <h4 className="font-bold text-sm mb-1">Koşulsuz Müşteri Memnuniyeti</h4>
+              <p className={`text-xs leading-relaxed ${isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'}`}>
+                Yapılan tüm koruma ve bakım süreçleri merkezimizin müşteri memnuniyeti ve kalite garantisi altındadır.
+              </p>
+            </div>
+          </div>
+        </div>
 
         {/* Bilgilendirme Notu */}
         <div
