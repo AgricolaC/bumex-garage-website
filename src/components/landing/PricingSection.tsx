@@ -33,12 +33,13 @@ interface PricingSectionProps {
 export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
   const isCream = theme === 'cream';
   const { segment, setSegment, phone, phoneDisplay, whatsappNumber } = useWorkshopSegment();
+  const [isComparisonOpen, setIsComparisonOpen] = useState(false);
   const activeTab = segment === 'otomobil' ? 'car' : 'bike';
 
   return (
     <section
       id="fiyatlar"
-      className={`py-20 px-4 sm:px-8 border-b transition-colors duration-200 ${
+      className={`py-10 md:py-20 px-4 sm:px-8 border-b transition-colors duration-200 ${
         isCream ? 'bg-[#EFECE6] border-[#686D7A]/15 text-[#111215]' : 'bg-[#0C0D10] border-white/10 text-white'
       }`}
     >
@@ -210,10 +211,10 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
         {activeTab === 'car' && (
           <div className="space-y-12 animate-in fade-in duration-200">
             {/* 3 Ana Otomobil Paketi */}
-            <div className="grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch text-left">
+            <div className="flex md:grid md:grid-cols-3 gap-4 sm:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 scrollbar-none items-stretch text-left">
               {/* Paket 1: Oto Yıkama & Start Paket */}
               <div
-                className={`btn-mechanical p-6 sm:p-7 rounded-2xl flex flex-col justify-between border shadow-md transition-all duration-150 ${
+                className={`btn-mechanical snap-start shrink-0 w-[85vw] max-w-[340px] md:w-auto p-6 sm:p-7 rounded-2xl flex flex-col justify-between border shadow-md transition-all duration-150 ${
                   isCream ? 'bg-white border-[#686D7A]/15' : 'bg-[#141519] border-white/10'
                 }`}
               >
@@ -307,7 +308,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
 
               {/* Paket 2: Temizlik Hizmetleri & İç Kuaför */}
               <div
-                className={`btn-mechanical p-6 sm:p-7 rounded-2xl flex flex-col justify-between relative shadow-xl border-2 transition-all duration-150 ${
+                className={`btn-mechanical snap-start shrink-0 w-[85vw] max-w-[340px] md:w-auto p-6 sm:p-7 rounded-2xl flex flex-col justify-between relative shadow-xl border-2 transition-all duration-150 ${
                   isCream ? 'bg-white border-[#1E3A8A]' : 'bg-[#141519] border-[#1E3A8A] ring-1 ring-[#1E3A8A]/30'
                 }`}
               >
@@ -428,7 +429,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
 
               {/* Paket 3: Detailing, PPF & Seramik Kaplama */}
               <div
-                className={`btn-mechanical p-6 sm:p-7 rounded-2xl flex flex-col justify-between border shadow-md transition-all duration-150 ${
+                className={`btn-mechanical snap-start shrink-0 w-[85vw] max-w-[340px] md:w-auto p-6 sm:p-7 rounded-2xl flex flex-col justify-between border shadow-md transition-all duration-150 ${
                   isCream ? 'bg-white border-[#686D7A]/15' : 'bg-[#141519] border-white/10'
                 }`}
               >
@@ -545,11 +546,26 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
             </div>
 
             {/* ─── RESMİ GÜNCEL HİZMET VE FİYAT LİSTESİ (PDF TABLOSU MATRİSİ) ─── */}
-            <div
-              className={`p-6 sm:p-8 rounded-2xl border text-left shadow-lg ${
-                isCream ? 'bg-white border-[#686D7A]/20' : 'bg-[#141519] border-white/10'
-              }`}
-            >
+            <div className="mt-8 md:mt-12">
+              <button
+                type="button"
+                onClick={() => setIsComparisonOpen(!isComparisonOpen)}
+                className={`w-full md:hidden py-3 px-4 rounded-xl border text-xs font-bold flex items-center justify-between transition cursor-pointer ${
+                  isCream
+                    ? 'bg-white border-[#1E3A8A]/30 text-[#111215]'
+                    : 'bg-[#141519] border-white/15 text-white'
+                }`}
+              >
+                <span>Tüm Paket Özelliklerini Karşılaştır</span>
+                <span>{isComparisonOpen ? 'Kapat ▲' : 'Genişlet ▼'}</span>
+              </button>
+
+              <div className={`${isComparisonOpen ? 'block' : 'hidden'} md:block mt-3 md:mt-0`}>
+                <div
+                  className={`p-6 sm:p-8 rounded-2xl border text-left shadow-lg ${
+                    isCream ? 'bg-white border-[#686D7A]/20' : 'bg-[#141519] border-white/10'
+                  }`}
+                >
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6 pb-6 border-b border-black/5 dark:border-white/10">
                 <div>
                   <div className="flex items-center gap-2 mb-1.5">
@@ -725,7 +741,9 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
               </div>
             </div>
           </div>
-        )}
+        </div>
+      </div>
+    )}
 
         {/* ─── TAB 2: MOTOSİKLET DETAYLI BAKIM, TAMİR & ÇEKİCİ (ANKARA'DA BİR İLK) ─── */}
         {activeTab === 'bike' && (
@@ -780,10 +798,10 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                 </h4>
               </div>
 
-              <div className="grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+              <div className="flex md:grid md:grid-cols-3 gap-4 sm:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 scrollbar-none items-stretch">
                 {/* 1. START PAKET - Temel Bakım */}
                 <div
-                  className={`btn-mechanical p-6 sm:p-7 rounded-2xl flex flex-col justify-between border shadow-md transition-all duration-150 ${
+                  className={`btn-mechanical snap-start shrink-0 w-[85vw] max-w-[340px] md:w-auto p-6 sm:p-7 rounded-2xl flex flex-col justify-between border shadow-md transition-all duration-150 ${
                     isCream ? 'bg-white border-[#686D7A]/15' : 'bg-[#141519] border-white/10'
                   }`}
                 >
@@ -860,7 +878,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
 
                 {/* 2. PRO PAKET - Detaylı Temizlik ve Yenileme */}
                 <div
-                  className={`btn-mechanical p-6 sm:p-7 rounded-2xl flex flex-col justify-between border shadow-md transition-all duration-150 relative overflow-hidden ${
+                  className={`btn-mechanical snap-start shrink-0 w-[85vw] max-w-[340px] md:w-auto p-6 sm:p-7 rounded-2xl flex flex-col justify-between border shadow-md transition-all duration-150 relative overflow-hidden ${
                     isCream
                       ? 'bg-white border-[#1E3A8A]/30 ring-2 ring-[#1E3A8A]/20'
                       : 'bg-[#141519] border-[#1E3A8A] ring-1 ring-[#1E3A8A]/30'
@@ -953,7 +971,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
 
                 {/* 3. PREMIUM DETAILING */}
                 <div
-                  className={`btn-mechanical p-6 sm:p-7 rounded-2xl flex flex-col justify-between border shadow-md transition-all duration-150 ${
+                  className={`btn-mechanical snap-start shrink-0 w-[85vw] max-w-[340px] md:w-auto p-6 sm:p-7 rounded-2xl flex flex-col justify-between border shadow-md transition-all duration-150 ${
                     isCream ? 'bg-white border-[#686D7A]/15' : 'bg-[#141519] border-white/10'
                   }`}
                 >
