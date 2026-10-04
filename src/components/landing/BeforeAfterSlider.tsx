@@ -493,20 +493,6 @@ export function BeforeAfterSlider({
               />
             </div>
 
-            {/* Sol Köşe Rozeti (Sonra) */}
-            <div className="absolute top-3 left-3 pointer-events-none z-10">
-              <span className="px-2.5 py-1 rounded-md bg-black/75 text-white font-mono text-[10px] uppercase tracking-wider backdrop-blur-md border border-white/15 shadow-sm">
-                Sonra // Temiz
-              </span>
-            </div>
-
-            {/* Sağ Köşe Rozeti (Önce) */}
-            <div className="absolute top-3 right-3 pointer-events-none z-10">
-              <span className="px-2.5 py-1 rounded-md bg-black/75 text-white font-mono text-[10px] uppercase tracking-wider backdrop-blur-md border border-white/15 shadow-sm">
-                Önce // Ham
-              </span>
-            </div>
-
             {/* Bölücü Çizgi (Royal Blue Işık) */}
             <div
               className="absolute top-0 bottom-0 w-[3px] pointer-events-none bg-[#1E3A8A] shadow-[0_0_14px_rgba(30,58,138,0.9)]"

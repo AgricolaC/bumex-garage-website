@@ -45,7 +45,7 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
     >
       {/* ─── 1. PRESTİJLİ TOPBAR ─── */}
       <div
-        className={`py-2 px-4 sm:px-8 text-xs transition-colors duration-200 border-b ${
+        className={`py-1 sm:py-1.5 px-4 sm:px-8 text-[11px] sm:text-xs transition-colors duration-200 border-b ${
           isCream
             ? 'bg-[#E4E0D7] text-[#111215] border-[#686D7A]/15'
             : 'bg-[#0A0B0D] text-[#8E94A0] border-white/10'

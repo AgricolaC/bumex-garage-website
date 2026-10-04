@@ -149,8 +149,8 @@ export function HeroSection({ theme }: HeroSectionProps) {
           <div className="max-w-xl">
             <div className="flex items-center gap-2 mb-2 sm:mb-2.5">
               <span className="w-1.5 h-1.5 rounded-full bg-[#1E3A8A] animate-pulse" />
-              <span className="text-[10px] sm:text-[11px] font-mono tracking-widest uppercase text-zinc-400">
-                06 // BUMEX · BAHÇELİEVLER ATÖLYE
+              <span className="text-xs font-semibold tracking-wider uppercase text-zinc-300">
+                06 // BUMEX
               </span>
             </div>
 
