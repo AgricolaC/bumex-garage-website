@@ -77,7 +77,7 @@ export function HeroSection({ theme }: HeroSectionProps) {
 
   return (
     <section
-      className="relative min-h-[82svh] sm:min-h-[86vh] lg:min-h-[92vh] flex flex-col justify-between overflow-hidden border-b transition-colors duration-300"
+      className="relative min-h-[92svh] md:min-h-[92vh] flex flex-col justify-between overflow-hidden border-b transition-colors duration-300"
       aria-label="Bumex Garage Giriş ve Atölye Seçici"
     >
       {/* ─── 1. SİNEMATİK ARKA PLAN MEDYA GEÇİŞİ (Cross-Fade) ─── */}
@@ -143,7 +143,7 @@ export function HeroSection({ theme }: HeroSectionProps) {
       </div>
 
       {/* ─── 2. ANA HERO İÇERİĞİ VE KONTROL MASASI ─── */}
-      <div className="relative z-10 max-w-6xl mx-auto w-full px-4 sm:px-8 py-5 sm:py-8 lg:py-12 flex flex-col justify-between flex-1">
+      <div className="relative z-10 max-w-6xl mx-auto w-full px-4 sm:px-8 py-4 sm:py-8 lg:py-12 flex flex-col justify-between flex-1">
         {/* ÜST BAR: Segment Seçici Deck */}
         <div className="flex items-center justify-between gap-4 mb-auto">
           <div className="max-w-xl">
@@ -217,7 +217,7 @@ export function HeroSection({ theme }: HeroSectionProps) {
 
         {/* ALT PANEL: Rafine & Yarı-Saydam Dock Mimarisi */}
         <div className="max-w-xl mt-auto pt-6 sm:pt-12 lg:pt-16 animate-in fade-in duration-300">
-          <h1 className="text-xl sm:text-2xl lg:text-3xl font-medium tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+          <h1 className="text-lg sm:text-2xl lg:text-3xl font-medium tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
             {segment === 'motosiklet'
               ? 'Motosikletinizi Temizleyin, Koruyun, Yenileyin.'
               : 'Aracınızı Temizleyin, Koruyun, Yenileyin.'}
@@ -233,9 +233,9 @@ export function HeroSection({ theme }: HeroSectionProps) {
           <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 mt-4 sm:mt-5">
             <a
               href={`tel:${phone}`}
-              className="btn-mechanical inline-flex items-center gap-1.5 sm:gap-2 text-white font-medium text-[11px] sm:text-xs px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg sm:rounded-xl border border-[#1E3A8A]/50 bg-[#1E3A8A]/80 hover:bg-[#1E3A8A] backdrop-blur-md shadow-md shadow-[#1E3A8A]/25 transition"
+              className="btn-mechanical inline-flex items-center gap-1.5 sm:gap-2 text-white font-medium text-xs px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg sm:rounded-xl border border-[#1E3A8A]/50 bg-[#1E3A8A]/80 hover:bg-[#1E3A8A] backdrop-blur-md shadow-md shadow-[#1E3A8A]/25 transition"
             >
-              <Phone className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+              <Phone className="w-3.5 h-3.5" />
               <span className="sm:hidden">Ara</span>
               <span className="hidden sm:inline">Randevu: {phoneDisplay}</span>
             </a>
@@ -244,18 +244,18 @@ export function HeroSection({ theme }: HeroSectionProps) {
               href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappDefaultMessage)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-mechanical inline-flex items-center gap-1.5 sm:gap-2 text-white font-medium text-[11px] sm:text-xs px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg sm:rounded-xl border border-white/15 bg-black/40 hover:bg-black/60 backdrop-blur-md shadow transition"
+              className="btn-mechanical inline-flex items-center gap-1.5 sm:gap-2 text-white font-medium text-xs px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg sm:rounded-xl border border-white/15 bg-black/40 hover:bg-black/60 backdrop-blur-md shadow transition"
             >
-              <MessageCircle className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#25D366]" />
+              <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
               <span>WhatsApp</span>
             </a>
 
             <a
               href="#fiyatlar"
-              className="btn-mechanical inline-flex items-center gap-1 sm:gap-1.5 text-zinc-300 hover:text-white font-medium text-[11px] sm:text-xs px-2.5 sm:px-3.5 py-2 sm:py-2.5 rounded-lg sm:rounded-xl border border-white/10 bg-black/30 hover:bg-black/50 backdrop-blur-md transition"
+              className="btn-mechanical inline-flex items-center gap-1 sm:gap-1.5 text-zinc-300 hover:text-white font-medium text-xs px-3 sm:px-3.5 py-2 sm:py-2.5 rounded-lg sm:rounded-xl border border-white/10 bg-black/30 hover:bg-black/50 backdrop-blur-md transition"
             >
               <span>Paketler</span>
-              <ChevronDown className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+              <ChevronDown className="w-3.5 h-3.5" />
             </a>
           </div>
         </div>
