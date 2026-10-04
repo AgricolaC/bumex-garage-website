@@ -164,12 +164,12 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                   Kurumsal Çözümler
                 </span>
                 <span className={`text-xs font-semibold ${isCream ? 'text-[#686D7A]' : 'text-[#8E94A0]'}`}>
-                  Şirketler, Hastaneler &amp; Üniversiteler
+                  Şirketler, Eğitim &amp; Sağlık Kurumları
                 </span>
               </div>
               <h3 className="text-lg font-bold tracking-tight">Kurumunuz &amp; Şirket Filonuz İçin Hizmet Protokolü</h3>
               <p className={`text-xs mt-1 mb-3 leading-relaxed ${isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'}`}>
-                Bumex Garage; bölgedeki üniversiteler, sağlık kuruluşları ve şirket filoları için resmi faturalı, randevu öncelikli ve özel indirimli kurumsal bakım protokolleri sunmaktadır:
+                Bumex Garage; çevremizdeki üniversitelere, hastanelere, okullara ve metro aksına yaklaşık 1 km mesafede; resmi faturalı, randevu öncelikli ve kurumsal indirimli araç bakım &amp; temizlik protokolleri sunmaktadır:
               </p>
               <div className="space-y-2 text-xs">
                 <div className="flex items-start gap-2">
@@ -182,7 +182,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
                 </div>
                 <div className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#1FAD4E] shrink-0 mt-0.5" />
-                  <span><strong>Sağlık Çalışanları &amp; Hasta Yakınları:</strong> Hastanelere 900 m mesafedeki garajımızda sağlık personeli ve refakatçilere kimlik/kart ibrazıyla anında %10 nezaket indirimi.</span>
+                  <span><strong>Öğretmenler, Sağlık &amp; İdari Personel:</strong> Çevremizdeki okul, hastane ve kamu kurumlarında görev yapan öğretmenlerimize, sağlık çalışanlarımıza, idari personele ve hasta yakınlarına kimlik/kart ibrazıyla anında <strong>%10 indirim</strong>.</span>
                 </div>
               </div>
             </div>
