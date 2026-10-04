@@ -94,7 +94,7 @@ export function IntentCards({ theme }: IntentCardsProps) {
   return (
     <section
       id="niyet-secici"
-      className={`py-16 sm:py-20 px-4 sm:px-8 border-b transition-colors duration-200 ${
+      className={`py-10 md:py-20 px-4 sm:px-8 border-b transition-colors duration-200 ${
         isCream
           ? 'bg-[#F2EDE9] border-[#6C6A6B]/20 text-[#0D0D0D]'
           : 'bg-[#181A1D] border-white/10 text-white'
@@ -115,8 +115,8 @@ export function IntentCards({ theme }: IntentCardsProps) {
           </p>
         </div>
 
-        {/* 6 Niyet Kartı Izgarası (Tactile Machine Cards) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        {/* Mobile Snap Carousel (< md) + Desktop Grid (md:) */}
+        <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-5 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-3 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 scrollbar-none">
           {INTENT_ITEMS.map((item) => {
             const Icon = item.icon;
 
@@ -124,7 +124,7 @@ export function IntentCards({ theme }: IntentCardsProps) {
               <Link
                 key={item.id}
                 href={item.href}
-                className={`btn-mechanical group p-6 rounded-2xl border flex flex-col justify-between transition-all duration-150 ${
+                className={`btn-mechanical group snap-start shrink-0 w-[78vw] max-w-[280px] md:w-auto p-4 sm:p-6 rounded-2xl border flex flex-col justify-between transition-all duration-150 ${
                   isCream
                     ? 'bg-white border-[#686D7A]/15 hover:border-[#1E3A8A] hover:shadow-lg'
                     : 'bg-[#141519] border-white/10 hover:border-[#2563EB] hover:shadow-xl hover:shadow-[#1E3A8A]/10'
@@ -161,7 +161,7 @@ export function IntentCards({ theme }: IntentCardsProps) {
                   </p>
                 </div>
 
-                <div className="mt-6 pt-3.5 border-t border-black/5 dark:border-white/5 flex items-center justify-between text-xs font-bold text-[#1E3A8A] dark:text-[#60A5FA]">
+                <div className="mt-4 sm:mt-6 pt-3 sm:pt-3.5 border-t border-black/5 dark:border-white/5 flex items-center justify-between text-xs font-bold text-[#1E3A8A] dark:text-[#60A5FA]">
                   <span>İncele</span>
                   <ChevronRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
                 </div>
