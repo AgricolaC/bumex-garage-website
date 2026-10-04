@@ -52,7 +52,7 @@ export function ProcessSection({ theme }: ProcessSectionProps) {
   return (
     <section
       id="surec"
-      className={`py-16 sm:py-20 px-4 sm:px-8 border-b transition-colors duration-200 ${
+      className={`py-10 md:py-20 px-4 sm:px-8 border-b transition-colors duration-200 ${
         isCream
           ? 'bg-[#EFEAE5] border-[#6C6A6B]/20 text-[#0D0D0D]'
           : 'bg-[#15171A] border-white/10 text-white'
@@ -60,7 +60,7 @@ export function ProcessSection({ theme }: ProcessSectionProps) {
     >
       <div className="max-w-6xl mx-auto">
         {/* Bölüm Başlığı - Anti-Cliché (No Eyebrow Kickers, Calibrated Posture) */}
-        <div className="max-w-2xl mb-12">
+        <div className="max-w-2xl mb-8 md:mb-12">
           <h2 className="text-3xl sm:text-4xl font-medium tracking-tight">
             Anahtarı bırak, gerisini unut.
           </h2>
@@ -74,14 +74,14 @@ export function ProcessSection({ theme }: ProcessSectionProps) {
         </div>
 
         {/* 4 İnsani Adım Izgarası (Machine Step Cards) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12">
+        <div className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-3 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 mb-8 md:mb-12 scrollbar-none">
           {PROCESS_STEPS.map((item) => {
             const Icon = item.icon;
 
             return (
               <div
                 key={item.step}
-                className={`p-6 rounded-2xl border flex flex-col justify-between transition-all duration-150 ${
+                className={`snap-start shrink-0 w-[72vw] max-w-[260px] md:w-auto p-5 sm:p-6 rounded-2xl border flex flex-col justify-between transition-all duration-150 ${
                   isCream
                     ? 'bg-white border-[#686D7A]/15 text-[#111215]'
                     : 'bg-[#141519] border-white/10 text-white'
@@ -116,7 +116,7 @@ export function ProcessSection({ theme }: ProcessSectionProps) {
 
         {/* ─── KILLER CONVENIENCE SECTION: PARK & WASH ─── */}
         <div
-          className={`p-6 sm:p-8 rounded-2xl border shadow-lg flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 transition duration-200 ${
+          className={`p-5 sm:p-8 rounded-2xl border shadow-lg flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 transition duration-200 ${
             isCream
               ? 'bg-white border-[#1E3A8A]/30 text-[#0D0D0D]'
               : 'bg-[#1F2226] border-[#2563EB]/30 text-white'
