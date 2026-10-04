@@ -352,6 +352,7 @@ export function BeforeAfterSlider({
   const [activeTabId, setActiveTabId] = useState<string>(availableItems[0]?.id || '');
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
+  const [isCaseStudyOpen, setIsCaseStudyOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Segment değiştiğinde aktif sekmeyi ilk öğeye sıfırla
@@ -359,6 +360,7 @@ export function BeforeAfterSlider({
     if (availableItems.length > 0) {
       setActiveTabId(availableItems[0].id);
       setSliderPosition(50);
+      setIsCaseStudyOpen(false);
     }
   }, [segment, availableItems]);
 
@@ -394,7 +396,7 @@ export function BeforeAfterSlider({
   return (
     <section
       id="restorasyon"
-      className={`py-20 px-4 sm:px-8 border-b transition-colors duration-200 ${
+      className={`py-10 md:py-20 px-4 sm:px-8 border-b transition-colors duration-200 ${
         isCream
           ? 'bg-[#EFECE6] border-[#686D7A]/15 text-[#111215]'
           : 'bg-[#0C0D10] border-white/10 text-white'
@@ -466,7 +468,7 @@ export function BeforeAfterSlider({
             onMouseLeave={() => setIsDragging(false)}
             onMouseMove={handleMouseMove}
             onTouchMove={handleTouchMove}
-            className={`relative w-full ${activeItem.aspectClass} rounded-2xl overflow-hidden shadow-2xl select-none cursor-ew-resize border bg-black ${
+            className={`relative w-full ${activeItem.aspectClass} rounded-2xl overflow-hidden shadow-2xl select-none cursor-ew-resize border bg-black touch-pan-y ${
               isCream ? 'border-[#6C6A6B]/30 shadow-black/10' : 'border-white/10 shadow-black/60'
             }`}
           >
@@ -536,7 +538,7 @@ export function BeforeAfterSlider({
             <button
               type="button"
               onClick={() => setSliderPosition(0)}
-              className={`btn-mechanical px-3 py-1.5 rounded-lg text-[11px] font-medium border transition cursor-pointer ${
+              className={`btn-mechanical px-3.5 py-2.5 min-h-[44px] rounded-lg text-xs font-semibold border transition cursor-pointer ${
                 sliderPosition === 0
                   ? 'bg-[#1E3A8A] text-white border-[#1E3A8A] shadow-xs'
                   : isCream
@@ -549,7 +551,7 @@ export function BeforeAfterSlider({
             <button
               type="button"
               onClick={() => setSliderPosition(50)}
-              className={`btn-mechanical px-3 py-1.5 rounded-lg text-[11px] font-medium border transition cursor-pointer ${
+              className={`btn-mechanical px-3.5 py-2.5 min-h-[44px] rounded-lg text-xs font-semibold border transition cursor-pointer ${
                 sliderPosition === 50
                   ? 'bg-[#1E3A8A] text-white border-[#1E3A8A] shadow-xs'
                   : isCream
@@ -562,7 +564,7 @@ export function BeforeAfterSlider({
             <button
               type="button"
               onClick={() => setSliderPosition(100)}
-              className={`btn-mechanical px-3 py-1.5 rounded-lg text-[11px] font-medium border transition cursor-pointer ${
+              className={`btn-mechanical px-3.5 py-2.5 min-h-[44px] rounded-lg text-xs font-semibold border transition cursor-pointer ${
                 sliderPosition === 100
                   ? 'bg-[#1E3A8A] text-white border-[#1E3A8A] shadow-xs'
                   : isCream
@@ -585,70 +587,92 @@ export function BeforeAfterSlider({
 
           {/* Vaka Kanıtı ve Operasyon Kaydı (Problem → Uygulama → Süre → Sonuç → Alıntı) */}
           {activeItem.caseStudy && (
-            <div
-              className={`mt-6 p-5 sm:p-6 rounded-2xl border text-left ${
-                isCream
-                  ? 'bg-white/95 border-[#1E3A8A]/25 text-[#0D0D0D] shadow-sm'
-                  : 'bg-[#1F2226] border-white/10 text-white shadow-md'
-              }`}
-            >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3.5 mb-3.5 border-b border-black/5 dark:border-white/10 gap-2">
-                <div>
-                  <span className="text-[10px] font-black uppercase tracking-widest text-[#1E3A8A] dark:text-[#60A5FA]">
-                    Tamirhane Vaka Kaydı (Gerçek Operasyon)
-                  </span>
-                  <h4 className="text-base font-black tracking-tight mt-0.5">
-                    {activeItem.caseStudy.vehicle}
-                  </h4>
-                </div>
+            <div className="mt-6">
+              <button
+                type="button"
+                onClick={() => setIsCaseStudyOpen(!isCaseStudyOpen)}
+                className={`w-full md:hidden flex items-center justify-between p-3.5 rounded-xl border text-xs font-bold transition cursor-pointer ${
+                  isCream
+                    ? 'bg-white border-[#1E3A8A]/25 text-[#0D0D0D]'
+                    : 'bg-[#1F2226] border-white/10 text-white'
+                }`}
+              >
+                <span className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#1E3A8A]" />
+                  <span>Vaka Raporu & Detay ({activeItem.caseStudy.duration})</span>
+                </span>
+                <span className="text-[11px] text-[#1E3A8A] dark:text-[#60A5FA]">
+                  {isCaseStudyOpen ? 'Kapat ▲' : 'İncele ▼'}
+                </span>
+              </button>
 
-                <div className="flex items-center gap-2 text-xs">
-                  <span className="font-bold text-[#6C6A6B]">Tamirhane Süresi:</span>
-                  <span className="px-2.5 py-0.5 rounded-full bg-[#1E3A8A]/10 text-[#1E3A8A] dark:text-[#60A5FA] font-black text-xs">
-                    {activeItem.caseStudy.duration}
-                  </span>
+              <div className={`${isCaseStudyOpen ? 'block' : 'hidden'} md:block mt-2 md:mt-0`}>
+                <div
+                  className={`p-5 sm:p-6 rounded-2xl border text-left ${
+                    isCream
+                      ? 'bg-white/95 border-[#1E3A8A]/25 text-[#0D0D0D] shadow-sm'
+                      : 'bg-[#1F2226] border-white/10 text-white shadow-md'
+                  }`}
+                >
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3.5 mb-3.5 border-b border-black/5 dark:border-white/10 gap-2">
+                    <div>
+                      <span className="text-[10px] font-black uppercase tracking-widest text-[#1E3A8A] dark:text-[#60A5FA]">
+                        Tamirhane Vaka Kaydı (Gerçek Operasyon)
+                      </span>
+                      <h4 className="text-base font-black tracking-tight mt-0.5">
+                        {activeItem.caseStudy.vehicle}
+                      </h4>
+                    </div>
+
+                    <div className="flex items-center gap-2 text-xs">
+                      <span className="font-bold text-[#6C6A6B]">Tamirhane Süresi:</span>
+                      <span className="px-2.5 py-0.5 rounded-full bg-[#1E3A8A]/10 text-[#1E3A8A] dark:text-[#60A5FA] font-black text-xs">
+                        {activeItem.caseStudy.duration}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 text-xs">
+                    <div>
+                      <span className="font-bold uppercase tracking-wider text-[10px] text-[#6C6A6B] block mb-1">
+                        01 // Problem
+                      </span>
+                      <p className={isCream ? 'text-[#4A4746]' : 'text-[#9DA3AA]'}>
+                        {activeItem.caseStudy.problem}
+                      </p>
+                    </div>
+
+                    <div>
+                      <span className="font-bold uppercase tracking-wider text-[10px] text-[#1E3A8A] dark:text-[#60A5FA] block mb-1">
+                        02 // Uygulama
+                      </span>
+                      <p className={isCream ? 'text-[#4A4746]' : 'text-[#9DA3AA]'}>
+                        {activeItem.caseStudy.application}
+                      </p>
+                    </div>
+
+                    <div>
+                      <span className="font-bold uppercase tracking-wider text-[10px] text-[#1FAD4E] block mb-1">
+                        03 // Sonuç
+                      </span>
+                      <p className={isCream ? 'text-[#4A4746]' : 'text-[#9DA3AA]'}>
+                        {activeItem.caseStudy.result}
+                      </p>
+                    </div>
+                  </div>
+
+                  {activeItem.caseStudy.testimonial && (
+                    <div className="mt-4 pt-3 border-t border-black/5 dark:border-white/5 flex flex-col sm:flex-row sm:items-center justify-between text-xs italic gap-1">
+                      <p className={isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}>
+                        &ldquo;{activeItem.caseStudy.testimonial.quote}&rdquo;
+                      </p>
+                      <span className="font-bold not-italic text-[11px] text-[#1E3A8A] dark:text-[#60A5FA] shrink-0">
+                        — {activeItem.caseStudy.testimonial.author}
+                      </span>
+                    </div>
+                  )}
                 </div>
               </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 text-xs">
-                <div>
-                  <span className="font-bold uppercase tracking-wider text-[10px] text-[#6C6A6B] block mb-1">
-                    01 // Problem
-                  </span>
-                  <p className={isCream ? 'text-[#4A4746]' : 'text-[#9DA3AA]'}>
-                    {activeItem.caseStudy.problem}
-                  </p>
-                </div>
-
-                <div>
-                  <span className="font-bold uppercase tracking-wider text-[10px] text-[#1E3A8A] dark:text-[#60A5FA] block mb-1">
-                    02 // Uygulama
-                  </span>
-                  <p className={isCream ? 'text-[#4A4746]' : 'text-[#9DA3AA]'}>
-                    {activeItem.caseStudy.application}
-                  </p>
-                </div>
-
-                <div>
-                  <span className="font-bold uppercase tracking-wider text-[10px] text-[#1FAD4E] block mb-1">
-                    03 // Sonuç
-                  </span>
-                  <p className={isCream ? 'text-[#4A4746]' : 'text-[#9DA3AA]'}>
-                    {activeItem.caseStudy.result}
-                  </p>
-                </div>
-              </div>
-
-              {activeItem.caseStudy.testimonial && (
-                <div className="mt-4 pt-3 border-t border-black/5 dark:border-white/5 flex flex-col sm:flex-row sm:items-center justify-between text-xs italic gap-1">
-                  <p className={isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}>
-                    &ldquo;{activeItem.caseStudy.testimonial.quote}&rdquo;
-                  </p>
-                  <span className="font-bold not-italic text-[11px] text-[#1E3A8A] dark:text-[#60A5FA] shrink-0">
-                    — {activeItem.caseStudy.testimonial.author}
-                  </span>
-                </div>
-              )}
             </div>
           )}
 
