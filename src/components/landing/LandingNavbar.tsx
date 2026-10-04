@@ -40,7 +40,9 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
     useWorkshopSegment();
 
   return (
-    <div className="w-full">
+    <header
+      className="relative md:sticky top-0 left-0 right-0 z-50 transition-colors duration-200 w-full"
+    >
       {/* ─── 1. PRESTİJLİ TOPBAR ─── */}
       <div
         className={`py-2 px-4 sm:px-8 text-xs transition-colors duration-200 border-b ${
@@ -141,7 +143,7 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
 
       {/* ─── 2. ANA NAVİGASYON ─── */}
       <nav
-        className={`sticky top-0 z-40 backdrop-blur-md border-b transition-colors duration-200 ${
+        className={`backdrop-blur-md border-b transition-colors duration-200 ${
           isCream
             ? 'bg-[#EFECE6]/95 border-[#686D7A]/15 text-[#111215]'
             : 'bg-[#0C0D10]/95 border-white/10 text-white'
@@ -271,6 +273,6 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
           </div>
         )}
       </nav>
-    </div>
+    </header>
   );
 }
