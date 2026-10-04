@@ -84,10 +84,11 @@ body {
 }
 
 .animate-floating-reviews {
-  animation: floatRolling 26s linear infinite;
+  animation: floatRolling 38s linear infinite;
 }
 
-.animate-floating-reviews:hover {
+.animate-floating-reviews:hover,
+.animate-floating-reviews:active {
   animation-play-state: paused;
 }
 

@@ -179,7 +179,7 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
   return (
     <section
       id="konum"
-      className={`py-20 px-4 sm:px-8 border-b transition-colors duration-200 ${
+      className={`py-10 md:py-20 px-4 sm:px-8 border-b transition-colors duration-200 ${
         isCream
           ? 'bg-[#EFECE6] border-[#686D7A]/15 text-[#111215]'
           : 'bg-[#0C0D10] border-white/10 text-white'
@@ -342,7 +342,7 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
               </div>
 
               {/* Doğrulanmış Gerçek Google Yorumları: Floating Rolling Window */}
-              <div className="relative overflow-hidden h-[300px] sm:h-[320px] rounded-xl border border-black/5 dark:border-white/10 mt-2">
+              <div className="relative overflow-hidden h-[160px] md:h-[320px] rounded-xl border border-black/5 dark:border-white/10 mt-2 touch-pan-y">
                 {/* Üst ve Alt Yumuşak Gradyan (Fade Mask) */}
                 <div
                   className={`pointer-events-none absolute inset-x-0 top-0 h-8 z-10 bg-gradient-to-b ${
@@ -360,7 +360,7 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
                 />
 
                 {/* Kayan İçerik (Hover durumunda duraklar) */}
-                <div className="animate-floating-reviews flex flex-col gap-3 p-2.5 select-none">
+                <div className="animate-floating-reviews hover:[animation-play-state:paused] active:[animation-play-state:paused] flex flex-col gap-3 p-2 select-none">
                   {[...VERIFIED_GOOGLE_REVIEWS, ...VERIFIED_GOOGLE_REVIEWS].map((rev, idx) => (
                     <div
                       key={`${rev.id}-${idx}`}
