@@ -21,6 +21,7 @@ import {
   Tag,
   Layers,
   Award,
+  ChevronDown,
 } from 'lucide-react';
 import { LandingTheme } from '@/hooks/useLandingTheme';
 import { useWorkshopSegment } from '@/hooks/useWorkshopSegment';
@@ -34,18 +35,55 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
   const isCream = theme === 'cream';
   const { segment, setSegment, phone, phoneDisplay, whatsappNumber } = useWorkshopSegment();
   const [isComparisonOpen, setIsComparisonOpen] = useState(false);
+  const [isSectionOpen, setIsSectionOpen] = useState(true);
   const activeTab = segment === 'otomobil' ? 'car' : 'bike';
 
   return (
     <section
       id="fiyatlar"
-      className={`py-10 md:py-20 px-4 sm:px-8 border-b transition-colors duration-200 ${
+      className={`transition-colors duration-200 px-4 sm:px-8 border-b ${
+        isSectionOpen ? 'py-8 md:py-20' : 'py-4 md:py-20'
+      } ${
         isCream ? 'bg-[#EFECE6] border-[#686D7A]/15 text-[#111215]' : 'bg-[#0C0D10] border-white/10 text-white'
       }`}
     >
       <div className="max-w-6xl mx-auto">
-        {/* Başlık Alanı - Anti-Cliché (No Eyebrow Kickers, Calibrated Posture) */}
-        <div className="text-center max-w-2xl mx-auto mb-10">
+        {/* Başlık Alanı - Mobil Toggle Kartı (< md) */}
+        <button
+          type="button"
+          onClick={() => setIsSectionOpen((prev) => !prev)}
+          aria-expanded={isSectionOpen}
+          className={`w-full md:hidden mb-4 p-4 rounded-2xl border text-left flex items-center justify-between transition-all duration-200 cursor-pointer active:scale-[0.99] ${
+            isCream
+              ? 'bg-white/80 border-[#686D7A]/20 shadow-xs'
+              : 'bg-[#141519] border-white/10 shadow-xs'
+          }`}
+        >
+          <div className="pr-3">
+            <h2 className="text-lg font-bold tracking-tight">
+              Akıl almaz detay, akılcı fiyatlar.
+            </h2>
+            <p className={`text-xs mt-1 line-clamp-1 ${isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'}`}>
+              Net taban fiyatlar, şeffaf atölye işçiliği ve paket detayları.
+            </p>
+          </div>
+          <div
+            className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center border transition-colors ${
+              isCream
+                ? 'bg-black/5 border-black/10 text-[#1E3A8A]'
+                : 'bg-white/5 border-white/15 text-[#60A5FA]'
+            }`}
+          >
+            <ChevronDown
+              className={`w-4 h-4 transition-transform duration-200 ${
+                isSectionOpen ? 'rotate-180' : ''
+              }`}
+            />
+          </div>
+        </button>
+
+        {/* Masaüstü Statik Başlık (md ve üstü) */}
+        <div className="hidden md:block text-center max-w-2xl mx-auto mb-10">
           <h2 className="text-3xl sm:text-4xl font-medium tracking-tight">
             Akıl almaz detay, akılcı fiyatlar.
           </h2>
@@ -56,9 +94,13 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
           >
             Sürpriz ek maliyetler ve gereksiz kalemler yok. Otomobil ve motosikletiniz için net taban fiyatlar, şeffaf atölye işçiliği.
           </p>
+        </div>
 
-          {/* Sekme Değiştirici (Otomobil / Motosiklet - Short-Throw Gear-Shift Style) */}
-          <div className="mt-8 relative inline-grid grid-cols-2 p-1.5 rounded-2xl bg-black/5 dark:bg-white/10 border border-black/10 dark:border-white/15 gap-1.5 shadow-inner">
+        {/* Gövde Alanı (Mobilde Açılır-Kapanır, Masaüstünde Her Zaman Açık) */}
+        <div className={`${isSectionOpen ? 'block' : 'hidden'} md:block`}>
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            {/* Sekme Değiştirici (Otomobil / Motosiklet - Short-Throw Gear-Shift Style) */}
+            <div className="mt-4 md:mt-8 relative inline-grid grid-cols-2 p-1.5 rounded-2xl bg-black/5 dark:bg-white/10 border border-black/10 dark:border-white/15 gap-1.5 shadow-inner">
             {/* Short-Throw Gear Lever Indicator Pill (Physical Overshoot & Settle) */}
             <div
               aria-hidden="true"
@@ -1436,6 +1478,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
             {phoneDisplay}
           </a>{' '}
           ({segment === 'otomobil' ? 'Otomobil Hattı' : 'Motosiklet Hattı'}) veya WhatsApp üzerinden dilediğiniz an ulaşabilirsiniz.
+        </div>
         </div>
       </div>
     </section>

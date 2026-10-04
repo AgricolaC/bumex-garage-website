@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Star, MapPin, Navigation, Clock, ExternalLink, ShieldCheck, CheckCircle2, MessageSquareQuote } from 'lucide-react';
+import { Star, MapPin, Navigation, Clock, ExternalLink, ShieldCheck, CheckCircle2, MessageSquareQuote, ChevronDown } from 'lucide-react';
 import { LandingTheme } from '@/hooks/useLandingTheme';
 
 interface GoogleMapsSectionProps {
@@ -171,6 +171,7 @@ const VERIFIED_GOOGLE_REVIEWS: VerifiedReview[] = [
 export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
   const isCream = theme === 'cream';
   const [isMounted, setIsMounted] = useState(false);
+  const [isSectionOpen, setIsSectionOpen] = useState(true);
 
   useEffect(() => {
     setIsMounted(true);
@@ -179,15 +180,51 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
   return (
     <section
       id="konum"
-      className={`py-10 md:py-20 px-4 sm:px-8 border-b transition-colors duration-200 ${
+      className={`transition-colors duration-200 px-4 sm:px-8 border-b ${
+        isSectionOpen ? 'py-8 md:py-20' : 'py-4 md:py-20'
+      } ${
         isCream
           ? 'bg-[#EFECE6] border-[#686D7A]/15 text-[#111215]'
           : 'bg-[#0C0D10] border-white/10 text-white'
       }`}
     >
       <div className="max-w-6xl mx-auto">
-        {/* Başlık Alanı - Anti-Cliché (No Eyebrow Kickers, Calibrated Posture) */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        {/* Başlık Alanı - Mobil Toggle Kartı (< md) */}
+        <button
+          type="button"
+          onClick={() => setIsSectionOpen((prev) => !prev)}
+          aria-expanded={isSectionOpen}
+          className={`w-full md:hidden mb-4 p-4 rounded-2xl border text-left flex items-center justify-between transition-all duration-200 cursor-pointer active:scale-[0.99] ${
+            isCream
+              ? 'bg-white/80 border-[#686D7A]/20 shadow-xs'
+              : 'bg-[#141519] border-white/10 shadow-xs'
+          }`}
+        >
+          <div className="pr-3">
+            <h2 className="text-lg font-bold tracking-tight">
+              Kapı her zaman açık.
+            </h2>
+            <p className={`text-xs mt-1 line-clamp-1 ${isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'}`}>
+              Bahçelievler 2. Cadde No: 48 • Canlı Google yorumları &amp; yol tarifi.
+            </p>
+          </div>
+          <div
+            className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center border transition-colors ${
+              isCream
+                ? 'bg-black/5 border-black/10 text-[#1E3A8A]'
+                : 'bg-white/5 border-white/15 text-[#60A5FA]'
+            }`}
+          >
+            <ChevronDown
+              className={`w-4 h-4 transition-transform duration-200 ${
+                isSectionOpen ? 'rotate-180' : ''
+              }`}
+            />
+          </div>
+        </button>
+
+        {/* Masaüstü Statik Başlık (md ve üstü) */}
+        <div className="hidden md:flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
             <h2 className="text-3xl sm:text-4xl font-medium tracking-tight">
               Kapı her zaman açık.
@@ -212,6 +249,9 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
             <ExternalLink className="w-4 h-4" />
           </a>
         </div>
+
+        {/* Gövde Alanı (Mobilde Açılır-Kapanır, Masaüstünde Her Zaman Açık) */}
+        <div className={`${isSectionOpen ? 'block' : 'hidden'} md:block`}>
 
         {/* 2 Kolon: Harita ve Otomatik Canlı Puanlama Paneli */}
         <div className="grid lg:grid-cols-12 gap-8 items-stretch">
@@ -425,6 +465,7 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
               </a>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </section>

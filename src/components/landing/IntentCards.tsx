@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import {
   Droplets,
@@ -11,6 +11,7 @@ import {
   ShieldCheck,
   ChevronRight,
   ArrowRight,
+  ChevronDown,
 } from 'lucide-react';
 import { LandingTheme } from '@/hooks/useLandingTheme';
 
@@ -90,19 +91,56 @@ const INTENT_ITEMS: IntentItem[] = [
 
 export function IntentCards({ theme }: IntentCardsProps) {
   const isCream = theme === 'cream';
+  const [isSectionOpen, setIsSectionOpen] = useState(true);
 
   return (
     <section
       id="niyet-secici"
-      className={`py-10 md:py-20 px-4 sm:px-8 border-b transition-colors duration-200 ${
+      className={`transition-colors duration-200 px-4 sm:px-8 border-b ${
+        isSectionOpen ? 'py-8 md:py-20' : 'py-4 md:py-20'
+      } ${
         isCream
           ? 'bg-[#F2EDE9] border-[#6C6A6B]/20 text-[#0D0D0D]'
           : 'bg-[#181A1D] border-white/10 text-white'
       }`}
     >
       <div className="max-w-6xl mx-auto">
-        {/* Başlık Alanı - Anti-Cliché (No Eyebrow Kickers, Calibrated Posture) */}
-        <div className="max-w-2xl mb-10 sm:mb-12">
+        {/* Başlık Alanı - Mobil Toggle Kartı (< md) */}
+        <button
+          type="button"
+          onClick={() => setIsSectionOpen((prev) => !prev)}
+          aria-expanded={isSectionOpen}
+          className={`w-full md:hidden mb-4 p-4 rounded-2xl border text-left flex items-center justify-between transition-all duration-200 cursor-pointer active:scale-[0.99] ${
+            isCream
+              ? 'bg-white/80 border-[#686D7A]/20 shadow-xs'
+              : 'bg-[#141519] border-white/10 shadow-xs'
+          }`}
+        >
+          <div className="pr-3">
+            <h2 className="text-lg font-bold tracking-tight">
+              Neye ihtiyacın olduğunu en iyi aracın bilir.
+            </h2>
+            <p className={`text-xs mt-1 line-clamp-1 ${isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'}`}>
+              Otomobil ve motosikletiniz için doğrudan ihtiyaca yönelik net çözümler.
+            </p>
+          </div>
+          <div
+            className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center border transition-colors ${
+              isCream
+                ? 'bg-black/5 border-black/10 text-[#1E3A8A]'
+                : 'bg-white/5 border-white/15 text-[#60A5FA]'
+            }`}
+          >
+            <ChevronDown
+              className={`w-4 h-4 transition-transform duration-200 ${
+                isSectionOpen ? 'rotate-180' : ''
+              }`}
+            />
+          </div>
+        </button>
+
+        {/* Masaüstü Statik Başlık (md ve üstü) */}
+        <div className="hidden md:block max-w-2xl mb-10 sm:mb-12">
           <h2 className="text-3xl sm:text-4xl font-medium tracking-tight">
             Neye ihtiyacın olduğunu en iyi aracın bilir.
           </h2>
@@ -114,6 +152,9 @@ export function IntentCards({ theme }: IntentCardsProps) {
             Gereksiz işlemler ve şişirilmiş maliyetler yok. Bahçelievler atölyemizde otomobil ve motosikletiniz için doğrudan ihtiyaca yönelik net çözümler.
           </p>
         </div>
+
+        {/* Gövde Alanı (Mobilde Açılır-Kapanır, Masaüstünde Her Zaman Açık) */}
+        <div className={`${isSectionOpen ? 'block' : 'hidden'} md:block`}>
 
         {/* Mobile Snap Carousel (< md) + Desktop Grid (md:) */}
         <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-5 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-3 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 scrollbar-none">
@@ -179,6 +220,7 @@ export function IntentCards({ theme }: IntentCardsProps) {
             <span>Tüm modüler hizmet ve parça kartelasını görüntüle (25+ Kalem)</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </Link>
+          </div>
         </div>
       </div>
     </section>
