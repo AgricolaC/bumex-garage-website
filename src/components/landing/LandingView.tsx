@@ -9,6 +9,7 @@ import { IntentCards } from '@/components/landing/IntentCards';
 import { BeforeAfterSlider } from '@/components/landing/BeforeAfterSlider';
 import { ProcessSection } from '@/components/landing/ProcessSection';
 import { PricingSection } from '@/components/landing/PricingSection';
+import { WhyBumexSection } from '@/components/landing/WhyBumexSection';
 import { GoogleMapsSection } from '@/components/landing/GoogleMapsSection';
 import { LandingFooter } from '@/components/landing/LandingFooter';
 import { MobileCallBar } from '@/components/landing/MobileCallBar';
@@ -72,7 +73,10 @@ export function LandingView({ initialSegment }: { initialSegment?: WorkshopSegme
           onOpenModal={(type) => setActiveModal(type)}
         />
 
-        {/* 6. Google Haritalar Doğrulanmış Profil, Yorumlar & Yol Tarifi: Nasıl ulaşacağım? */}
+        {/* 6. Neden Bumex Garage: Kurumsal Güvence, İlkeler & Kalite Standartları */}
+        <WhyBumexSection theme={theme} />
+
+        {/* 7. Google Haritalar Doğrulanmış Profil, Yorumlar & Yol Tarifi: Nasıl ulaşacağım? */}
         <GoogleMapsSection theme={theme} />
       </main>
 

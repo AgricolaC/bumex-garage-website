@@ -171,7 +171,7 @@ const VERIFIED_GOOGLE_REVIEWS: VerifiedReview[] = [
 export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
   const isCream = theme === 'cream';
   const [isMounted, setIsMounted] = useState(false);
-  const [isSectionOpen, setIsSectionOpen] = useState(true);
+  const [isSectionOpen, setIsSectionOpen] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
@@ -181,7 +181,7 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
     <section
       id="konum"
       className={`transition-colors duration-200 px-4 sm:px-8 border-b ${
-        isSectionOpen ? 'py-8 md:py-20' : 'py-4 md:py-20'
+        isSectionOpen ? 'py-8 md:py-20' : 'py-2 md:py-20'
       } ${
         isCream
           ? 'bg-[#EFECE6] border-[#686D7A]/15 text-[#111215]'
@@ -194,25 +194,46 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
           type="button"
           onClick={() => setIsSectionOpen((prev) => !prev)}
           aria-expanded={isSectionOpen}
-          className={`w-full md:hidden mb-4 p-4 rounded-2xl border text-left flex items-center justify-between transition-all duration-200 cursor-pointer active:scale-[0.99] ${
+          className={`w-full md:hidden my-1 p-4 rounded-2xl border text-left flex items-center justify-between transition-all duration-200 cursor-pointer active:scale-[0.985] ${
             isCream
-              ? 'bg-white/80 border-[#686D7A]/20 shadow-xs'
-              : 'bg-[#141519] border-white/10 shadow-xs'
+              ? 'bg-gradient-to-r from-white via-[#FAF7F2] to-[#F2EDE4] border-[#686D7A]/25 text-[#111215] shadow-[0_2px_10px_-2px_rgba(0,0,0,0.06),inset_0_1px_0_0_rgba(255,255,255,0.9)] hover:border-[#1E3A8A]/40'
+              : 'bg-gradient-to-r from-[#17191E] via-[#1C1F26] to-[#14161A] border-white/12 text-white shadow-[0_4px_20px_-4px_rgba(0,0,0,0.6),inset_0_1px_0_0_rgba(255,255,255,0.08)] hover:border-[#2563EB]/40'
           }`}
         >
-          <div className="pr-3">
-            <h2 className="text-lg font-bold tracking-tight">
-              Kapı her zaman açık.
-            </h2>
-            <p className={`text-xs mt-1 line-clamp-1 ${isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'}`}>
-              Bahçelievler 2. Cadde No: 48 • Canlı Google yorumları &amp; yol tarifi.
-            </p>
+          <div className="flex items-center gap-2.5 flex-1 pr-2 min-w-0">
+            <span
+              className={`w-1.5 h-1.5 rounded-full shrink-0 transition-colors ${
+                isSectionOpen
+                  ? 'bg-[#2563EB] shadow-[0_0_8px_rgba(37,99,235,0.8)]'
+                  : isCream
+                    ? 'bg-black/30'
+                    : 'bg-white/30'
+              }`}
+            />
+            <div className="min-w-0">
+              <h2 className="text-sm sm:text-base font-bold tracking-tight truncate">
+                Kapı her zaman açık.
+              </h2>
+              {isSectionOpen && (
+                <p
+                  className={`text-xs mt-1 leading-relaxed animate-in fade-in duration-150 ${
+                    isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'
+                  }`}
+                >
+                  Bahçelievler 2. Cadde No: 48 • Canlı Google yorumları &amp; yol tarifi.
+                </p>
+              )}
+            </div>
           </div>
           <div
-            className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center border transition-colors ${
-              isCream
-                ? 'bg-black/5 border-black/10 text-[#1E3A8A]'
-                : 'bg-white/5 border-white/15 text-[#60A5FA]'
+            className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center border transition-all duration-200 ${
+              isSectionOpen
+                ? isCream
+                  ? 'bg-[#1E3A8A] border-[#1E3A8A] text-white shadow-sm'
+                  : 'bg-[#2563EB] border-[#2563EB] text-white shadow-sm shadow-[#2563EB]/30'
+                : isCream
+                  ? 'bg-black/5 border-black/10 text-[#1E3A8A]'
+                  : 'bg-white/5 border-white/10 text-[#60A5FA]'
             }`}
           >
             <ChevronDown
@@ -251,7 +272,7 @@ export function GoogleMapsSection({ theme }: GoogleMapsSectionProps) {
         </div>
 
         {/* Gövde Alanı (Mobilde Açılır-Kapanır, Masaüstünde Her Zaman Açık) */}
-        <div className={`${isSectionOpen ? 'block' : 'hidden'} md:block`}>
+        <div className={`${isSectionOpen ? 'block' : 'hidden'} md:block pt-3 md:pt-0`}>
 
         {/* 2 Kolon: Harita ve Otomatik Canlı Puanlama Paneli */}
         <div className="grid lg:grid-cols-12 gap-8 items-stretch">

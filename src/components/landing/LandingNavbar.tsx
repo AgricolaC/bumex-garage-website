@@ -72,6 +72,11 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
             </Link>
             <Link
               href={segment === 'motosiklet' ? '/motosiklet#fiyatlar' : '/#fiyatlar'}
+              onClick={() => {
+                if (typeof window !== 'undefined') {
+                  window.dispatchEvent(new CustomEvent('open-price-card'));
+                }
+              }}
               className="hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition"
             >
               Fiyatlar
@@ -211,7 +216,12 @@ export function LandingNavbar({ theme, toggleTheme }: LandingNavbarProps) {
               </Link>
               <Link
                 href={segment === 'motosiklet' ? '/motosiklet#fiyatlar' : '/#fiyatlar'}
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  if (typeof window !== 'undefined') {
+                    window.dispatchEvent(new CustomEvent('open-price-card'));
+                  }
+                }}
                 className="py-2.5 px-3 rounded-lg hover:bg-[#1E3A8A]/10 hover:text-[#1E3A8A] dark:hover:text-[#60A5FA] transition"
               >
                 Fiyatlar

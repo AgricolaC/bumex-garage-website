@@ -91,13 +91,13 @@ const INTENT_ITEMS: IntentItem[] = [
 
 export function IntentCards({ theme }: IntentCardsProps) {
   const isCream = theme === 'cream';
-  const [isSectionOpen, setIsSectionOpen] = useState(true);
+  const [isSectionOpen, setIsSectionOpen] = useState(false);
 
   return (
     <section
       id="niyet-secici"
       className={`transition-colors duration-200 px-4 sm:px-8 border-b ${
-        isSectionOpen ? 'py-8 md:py-20' : 'py-4 md:py-20'
+        isSectionOpen ? 'py-8 md:py-20' : 'py-2 md:py-20'
       } ${
         isCream
           ? 'bg-[#F2EDE9] border-[#6C6A6B]/20 text-[#0D0D0D]'
@@ -110,25 +110,46 @@ export function IntentCards({ theme }: IntentCardsProps) {
           type="button"
           onClick={() => setIsSectionOpen((prev) => !prev)}
           aria-expanded={isSectionOpen}
-          className={`w-full md:hidden mb-4 p-4 rounded-2xl border text-left flex items-center justify-between transition-all duration-200 cursor-pointer active:scale-[0.99] ${
+          className={`w-full md:hidden my-1 p-4 rounded-2xl border text-left flex items-center justify-between transition-all duration-200 cursor-pointer active:scale-[0.985] ${
             isCream
-              ? 'bg-white/80 border-[#686D7A]/20 shadow-xs'
-              : 'bg-[#141519] border-white/10 shadow-xs'
+              ? 'bg-gradient-to-r from-white via-[#FAF7F2] to-[#F2EDE4] border-[#686D7A]/25 text-[#111215] shadow-[0_2px_10px_-2px_rgba(0,0,0,0.06),inset_0_1px_0_0_rgba(255,255,255,0.9)] hover:border-[#1E3A8A]/40'
+              : 'bg-gradient-to-r from-[#17191E] via-[#1C1F26] to-[#14161A] border-white/12 text-white shadow-[0_4px_20px_-4px_rgba(0,0,0,0.6),inset_0_1px_0_0_rgba(255,255,255,0.08)] hover:border-[#2563EB]/40'
           }`}
         >
-          <div className="pr-3">
-            <h2 className="text-lg font-bold tracking-tight">
-              Neye ihtiyacın olduğunu en iyi aracın bilir.
-            </h2>
-            <p className={`text-xs mt-1 line-clamp-1 ${isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'}`}>
-              Otomobil ve motosikletiniz için doğrudan ihtiyaca yönelik net çözümler.
-            </p>
+          <div className="flex items-center gap-2.5 flex-1 pr-2 min-w-0">
+            <span
+              className={`w-1.5 h-1.5 rounded-full shrink-0 transition-colors ${
+                isSectionOpen
+                  ? 'bg-[#2563EB] shadow-[0_0_8px_rgba(37,99,235,0.8)]'
+                  : isCream
+                    ? 'bg-black/30'
+                    : 'bg-white/30'
+              }`}
+            />
+            <div className="min-w-0">
+              <h2 className="text-sm sm:text-base font-bold tracking-tight truncate">
+                Neye ihtiyacın olduğunu en iyi aracın bilir.
+              </h2>
+              {isSectionOpen && (
+                <p
+                  className={`text-xs mt-1 leading-relaxed animate-in fade-in duration-150 ${
+                    isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'
+                  }`}
+                >
+                  Otomobil ve motosikletiniz için doğrudan ihtiyaca yönelik net çözümler.
+                </p>
+              )}
+            </div>
           </div>
           <div
-            className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center border transition-colors ${
-              isCream
-                ? 'bg-black/5 border-black/10 text-[#1E3A8A]'
-                : 'bg-white/5 border-white/15 text-[#60A5FA]'
+            className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center border transition-all duration-200 ${
+              isSectionOpen
+                ? isCream
+                  ? 'bg-[#1E3A8A] border-[#1E3A8A] text-white shadow-sm'
+                  : 'bg-[#2563EB] border-[#2563EB] text-white shadow-sm shadow-[#2563EB]/30'
+                : isCream
+                  ? 'bg-black/5 border-black/10 text-[#1E3A8A]'
+                  : 'bg-white/5 border-white/10 text-[#60A5FA]'
             }`}
           >
             <ChevronDown
@@ -154,7 +175,7 @@ export function IntentCards({ theme }: IntentCardsProps) {
         </div>
 
         {/* Gövde Alanı (Mobilde Açılır-Kapanır, Masaüstünde Her Zaman Açık) */}
-        <div className={`${isSectionOpen ? 'block' : 'hidden'} md:block`}>
+        <div className={`${isSectionOpen ? 'block' : 'hidden'} md:block pt-3 md:pt-0`}>
 
         {/* Mobile Snap Carousel (< md) + Desktop Grid (md:) */}
         <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-5 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-3 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 scrollbar-none">
@@ -165,6 +186,15 @@ export function IntentCards({ theme }: IntentCardsProps) {
               <Link
                 key={item.id}
                 href={item.href}
+                onClick={
+                  item.href === '#fiyatlar'
+                    ? () => {
+                        if (typeof window !== 'undefined') {
+                          window.dispatchEvent(new CustomEvent('open-price-card'));
+                        }
+                      }
+                    : undefined
+                }
                 className={`btn-mechanical group snap-start shrink-0 w-[78vw] max-w-[280px] md:w-auto p-4 sm:p-6 rounded-2xl border flex flex-col justify-between transition-all duration-150 ${
                   isCream
                     ? 'bg-white border-[#686D7A]/15 hover:border-[#1E3A8A] hover:shadow-lg'

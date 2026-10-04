@@ -252,7 +252,12 @@ export function HeroSection({ theme }: HeroSectionProps) {
 
             <a
               href="#fiyatlar"
-              className="btn-mechanical inline-flex items-center gap-1 sm:gap-1.5 text-zinc-300 hover:text-white font-medium text-xs px-3 sm:px-3.5 py-2 sm:py-2.5 rounded-lg sm:rounded-xl border border-white/10 bg-black/30 hover:bg-black/50 backdrop-blur-md transition"
+              onClick={() => {
+                if (typeof window !== 'undefined') {
+                  window.dispatchEvent(new CustomEvent('open-price-card'));
+                }
+              }}
+              className="btn-mechanical inline-flex items-center gap-1 sm:gap-1.5 text-zinc-300 hover:text-white font-medium text-xs px-3 sm:px-3.5 py-2 sm:py-2.5 rounded-lg sm:rounded-xl border border-white/10 bg-black/30 hover:bg-black/50 backdrop-blur-md transition cursor-pointer"
             >
               <span>Paketler</span>
               <ChevronDown className="w-3.5 h-3.5" />
