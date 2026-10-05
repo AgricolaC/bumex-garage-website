@@ -76,7 +76,7 @@ function PricingInnerCard({
   return (
     <div
       id={id}
-      className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
+      className={`rounded-2xl border transition-all duration-200 overflow-hidden md:rounded-none md:border-0 md:bg-transparent md:shadow-none md:p-0 md:overflow-visible ${
         isCream
           ? 'bg-gradient-to-r from-white via-[#FAF7F2] to-[#F2EDE4] border-[#686D7A]/25 text-[#111215] shadow-[0_2px_10px_-2px_rgba(0,0,0,0.06),inset_0_1px_0_0_rgba(255,255,255,0.9)]'
           : 'bg-gradient-to-r from-[#17191E] via-[#1C1F26] to-[#14161A] border-white/12 text-white shadow-[0_4px_20px_-4px_rgba(0,0,0,0.6),inset_0_1px_0_0_rgba(255,255,255,0.08)]'
@@ -86,7 +86,7 @@ function PricingInnerCard({
         type="button"
         onClick={onToggle}
         aria-expanded={isOpen}
-        className={`w-full p-4 sm:p-5 text-left flex items-center justify-between transition-colors duration-150 cursor-pointer active:scale-[0.99] ${
+        className={`w-full md:hidden p-4 sm:p-5 text-left flex items-center justify-between transition-colors duration-150 cursor-pointer active:scale-[0.99] ${
           isCream ? 'hover:bg-black/[0.02]' : 'hover:bg-white/[0.02]'
         }`}
       >
@@ -158,15 +158,13 @@ function PricingInnerCard({
         </div>
       </button>
 
-      {isOpen && (
-        <div
-          className={`px-4 pb-5 sm:px-6 sm:pb-6 pt-3 border-t animate-in fade-in duration-200 ${
-            isCream ? 'border-black/5' : 'border-white/5'
-          }`}
-        >
-          {children}
-        </div>
-      )}
+      <div
+        className={`${isOpen ? 'block' : 'hidden'} md:block px-4 pb-5 sm:px-6 sm:pb-6 pt-3 md:px-0 md:pb-0 md:pt-0 border-t md:border-t-0 animate-in fade-in duration-200 ${
+          isCream ? 'border-black/5' : 'border-white/5'
+        }`}
+      >
+        {children}
+      </div>
     </div>
   );
 }
@@ -361,7 +359,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
 
         {/* ─── TAB 1: OTOMOBİL PAKETLERİ ─── */}
         {activeTab === 'car' && (
-          <div className="space-y-4 sm:space-y-6 animate-in fade-in duration-200 text-left">
+          <div className="space-y-4 sm:space-y-6 md:space-y-12 animate-in fade-in duration-200 text-left">
             {/* Alt Kart 1: Öne Çıkan Paketler */}
             <PricingInnerCard
               id="oto-paketler"
@@ -374,7 +372,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
               icon={Droplets}
               isCream={isCream}
             >
-              <div className="pt-2">
+              <div className="pt-2 md:pt-0">
                 <div className="flex md:grid md:grid-cols-3 gap-4 sm:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 md:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-none items-stretch text-left">
               {/* Paket 1: Oto Yıkama & Start Paket */}
               <div
@@ -723,7 +721,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
               icon={Tag}
               isCream={isCream}
             >
-              <div className="pt-2 grid md:grid-cols-2 gap-5 text-left">
+              <div className="pt-2 md:pt-0 grid md:grid-cols-2 gap-5 text-left">
                 {/* Açılışa Özel Kampanya */}
                 <div
                   className={`p-5 sm:p-6 rounded-2xl border transition-all ${
@@ -832,7 +830,11 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
               icon={Layers}
               isCream={isCream}
             >
-              <div className="pt-2 text-left">
+              <div
+                className={`pt-2 md:pt-0 text-left md:p-6 md:sm:p-8 md:rounded-2xl md:border md:shadow-lg ${
+                  isCream ? 'md:bg-white md:border-[#686D7A]/20' : 'md:bg-[#141519] md:border-white/10'
+                }`}
+              >
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6 pb-6 border-b border-black/5 dark:border-white/10">
                 <div>
                   <div className="flex items-center gap-2 mb-1.5">
@@ -1013,7 +1015,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
 
         {/* ─── TAB 2: MOTOSİKLET DETAYLI BAKIM, TAMİR & ÇEKİCİ (ANKARA'DA BİR İLK) ─── */}
         {activeTab === 'bike' && (
-          <div className="space-y-4 sm:space-y-6 animate-in fade-in duration-200 text-left">
+          <div className="space-y-4 sm:space-y-6 md:space-y-10 animate-in fade-in duration-200 text-left">
             {/* Özel Motosiklet Başlık Kartı */}
             <div
               className={`p-6 sm:p-8 rounded-2xl border text-center relative overflow-hidden ${
@@ -1067,7 +1069,13 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
               icon={Bike}
               isCream={isCream}
             >
-              <div className="pt-2">
+              <div className="pt-2 md:pt-0">
+                <div className="hidden md:flex items-center gap-2 mb-4">
+                  <span className="w-2 h-2 rounded-full bg-[#1E3A8A]" />
+                  <h4 className="text-base font-bold tracking-tight uppercase text-[#6C6A6B] dark:text-[#9DA3AA]">
+                    1. Motosiklet Yıkama &amp; Detailing Paketleri
+                  </h4>
+                </div>
                 <div className="flex md:grid md:grid-cols-3 gap-4 sm:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 md:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-none items-stretch text-left">
                 {/* 1. START PAKET - Temel Bakım */}
                 <div
@@ -1339,7 +1347,11 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
           icon={Wrench}
           isCream={isCream}
         >
-          <div className="pt-2 text-left">
+          <div
+            className={`pt-2 md:pt-0 text-left md:p-6 md:sm:p-8 md:rounded-2xl md:border ${
+              isCream ? 'md:bg-white/85 md:border-[#6C6A6B]/20' : 'md:bg-[#222529] md:border-white/10'
+            }`}
+          >
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
@@ -1595,7 +1607,7 @@ export function PricingSection({ theme, onOpenModal }: PricingSectionProps) {
             icon={Truck}
             isCream={isCream}
           >
-            <div className="pt-2">
+            <div className="pt-2 md:pt-0">
               <div
                 className={`p-6 sm:p-8 rounded-2xl border relative overflow-hidden shadow-lg ${
                   isCream
