@@ -212,15 +212,6 @@ export function ShowreelSection({ theme }: ShowreelSectionProps) {
               Canlı Atölye Atmosferi &amp;{' '}
               <span className="text-[#1E3A8A] dark:text-[#60A5FA]">Sinematik Drone Turu</span>
             </h2>
-
-            <p
-              className={`text-xs sm:text-sm mt-3 max-w-2xl leading-relaxed ${
-                isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'
-              }`}
-            >
-              Bahçelievler 7. Cadde girişindeki araç ve motosiklet rampalarımız, 140°C buharlı yıkama holü,
-              mikron boya restorasyon stüdyomuz ve açılış atmosferimizin 78 saniyelik kesintisiz görsel kaydı.
-            </p>
           </div>
 
           {/* Ses & Kalite Rozetleri */}
@@ -419,8 +410,8 @@ export function ShowreelSection({ theme }: ShowreelSectionProps) {
           </div>
         </div>
 
-        {/* ─── 3. ALT BİLGİ KARTLARI (3 Öne Çıkan Özellik) ─── */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 mt-6">
+        {/* ─── 3. ALT BİLGİ KARTLARI (2 Öne Çıkan Özellik) ─── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mt-6">
           <div
             className={`p-4 rounded-2xl border transition ${
               isCream
@@ -434,22 +425,6 @@ export function ShowreelSection({ theme }: ShowreelSectionProps) {
             </div>
             <p className={`text-xs leading-relaxed ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}`}>
               Giriş rampasından kapalı motosiklet parkına, detailing stüdyosundan hızlı bakım holüne tüm yerleşke.
-            </p>
-          </div>
-
-          <div
-            className={`p-4 rounded-2xl border transition ${
-              isCream
-                ? 'bg-white/70 border-[#5A5D66]/15'
-                : 'bg-[#14161B] border-white/10'
-            }`}
-          >
-            <div className="flex items-center gap-2.5 text-xs font-bold text-[#1E3A8A] dark:text-[#60A5FA] mb-1">
-              <Disc3 className="w-4 h-4" />
-              <span>Özel Ses Tasarımı</span>
-            </div>
-            <p className={`text-xs leading-relaxed ${isCream ? 'text-[#565352]' : 'text-[#9DA3AA]'}`}>
-              Atölyenin dinamik motor enerjisi ve mekanik ritmine göre mikslenmiş Dark Electro &amp; Tech House parçası.
             </p>
           </div>
 
