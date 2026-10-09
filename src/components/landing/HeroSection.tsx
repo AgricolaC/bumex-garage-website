@@ -96,7 +96,7 @@ export function HeroSection({ theme }: HeroSectionProps) {
             muted
             playsInline
             preload="auto"
-            poster="/images/hero/hero_bmw_clean.jpg"
+            poster="/images/hero/hero_car_poster.jpg"
             className="w-full h-full object-cover object-center"
           >
             <source src="/videos/car_detail_reel.mp4" type="video/mp4" />
@@ -115,8 +115,8 @@ export function HeroSection({ theme }: HeroSectionProps) {
             loop
             muted
             playsInline
-            preload="auto"
-            poster="/images/before-after/moto_detail_full.jpg"
+            preload="metadata"
+            poster="/images/hero/hero_moto_poster.jpg"
             className="w-full h-full object-cover object-center"
           >
             <source src="/videos/moto_detail_reel.mp4" type="video/mp4" />

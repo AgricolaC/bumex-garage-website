@@ -13,6 +13,7 @@ import {
   Sparkles,
   ShieldCheck,
   Disc3,
+  ChevronDown,
 } from 'lucide-react';
 import { LandingTheme } from '@/hooks/useLandingTheme';
 
@@ -33,6 +34,7 @@ export function ShowreelSection({ theme }: ShowreelSectionProps) {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [showControls, setShowControls] = useState(true);
   const [hasStartedOnce, setHasStartedOnce] = useState(false);
+  const [isSectionOpen, setIsSectionOpen] = useState(false);
   const controlsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Format seconds to mm:ss
@@ -160,19 +162,29 @@ export function ShowreelSection({ theme }: ShowreelSectionProps) {
   // Listen for global custom trigger event (e.g. from Hero button)
   useEffect(() => {
     const onTriggerPlay = () => {
-      if (containerRef.current) {
-        containerRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-      if (videoRef.current) {
-        videoRef.current.muted = false;
-        setIsMuted(false);
-        handlePlay();
-      }
+      setIsSectionOpen(true);
+      setTimeout(() => {
+        if (containerRef.current) {
+          containerRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        if (videoRef.current) {
+          videoRef.current.muted = false;
+          setIsMuted(false);
+          handlePlay();
+        }
+      }, 50);
     };
 
     window.addEventListener('bumex:play-showreel', onTriggerPlay);
     return () => window.removeEventListener('bumex:play-showreel', onTriggerPlay);
   }, [handlePlay]);
+
+  // Pause video if section is collapsed on mobile
+  useEffect(() => {
+    if (!isSectionOpen && isPlaying) {
+      handlePause();
+    }
+  }, [isSectionOpen, isPlaying, handlePause]);
 
   // Controls auto-hide when playing
   const handleMouseMove = () => {
@@ -192,7 +204,9 @@ export function ShowreelSection({ theme }: ShowreelSectionProps) {
   return (
     <section
       id="atolye-filmi"
-      className={`relative py-14 sm:py-20 px-4 sm:px-8 border-b transition-colors duration-300 scroll-mt-20 ${
+      className={`relative transition-colors duration-300 scroll-mt-20 px-4 sm:px-8 border-b ${
+        isSectionOpen ? 'py-8 md:py-20' : 'py-2 md:py-20'
+      } ${
         isCream
           ? 'bg-[#EAE6DF] border-[#5A5D66]/15 text-[#111215]'
           : 'bg-[#0E1013] border-white/10 text-[#F4F3EF]'
@@ -200,8 +214,63 @@ export function ShowreelSection({ theme }: ShowreelSectionProps) {
       aria-label="Bumex Garage Atölye Showreel ve Drone Tanıtım Filmi"
     >
       <div className="max-w-5xl mx-auto">
-        {/* ─── 1. BÖLÜM BAŞLIĞI & TİPOGRAFİ ─── */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-10">
+        {/* Başlık Alanı - Mobil Toggle Kartı (< md) */}
+        <button
+          type="button"
+          onClick={() => setIsSectionOpen((prev) => !prev)}
+          aria-expanded={isSectionOpen}
+          className={`w-full md:hidden my-1 p-4 rounded-2xl border text-left flex items-center justify-between transition-all duration-200 cursor-pointer active:scale-[0.985] ${
+            isCream
+              ? 'bg-gradient-to-r from-white via-[#FAF7F2] to-[#F2EDE4] border-[#686D7A]/25 text-[#111215] shadow-[0_2px_10px_-2px_rgba(0,0,0,0.06),inset_0_1px_0_0_rgba(255,255,255,0.9)] hover:border-[#1E3A8A]/40'
+              : 'bg-gradient-to-r from-[#17191E] via-[#1C1F26] to-[#14161A] border-white/12 text-white shadow-[0_4px_20px_-4px_rgba(0,0,0,0.6),inset_0_1px_0_0_rgba(255,255,255,0.08)] hover:border-[#2563EB]/40'
+          }`}
+        >
+          <div className="flex items-center gap-2.5 flex-1 pr-2 min-w-0">
+            <span
+              className={`w-1.5 h-1.5 rounded-full shrink-0 transition-colors ${
+                isSectionOpen
+                  ? 'bg-[#2563EB] shadow-[0_0_8px_rgba(37,99,235,0.8)]'
+                  : isCream
+                    ? 'bg-black/30'
+                    : 'bg-white/30'
+              }`}
+            />
+            <div className="min-w-0">
+              <h2 className="text-sm sm:text-base font-bold tracking-tight truncate">
+                Canlı Atölye Atmosferi &amp; Drone Turu
+              </h2>
+              {isSectionOpen && (
+                <p
+                  className={`text-xs mt-1 leading-relaxed animate-in fade-in duration-150 ${
+                    isCream ? 'text-[#5A5D66]' : 'text-[#8E94A0]'
+                  }`}
+                >
+                  78 saniyelik sinematik atölye ve tesis tanıtım filmi.
+                </p>
+              )}
+            </div>
+          </div>
+          <div
+            className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center border transition-all duration-200 ${
+              isSectionOpen
+                ? isCream
+                  ? 'bg-[#1E3A8A] border-[#1E3A8A] text-white shadow-sm'
+                  : 'bg-[#2563EB] border-[#2563EB] text-white shadow-sm shadow-[#2563EB]/30'
+                : isCream
+                  ? 'bg-black/5 border-black/10 text-[#1E3A8A]'
+                  : 'bg-white/5 border-white/10 text-[#60A5FA]'
+            }`}
+          >
+            <ChevronDown
+              className={`w-4 h-4 transition-transform duration-200 ${
+                isSectionOpen ? 'rotate-180' : ''
+              }`}
+            />
+          </div>
+        </button>
+
+        {/* Masaüstü Başlık (md ve üstü) */}
+        <div className="hidden md:flex md:items-end justify-between gap-6 mb-8 sm:mb-10">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold border border-[#1E3A8A]/30 bg-[#1E3A8A]/10 text-[#1E3A8A] dark:text-[#60A5FA] mb-3">
               <Film className="w-3.5 h-3.5" />
@@ -238,6 +307,9 @@ export function ShowreelSection({ theme }: ShowreelSectionProps) {
             </div>
           </div>
         </div>
+
+        {/* Gövde Alanı (Mobilde Açılır-Kapanır, Masaüstünde Her Zaman Açık) */}
+        <div className={`${isSectionOpen ? 'block' : 'hidden'} md:block pt-3 md:pt-0`}>
 
         {/* ─── 2. SİNEMATİK OYNATICI ÇERÇEVESİ ─── */}
         <div className="relative group">
@@ -443,6 +515,7 @@ export function ShowreelSection({ theme }: ShowreelSectionProps) {
               Kapanışta kurucu ortaklarımız ve usta kadromuzla Bahçelievler&apos;de güven veren dürüst esnaflık geleneği.
             </p>
           </div>
+        </div>
         </div>
       </div>
     </section>
