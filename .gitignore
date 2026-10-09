@@ -13,3 +13,4 @@ yarn-error.log*
 .scratch/
 .agents/plugins
 .claude/
+public/videos/prototypes/

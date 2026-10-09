@@ -7,6 +7,7 @@ import {
   Car,
   Bike,
   ChevronDown,
+  Play,
 } from 'lucide-react';
 import { LandingTheme } from '@/hooks/useLandingTheme';
 import { useWorkshopSegment, WorkshopSegment } from '@/hooks/useWorkshopSegment';
@@ -261,6 +262,20 @@ export function HeroSection({ theme }: HeroSectionProps) {
             >
               <span>Paketler</span>
               <ChevronDown className="w-3.5 h-3.5" />
+            </a>
+
+            <a
+              href="#atolye-filmi"
+              onClick={(e) => {
+                e.preventDefault();
+                if (typeof window !== 'undefined') {
+                  window.dispatchEvent(new CustomEvent('bumex:play-showreel'));
+                }
+              }}
+              className="btn-mechanical inline-flex items-center gap-1.5 text-zinc-200 hover:text-white font-medium text-xs px-3 sm:px-3.5 py-2 sm:py-2.5 rounded-lg sm:rounded-xl border border-[#1E3A8A]/50 bg-[#1E3A8A]/30 hover:bg-[#1E3A8A]/60 backdrop-blur-md transition cursor-pointer group shadow-sm"
+            >
+              <Play className="w-3 h-3 text-[#60A5FA] fill-[#60A5FA] group-hover:scale-110 transition-transform" />
+              <span>Atölye Filmi <span className="text-zinc-400 font-mono text-[10px]">(01:18)</span></span>
             </a>
           </div>
         </div>

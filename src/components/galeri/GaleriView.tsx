@@ -9,6 +9,7 @@ import { LandingNavbar } from '@/components/landing/LandingNavbar';
 import { LandingFooter } from '@/components/landing/LandingFooter';
 import { MobileCallBar } from '@/components/landing/MobileCallBar';
 import { BeforeAfterSlider } from '@/components/landing/BeforeAfterSlider';
+import { ShowreelSection } from '@/components/landing/ShowreelSection';
 
 export function GaleriView() {
   const { theme, isCream, toggleTheme } = useLandingTheme();
@@ -119,7 +120,10 @@ export function GaleriView() {
           </div>
         </section>
 
-        {/* ─── 2. TAM DETAYLI BEFORE / AFTER SLIDER & CANLI FOTOĞRAF VİTRİNİ ─── */}
+        {/* ─── 2. SİNEMATİK ATÖLYE VİTRİNİ & DRONE SHOWREEL ─── */}
+        <ShowreelSection theme={theme} />
+
+        {/* ─── 3. TAM DETAYLI BEFORE / AFTER SLIDER & CANLI FOTOĞRAF VİTRİNİ ─── */}
         <BeforeAfterSlider theme={theme} detailed={true} />
 
         {/* ─── 3. SAYFALAR ARASI YÖNLENDİRME KÖPRÜSÜ (GALERİ -> HİZMETLERİMİZ) ─── */}

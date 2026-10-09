@@ -6,6 +6,7 @@ import { useWorkshopSegment, WorkshopSegment } from '@/hooks/useWorkshopSegment'
 import { LandingNavbar } from '@/components/landing/LandingNavbar';
 import { HeroSection } from '@/components/landing/HeroSection';
 import { IntentCards } from '@/components/landing/IntentCards';
+import { ShowreelSection } from '@/components/landing/ShowreelSection';
 import { BeforeAfterSlider } from '@/components/landing/BeforeAfterSlider';
 import { ProcessSection } from '@/components/landing/ProcessSection';
 import { PricingSection } from '@/components/landing/PricingSection';
@@ -60,6 +61,9 @@ export function LandingView({ initialSegment }: { initialSegment?: WorkshopSegme
 
         {/* 2. Niyet Seçici (6 İhtiyaç Kartı): Ne yaptırabilirim? */}
         <IntentCards theme={theme} />
+
+        {/* 2.5. Resmi Atölye Showreeli & Sinematik Drone Turu: Burası nasıl bir yer? */}
+        <ShowreelSection theme={theme} />
 
         {/* 3. Öncesi & Sonrası Vaka Kanıtı ve İnteraktif Vitrin: Gerçekten iyi iş çıkarıyorlar mı? */}
         <BeforeAfterSlider theme={theme} detailed={true} />
